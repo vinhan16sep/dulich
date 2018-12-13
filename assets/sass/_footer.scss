@@ -1,0 +1,208 @@
+/*
+===========================
+===========================
+
+FOOTER STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+footer{
+    clear: both;
+
+    @include gradient-primary;
+
+    .container-fluid{
+        padding-left: 0;
+        padding-right: 0;
+
+        position: relative;
+
+        .image{
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+
+            .mask{
+                width: 100%;
+                height: 100%;
+            }
+
+            &.left{
+                width: 300px;
+
+                left: 0;
+            }
+
+            &.right{
+                width: 150px;
+
+                right: 0;
+            }
+        }
+    }
+
+    .container{
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        .row{
+
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            border-bottom: 1px solid #fff;
+
+            color: #fff;
+
+            font-family: "webFont-m";
+
+            p{
+                &.paragraph{
+                    color: #fff;
+                }
+            }
+
+            &.head{
+                .item{
+                    ul{
+                        margin-top: 30px;
+
+                        li{
+                            a{
+
+                                font-size: 1rem;
+
+                                color: #fff;
+
+                                &:hover{
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+
+                    .form-control{
+                        padding-left: 15px;
+
+                        &:focus{
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            &.body{
+                h3{
+                    &.title-sm{
+                        margin-bottom: 30px;
+                    }
+                }
+
+                .item{
+                    a{
+                        color: #fff;
+
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            &.foot{
+                border-bottom: none;
+
+                p{
+                    &.paragraph{
+                        color: #fff;
+                    }
+                }
+
+                .col{
+                    &:last-of-type{
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+=========================================
+TABLETS (Under 1024px)
+=========================================
+ */
+
+@media (max-width: 1024px) and (min-width: 993px){
+    footer{
+        .container-fluid{
+            .container{
+                .row{
+                    padding-left: 100px;
+                    padding-right: 100px;
+
+                    .item{
+                        &:first-of-type{
+                            order: 1;
+                        }
+
+                        &:nth-of-type(2){
+                            order: 3;
+                        }
+
+                        &:nth-of-type(3){
+                            order: 2;
+                        }
+
+                        &:last-of-type{
+                            order: 4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+=========================================
+VERTICAL TABLETS (Under 992px)
+=========================================
+ */
+
+@media (max-width: 992px) and (min-width: 768px){
+    footer {
+        .container-fluid {
+            .container {
+                .row {
+                    padding-left: 75px;
+                    padding-right: 75px;
+
+                    .item{
+                        &:first-of-type{
+                            order: 1;
+                        }
+
+                        &:nth-of-type(2){
+                            order: 3;
+                        }
+
+                        &:nth-of-type(3){
+                            order: 2;
+                        }
+
+                        &:last-of-type{
+                            order: 4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

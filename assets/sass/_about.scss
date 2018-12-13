@@ -1,0 +1,212 @@
+/*
+===========================
+===========================
+
+ABOUT STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+#about{
+    .cover{
+        .mask{
+            width: 100%;
+            height: 40vh;
+        }
+    }
+
+    .container{
+        padding-top: 50px;
+        padding-bottom: 100px;
+
+        .row{
+            margin-top: 30px;
+
+            .item{
+                margin-bottom: 30px;
+
+                h2{
+                    margin-bottom: 15px;
+
+                    &.text-wrapper{
+                        height: 4.5rem;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+
+                p{
+                    &.text-wrapper{
+                        height: 6rem;
+                        -webkit-line-clamp: 4;
+                    }
+                }
+
+                a{
+                    color: $gray-light;
+
+                    &:hover{
+                        color: $gray-dark;
+                    }
+                }
+
+                .mask{
+                    width: 100%;
+                    height: 230px;
+
+                    border-bottom: 5px solid $gray-light;
+                }
+            }
+        }
+    }
+}
+
+#about-detail{
+    .cover{
+        width: 100%;
+        height: 100vh;
+
+        .mask{
+            width: 75%;
+            height: 95vh;
+
+            margin-left: 25%;
+
+            position: relative;
+
+            .overlay{
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 3;
+
+                @include gradient-primary;
+                filter: opacity(95%);
+            }
+
+            h1{
+                position: absolute;
+                bottom: 30px;
+                left: 40px;
+                z-index: 4;
+
+                color: #fff;
+            }
+        }
+    }
+
+    .container-fluid{
+        &#description{
+            background-color: #f7f7f7;
+        }
+
+        .container{
+            padding: 150px 100px;
+        }
+    }
+
+    .container{
+        .content{
+            .row{
+                padding-top: 30px;
+                padding-bottom: 50px;
+
+                .left{
+                    ul{
+                        li{
+                            padding-top: 15px;
+
+                            a{
+                                color: $gray-light;
+
+                                &:hover{
+                                    color: $gray-dark;
+                                }
+                            }
+
+                            &:first-of-type{
+                                padding-top: 0;
+                                padding-bottom: 15px;
+                                border-bottom: 1px solid $gray-lighter;
+                            }
+                        }
+                    }
+                }
+
+                .right{
+                    article{
+
+                        img{
+                            width: 100%;
+
+                            margin-top: 15px;
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+=========================================
+TABLETS (Under 1024px)
+=========================================
+ */
+
+@media (max-width: 1024px) and (min-width: 993px){
+
+}
+
+/*
+=========================================
+VERTICAL TABLETS (Under 992px)
+=========================================
+ */
+
+@media (max-width: 992px) and (min-width: 768px){
+
+}
+
+/*
+=========================================
+MOBILE DEVICES (Under 768px)
+=========================================
+ */
+
+@media (max-width: 767px){
+    #about-detail{
+        .cover {
+            .mask {
+                width: 100vw;
+                margin-left: 0;
+
+                .caption {
+                    top: 25%;
+
+                    padding-left: 15px;
+                    padding-right: 15px;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .item {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .container-fluid{
+            .container{
+                padding: 50px 30px;
+            }
+        }
+    }
+}
