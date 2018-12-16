@@ -8,9 +8,9 @@ class MY_Controller extends CI_Controller {
     protected $langAbbreviation = 'vi';
 
     protected $author_data = array();
-    protected $permission_all = array('admin', 'manager');
-    protected $permission_create = array('mod_create');
-    protected $permission_update = array('mod_update');
+    protected $permission_admin = array('admin');
+    protected $permission_manager = array('manager');
+    protected $permission_mod = array('mod');
 
     function __construct() {
         parent::__construct();

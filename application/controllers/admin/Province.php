@@ -42,7 +42,7 @@ class Province extends Admin_Controller{
     }
 
     public function create(){
-    	handle_common_permission(array_merge($this->permission_all, $this->permission_create));
+    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
     	$region = $this->region_model->get_all();
     	$region = build_array_by_id_for_dropdown($region);
     	$this->data['region'] = $region;
@@ -105,7 +105,7 @@ class Province extends Admin_Controller{
     }
 
     public function edit($id){
-    	handle_common_permission(array_merge($this->permission_all, $this->permission_update));
+    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
     	if($id &&  is_numeric($id) && ($id > 0)){
     		$region = $this->region_model->get_all();
 	    	$region = build_array_by_id_for_dropdown($region);
@@ -179,7 +179,7 @@ class Province extends Admin_Controller{
     }
 
     public function remove(){
-    	handle_common_permission($this->permission_all);
+    	handle_common_permission($this->permission_admin);
         $id = $this->input->get('id');
 
         $check_blog = $this->check_blog($id);
