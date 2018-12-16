@@ -19,7 +19,7 @@ class Events extends Admin_Controller{
             $keywords = $this->input->get('search');
         }
         $this->data['keywords'] = $keywords;
-        $total_rows  = $this->region_model->count_search($keywords);
+        $total_rows  = $this->region_model->count_search_by_create_by($keywords);
         $this->load->library('pagination');
         $config = array();
         $base_url = base_url('admin/events/index');
@@ -31,7 +31,7 @@ class Events extends Admin_Controller{
         $this->data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $this->pagination->initialize($config);
         $this->data['page_links'] = $this->pagination->create_links();
-        $result = $this->events_model->get_all_with_pagination_search($per_page, $this->data['page'], $keywords);
+        $result = $this->events_model->get_all_with_pagination_search_by_create_by($per_page, $this->data['page'], $keywords);
         $this->data['result'] = $result;
 
         $region = $this->region_model->get_all();
@@ -83,20 +83,18 @@ class Events extends Admin_Controller{
                     $this->session->set_flashdata('message_error', MESSAGE_CREATE_ERROR);
                     redirect('admin/events/create');
                 }
-                if(!empty($_FILES['image']['name'][0])){
+                if(!empty($_FILES['image']['name'])){
                     $this->check_img($_FILES['image']['name'], $_FILES['image']['size']);
                 }
                 $slug = $this->input->post('slug');
                 $unique_slug = $this->events_model->build_unique_slug($slug);
-                if(!file_exists('assets/upload/events/' . $unique_slug) && (!!empty($_FILES['image']['name'][0]) || !!empty($_FILES['dateimg']['name']) || !!empty($_FILES['image_localtion']['name']))){
+                if(!file_exists('assets/upload/events/' . $unique_slug)){
                     mkdir('assets/upload/events/' . $unique_slug, 0777);
                 }
-                if ( !empty($_FILES['image']['name'][0]) ) {
+                if ( !empty($_FILES['image']['name']) ) {
                     chmod('assets/upload/events/' . $unique_slug, 0777);
-                    $images = $this->upload_image('image','assets/upload/events/' . $unique_slug);
-                    $avatar = $images[0];
+                    $images = $this->upload_image('image', 'assets/upload/events/' . $unique_slug, $_FILES['image']['name']);
                 }
-                $images = json_encode($images);
                 $data = array(
                     'image' => $images,
                     'slug' => $unique_slug,
@@ -145,6 +143,10 @@ class Events extends Admin_Controller{
 
             $detail = $this->events_model->find($id);
             $this->data['detail'] = $detail;
+            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                redirect('admin/blog/index', 'refresh');
+            }
 
             //Get province by region_id
             $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
@@ -157,16 +159,31 @@ class Events extends Admin_Controller{
             $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
             $this->form_validation->set_rules('title_en', 'Title', 'required');
             $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
+            $this->form_validation->set_rules('date', 'Thời gian sự kiện', 'required');
             // $this->form_validation->set_rules('province_id', 'Tỉnh / Thành phố', 'required');
-            $this->form_validation->set_rules('author', 'Tác giả', 'required');
 
             
             if ($this->form_validation->run() == FALSE) {
                 $this->render('admin/events/edit');
             }else{
                 if ($this->input->post()) {
-                    if( !empty($_FILES['image']['name'][0]) ){
-                        $this->check_multiple_imgs($_FILES['image']['name'], $_FILES['image']['size']);
+                    $datetime = array();
+                    $this->data['date'] = $this->input->post('date');
+                    $date = explode(" - ", $this->data['date']);
+                    if(count($date) == 2){
+                        foreach ($date as $key => $value) {
+                            $date= explode("/",$value);
+                            $datetime[$key]=date('Y-m-d H:i:s', strtotime($date[1]."/".$date[0]."/".$date[2]));
+                            if($key == 1){
+                                $datetime[$key]=date('Y-m-d 23:59:59', strtotime($date[1]."/".$date[0]."/".$date[2]));
+                            }
+                        }
+                    }else{
+                        $this->session->set_flashdata('message_error', MESSAGE_UPDATE_ERROR);
+                        redirect('admin/events/edit/' . $id);
+                    }
+                    if(!empty($_FILES['image']['name'])){
+                        $this->check_img($_FILES['image']['name'], $_FILES['image']['size']);
                     }
 
                     $slug = $this->input->post('slug');
@@ -179,44 +196,38 @@ class Events extends Admin_Controller{
                         }
                     }
                     
-
-                    $old_images = json_decode($detail['image']);
-                    if ( !empty($_FILES['image']['name'][0]) ) {
+                    if ( !empty($_FILES['image']['name']) ) {
                         chmod('assets/upload/events/' . $unique_slug, 0777);
-                        $new_images = $this->upload_multiple_image('assets/upload/events/'.$unique_slug, 'image');
-                        if($new_images){
-                            $this->check_multiple_imgs($_FILES['image']['name'], $_FILES['image']['size']);
-                            foreach ($new_images as $key => $value) {
-                                $old_images[] = $value;
-                            }
-                        }
+                        $images = $this->upload_image('image', 'assets/upload/events/' . $unique_slug, $_FILES['image']['name']);
                     }
-                    
-                    $images = json_encode($old_images);
 
                     $data = array(
                         'slug' => $unique_slug,
                         'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
                         'region_id' => $this->input->post('region_id'),
                         'province_id' => $this->input->post('province_id'),
-                        'author' => $this->input->post('author'),
                         'title_vi' => $this->input->post('title_vi'),
                         'title_en' => $this->input->post('title_en'),
                         'description_vi' => $this->input->post('description_vi'),
                         'description_en' => $this->input->post('description_en'),
                         'body_vi' => $this->input->post('body_vi'),
                         'body_en' => $this->input->post('body_en'),
+                        'date_start' => $datetime[0],
+                        'date_end' => $datetime[1],
                     );
-                    if ( !empty($_FILES['image']['name'][0]) ) {
+                    if ( !empty($_FILES['image']['name']) ) {
                         $data['image'] = $images;
                     }
                     $update = $this->events_model->update($id,array_merge($data, $this->author_data));
                     if ($update) {
                         chmod('assets/upload/events/' . $unique_slug, 0755);
-                        $this->session->set_flashdata('message_success', MESSAGE_CREATE_SUCCESS);
+                        $this->session->set_flashdata('message_success', MESSAGE_UPDATE_SUCCESS);
+                        if(isset($images) && $images != $detail['image'] && file_exists('assets/upload/events/'.$unique_slug.'/'.$detail['image'])){
+                            unlink('assets/upload/events/'.$unique_slug.'/'.$detail['image']);
+                        }
                         redirect('admin/events/index', 'refresh');
                     }else{
-                        $this->session->set_flashdata('message_error', MESSAGE_CREATE_ERROR);
+                        $this->session->set_flashdata('message_error', MESSAGE_UPDATE_ERROR);
                         redirect('admin/events/edit/' . $id);
                     }
                 }
@@ -304,7 +315,7 @@ class Events extends Admin_Controller{
 
     public function check_file(){
         $this->form_validation->set_message(__FUNCTION__, 'Vui lòng chọn ảnh.');
-        if (!empty($_FILES['image']['name'][0])) {
+        if (!empty($_FILES['image']['name'])) {
             return true;
         }
         return true;

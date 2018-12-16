@@ -3,12 +3,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Vùng miền</small>
+            <small>Sự kiện</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Vùng miền</li>
+            <li class="active">Sự kiện</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -28,8 +28,8 @@
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
-                                            <?php if ( $detail['avatar'] ): ?>
-                                                <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $detail['avatar'] ) ?>" alt="Image Detail" width=100%>    
+                                            <?php if ( $detail['image'] ): ?>
+                                                <img src="<?= base_url('assets/upload/events/' . $detail['slug'] . '/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
                                             <?php endif ?>
                                         </div>
                                     </div>
@@ -53,8 +53,12 @@
                                                 <td><?= $province ? $province['title_vi'] : '(Không có)' ?></td>
                                             </tr>
                                             <tr>
-                                                <th>Tác giả</th>
-                                                <td><?= $detail['author'] ?></td>
+                                                <th>Thời gian diễn ra sự kiện</th>
+                                                <td><?= date_format(date_create($detail['date_start']),"d/m/Y").' - '.date_format(date_create($detail['date_end']),"d/m/Y"); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Top sự kiện</th>
+                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?>></i></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>
@@ -62,20 +66,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin: 20px 0px;">
-                                <label>Hình ảnh</label>
-                                <div class="row">
-                                    <?php if ( json_decode($detail['image']) ): ?>
-                                        <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                            <div class="item col-md-3">
-                                                <div class="mask">
-                                                    <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
-                                                </div>
-                                            </div>
-                                        <?php endforeach ?>
-                                    <?php endif ?>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -149,7 +139,7 @@
                         <h3 class="box-title">Edit Information</h3>
                     </div>
                     <div class="box-body">
-                        <a href="<?= base_url('admin/blog/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
+                        <a href="<?= base_url('admin/events/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
                     </div>
                 </div>
             </div>

@@ -42,14 +42,11 @@ class MY_Controller extends CI_Controller {
         return $config;
     }
 
-    protected function upload_image($image_input_id, $image_name, $upload_path) {
+    protected function upload_image($image_input_id ,$upload_path = '', $image_name = '' ) {
         $image = '';
         if (!empty($image_name)) {
-            $config['upload_path'] = $upload_path;
-            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config = $this->config_file($upload_path);
             $config['file_name'] = $image_name;
-            $config['encrypt_name'] = TRUE;
-
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
 
