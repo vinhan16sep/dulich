@@ -4,7 +4,7 @@
         <h1>
             Cập nhật
             <small>
-                Bài viết
+                sự kiện
             </small>
         </h1>
     </section>
@@ -19,7 +19,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Cập nhật bài viết: <?= $detail['title_vi'] ?></h4>
+                            <h4 class="box-title">Cập nhật sự kiện: <?= $detail['title_vi'] ?></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
@@ -27,10 +27,10 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <label for="image">Hình ảnh đang sử dụng</label><br />
-                                <?php if ( json_decode($detail['image']) ): ?>
-                                    <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                        <img src="<?php echo base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value) ?>" width="150">
-                                    <?php endforeach ?>
+                                <?php if ( $detail['image'] ): ?>
+                                    <img src="<?php echo base_url('assets/upload/events/' . $detail['slug'] . '/' . $detail['image']) ?>" width="150">
+                                <?php else: ?>
+                                    Hiện chưa có hình ảnh cho sự kiện
                                 <?php endif ?>
                             </div>
                         </div>
@@ -39,10 +39,24 @@
                                 <?php
                                 echo form_label('Hình ảnh (Dung lượng ảnh phải nhỏ hơn 1.2Mb)', 'image');
                                 echo form_error('image');
-                                echo form_upload('image[]', set_value('image'), 'class="form-control" multiple');
+                                echo form_upload('image', set_value('image'), 'class="form-control"');
                                 ?>
                             </div>
                             <br>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                    echo form_label('Chọn thời gian sự kiện diễn ra?', 'date');
+                                    echo form_error('date') . '<br />';
+                                ?>
+                                <div class="input-group" style="float: left;">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                  </div>
+                                  <input type="text" value="<?= date_format(date_create($detail['date_start']),"d/m/Y").' - '.date_format(date_create($detail['date_end']),"d/m/Y"); ?>" class="form-control pull-right" id="reservation" name="date" readonly>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
@@ -67,7 +81,7 @@
                                 <?php
                                 echo form_label('Vùng miền', 'region_id');
                                 echo form_error('region_id');
-                                echo form_dropdown('region_id', $region, $detail['region_id'], 'class="form-control" id="region_id" data-url="'. base_url('admin/blog/get_province') .'" ');
+                                echo form_dropdown('region_id', $region, $detail['region_id'], 'class="form-control" id="region_id" data-url="'. base_url('admin/events/get_province') .'" ');
                                 ?>
                             </div>
                         </div>
@@ -77,15 +91,6 @@
                                 echo form_label('Tỉnh / Thành phố', 'province_id');
                                 echo form_error('province_id');
                                 echo form_dropdown('province_id', $province, $detail['province_id'], 'class="form-control" id="province_id" ');
-                                ?>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
-                                <?php
-                                echo form_label('Tác giả', 'author');
-                                echo form_error('author');
-                                echo form_input('author', $detail['author'], 'class="form-control" id="author" ');
                                 ?>
                             </div>
                         </div>

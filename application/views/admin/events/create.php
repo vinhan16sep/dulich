@@ -44,7 +44,7 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
-                                    echo form_label('Chọn lịch sự kiện diễn ra?', 'date');
+                                    echo form_label('Chọn thời gian sự kiện diễn ra?', 'date');
                                     echo form_error('date') . '<br />';
                                 ?>
                                 <div class="input-group" style="float: left;">

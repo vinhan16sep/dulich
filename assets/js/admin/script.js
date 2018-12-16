@@ -13,7 +13,8 @@ $('.btn-remove').click(function(event){
     event.preventDefault();
     var id = $(this).data('id');
     var url = $(this).data('url');
-    if (confirm('Chắc chắn xóa bài viết?')) {
+    var name = $(this).data('name');
+    if (confirm(`Chắc chắn xóa ${name}?`)) {
         $.ajax({
             method: "get",
             url: url,

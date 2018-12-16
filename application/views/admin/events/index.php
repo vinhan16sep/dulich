@@ -77,14 +77,11 @@
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
-                                                        <?php if ( $value['avatar'] ): ?>
-                                                            <img src="<?= base_url('assets/upload/events/' . $value['slug'] . '/' . $value['avatar'] ) ?>"  width=150px>
-                                                        <?php endif ?>
+                                                        <img src="<?= base_url('assets/upload/events/' . $value['slug'] . '/' . $value['image']) ?>"  width=150px height=100px>
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
-                                                <td><?= $value['title_en'] ?></td>
-                                                <td><?= $province[$value['province_id']] ?></td>
+                                                <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td>
                                                     <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/events/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
@@ -98,7 +95,7 @@
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/events/remove' ) ?>" style="color: #d9534f" title="Xóa">
+                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/events/remove' ) ?>" data-name="sự kiện" style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
