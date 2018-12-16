@@ -3,11 +3,11 @@ for (var i = 0; i < document.querySelectorAll('[id^="demo"]').length; i++) {
     document.querySelectorAll(`[data-target^="#demo"] b`)[i].innerHTML = value;
 }
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAMEADMIN = 'http://diamondtour.vn/admin';
+    case 'http://dulich.vn':
+        var HOSTNAMEADMIN = 'http://dulich.vn/admin';
         break;
     default:
-        var HOSTNAMEADMIN = 'http://localhost/soundon/admin';
+        var HOSTNAMEADMIN = 'http://localhost/dulich/admin';
 }
 html_modal = `<div class="modal" role="dialog" style="display: block; opacity: 0.5">
     <div class="modal-dialog" style="color:#fff; text-align:center; padding-top:300px;">

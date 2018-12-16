@@ -1,16 +1,16 @@
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAME = 'http://diamondtour.vn/';
+    case 'http://dulich.vn':
+        var HOSTNAME = 'http://dulich.vn/';
         break;
     default:
-        var HOSTNAME = 'http://localhost/soundon/';
+        var HOSTNAME = 'http://localhost/dulich/';
 }
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAMEADMIN = 'http://diamondtour.vn/admin';
+    case 'http://dulich.vn':
+        var HOSTNAMEADMIN = 'http://dulich.vn/admin';
         break;
     default:
-        var HOSTNAMEADMIN = 'http://localhost/soundon/admin';
+        var HOSTNAMEADMIN = 'http://localhost/dulich/admin';
 }
 let [lang,number_field_type] = ['vi',Number(document.getElementById('number_field_type').value)];
 let [cursor, check, li, content,detail_templates,remove] = [0, 0, '', '',Object.entries(JSON.parse(document.getElementById('detail_templates').value)),new Array()];

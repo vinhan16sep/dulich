@@ -1,9 +1,9 @@
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAME = 'http://diamondtour.vn/';
+    case 'http://dulich.vn':
+        var HOSTNAME = 'http://dulich.vn/';
         break;
     default:
-        var HOSTNAME = 'http://localhost/soundon/';
+        var HOSTNAME = 'http://localhost/dulich/';
 }
 if(document.querySelectorAll('[id="realDPX-min"]').length > 0){
     for (var m = 0; m < document.querySelectorAll('[id="realDPX-min"]').length; m++) {

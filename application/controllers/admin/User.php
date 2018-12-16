@@ -15,7 +15,6 @@ class User extends MY_Controller {
 
     public function login() {
         if ($this->ion_auth->in_group('members')) {
-            
             redirect('admin/user/login', 'refresh');
         }
         $this->data['page_title'] = 'Login';
@@ -52,8 +51,11 @@ class User extends MY_Controller {
         $this->form_validation->set_rules('last_name', 'Tên','trim|required',
             array('required' => '%s không được trống.')
         );
-        $this->form_validation->set_rules('username','Tên Tài Khoản','trim|required',
-            array('required' => '%s không được trống.')
+        $this->form_validation->set_rules('username','Tên Tài Khoản','trim|required|is_unique[users.username]',
+            array(
+                'required' => '%s không được trống.',
+                'is_unique' => '%s đã tồn tại'
+            )
         );
         $this->form_validation->set_rules('email','Email','trim|valid_email|required|is_unique[users.email]',
             array(
@@ -83,7 +85,7 @@ class User extends MY_Controller {
         else{
             $first_name = $this->input->post('first_name');
             $last_name = $this->input->post('last_name');
-            $username = $this->input->post('first_name');
+            $username = $this->input->post('username');
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             $group[] = $this->input->post('group');

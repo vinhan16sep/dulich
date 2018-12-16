@@ -7,6 +7,11 @@ class MY_Controller extends CI_Controller {
     protected $page_languages = array('vi', 'en');
     protected $langAbbreviation = 'vi';
 
+    protected $author_data = array();
+    protected $permission_admin = array('admin');
+    protected $permission_manager = array('manager');
+    protected $permission_mod = array('mod');
+
     function __construct() {
         parent::__construct();
         
@@ -37,35 +42,61 @@ class MY_Controller extends CI_Controller {
         return $config;
     }
 
-    protected function upload_image($image_input_id, $image_name, $upload_path, $upload_thumb_path, $thumbs_with = 500, $thumbs_height = 375) {
+    protected function upload_image($image_input_id ,$upload_path = '', $image_name = '' ) {
         $image = '';
         if (!empty($image_name)) {
-            $config['upload_path'] = $upload_path;
-            $config['allowed_types'] = 'jpg|jpeg|png';
+            $config = $this->config_file($upload_path);
             $config['file_name'] = $image_name;
-            // $config['encrypt_name'] = TRUE;
-
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
 
             if ($this->upload->do_upload($image_input_id)) {
                 $upload_data = $this->upload->data();
                 $image = $upload_data['file_name'];
-
-                $config_thumb['source_image'] = $upload_path . '/' . $image;
-                $config_thumb['create_thumb'] = TRUE;
-                $config_thumb['maintain_ratio'] = TRUE;
-                $config_thumb['new_image'] = $upload_thumb_path;
-                $config_thumb['width'] = $thumbs_with;
-                $config_thumb['height'] = $thumbs_height;
-
-                $this->load->library('image_lib', $config_thumb);
-
-                $this->image_lib->resize();
             }
         }
 
         return $image;
+    }
+
+    protected function upload_multiple_image($upload_path = '', $file_name = '') {
+        $config = $this->config_file($upload_path);
+
+        $image = '';
+        $file = $_FILES[$file_name];
+        $count = count($file['name']);
+        $image_list = array();
+        $config_thumb = array();
+
+        for ($i = 0; $i < $count; $i++) {
+
+            $_FILES['userfile']['name'] = $file['name'][$i];
+            $_FILES['userfile']['type'] = $file['type'][$i];
+            $_FILES['userfile']['tmp_name'] = $file['tmp_name'][$i];
+            $_FILES['userfile']['error'] = $file['error'][$i];
+            $_FILES['userfile']['size'] = $file['size'][$i];
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload()) {
+                $data = $this->upload->data();
+                $image_list[] = $data['file_name'];
+                $image = $data['file_name'];
+                
+            }
+        }
+        return $image_list;
+    }
+
+    function config_file($upload_path = '') {
+        $config = array();
+        $config['upload_path'] = $upload_path;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1200';
+        $config['encrypt_name'] = TRUE;
+       // $config['max_width']     = '1028';
+       // $config['max_height']    = '1028';
+        return $config;
     }
 
     protected function delete_multiple_common($table, $model, $ids){
@@ -94,7 +125,8 @@ class MY_Controller extends CI_Controller {
             ->set_content_type('application/json')
             ->set_status_header($status)
             ->set_output(json_encode(array('status' => $status,'message' => $message , 'reponse' => $data, 'isExisted' => $isExisted)));
-    }protected function str_slug($value='',$separator='-'){
+    }
+    protected function str_slug($value='',$separator='-'){
         $new_array = explode('.', $value);
         $typefile = array_pop($new_array);
         $namefile = str_replace(".".$typefile, "", $value);
@@ -236,6 +268,9 @@ class Admin_Controller extends MY_Controller {
         parent::__construct();
         $this->data['page_languages'] = array('vi' => 'Tiếng Việt', 'en' => 'English'/*, 'cn' => 'China' */);
         $this->load->library('ion_auth');
+        if ( !$this->ion_auth->logged_in() ) {
+            redirect('admin/user/login', 'refresh');
+        }
         if ($this->ion_auth->in_group('members')) {
             //redirect them to the login page
             $this->ion_auth->logout();
@@ -253,55 +288,6 @@ class Admin_Controller extends MY_Controller {
             'modified' => date('Y-m-d H:i:s', now()),
             'modified_by' => $this->ion_auth->user()->row()->username
         );
-    }
-
-
-    protected function upload_file($upload_path = '', $file_name = '', $upload_thumb_path = '', $thumbs_with = 500, $thumbs_height = 500) {
-        $config = $this->config_file($upload_path);
-        $image = '';
-        $file = $_FILES[$file_name];
-        $count = count($file['name']);
-        $image_list = array();
-        $config_thumb = array();
-        for ($i = 0; $i < $count; $i++) {
-            $_FILES['userfile']['name'] = $file['name'][$i];
-            $_FILES['userfile']['type'] = $file['type'][$i];
-            $_FILES['userfile']['tmp_name'] = $file['tmp_name'][$i];
-            $_FILES['userfile']['error'] = $file['error'][$i];
-            $_FILES['userfile']['size'] = $file['size'][$i];
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload()) {
-                $data = $this->upload->data();
-                $image_list[] = $data['file_name'];
-                $image = $data['file_name'];
-                $this->load->library('image_lib');
-                $config['image_library'] = 'gd2';
-                $config_thumb['source_image'] = $upload_path . '/' . $image;
-                $config_thumb['create_thumb'] = TRUE;
-                $config_thumb['maintain_ratio'] = TRUE;
-                $config_thumb['new_image'] = $upload_thumb_path;
-                $config_thumb['width'] = $thumbs_with;
-                $config_thumb['height'] = $thumbs_height;
-                $this->image_lib->initialize($config_thumb);
-                $this->image_lib->resize();
-                $this->image_lib->clear();
-                $this->image_lib->resize($image);
-            }
-            unset($_FILES['userfile']);
-        }
-        return $image_list;
-    }
-
-    function config_file($upload_path = '') {
-        $config = array();
-        $config['upload_path'] = $upload_path;
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        $config['max_size'] = '1200';
-        // $config['encrypt_name'] = TRUE;
-//        $config['max_width']     = '1028';
-//        $config['max_height']    = '1028';
-
-        return $config;
     }
     
     public function get_posts_with_category($categories, $parent_id = 0, &$ids){

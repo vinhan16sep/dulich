@@ -1,16 +1,16 @@
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAME = 'http://diamondtour.vn/';
+    case 'http://dulich.vn':
+        var HOSTNAME = 'http://dulich.vn/';
         break;
     default:
-        var HOSTNAME = 'http://localhost/soundon/';
+        var HOSTNAME = 'http://localhost/dulich/';
 }
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
-        var HOSTNAMEADMIN = 'http://diamondtour.vn/admin';
+    case 'http://dulich.vn':
+        var HOSTNAMEADMIN = 'http://dulich.vn/admin';
         break;
     default:
-        var HOSTNAMEADMIN = 'http://localhost/soundon/admin';
+        var HOSTNAMEADMIN = 'http://localhost/dulich/admin';
 }
 if(window.location.pathname.indexOf("/config_contact/edit/") != '-1'){
     var after_slug = by_slug(document.querySelectorAll('#append_field [id^="demo"] [name="title_vi[]"]'));

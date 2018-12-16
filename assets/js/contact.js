@@ -32,7 +32,7 @@ function submit_shared(){
     }
     let data = new FormData(document.querySelector('form.form-horizontal'));
     data.append('csrf_sitecom_token', document.getElementById('csrf_sitecom_token').value);
-    var url = 'http://localhost/soundon/contact/send';
+    var url = 'http://localhost/dulich/contact/send';
     fetch(url,{method: "POST",body: data}
     ).then(
         response => {
