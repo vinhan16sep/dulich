@@ -1,40 +1,107 @@
-/*
-===========================
-===========================
-
-HOMEPAGE STYLE
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
 #homepage{
-    width: 100%;
-    height: 100vh;
+    #slideHomepage{
+        width: 100%;
+        height: calc(100vh - 120px);
+
+        .carousel-inner{
+            height: 100%;
+
+            .carousel-item{
+                height: 100%;
+
+                .mask{
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .carousel-caption{
+                    text-align: left;
+
+                    padding-bottom: 30px;
+
+                    .row{
+                        .item{
+                            h3{
+                                margin-bottom: 7px;
+                            }
+
+                            h6{
+                                font-weight: 400;
+
+                                &.text-wrapper{
+
+                                }
+                            }
+
+                            p{
+                                &.text-wrapper{
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     .container-fluid{
-        padding-left: 0;
-        padding-right: 0;
+        &#exp-activities{
+            padding-left: 7.5px;
+            padding-right: 7.5px;
 
-        .row{
-            margin-left: 0;
-            margin-right: 0;
+            .heading{
+                padding-top: 50px;
+                padding-bottom: 30px;
 
-            .left{
+                text-align: center;
 
+                h3{
+                    text-transform: uppercase;
+
+                    color: $gray-darker;
+
+                    position: relative;
+
+                    &:before, &:after{
+                        content: '';
+
+                        width: 35vw;
+                        height: 1px;
+
+                        background-color: $gray-darker;
+
+                        position: absolute;
+                        bottom: 50%;
+                    }
+
+                    &:before{
+                        left: 0;
+                    }
+
+                    &:after{
+                        right: 0;
+                    }
+                }
             }
 
-            .right{
-                #slider{
-                    height: 95vh;
+            .body{
+                #north{
+                    .grid{
+                        margin-left: -7.5px;
+                        margin-right: -7.5px;
 
-                    .carousel-inner{
-                        height: 100%;
+                        .grid-sizer, .grid-item{
+                            width: 50%;
+                        }
 
-                        .carousel-item{
-                            height: 100%;
+                        .grid-item{
+                            float: left;
+
+                            margin-bottom: 15px;
+
+                            padding-left: 7.5px;
+                            padding-right: 7.5px;
 
                             .mask{
                                 width: 100%;
@@ -42,89 +109,242 @@ Author: hung.luong@matocreative.vn
 
                                 position: relative;
 
-                                .overlay{
-                                    width: 100%;
-                                    height: 100%;
+                                img{
+                                    @include transition(300ms);
+                                }
 
-                                    @include gradient-primary;
+                                .content{
+                                    width: 100%;
+
+                                    bottom: 0;
+                                    left: 0;
 
                                     position: absolute;
-                                    top: 0;
-                                    left: 0;
-                                    z-index: 2;
 
-                                    background-blend-mode: multiply;
-                                    filter: opacity(70%);
+                                    background: rgba(0,0,0,0);
+                                    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.65)));
+                                    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
                                 }
                             }
 
-                            .carousel-caption{
-                                width: 100%;
-                                top: 40%;
-                                bottom: auto;
-                                left: 0;
-                                right: 0;
-                                padding-left: 50px;
-                                padding-right: 50px;
+                            &:hover{
+                                .mask{
+                                    img{
+                                        @include scale(1.1, 1.1);
 
-                                display: flex;
-                                flex-direction: row;
+                                        @include transition(300ms);
+                                    }
+                                }
+                            }
 
-                                .item{
-                                    width: 50%;
-                                    text-align: left;
+                            &.item-full{
+                                height: 615px;
 
-                                    &.left{
-                                        h1{
-                                            &.title-lg{
-                                                margin-top: 0;
+                                .content{
 
-                                                text-transform: uppercase;
-                                            }
-                                        }
+                                    padding: 50px 30px 30px;
+
+                                    h1{
+                                        max-width: 50%;
+
+                                        font-weight: 400;
+
+                                        color: #fff;
+
+                                        margin-bottom: 30px;
+                                    }
+                                }
+                            }
+
+                            &.item-half{
+                                height: 300px;
+
+                                .content{
+                                    padding: 30px;
+
+                                    a{
+                                        color: #fff;
                                     }
 
-                                    &.right{
-                                        p{
-                                            &.paragraph{
-                                                margin-top: 5px;
-                                            }
-                                        }
+                                    p{
+                                        max-width: 50%;
 
-                                        .btn{
-                                            margin-top: 50px;
-
-                                            font-family: "webFont-b";
-                                            font-size: 1.125rem;
-
-                                            &.btn-light{
-                                                color: $primary;
-                                            }
-
-                                            &.btn-link{
-                                                color: #fff;
-                                                text-decoration: underline;
-                                            }
+                                        &.text-wrapper{
+                                            height: 4.3rem;
+                                            -webkit-line-clamp: 3;
                                         }
                                     }
                                 }
+
                             }
                         }
                     }
+                }
 
-                    #sliderNext{
-                        bottom: 30px;
-                        top: auto;
-                        left: 50%;
-                        right: 50%;
+                #center{
 
-                        font-size: 2rem;
+                }
+            }
+        }
 
-                        -webkit-transform: translateX(-50%);
-                        -moz-transform: translateX(-50%);
-                        -ms-transform: translateX(-50%);
-                        -o-transform: translateX(-50%);
-                        transform: translateX(-50%);
+        &#blogs{
+            background-color: #f7f7f7;
+
+            .container{
+                .heading{
+
+                }
+
+                .body{
+                    .owl-carousel{
+                        .item{
+                            .mask{
+                                width: 100%;
+                                height: 280px;
+
+                                margin-bottom: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container{
+        .heading{
+            padding-top: 50px;
+            padding-bottom: 30px;
+
+            text-align: center;
+
+            h3{
+                text-transform: uppercase;
+
+                color: $gray-darker;
+
+                position: relative;
+
+                &:before, &:after{
+                    content: '';
+
+                    width: 15vw;
+                    height: 1px;
+
+                    background-color: $gray-darker;
+
+                    position: absolute;
+                    bottom: 50%;
+                }
+
+                &:before{
+                    left: 0;
+                }
+
+                &:after{
+                    right: 0;
+                }
+            }
+        }
+
+        &#events{
+            .heading{
+
+            }
+
+            .body{
+                .grid{
+                    margin-left: -7.5px;
+                    margin-right: -7.5px;
+
+                    .grid-sizer, .grid-item{
+                        width: 25%;
+                    }
+
+                    .grid-item{
+                        float: left;
+
+                        margin-bottom: 15px;
+
+                        padding-left: 7.5px;
+                        padding-right: 7.5px;
+
+                        .mask{
+                            width: 100%;
+                            height: 100%;
+
+                            position: relative;
+
+                            .content{
+                                width: 100%;
+
+                                padding: 30px;
+
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+
+                                background: rgba(0,0,0,0);
+                                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.65)));
+                                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+
+                                a{
+                                    color: #fff;
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(2){
+                            width: 50%;
+                            height: 515px;
+                        }
+
+                        &:nth-of-type(3), &:nth-of-type(4){
+                            width: 25%;
+                            height: 250px;
+                        }
+
+                        &:nth-of-type(5){
+                            width: 50%;
+                            height: 250px;
+                        }
+
+                        &:nth-of-type(6){
+                            width: 25%;
+                            height: 515px;
+                        }
+
+                        &:nth-of-type(7){
+                            width: 50%;
+                            height: 515px;
+                        }
+
+                        &:nth-of-type(8){
+                            width: 25%;
+                            height: 515px;
+
+                            .content{
+                                width: 100%;
+                                height: 100%;
+
+                                display: flex;
+
+                                justify-content: center;
+                                align-items: center;
+
+                                text-align: center;
+                            }
+                        }
                     }
                 }
             }
@@ -134,77 +354,31 @@ Author: hung.luong@matocreative.vn
 
 /*
 =========================================
-SMALL DESKTOPS (UNDER 1600px)
+TABLETS (less than 1200px)
 =========================================
  */
 
-@media (max-width: 1600px) and (min-width: 1025px){
-    #homepage{
-
+@media (max-width: 1199.98px){
+    header{
+        nav{
+            .nav-expand{
+                display: block;
+            }
+        }
     }
 }
 
 /*
 =========================================
-TABLETS (Under 1024px)
+MOBILE (less than 1024px)
 =========================================
  */
 
-@media (max-width: 1024px) and (min-width: 993px){
-    #homepage{
-
-    }
-}
-
-/*
-=========================================
-VERTICAL TABLETS (Under 992px)
-=========================================
- */
-
-@media (max-width: 992px) and (min-width: 768px){
-    #homepage{
-
-    }
-}
-
-/*
-=========================================
-MOBILE DEVICES (Under 768px)
-=========================================
- */
-
-@media (max-width: 767px){
-    #homepage{
-        .container-fluid{
-            .row{
-                .right{
-                    #slider{
-                        .carousel-inner{
-                            .carousel-item{
-                                .carousel-caption{
-                                    top: 30%;
-
-                                    padding-left: 15px;
-                                    padding-right: 15px;
-
-                                    display: flex;
-                                    flex-direction: column;
-
-                                    .item{
-                                        width: 100%;
-
-                                        &.right{
-                                            .btn{
-                                                margin-top: 30px;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+@media (max-width: 767.98px){
+    header{
+        nav{
+            .nav-expand{
+                display: block;
             }
         }
     }

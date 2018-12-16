@@ -1,442 +1,415 @@
-/*
-===========================
-===========================
-
-BLOGS STYLE
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
 #blogs{
-    .cover{
+    .slide{
         width: 100%;
-        height: 75vh;
+        height: calc(100vh - 120px);
 
-        padding-bottom: 40px;
-
-        position: relative;
-
-        .mask{
-            width: 100%;
+        .carousel-inner{
             height: 100%;
-        }
 
-        .cover-title{
-            width: 50%;
-            padding: 70px;
+            .carousel-item{
+                height: 100%;
 
-            background-color: #fff;
-
-            position: absolute;
-            bottom: 0;
-            right: 0;
-
-            h3{
-                &.subtitle-md{
-                    margin-bottom: 50px;
+                .mask{
+                    width: 100%;
+                    height: 100%;
                 }
-            }
 
-            h2{
-                &.title-md{
-                    margin-bottom: 30px;
-                }
-            }
+                .carousel-caption{
+                    text-align: left;
 
-            p{
-                &.paragraph{
-                    color: $gray-light;
-                }
-            }
-        }
-    }
+                    padding-bottom: 50px;
 
-    .container{
-        padding-top: 100px;
-        padding-bottom: 150px;
-
-
-        .row{
-            .left{
-                .row{
-                    .item{
-                        margin-bottom: 30px;
-
-                        .inner{
-                            background-color: $gray-lighter;
-
-                            .badge{
-                                color: #fff;
-
-                                margin: 20px 15px;
-                                padding: 0.5em 1em;
-
-                                font-family: "webFont-r";
-                                font-size: 0.875rem;
-                                text-transform: uppercase;
-
-                                &.news{
-                                    background-color: $primary;
-                                }
-
-                                &.recruitment{
-                                    background-color: $secondary;
-                                }
+                    .row{
+                        .item{
+                            h3{
+                                margin-bottom: 7px;
                             }
 
-                            h2{
-                                &.heading-post{
-                                    margin-bottom: 15px;
-                                    padding-left: 15px;
-                                    padding-right: 15px;
+                            h6{
+                                font-weight: 400;
 
-                                    color: $gray-dark;
+                                &.text-wrapper{
 
-                                    height: fit-content;
-                                    -webkit-line-clamp: 2;
                                 }
                             }
 
                             p{
-                                &.paragraph{
-                                    padding-left: 15px;
-                                    padding-right: 15px;
+                                &.text-wrapper{
 
-                                    color: $gray-light;
-
-                                    height: fit-content;
-                                    -webkit-line-clamp: 3;
-                                }
-                            }
-
-                            a{
-                                padding-left: 15px;
-                                padding-right: 15px;
-
-                                color: $gray-light;
-
-                                &:hover{
-                                    color: $gray-dark;
-                                }
-                            }
-
-                            .mask{
-                                width: 100%;
-                                height: 230px;
-
-                                margin-top: 15px;
-
-                                a{
-                                    padding-left: 0;
-                                }
-
-                                &.news{
-                                    border-bottom: 5px solid $primary;
-                                }
-
-                                &.recruitment{
-                                    border-bottom: 5px solid $secondary;
                                 }
                             }
                         }
                     }
                 }
             }
+        }
+    }
 
-            .right{
+    .container-fluid{
+        background-color: #f7f7f7;
+
+        &#list-blogs{
+            .container{
+                @include translate(0, -46px);
+
                 ul{
+                    margin-bottom: 0;
+
+                    border-bottom: 3px solid $primary-base;
+
                     li{
                         a{
-                            font-family: "webFont-b";
-                            font-size: 1.5rem;
+                            font-family: 'Lora', Serif;
+                            font-weight: 400;
 
-                            color: $gray-light;
+                            color: #fff;
 
-                            &:hover{
-                                color: $gray-dark;
+                            &.active{
+                                font-weight: 700;
+
+                                background-color: transparent;
+                                border-bottom: 3px solid $primary-base;
+                            }
+                        }
+                    }
+                }
+
+                .tab-content{
+                    padding-top: 30px;
+
+                    .tab-pane{
+                        .row{
+                            .left{
+                                .item{
+                                    width: 100%;
+
+                                    margin-bottom: 30px;
+
+                                    display: flex;
+                                    flex-direction: row;
+
+                                    background-color: #fff;
+
+                                    -webkit-box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
+                                    -moz-box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
+                                    box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
+
+                                    .item-image{
+                                        width: 305px;
+                                        height: 305px;
+
+                                        .mask{
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+
+                                    .item-content{
+                                        width: calc(100% - 305px);
+                                        padding: 15px 30px;
+
+                                        .content-header{
+                                            margin-bottom: 30px;
+
+                                            span{
+
+                                            }
+
+                                            a{
+                                                color: $gray-base;
+
+                                                h3{
+                                                    font-weight: 400;
+                                                }
+                                            }
+
+                                            ul{
+                                                li{
+                                                    display: inline-block;
+
+                                                    font-size: 0.75rem;
+
+                                                    color: $gray-lightest;
+
+                                                    &:last-of-type{
+                                                        margin-left: 15px;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .content-body{
+                                            margin-bottom: 15px;
+
+                                            p{
+                                                &.text-wrapper{
+                                                    height: 4.3rem;
+                                                    -webkit-line-clamp: 3;
+                                                }
+                                            }
+                                        }
+
+                                        .content-footer{
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+
+                                .see-more{
+                                    width: 100%;
+
+                                    text-align: center;
+                                }
+                            }
+
+                            .right{
+                                .heading{
+                                    padding: 7px 15px;
+                                    margin-bottom: 30px;
+
+                                    text-align: center;
+
+                                    background-color: #fff;
+
+                                    h4{
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                .body{
+                                    .item{
+                                        width: 100%;
+
+                                        margin-bottom: 30px;
+
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        background-color: #fff;
+
+                                        .item-image{
+                                            width: 100%;
+                                            height: 215px;
+
+                                            .mask{
+                                                width: 100%;
+                                                height: 100%;
+                                            }
+                                        }
+
+                                        .item-content{
+                                            width: 100%;
+                                            padding: 15px 30px;
+
+                                            .content-header{
+                                                margin-bottom: 30px;
+
+                                                span{
+
+                                                }
+
+                                                a{
+                                                    color: $gray-base;
+
+                                                    h3{
+                                                        font-weight: 400;
+                                                    }
+                                                }
+
+                                                ul{
+                                                    li{
+                                                        display: inline-block;
+
+                                                        font-size: 0.75rem;
+
+                                                        color: $gray-lightest;
+
+                                                        &:last-of-type{
+                                                            margin-left: 15px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .content-body{
+                                                margin-bottom: 15px;
+
+                                                p{
+                                                    &.text-wrapper{
+                                                        height: 4.3rem;
+                                                        -webkit-line-clamp: 3;
+                                                    }
+                                                }
+                                            }
+
+                                            .content-footer{
+                                                text-align: right;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-
         }
     }
 }
 
-#blogs-detail{
+#detail-blog{
     .cover{
         width: 100%;
-        height: 75vh;
-
-        position: relative;
+        height: 500px;
 
         .mask{
             width: 100%;
             height: 100%;
-        }
 
-        .cover-title{
-            width: 50%;
-            padding: 70px;
+            position: relative;
 
-            background-color: #fff;
-
-            position: absolute;
-            bottom: 0;
-            right: 0;
-
-            h3{
-                &.subtitle-md{
-                    margin-bottom: 50px;
-                }
-            }
-
-            h2{
-                &.title-md{
-                    margin-bottom: 30px;
-                }
-            }
-
-            p{
-                &.paragraph{
-                    color: $gray-light;
-                }
-            }
-        }
-    }
-
-    #description{
-        padding-top: 50px;
-        padding-bottom: 50px;
-
-        background-color: $gray-lighter;
-    }
-
-    .content{
-        padding-top: 100px;
-        padding-bottom: 100px;
-
-        article{
-
-            h2{
-                &.heading-post{
-                    width: 25%;
-                    float: left;
-
-                    margin-left: 8.33%;
-                    padding: 0 15px;
-                }
-            }
-
-            p{
-                &.paragraph{
-                    width: 58.33%;
-                    float: right;
-
-                    margin-right: 8.33%;
-                    padding: 0 15px;
-                }
-            }
-
-            img{
+            .content{
                 width: 100%;
+                max-height: 50%;
 
-                margin: 30px 0;
-            }
-        }
-    }
+                position: absolute;
+                bottom: 0;
+                left: 0;
 
-    .recommend{
-        clear: both;
+                background: rgba(0,0,0,0);
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.65)));
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
 
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 50px;
-        padding-bottom: 50px;
+                .container{
+                    padding-top: 30px;
+                    padding-bottom: 30px;
 
-        background-color: $gray-lighter;
-
-        .container{
-            padding-top: 50px;
-            padding-bottom: 50px;
-
-            .row{
-                margin-top: 30px;
-
-                .item{
-                    margin-bottom: 30px;
-
-                    h3{
-                        &.subtitle-md{
-
-                        }
-                    }
+                    color: #fff;
 
                     h2{
-                        &.title-md{
-                            margin-bottom: 15px;
-
-                            color: $gray-dark;
-                        }
+                        max-width: 25%;
                     }
 
                     p{
-                        &.paragraph{
-                            color: $gray-light;
-
-                            height: fit-content;
+                        &.text-wrapper{
+                            max-width: 50%;
+                            height: 4.3rem;
                             -webkit-line-clamp: 3;
                         }
                     }
+                }
+            }
+        }
+    }
 
-                    a{
-                        color: $gray-light;
+    .container-fluid{
+        &#content{
+            background-color: #f7f7f7;
 
-                        &:hover{
-                            color: $gray-dark;
+            .container{
+                .row{
+                    .left{
+                        background-color: #fff;
+
+                        padding-top: 30px;
+                        padding-bottom: 150px;
+
+                        article{
+                            p{
+                                font-family: 'Lora', Serif;
+
+                                color: $gray-lighter;
+                            }
+
+                            img{
+                                width: 100% !important;
+
+                                margin-top: 30px;
+                                margin-bottom: 30px;
+                            }
                         }
                     }
 
-                    .mask{
-                        width: 100%;
-                        height: 150px;
+                    .right{
+                        padding-top: 50px;
 
-                        margin-top: 15px;
-                    }
-                }
-            }
-        }
-    }
-}
+                        .recommended{
+                            .item{
+                                width: 100%;
 
-/*
-=========================================
-TABLETS (Under 1024px)
-=========================================
- */
+                                margin-bottom: 30px;
 
-@media (max-width: 1024px) and (min-width: 993px){
-    #blogs{
-        .container{
-            padding-left: 100px;
-            padding-right: 100px;
-        }
-    }
+                                display: flex;
+                                flex-direction: column;
 
-    #blogs-detail{
-        .recommend{
-            .container{
-                padding-left: 100px;
-                padding-right: 100px;
-            }
-        }
-    }
-}
+                                background-color: #fff;
 
-/*
-=========================================
-VERTICAL TABLETS (Under 992px)
-=========================================
- */
+                                .item-image{
+                                    width: 100%;
+                                    height: 200px;
 
-@media (max-width: 992px) and (min-width: 768px){
-    #blogs{
-        .container{
-            padding-left: 75px;
-            padding-right: 75px;
-        }
-    }
+                                    .mask{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
 
-    #blogs-detail{
-        .recommend{
-            .container{
-                padding-left: 75px;
-                padding-right: 75px;
-            }
-        }
-    }
-}
+                                .item-content{
+                                    width: 100%;
+                                    padding: 15px 30px;
 
-/*
-=========================================
-MOBILE DEVICES (Under 768px)
-=========================================
- */
+                                    .content-header{
+                                        margin-bottom: 30px;
 
-@media (max-width: 767px){
-    #blogs{
-        .cover{
-            height: 100vh;
+                                        span{
 
-            .cover-title{
-                width: 100%;
+                                        }
 
-                padding: 30px;
-            }
-        }
+                                        a{
+                                            color: $gray-base;
 
-        #blogs-list{
-            padding-top: 50px;
-            padding-bottom: 50px;
+                                            h3{
+                                                font-weight: 400;
+                                            }
+                                        }
 
-            .row{
-                .left{
-                    order: 2;
-                }
+                                        ul{
+                                            li{
+                                                display: inline-block;
 
-                .right{
-                    order: 1;
+                                                font-size: 0.75rem;
 
-                    margin-bottom: 50px;
-                }
-            }
-        }
-    }
+                                                color: $gray-lightest;
 
-    #blogs-detail{
-        .cover{
-            height: 100vh;
+                                                &:last-of-type{
+                                                    margin-left: 15px;
+                                                }
+                                            }
+                                        }
+                                    }
 
-            .cover-title{
-                width: 100%;
+                                    .content-body{
+                                        margin-bottom: 15px;
 
-                padding: 30px;
-            }
-        }
+                                        p{
+                                            &.text-wrapper{
+                                                height: 4.3rem;
+                                                -webkit-line-clamp: 3;
+                                            }
+                                        }
+                                    }
 
-        #description{
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .content{
-            padding-top: 50px;
-            padding-bottom: 50px;
-
-            article{
-                h2{
-                    &.heading-post{
-                        width: 100%;
-
-                        float: none;
-
-                        margin-left: 0;
-                        padding: 0 30px;
-                    }
-                }
-
-                p{
-                    &.paragraph{
-                        width: 100%;
-
-                        float: none;
-
-                        margin-left: 0;
-                        padding: 0 30px;
+                                    .content-footer{
+                                        text-align: right;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -1,0 +1,59 @@
+
+.form-control{
+    padding: 10px 15px;
+
+    &:focus{
+        border-color: $primary-lighter;
+        box-shadow: 0 0 0 0.2rem rgba(96,214,214,.25);
+    }
+}
+
+.form-group{
+    &.form-edu{
+        label{
+            font-size: 0.75rem;
+            font-weight: 500;
+
+            color: $gray-lightest;
+
+            margin-bottom: 0;
+        }
+
+        .form-control{
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+
+            border: none;
+
+            border-bottom: 2px solid $gray-lightest;
+
+            padding-left: 0;
+            padding-right: 0;
+
+            font-family: 'Montserrat', sans-serif;
+
+            //Change default color of placeholder in input tag
+            ::-webkit-input-placeholder{
+                color: #ccc;
+            }
+
+            ::-moz-placeholder{
+                color: #ccc;
+            }
+
+            :-ms-input-placeholder {
+                color: #ccc;
+            }
+
+            :-moz-placeholder{
+                color: #ccc;
+            }
+
+            &:focus{
+                box-shadow: none;
+            }
+
+        }
+    }
+}

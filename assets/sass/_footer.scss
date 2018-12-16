@@ -1,135 +1,55 @@
-/*
-===========================
-===========================
-
-FOOTER STYLE
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
 footer{
-    clear: both;
+    width: 100%;
 
-    @include gradient-primary;
+    .footer-top{
+        padding-top: 30px;
+        padding-bottom: 50px;
 
-    .container-fluid{
-        padding-left: 0;
-        padding-right: 0;
+        @include gradient(rgba(41, 169, 224, 1), #29a9e0, rgba(41, 59, 143, 1), #293b8f, -45deg, bottom left, top right);
 
-        position: relative;
+        .container{
+            .row{
+                .item{
+                    h4{
+                        color: #fff;
 
-        .image{
-            height: 100%;
+                        text-transform: uppercase;
 
-            position: absolute;
-            top: 0;
+                        position: relative;
 
-            .mask{
-                width: 100%;
-                height: 100%;
-            }
+                        margin-bottom: 15px;
 
-            &.left{
-                width: 300px;
+                        &:after{
+                            content: '';
 
-                left: 0;
-            }
+                            width: 100px;
+                            height: 7px;
 
-            &.right{
-                width: 150px;
+                            border-bottom: 2px solid #fff;
 
-                right: 0;
+                            position: absolute;
+                            bottom: -5px;
+                            left: 0;
+                        }
+                    }
+
+                    ul{
+                        li{
+                            a{
+                                color: #fff;
+
+                                font-family: 'Lora', Serif;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    .container{
-        padding-top: 50px;
-        padding-bottom: 50px;
+    .footer-bottom{
 
-        .row{
-
-            padding-top: 30px;
-            padding-bottom: 30px;
-
-            border-bottom: 1px solid #fff;
-
-            color: #fff;
-
-            font-family: "webFont-m";
-
-            p{
-                &.paragraph{
-                    color: #fff;
-                }
-            }
-
-            &.head{
-                .item{
-                    ul{
-                        margin-top: 30px;
-
-                        li{
-                            a{
-
-                                font-size: 1rem;
-
-                                color: #fff;
-
-                                &:hover{
-                                    color: #fff;
-                                }
-                            }
-                        }
-                    }
-
-                    .form-control{
-                        padding-left: 15px;
-
-                        &:focus{
-                            box-shadow: none;
-                        }
-                    }
-                }
-            }
-
-            &.body{
-                h3{
-                    &.title-sm{
-                        margin-bottom: 30px;
-                    }
-                }
-
-                .item{
-                    a{
-                        color: #fff;
-
-                        &:hover{
-                            color: #fff;
-                        }
-                    }
-                }
-            }
-
-            &.foot{
-                border-bottom: none;
-
-                p{
-                    &.paragraph{
-                        color: #fff;
-                    }
-                }
-
-                .col{
-                    &:last-of-type{
-                        text-align: right;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -141,32 +61,7 @@ TABLETS (Under 1024px)
 
 @media (max-width: 1024px) and (min-width: 993px){
     footer{
-        .container-fluid{
-            .container{
-                .row{
-                    padding-left: 100px;
-                    padding-right: 100px;
 
-                    .item{
-                        &:first-of-type{
-                            order: 1;
-                        }
-
-                        &:nth-of-type(2){
-                            order: 3;
-                        }
-
-                        &:nth-of-type(3){
-                            order: 2;
-                        }
-
-                        &:last-of-type{
-                            order: 4;
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -178,31 +73,6 @@ VERTICAL TABLETS (Under 992px)
 
 @media (max-width: 992px) and (min-width: 768px){
     footer {
-        .container-fluid {
-            .container {
-                .row {
-                    padding-left: 75px;
-                    padding-right: 75px;
 
-                    .item{
-                        &:first-of-type{
-                            order: 1;
-                        }
-
-                        &:nth-of-type(2){
-                            order: 3;
-                        }
-
-                        &:nth-of-type(3){
-                            order: 2;
-                        }
-
-                        &:last-of-type{
-                            order: 4;
-                        }
-                    }
-                }
-            }
-        }
     }
 }

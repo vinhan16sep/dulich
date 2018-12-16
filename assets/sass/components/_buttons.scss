@@ -1,0 +1,134 @@
+
+.btn{
+    //Reset Button Padding
+    padding: 10px 30px;
+
+    font-family: 'Roboto', sans-serif;
+
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgba(96,214,214,.25);
+    }
+
+    &:not(:disabled):not(.disabled):active{
+        background-color: $primary-lighter;
+        border-color: $primary-base;
+    }
+
+    //Setup Primary Buttons
+    &.btn-primary{
+        background-color: $primary-base;
+        border-color: $primary-lighter;
+
+        font-weight: 500;
+
+        &:hover{
+            background-color: $primary-lighter;
+        }
+    }
+
+    //Setup Default Buttons
+    &.btn-default{
+        background-color: $gray-lighter;
+        border-color: $gray-lightest;
+
+        font-weight: 500;
+
+        &:hover{
+            background-color: $gray-base;
+        }
+    }
+
+    //Setup Available/ Unavailable Link Buttons
+    &.btn-link{
+        &:hover{
+            text-decoration: none;
+        }
+
+        &.unavailable{
+            color: $gray-lightest !important;
+
+            &:hover{
+                color: $gray-base;
+            }
+        }
+
+        &.available{
+            color: $primary-base !important;
+
+            &:hover{
+                color: $primary-lighter;
+            }
+        }
+    }
+
+    //Setup Outline Buttons
+    &.btn-outline-primary{
+        border-color: $primary-base;
+        color: $primary-base;
+
+        &:hover{
+            background-color: $primary-base;
+            color: #fff;
+        }
+    }
+
+    &.btn-outline-secondary{
+        border-color: $gray-lightest;
+        color: $gray-lightest;
+
+        &:hover{
+            background-color: $gray-lightest;
+            color: $gray-base;
+        }
+    }
+}
+
+//Setup a Button Toggle
+.btn-toggle{
+    width: 40px;
+    height: 22px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    background-color: #d8d8d8;
+    border: 1px solid $border-color-default;
+
+    position: relative;
+
+    @include transition(300ms);
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    .control{
+        width: 20px;
+        height: 20px;
+
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+
+        background-color: #fff;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include transition(300ms);
+    }
+
+    &.active{
+        background-color: $success-base;
+
+        @include transition(300ms);
+
+        .control{
+            right: 0;
+            left: auto;
+            @include transition(300ms);
+        }
+    }
+}
