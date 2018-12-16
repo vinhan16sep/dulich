@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dist/css/skins/skin-black-light.css">
     <!-- DatePickerX Plugin -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>DatePickerX/DatePickerX.min.css">
+    <link rel="stylesheet" href="<?php echo site_url('assets/lib/bootstrap/css/bootstrap-toggle.min.css') ?>">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,6 +42,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo site_url('assets/lib/') ?>jquery/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo site_url('assets/lib/') ?>bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo site_url('assets/lib/bootstrap/js/bootstrap-toggle.min.js') ?>"></script>
+    <script src="<?php echo site_url('assets/lib/bootstrap/js/bootstrap-switch.js') ?>"></script>
 
     <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js') ?>" ></script>
 
@@ -65,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body class="hold-transition skin-black-light sidebar-mini">
 <div class="wrapper">
-    <p id="remove-space"></p>
+    <!-- <p id="remove-space"></p> -->
     <header class="main-header">
         <!-- Logo -->
         <a href="<?php echo base_url('admin/dashboard')?>" class="logo">
@@ -284,7 +287,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="<?php echo site_url('assets/lib/dist/img/user2-160x160.jpg') ?>" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">
+                                <?php
+                                    if (  $this->ion_auth->logged_in()  ) {
+                                        echo $this->ion_auth->user()->row()->username;
+                                    }
+                                ?>
+                            </span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -292,30 +301,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <img src="<?php echo site_url('assets/lib/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <?php
+                                        if (  $this->ion_auth->logged_in()  ) {
+                                            echo $this->ion_auth->user()->row()->email;
+                                        }
+                                    ?>
+                                    <small><?php echo date('d-m-Y') ?></small>
                                 </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
                                 <div class="pull-right">
                                     <a href="javascript:void(0);" class="btn btn-default btn-flat" onclick="logout();">Sign out</a>
                                 </div>

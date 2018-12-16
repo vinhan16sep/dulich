@@ -10,7 +10,13 @@
                     <img src="<?php echo site_url('assets/img/admin/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>
+                        <?php
+                            if (  $this->ion_auth->logged_in()  ) {
+                                echo 'Hello  ' . $this->ion_auth->user()->row()->first_name . $this->ion_auth->user()->row()->last_name;
+                            }
+                        ?>
+                    </p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>

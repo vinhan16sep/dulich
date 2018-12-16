@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    
     // Expand Nav
     
     var navStatus = 0;

@@ -15,7 +15,6 @@ class User extends MY_Controller {
 
     public function login() {
         if ($this->ion_auth->in_group('members')) {
-            
             redirect('admin/user/login', 'refresh');
         }
         $this->data['page_title'] = 'Login';

@@ -53,6 +53,20 @@ if (!function_exists('handle_common_author_data')) {
     }
 }
 
+// phan quyen
+if (!function_exists('handle_common_permission')) {
+    /**
+     * @return array
+     */
+    function handle_common_permission($permission) {
+        $CI =& get_instance();
+        if ( !$CI->ion_auth->in_group($permission) ){
+            $CI->session->set_flashdata('message_error', 'Tài khoản không có quyền truy cập');
+            redirect('admin/region', 'refresh');
+        }
+    }
+}
+
 if (!function_exists('handle_multi_language_requests')) {
     /**
      * @return array
@@ -78,8 +92,8 @@ if (!function_exists('handle_multi_language_requests')) {
 
 //build array for dropdown form template
 if (!function_exists('handle_common_author_data')) {
-    function build_array_for_dropdown($data = array(), $id = null){
-        $new_data = array(0 => 'Danh mục gốc');
+    function build_array_for_dropdown($data = array(), $category_name = 'Danh mục gốc', $id = null ){
+        $new_data = array(0 => $category_name);
         foreach ($data as $key => $value) {
             $new_data[$value['id']] = $value['title'];
 
@@ -101,14 +115,10 @@ if (!function_exists('handle_common_author_data')) {
         return $new_data;
     }
 
-    function build_array_by_slug_for_dropdown_menu($data = array()){
+    function build_array_by_id_for_dropdown($data = array()){
         $new_data = array('' => 'Click để chọn');
         foreach ($data as $key => $value) {
-            if($value['is_activated'] == 0){
-                $new_data[$value['slug']] = $value['title'];
-            }else{
-                $new_data[$value['slug']] = $value['title'].MESSAGE_ERROR_TURN_ON_POST_PERSENT;
-            }
+            $new_data[$value['id']] = $value['title_vi'];
 
         }
         return $new_data;
@@ -116,7 +126,7 @@ if (!function_exists('handle_common_author_data')) {
 }
 
 //build title for input
-if (!function_exists('handle_common_author_data')) {
+if (!function_exists('handle_common_build_template')) {
     function build_template(){
         $template = array(
             'vi' => array(
