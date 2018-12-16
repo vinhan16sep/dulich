@@ -47,7 +47,7 @@ class Blog extends Admin_Controller{
     }
 
     public function create(){
-        handle_common_permission(array_merge($this->permission_all, $this->permission_create));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         // Get all region
         $region = $this->region_model->get_all();
         $region = build_array_by_id_for_dropdown($region);
@@ -121,7 +121,7 @@ class Blog extends Admin_Controller{
     }
 
     public function edit($id){
-        handle_common_permission(array_merge($this->permission_all, $this->permission_update));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             //Get all region
             $region = $this->region_model->get_all();
@@ -209,13 +209,13 @@ class Blog extends Admin_Controller{
         }
     }
 
-    public function remove(){
-        handle_common_permission($this->permission_all);
         $id = $this->input->get('id');
         $data = array('is_deleted' => 1);
         $update = $this->blog_model->update($id, $data);
         if($update == 1){
             return $this->output
+    public function remove(){
+        handle_common_permission($this->permission_admin);
                 ->set_content_type('application/json')
                 ->set_status_header(HTTP_SUCCESS)
                 ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));

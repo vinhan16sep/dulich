@@ -38,7 +38,7 @@ class Region extends Admin_Controller{
     }
 
     public function create(){
-    	handle_common_permission(array_merge($this->permission_all, $this->permission_create));
+    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
     	$this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -93,7 +93,7 @@ class Region extends Admin_Controller{
     }
 
     public function edit($id){
-    	handle_common_permission(array_merge($this->permission_all, $this->permission_update));
+    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
     	if($id &&  is_numeric($id) && ($id > 0)){
 	    	$this->load->helper('form');
 	        $this->load->library('form_validation');
@@ -161,7 +161,7 @@ class Region extends Admin_Controller{
     }
 
     public function remove(){
-    	handle_common_permission($this->permission_all);
+    	handle_common_permission($this->permission_admin);
         $id = $this->input->get('id');
         //check
         $check_province = $this->check_province($id);
@@ -189,7 +189,7 @@ class Region extends Admin_Controller{
     }
 
     public function active(){
-    	handle_common_permission($this->permission_all);
+    	handle_common_permission(array_merge($this->permission_admin, $this->permission_manager));
         $id = $this->input->get('id');
         $data = array('is_active' => 1);
         $update = $this->region_model->update($id, $data);
