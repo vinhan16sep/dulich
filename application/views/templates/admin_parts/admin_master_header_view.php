@@ -14,16 +14,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>fontAwesome/css/font-awesome.min.css">
+    <!-- Datetime Awesome -->
+    <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>fontAwesome/css/daterangepicker-bs3.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dist/css/AdminLTE.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
+         <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>iCheck/square/blue.css">
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dist/css/skins/skin-black-light.css">
     <!-- DatePickerX Plugin -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>DatePickerX/DatePickerX.min.css">
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/bootstrap/css/bootstrap-toggle.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/pikaday.css">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

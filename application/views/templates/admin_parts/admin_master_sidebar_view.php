@@ -59,6 +59,11 @@
                     </a>
                 </li>
                 <li class="active">
+                    <a href="<?php echo base_url('admin/events') ?>">
+                        <i class="fa fa-newspaper-o"></i> <span>Events</span>
+                    </a>
+                </li>
+                <li class="active">
                     <a href="<?php echo base_url('admin/post') ?>">
                         <i class="fa fa-newspaper-o"></i> <span>Post</span>
                     </a>

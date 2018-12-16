@@ -128,7 +128,8 @@ class MY_Controller extends CI_Controller {
             ->set_content_type('application/json')
             ->set_status_header($status)
             ->set_output(json_encode(array('status' => $status,'message' => $message , 'reponse' => $data, 'isExisted' => $isExisted)));
-    }protected function str_slug($value='',$separator='-'){
+    }
+    protected function str_slug($value='',$separator='-'){
         $new_array = explode('.', $value);
         $typefile = array_pop($new_array);
         $namefile = str_replace(".".$typefile, "", $value);
