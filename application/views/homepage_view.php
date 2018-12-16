@@ -1,78 +1,189 @@
+<!-- Import Owl Carousel -->
+<link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.theme.default.min.css">
+
 <section id="homepage">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="left d-none d-md-block col-md-3">
-
-			</div>
-
-			<div class="right col-xs-12 col-md-9">
-				<div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="mask">
-								<img src="https://images.unsplash.com/photo-1531861656543-37399853ce94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c7f76483b19b1755f1ed9e98a09e4195&auto=format&fit=crop&w=1950&q=80" alt="First slide">
-
-								<div class="overlay"></div>
+	<div id="slideHomepage" class="carousel slide carousel-fade" data-ride="carousel">
+		<ol class="carousel-indicators">
+            <?php for ($i = 0; $i < 3; $i++) { ?>
+				<li data-target="#slideHomepage" data-slide-to="<?php echo $i ?>" class="<?php echo ($i == 0)? 'active' : '' ?>"></li>
+			<?php } ?>
+		</ol>
+		<div class="carousel-inner">
+			<?php for ($i = 0; $i < 3; $i++) { ?>
+				<div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
+					<div class="mask">
+						<img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
+					</div>
+					<div class="carousel-caption">
+						<div class="row">
+							<div class="item col-xs-12 col-lg-4">
+								<span class="badge">Badge Subtitle</span>
+								<h3>Province</h3>
+								<h6 class="text-wrapper">Description</h6>
 							</div>
-
-							<div class="carousel-caption">
-								<div class="left item">
-									<h1 class="title-lg">
-										REDEFINING A CLASSIC
-									</h1>
-								</div>
-
-								<div class="right item">
-									<p class="paragraph">
-										Major III Bluetooth is the next chapter in the revolutionary history of Marshall. This modern go-to classic has been re-engineered for a cleaner more refined design, while the silhouette stays true to its original form.
-									</p>
-
-									<a href="<?php ?>" role="button" class="btn btn-light">
-										Shop now
-									</a>
-									<a href="<?php ?>" role="button" class="btn btn-link">
-										See Detail
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="mask">
-								<img src="https://images.unsplash.com/photo-1528017486352-b49206ec821b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9faad1724228274e58118c44748d4f22&auto=format&fit=crop&w=1950&q=80" alt="Second slide">
-
-								<div class="overlay"></div>
-							</div>
-
-							<div class="carousel-caption">
-								<div class="left item">
-									<h1 class="title-lg">
-										black shadow
-									</h1>
-								</div>
-
-								<div class="right item">
-									<p class="paragraph">
-										Major III Bluetooth is the next chapter in the revolutionary history of Marshall. This modern go-to classic has been re-engineered for a cleaner more refined design, while the silhouette stays true to its original form.
-									</p>
-
-									<a href="<?php ?>" role="button" class="btn btn-light">
-										Shop now
-									</a>
-									<a href="<?php ?>" role="button" class="btn btn-link">
-										See Detail
-									</a>
-								</div>
+							<div class="item col-xs-12 col-lg-4">
+								<p class="text-wrapper">
+									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								</p>
+								<a href="<?php echo base_url('') ?>" class="btn btn-default" role="button">
+									View Detail
+								</a>
 							</div>
 						</div>
 					</div>
+				</div>
+			<?php } ?>
+		</div>
+		<a class="carousel-control-prev" href="#slideHomepage" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#slideHomepage" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
 
-					<a class="carousel-control-next" href="#slider" role="button" data-slide="next" id="sliderNext">
-						<i class="fas fa-chevron-down"></i>
-						<span class="sr-only">Next</span>
-					</a>
+	<div class="container-fluid" id="exp-activities">
+		<div class="heading">
+			<h3>Experience Activities</h3>
+		</div>
+
+		<div class="body">
+			<div id="north">
+				<div class="grid">
+					<div class="grid-sizer"></div>
+                    <?php for ($i = 0; $i < 3; $i++) { ?>
+						<div class="grid-item <?php if($i == 0) { echo 'item-full';} elseif($i > 0) { echo 'item-half';}  ?>">
+							<div class="mask">
+								<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Province <?php echo $i+1 ?>">
+
+								<div class="content">
+									<?php
+										if($i == 0) {
+                                            echo '<h1>Region Title</h1>';
+											echo '<a href=" '.  base_url() . ' " class="btn btn-default" role="button">';
+                                                echo 'See all Destinations';
+                                            echo '</a>';
+										}
+									?>
+
+                                    <?php
+                                    if($i > 0) {
+                                    	echo '<a href=" ' . base_url() . '">';
+											echo '<span class="badge">Badge Province</span>';
+											echo '<h4>Province Title</h4>';
+											echo '<p class="text-wrapper">';
+												echo 'Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
+											echo '</p>';
+										echo '</a>';
+                                    }
+                                    ?>
+								</div>
+							</div>
+						</div>
+                    <?php } ?>
+				</div>
+			</div>
+
+			<!--
+			<div id="center">
+				<div class="row">
+					<div class="left col-xs-12 col-lg-7">
+						<div class="mask">
+							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+						</div>
+					</div>
+
+					<div class="right col-xs-12 col-lg-5">
+
+					</div>
+				</div>
+			</div>
+			-->
+
+		</div>
+	</div>
+
+	<div class="container" id="events">
+		<div class="heading">
+			<h3>Festivals & Events</h3>
+		</div>
+		<div class="body">
+			<div class="grid">
+				<div class="grid-sizer"></div>
+
+				<?php for ($i = 0; $i < 7; $i++) { ?>
+					<div class="grid-item <?php echo $i+1 ?>">
+						<div class="mask">
+							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Event <?php echo $i+1 ?>">
+
+							<?php if ($i < 6){
+                                echo '<div class="content">';
+									echo '<a href=" ' . base_url('') . ' ">';
+										echo '<span class="badge">Badge Province</span>';
+										echo '<h4>Province Title</h4>';
+									echo '</a>';
+								echo '</div>';
+							} elseif ($i == 6){
+								echo '<div class="content">';
+									echo '<a href=" ' . base_url('') . ' ">';
+										echo '<i class="far fa-plus-square"></i>';
+										echo '<p>More content</p>';
+									echo '</a>';
+                                echo '</div>';
+							}
+							?>
+
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="blogs">
+		<div class="container">
+			<div class="heading">
+				<h3>Blog Review</h3>
+			</div>
+			<div class="body">
+				<div class="owl-carousel">
+					<?php for ($i = 0; $i < 5; $i++ ) { ?>
+						<div class="item">
+							<div class="mask">
+								<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Event <?php echo $i+1 ?>">
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Owl Carousel js -->
+<script src="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/') ?>owl.carousel.min.js"></script>
+
+<!-- Mansory Layout js -->
+<script src="<?php echo site_url('assets/js/masonry.pkgd.min.js') ?>"></script>
+<script>
+	$(document).ready(function(){
+        // init Masonry
+        var $grid = $('.grid').masonry({
+            // set itemSelector so .grid-sizer is not used in layout
+            itemSelector: '.grid-item',
+            // use element for option
+            columnWidth: '.grid-sizer',
+            percentPosition: true
+        });
+		// layout Masonry after each image loads
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
+
+        $(".owl-carousel").owlCarousel();
+	});
+</script>
 

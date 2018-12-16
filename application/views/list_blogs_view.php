@@ -1,91 +1,139 @@
 <section id="blogs">
-    <div class="cover">
-        <div class="mask">
-            <img src="https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-0.3.5&s=1a6fe6bf24c48973234ed4323e4455dc&auto=format&fit=crop&w=1950&q=80" alt="About Detail Image">
-        </div>
-
-        <div class="cover-title">
-            <h3 class="subtitle-md">Blogs</h3>
-
-            <h2 class="title-md">Get the latest news about us</h2>
-
-            <p class="paragraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget tristique augue. Donec laoreet nec quam et semper. Integer ut felis euismod, tempus dolor vel, gravida ante. Nulla facilisi.
-            </p>
-        </div>
-    </div>
-
-    <div class="container" id="blogs-list">
-        <div class="row">
-            <div class="left col-xs-12 col-sm-8 col-md-9">
-                <div class="row">
-                    <div class="item col-xs-12 col-lg-6">
-						<div class="inner">
-
-							<div class="badge news">News</div>
-
-							<a href="<?php echo base_url('blogs/detail/')?>">
-								<h2 class="heading-post text-wrapper">In aliquet felis dolor, eu feugiat elit mollis eu. In ut aliquet enim.</h2>
-							</a>
-
-							<p class="paragraph text-wrapper">
-								Aenean eu libero turpis. Mauris hendrerit massa at commodo maximus. Morbi in tincidunt leo. Etiam eleifend, neque ac laoreet commodo, lectus ex elementum massa, in auctor ipsum tellus sit amet nulla.
-							</p>
-
-							<a href="<?php echo base_url('blogs/detail/')?>">
-								Read more
-							</a>
-
-							<div class="mask news">
-								<a href="<?php echo base_url('blogs/detail/')?>">
-									<img src="https://images.unsplash.com/photo-1516865131505-4dabf2efc692?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=380a2b91ee844c3d6ee349952f672eaf&auto=format&fit=crop&w=1490&q=80" alt="post image">
-								</a>
+	<div id="slide" class="carousel slide carousel-fade" data-ride="carousel">
+		<div class="carousel-inner">
+            <?php for ($i = 0; $i < 3; $i++) { ?>
+				<div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
+					<div class="mask">
+						<img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
+					</div>
+					<div class="carousel-caption">
+						<div class="row">
+							<div class="item col-xs-12 col-lg-4">
+								<h3>Title Comes Here</h3>
+								<h6 class="text-wrapper">Description</h6>
 							</div>
-						</div>
-                    </div>
-
-					<div class="item col-xs-12 col-lg-6">
-						<div class="inner">
-
-							<div class="badge recruitment">Recruitment</div>
-
-							<a href="<?php echo base_url('blogs/detail/')?>">
-								<h2 class="heading-post text-wrapper">In aliquet felis dolor, eu feugiat elit mollis eu. In ut aliquet enim.</h2>
-							</a>
-
-							<p class="paragraph text-wrapper">
-								Aenean eu libero turpis. Mauris hendrerit massa at commodo maximus. Morbi in tincidunt leo. Etiam eleifend, neque ac laoreet commodo, lectus ex elementum massa, in auctor ipsum tellus sit amet nulla.
-							</p>
-
-							<a href="<?php echo base_url('blogs/detail/')?>">
-								Read more
-							</a>
-
-							<div class="mask recruitment">
-								<a href="<?php echo base_url('blogs/detail/')?>">
-									<img src="https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e730fb540ec2179da6b26b94e4ddd9b&auto=format&fit=crop&w=1351&q=80" alt="post image">
-								</a>
+							<div class="item col-xs-12 col-lg-4">
+								<p class="text-wrapper">
+									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								</p>
 							</div>
 						</div>
 					</div>
-                </div>
-            </div>
+				</div>
+            <?php } ?>
+		</div>
+		<a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#slide" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
 
-            <div class="right col-xs-12 col-sm-4 col-md-3">
-                <h2 class="title-md">Categories</h2>
-                <ul>
-                    <li>
-                        <a href="<?php echo base_url('') ?>">
-                            News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('') ?>">
-                            Recruitment
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid" id="list-blogs">
+		<div class="container">
+			<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                <?php for ($j = 0; $j < 3; $j++) { ?>
+					<li class="nav-item">
+						<a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
+							Region <?php echo $j+1 ?> of Vietnam
+						</a>
+					</li>
+                <?php } ?>
+			</ul>
+
+			<div class="tab-content" id="pills-tabContent">
+                <?php for ($j = 0; $j < 3; $j++) { ?>
+					<div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
+						<div class="row">
+							<div class="left col-xs-12 col-lg-8">
+                                <?php for ($i = 0; $i < 5; $i++) { ?>
+									<div class="item">
+										<div class="item-image">
+											<div class="mask">
+												<img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Blog <?php echo $i+1 ?>">
+											</div>
+										</div>
+										<div class="item-content">
+											<div class="content-header">
+												<span class="badge">Badge Subtitle</span>
+												<a href="<?php echo base_url('blogs/detail') ?>">
+													<h3>Blog Title</h3>
+												</a>
+												<h6>Author Name | <small>Author's Nationality</small></h6>
+												<ul>
+													<li>Rating</li>
+
+													<li>Created Date</li>
+												</ul>
+											</div>
+											<div class="content-body">
+												<p class="text-wrapper">
+													Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
+												</p>
+											</div>
+											<div class="content-footer">
+												<a href="<?php echo base_url('blogs/detail') ?>" class="btn btn-primary" role="button">
+													View Detail
+												</a>
+											</div>
+										</div>
+									</div>
+                                <?php } ?>
+
+								<div class="see-more">
+									<button class="btn btn-default" type="button">
+										See more <i class="fas fa-angle-double-right"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="right col-xs-12 col-lg-4">
+								<div class="heading">
+									<h4>Top Review</h4>
+								</div>
+								<div class="body">
+                                    <?php for ($i = 0; $i < 4; $i++) { ?>
+										<div class="item">
+											<div class="item-image">
+												<div class="mask">
+													<img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Blog <?php echo $i+1 ?>">
+												</div>
+											</div>
+											<div class="item-content">
+												<div class="content-header">
+													<span class="badge">Badge Subtitle</span>
+													<a href="<?php echo base_url('blogs/detail') ?>">
+														<h3>Blog Title</h3>
+													</a>
+													<h6>Author Name | <small>Author's Nationality</small></h6>
+													<ul>
+														<li>Rating</li>
+
+														<li>Created Date</li>
+													</ul>
+												</div>
+												<div class="content-body">
+													<p class="text-wrapper">
+														Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
+													</p>
+												</div>
+												<div class="content-footer">
+													<a href="<?php echo base_url('blogs/detail') ?>" class="btn btn-primary" role="button">
+														View Detail
+													</a>
+												</div>
+											</div>
+										</div>
+                                    <?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
 </section>

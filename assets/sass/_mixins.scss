@@ -1,44 +1,4 @@
-/*
-===========================
-===========================
-
-MAIN MINXINS
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
-@mixin gradient-primary{
-    background: rgba(133,0,0,1);
-    background: -moz-linear-gradient(-45deg, rgba(133,0,0,1) 0%, rgba(251,177,59,1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(133,0,0,1)), color-stop(100%, rgba(251,177,59,1)));
-    background: -webkit-linear-gradient(-45deg, rgba(133,0,0,1) 0%, rgba(251,177,59,1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(133,0,0,1) 0%, rgba(251,177,59,1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(133,0,0,1) 0%, rgba(251,177,59,1) 100%);
-    background: linear-gradient(135deg, rgba(133,0,0,1) 0%, rgba(251,177,59,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#850000', endColorstr='#fbb13b', GradientType=1 );
-}
-
-@mixin gradient-dark{
-    background: rgba(90,84,84,1);
-    background: -moz-linear-gradient(-90deg, rgba(90,84,84,1) 0%, rgba(51,51,51,1) 100%);
-    background: -webkit-gradient(top, bottom, color-stop(0%, rgba(90,84,84,1)), color-stop(100%, rgba(51,51,51,1)));
-    background: -webkit-linear-gradient(-90deg, rgba(90,84,84,1) 0%, rgba(51,51,51,1) 100%);
-    background: -o-linear-gradient(-90deg, rgba(90,84,84,1) 0%, rgba(51,51,51,1) 100%);
-    background: -ms-linear-gradient(-90deg, rgba(90,84,84,1) 0%, rgba(51,51,51,1) 100%);
-    background: linear-gradient(90deg, rgba(90,84,84,1) 0%, rgba(51,51,51,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5a5454', endColorstr='#333', GradientType=1 );
-}
-
-@mixin makeItCenter{
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
+//Set Transition Effect
 
 @mixin transition($duration){
     -webkit-transition: all ease-in-out $duration;
@@ -48,28 +8,43 @@ Author: hung.luong@matocreative.vn
     transition: all ease-in-out $duration;
 }
 
-@mixin transition-delay($duration, $delay){
-    -webkit-transition-property: all;
-    -moz-transition-property: all;
-    -ms-transition-property: all;
-    -o-transition-property: all;
-    transition-property: all;
+//Set Translate Transform
 
-    -webkit-transition-duration: $duration;
-    -moz-transition-duration: $duration;
-    -ms-transition-duration: $duration;
-    -o-transition-duration: $duration;
-    transition-duration: $duration;
-
-    -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    -ms-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-
-    -webkit-transition-delay: $delay;
-    -moz-transition-delay: $delay;
-    -ms-transition-delay: $delay;
-    -o-transition-delay: $delay;
-    transition-delay: $delay;
+@mixin translate($x, $y){
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
 }
+
+//Set Scale Transform
+
+@mixin scale($x, $y){
+    -webkit-transform: scale($x, $y);
+    -moz-transform: scale($x, $y);
+    -ms-transform: scale($x, $y);
+    -o-transform: scale($x, $y);
+    transform: scale($x, $y);
+}
+
+//Set Border Radius
+
+@mixin borderRadius($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//Make Gradient
+@mixin gradient($start-rgba, $start-hex, $end-rgba, $end-hex, $deg, $star-pos, $end-pos){
+    background: $start-rgba;
+    background: -moz-linear-gradient($deg, $start-rgba 0%, $end-rgba 100%);
+    background: -webkit-gradient($star-pos, $end-pos, color-stop(0%, $start-rgba), color-stop(100%, $end-rgba));
+    background: -webkit-linear-gradient($deg, $start-rgba 0%, $end-rgba 100%);
+    background: -o-linear-gradient($deg, $start-rgba 0%, $end-rgba 100%);
+    background: -ms-linear-gradient($deg, $start-rgba 0%, $end-rgba 100%);
+    background: linear-gradient(-(180-$deg), $start-rgba 0%, $end-rgba 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-hex', endColorstr='$end-hex', GradientType=1 );
+}
+

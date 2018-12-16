@@ -1,20 +1,61 @@
-/*
-===========================
-===========================
 
-MAIN VARIABLES
+//Primary Color
+$primary-lightest: #7BCBED;
+$primary-lighter: #4FB9E7;
+$primary-base: #29A9E1;
+$primary-darker: #089AD9;
+$primary-darkest: #0471A0;
 
-Author: hung.luong@matocreative.vn
+//$primary-lightest-50: #93E9E9;
 
-===========================
-===========================
- */
+//Secondary Color
+$secondary-lightest: #FFD98D;
+$secondary-lighter: #FFCB62;
+$secondary-base: #F9BB3E;
+$secondary-darker: #E8A00F;
+$secondary-darkest: #B17806;
 
-$primary: #850000;
-$secondary: #29256A;
+//Basic Success Color
+$success-lightest: #46C089;
+$success-lighter: #23B372;
+$success-base: #00A65A;
+$success-darker: #008448;
+$success-darkest: #006738;
 
-$gray-lighter: #e7e7e7;
-$gray-light: #999;
-$gray: #666;
-$gray-dark: #333;
-$gray-draker: #2e2e2e;
+$success-lightest-50: #97D4B9;
+
+//Basic Warning Color
+$warning-lightest: #FFD556;
+$warning-lighter: #FEC828;
+$warning-base: #E0A800;
+$warning-darker: #B58800;
+$warning-darkest: #8C6900;
+
+//Basic Danger Color
+$danger-lightest: #F77A86;
+$danger-lighter: #DA4A58;
+$danger-base: #C82333;
+$danger-darker: #A0111F;
+$danger-darkest: #79000C;
+
+$danger-lightest-50: #FBBCC2;
+
+//Basic Link Color
+$link-lightest: #3A99FC;
+$link-lighter: #1085FF;
+$link-base: #007DFF;
+$link-darker: #0059B6;
+$link-darkest: #00448B;
+
+//Basic Gray Color
+$gray-lightest: #C4C3C3;
+$gray-lighter: #949494;
+$gray-base: #666;
+$gray-darker: #2D2D2D;
+$gray-darkest: #040303;
+
+//Default Border Color
+$border-color-default: rgba(0,0,0,.05);
+
+//Primary Border Color
+$border-color-primary: rgba(59,192,195,.5);

@@ -1,17 +1,4 @@
-/*
-===========================
-===========================
-
-MAIN STYLE FOR ALL PAGES
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
-/* Mask */
-
+//MASK
 .mask{
     overflow: hidden;
 
@@ -20,4 +7,40 @@ Author: hung.luong@matocreative.vn
         height: 100%;
         object-fit: cover;
     }
+}
+
+//Reset a tag hover
+a{
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+//Reset ul tag{
+ul{
+    padding-left: 0;
+
+    list-style: none;
+}
+
+//Reset heading tag margin
+h1, h2, h3, h4, h5, h6, p{
+    margin-bottom: 0;
+}
+
+//Set Text Wrapper
+
+.text-wrapper{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    //height: 3em;
+    //-webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+//Set Textarea Unresizable
+
+textarea{
+    resize: unset;
 }

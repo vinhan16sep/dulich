@@ -1,15 +1,3 @@
-/*
-===========================
-===========================
-
-MAIN HEADER STYLE
-
-Author: hung.luong@matocreative.vn
-
-===========================
-===========================
- */
-
 header{
     width: 100%;
 
@@ -18,521 +6,96 @@ header{
     left: 0;
     z-index: 1050;
 
+    @include gradient(rgba(41, 169, 224, 1), #29a9e0, rgba(41, 59, 143, 1), #293b8f, -45deg, bottom left, top right);
+
+    position: relative;
 
     nav{
+        width: 100%;
+        height: 120px;
+
+        padding-left: 60px;
+        padding-right: 60px;
+
         display: flex;
         flex-direction: row;
 
-        padding-left: 15px;
-        padding-right: 15px;
+        justify-content: space-between;
+        align-items: flex-end;
 
-        padding-top: 50px;
-
-        position: relative;
-
-        .nav-item{
-            padding-left: 15px;
-            padding-right: 15px;
-
-            min-height: 30px;
-
-            &.nav-brand{
-                width: 25%;
-
-                text-align: center;
-
-                img{
-                    @include transition(300ms);
-                }
-            }
-
-            &.nav-main{
-                width: 75%;
-
-                display: flex;
-                flex-direction: row;
-
-                z-index: 1052;
-
-                .left{
-                    width: 25%;
-                    position: relative;
-
-                    #expand-nav{
-                        position: absolute;
-                        top: 25px;
-                        left: 40px;
-
-                        z-index: 1051;
-
-                        width: 50px;
-                        height: 50px;
-
-                        #btn-nav-expand{
-
-                            &:hover{
-                                cursor: pointer;
-                            }
-
-                            @include transition(300ms);
-
-                            span{
-                                &.nav-icon{
-                                    width: 25px;
-                                    height: 5px;
-
-                                    background-color: #fff;
-
-                                    @include transition(300ms);
-
-                                    display: block;
-
-                                    position: relative;
-
-                                    @include transition(300ms);
-
-                                    &:before, &:after{
-                                        content: '';
-                                        display:block;
-                                        width:30px;
-                                        height:5px;
-                                        background-color: #fff;
-                                        position: absolute;
-
-                                        @include transition(300ms);
-                                    }
-
-                                    &:before {
-                                        margin-top:-10px;
-                                    }
-
-                                    &:after {
-                                        margin-top:10px;
-                                    }
-                                }
-                            }
-
-                            &.active{
-
-                                @include transition(300ms);
-
-                                span{
-                                    &.nav-icon{
-                                        background-color: transparent;
-
-                                        &:before {
-                                            margin-top:0;
-                                            transform:rotate(45deg);
-                                        }
-
-                                        &:after {
-                                            margin-top:0;
-                                            transform:rotate(-45deg);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .right{
-                    width: 75%;
-
-                    margin-top: 20px;
-
-                    ul{
-                        text-align: right;
-
-                        li{
-                            display: inline-block;
-                            padding: 0 15px;
-
-                            font-size: 1.125rem;
-
-                            a{
-                                color: #fff;
-
-                                @include transition(300ms);
-
-                                &:hover{
-                                    color: #fff;
-                                }
-                            }
-
-                            .divide{
-                                width: 2px;
-                                height: 1.125rem;
-
-                                background-color: #fff;
-
-                                @include transition(300ms);
-
-                                -webkit-transform: translateY(3px);
-                                -moz-transform: translateY(3px);
-                                -ms-transform: translateY(3px);
-                                -o-transform: translateY(3px);
-                                transform: translateY(3px);
-                            }
-                        }
-                    }
-                }
-
-                &.primary{
-                    .left{
-                        #expand-nav{
-                            #btn-nav-expand{
-                                span{
-                                    &.nav-icon{
-                                        background-color: $primary;
-
-                                        @include transition(300ms);
-
-                                        &:before, &:after{
-                                            background-color: $primary;
-                                        }
-                                    }
-                                }
-
-                                &.active{
-
-                                    @include transition(300ms);
-
-                                    span{
-                                        &.nav-icon{
-                                            background-color: transparent;
-
-                                            &:before {
-                                                margin-top:0;
-                                                transform:rotate(45deg);
-                                            }
-
-                                            &:after {
-                                                margin-top:0;
-                                                transform:rotate(-45deg);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .right{
-                        ul{
-                            li{
-                                a{
-                                    color: $primary;
-
-                                    @include transition(300ms);
-
-                                    &:hover{
-                                        color: $primary;
-                                    }
-                                }
-
-                                .divide{
-                                    background-color: $primary;
-
-                                    @include transition(300ms);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .nav-expand{
-        width: 0px;
-        height: 95vh;
-
-        background-color: rgba(255,255,255,0.95);
-
-        position: absolute;
-        top: 0;
-        left: 25%;
         z-index: 1051;
 
-        padding-left: 0px;
-        padding-right: 0px;
+        .nav-brand{
+            padding-bottom: 15px;
 
-        @include transition(300ms);
-
-        .row{
-            display: none;
-
-            @include transition-delay(300ms, 300ms);
-
-            &.head{
-                margin-top: 190px;
-
-                .item{
-                    h2{
-                        &.title-md{
-                            margin-bottom: 30px;
-
-                            a{
-                                color: $primary;
-                            }
-                        }
-                    }
-
-                    ul{
-                        li{
-                            font-size: 1.5rem;
-
-                            a{
-                                color: $gray;
-
-                                &:hover{
-                                    color: $gray-light;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.foot{
-                margin-top: 50px;
-
-                .input-group{
-                    span{
-                        &.input-group-text{
-                            background-color: transparent;
-                            border: none;
-                            border-radius: 0;
-
-                            color: $primary;
-                            border-bottom: 1px solid $primary
-                        }
-                    }
-
-                    input{
-                        background-color: transparent;
-                        border: none;
-                        border-radius: 0;
-
-                        color: $primary;
-                        border-bottom: 1px solid $primary;
-
-                        /* Change color of input */
-                        ::-webkit-input-placeholder{
-                            color: $primary;
-                        }
-
-                        ::-moz-placeholder{
-                            color: $primary;
-                        }
-
-                        :-ms-input-placeholder {
-                            color: $primary;
-                        }
-
-                        :-moz-placeholder{
-                            color: $primary;
-                        }
-                    }
-
-                    .btn{
-                        &.btn-link{
-                            border-radius: 0;
-
-                            color: $primary;
-                            border-bottom: 1px solid $primary
-                        }
-                    }
-                }
-            }
-
-        }
-
-        &.active{
-            width: 75vw;
-
-            padding-left: 100px;
-            padding-right: 100px;
-
-            @include transition(300ms);
-
-            .row{
-                display: flex;
-
-                @include transition-delay(300ms, 300ms);
+            a{
+                color: #fff;
             }
         }
-    }
 
-    &.active{
-        background-color: #fff;
+        .nav-main{
+            ul{
+                li{
+                    display: inline-block;
 
-        @include transition(300ms);
+                    padding: 0 15px;
 
-        nav{
-            padding-top: 15px;
+                    a{
+                        color: #fff;
 
-            @include transition(300ms);
+                        font-family: 'Lora', serif;
+                        font-size: 1rem;
+                        font-weight: 700;
 
-            .nav-item{
-                &.nav-brand{
-                    img{
-                        width: 50%;
-
-                        @include transition(300ms);
-                    }
-                }
-
-                &.nav-main{
-                    .left{
-                        #expand-nav{
-                            top: 18px;
-
-                            @include transition(300ms);
-
-                            #btn-nav-expand{
-                                span{
-                                    &.nav-icon{
-                                        background-color: $primary;
-
-                                        @include transition(300ms);
-
-                                        &:before, &:after{
-                                            background-color: $primary;
-
-                                            @include transition(300ms);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .right{
-                        margin-top: 10px;
-
-                        @include transition(300ms);
-
-                        ul{
-                            li{
-                                font-size: 1rem;
-
-                                @include transition(300ms);
-
-                                a{
-                                    color: $primary;
-
-                                    @include transition(300ms);
-                                }
-
-                                .divide{
-                                    background-color: $primary;
-
-                                    @include transition(300ms);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-/*
-=========================================
-SMALL DESKTOPS (UNDER 1600px)
-=========================================
- */
-
-@media (max-width: 1600px) and (min-width: 1025px){
-
-}
-
-/*
-=========================================
-TABLETS (Under 1024px)
-=========================================
- */
-
-@media (max-width: 1024px) and (min-width: 993px){
-
-}
-
-/*
-=========================================
-MOBILE DEVICES (Under 768px)
-=========================================
- */
-
-@media (max-width: 767px){
-    header{
-        nav{
-            .nav-item{
-                &.nav-brand{
-                    width: 50%;
-
-                    img{
-                        width: 150px;
-                        content: url("../img/logo-w.png");
-                    }
-                }
-
-                &.nav-main{
-                    width: 50%;
-
-                    .left{
-                        #expand-nav{
-                            top: 20px;
-                            left: 265%;
-                        }
-                    }
-
-                    .right{
-                        display: none;
+                        text-transform: uppercase;
                     }
                 }
             }
         }
 
         .nav-expand{
-            left: 0;
+            display: none;
+        }
+    }
 
-            .row{
-                &.head{
-                    margin-top: 150px;
+    .header-wrapper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
 
-                    flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+}
 
-                    .item{
-                        width: 100%;
+/*
+=========================================
+TABLETS (less than 1200px)
+=========================================
+ */
 
-                        margin-bottom: 60px;
-                    }
-                }
-            }
-
-            &.active{
-                width: 100vw;
-
-                padding-left: 15px;
-                padding-right: 15px;
+@media (max-width: 1199.98px){
+    header{
+        nav{
+            .nav-expand{
+                display: block;
             }
         }
+    }
+}
 
-        &.active{
-            nav {
-                padding-bottom: 15px;
+/*
+=========================================
+MOBILE (less than 1024px)
+=========================================
+ */
 
-                .nav-item {
-                    &.nav-brand {
-                        img {
-                            width: 100%;
-                            content: url("../img/logo.png");
-                        }
-                    }
-                }
+@media (max-width: 767.98px){
+    header{
+        nav{
+            .nav-expand{
+                display: block;
             }
         }
     }

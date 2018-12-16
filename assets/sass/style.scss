@@ -12,8 +12,11 @@ Author: hung.luong@matocreative.vn
 
 @import "variables";
 @import "mixins";
-@import "fontSettings";
-@import "resetBootstrap";
+@import "typography";
+
+@import "components/buttons";
+@import "components/forms";
+@import "components/badge";
 
 /* Master Layout */
 @import "header";
@@ -23,8 +26,5 @@ Author: hung.luong@matocreative.vn
 /* Pages */
 
 @import "homepage";
-@import "about";
-@import "products";
 @import "blogs";
-@import "contact";
-@import "checkout";
+@import "events";
