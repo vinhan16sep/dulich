@@ -32,6 +32,18 @@ class MY_Model extends CI_Model {
 
         return $result = $this->db->get()->num_rows();
     }
+    public function count_search_by_create_by($keyword = ''){
+        $username = $this->ion_auth->user()->row()->username;
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->like('title_vi', $keyword);
+        $this->db->where('is_deleted', 0);
+        if ($this->ion_auth->in_group('mod')) {
+            $this->db->where('created_by', $username);
+        }
+
+        return $result = $this->db->get()->num_rows();
+    }
 
     public function get_all_with_pagination_search($limit = NULL, $start = NULL, $keywords) {
         $this->db->select('*');
@@ -40,6 +52,23 @@ class MY_Model extends CI_Model {
             $this->db->like('title_vi', $keywords)->or_like('title_en', $keywords);
         }
         $this->db->where('is_deleted', 0);
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+
+        return $result = $this->db->get()->result_array();
+    }
+
+    public function get_all_with_pagination_search_by_create_by($limit = NULL, $start = NULL, $keywords) {
+        $username = $this->ion_auth->user()->row()->username;
+        $this->db->select('*');
+        $this->db->from($this->table);
+        if ( !empty($keywords) ){
+            $this->db->like('title_vi', $keywords)->or_like('title_en', $keywords);
+        }
+        $this->db->where('is_deleted', 0);
+        if ($this->ion_auth->in_group('mod')) {
+            $this->db->where('created_by', $username);
+        }
         $this->db->limit($limit, $start);
         $this->db->order_by("id", "desc");
 

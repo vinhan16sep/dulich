@@ -89,7 +89,15 @@
                                 ?>
                             </div>
                         </div>
-
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Quốc tịch', 'nationality');
+                                echo form_error('nationality');
+                                echo form_input('nationality', $detail['nationality'], 'class="form-control" id="nationality" ');
+                                ?>
+                            </div>
+                        </div>
                         <div>
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 <li role="presentation" class="active">

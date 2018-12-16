@@ -25,10 +25,20 @@
                             <span><?php echo $this->session->flashdata('message'); ?></span>
                         </div>
                         <div class="form-group col-xs-12">
+                            <label for="image">Ảnh đại diện</label><br />
+                            <?php if ( $detail['avatar'] ): ?>
+                                <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $detail['avatar']) ?>" width="150">
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group col-xs-12">
                             <label for="image">Hình ảnh đang sử dụng</label><br />
                             <?php if ( json_decode($detail['image']) ): ?>
                                 <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                    <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" width="150">
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?>" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" max-height="180px">
+                                        <i class="fa-2x fa fa-check active-avatar" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:black; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
                                 <?php endforeach ?>
                             <?php endif ?>
                         </div>

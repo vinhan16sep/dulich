@@ -43,7 +43,6 @@ $('.btn-remove').click(function(event){
 
 var default_value = '';
 
-
 $('#region_id').change(function(){
     var region_id = $(this).val();
     default_value = $(this).val();
@@ -75,6 +74,37 @@ $('#region_id').change(function(){
     }else{
         $('#province_id').html('<option value="" selected="selected">Chọn vùng miền trước</option>');
     }
+});
+
+//Remove image
+$('.remove-image').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    var image = $(this).data('image');
+    var key = $(this).data('key');
+    if (confirm("Chắc chắn xóa ảnh này?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id, image : image
+            },
+            success: function(response){
+                if ( response.status == 200 && response.isExisted == true ) {
+                    $( '.remove-image-' + key ).fadeOut();
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+    
 });
 
 //old code

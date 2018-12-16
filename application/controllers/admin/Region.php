@@ -14,7 +14,7 @@ class Region extends Admin_Controller{
     }
 
     public function index(){
-
+        handle_common_permission($this->permission_admin);
     	$keywords = '';
         if($this->input->get('search')){
             $keywords = $this->input->get('search');
@@ -38,7 +38,7 @@ class Region extends Admin_Controller{
     }
 
     public function create(){
-    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+    	handle_common_permission($this->permission_admin);
     	$this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -87,13 +87,14 @@ class Region extends Admin_Controller{
     }
 
     public function detail($id){
+        handle_common_permission($this->permission_admin);
     	$detail = $this->region_model->find($id);
     	$this->data['detail'] = $detail;
     	$this->render('admin/region/detail');
     }
 
     public function edit($id){
-    	handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+    	handle_common_permission($this->permission_admin);
     	if($id &&  is_numeric($id) && ($id > 0)){
 	    	$this->load->helper('form');
 	        $this->load->library('form_validation');
@@ -148,7 +149,7 @@ class Region extends Admin_Controller{
 		            }
 		            $update = $this->region_model->update($id,array_merge($data, $this->author_data));
 		            if ($update) {
-		            	chmod('assets/upload/blog/' . $unique_slug, 0755);
+		            	chmod('assets/upload/region/' . $unique_slug, 0755);
 		            	$this->session->set_flashdata('message_success', MESSAGE_CREATE_SUCCESS);
 		            	redirect('admin/region/index', 'refresh');
 		            }else{
@@ -189,7 +190,7 @@ class Region extends Admin_Controller{
     }
 
     public function active(){
-    	handle_common_permission(array_merge($this->permission_admin, $this->permission_manager));
+    	handle_common_permission($this->permission_admin);
         $id = $this->input->get('id');
         $data = array('is_active' => 1);
         $update = $this->region_model->update($id, $data);
@@ -205,6 +206,37 @@ class Region extends Admin_Controller{
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
+    public function remove_image(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->region_model->find($id);
+        $upload = [];
+        $upload = json_decode($detail['image']);
+        $key = array_search($image, $upload);
+        unset($upload[$key]);
+        $newUpload = [];
+        foreach ($upload as $key => $value) {
+            $newUpload[] = $value;
+        }
+        
+        $image_json = json_encode($newUpload);
+        $data = array('image' => $image_json);
+
+        $update = $this->region_model->update($id,$data);
+        if($update == 1){
+            if($image != '' && file_exists('assets/upload/region/'.$detail['slug'].'/'.$image)){
+                unlink('assets/upload/region/'.$detail['slug'].'/'.$image);
+            }
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
 
     protected function check_multiple_imgs($filename, $filesize){
         $images = array('jpg', 'jpeg', 'png', 'gif');
