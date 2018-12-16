@@ -220,4 +220,7 @@ defined('MESSAGE_ERROR_REMOVE_COLOR') OR define('MESSAGE_ERROR_REMOVE_COLOR', 'B
 defined('MESSAGE_ERROR_REMOVE_FEATURES') OR define('MESSAGE_ERROR_REMOVE_FEATURES', 'Bạn không thể xóa tính năng này vì có sản phâm %u sử dụng tính năng này');
 defined('MESSAGE_ERROR_REMOVE_TRADEMARK') OR define('MESSAGE_ERROR_REMOVE_TRADEMARK', 'Bạn không thể xóa thương hiệu này vì có sản phâm %u sử dụng thương hiệu này');
 
+
+defined('MESSAGE_ERROR_UPDATE_BY_PERMISSION') OR define('MESSAGE_ERROR_UPDATE_BY_PERMISSION', 'Tài khoản không có quyền sửa bài viết này');
+
 /*=====  End of Message for Create  ======*/

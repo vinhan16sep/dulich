@@ -19,7 +19,7 @@ class Blog extends Admin_Controller{
             $keywords = $this->input->get('search');
         }
         $this->data['keywords'] = $keywords;
-        $total_rows  = $this->region_model->count_search($keywords);
+        $total_rows  = $this->blog_model->count_search_by_create_by($keywords);
         $this->load->library('pagination');
         $config = array();
         $base_url = base_url('admin/blog/index');
@@ -31,7 +31,7 @@ class Blog extends Admin_Controller{
         $this->data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $this->pagination->initialize($config);
         $this->data['page_links'] = $this->pagination->create_links();
-        $result = $this->blog_model->get_all_with_pagination_search($per_page, $this->data['page'], $keywords);
+        $result = $this->blog_model->get_all_with_pagination_search_by_create_by($per_page, $this->data['page'], $keywords);
         $this->data['result'] = $result;
 
         $region = $this->region_model->get_all();
@@ -60,7 +60,7 @@ class Blog extends Admin_Controller{
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
-        // $this->form_validation->set_rules('province_id', 'Tỉnh / Thành phố', 'required');
+        $this->form_validation->set_rules('nationality', 'Quốc tịch', 'required');
         $this->form_validation->set_rules('author', 'Tác giả', 'required');
         $this->form_validation->set_rules('image', 'Hình ảnh', 'callback_check_file');
 
@@ -90,6 +90,7 @@ class Blog extends Admin_Controller{
                     'region_id' => $this->input->post('region_id'),
                     'province_id' => $this->input->post('province_id'),
                     'author' => $this->input->post('author'),
+                    'nationality' => $this->input->post('nationality'),
                     'title_vi' => $this->input->post('title_vi'),
                     'title_en' => $this->input->post('title_en'),
                     'description_vi' => $this->input->post('description_vi'),
@@ -130,6 +131,10 @@ class Blog extends Admin_Controller{
 
             $detail = $this->blog_model->find($id);
             $this->data['detail'] = $detail;
+            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                redirect('admin/blog/index', 'refresh');
+            }
 
             //Get province by region_id
             $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
@@ -185,6 +190,7 @@ class Blog extends Admin_Controller{
                         'region_id' => $this->input->post('region_id'),
                         'province_id' => $this->input->post('province_id'),
                         'author' => $this->input->post('author'),
+                        'nationality' => $this->input->post('nationality'),
                         'title_vi' => $this->input->post('title_vi'),
                         'title_en' => $this->input->post('title_en'),
                         'description_vi' => $this->input->post('description_vi'),
@@ -209,13 +215,13 @@ class Blog extends Admin_Controller{
         }
     }
 
+    public function remove(){
+        handle_common_permission($this->permission_all);
         $id = $this->input->get('id');
         $data = array('is_deleted' => 1);
         $update = $this->blog_model->update($id, $data);
         if($update == 1){
             return $this->output
-    public function remove(){
-        handle_common_permission($this->permission_admin);
                 ->set_content_type('application/json')
                 ->set_status_header(HTTP_SUCCESS)
                 ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));

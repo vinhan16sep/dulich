@@ -62,7 +62,7 @@ if (!function_exists('handle_common_permission')) {
         $CI =& get_instance();
         if ( !$CI->ion_auth->in_group($permission) ){
             $CI->session->set_flashdata('message_error', 'Tài khoản không có quyền truy cập');
-            redirect('admin/region', 'refresh');
+            redirect('admin/dashboard', 'refresh');
         }
     }
 }
