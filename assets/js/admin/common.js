@@ -208,3 +208,18 @@ function deactive(controller, id, question) {
         });
     }
 }
+
+$(function () {
+    $('#reservation').mouseup(function() {
+        $('#reservation').daterangepicker({
+           format: 'DD/MM/YYYY',
+        });
+        $(".ranges").css("display","none");
+        $(".calendar").mouseover(function(){
+           $("#reservation").val($("input[name=daterangepicker_start]").val()+" - "+$("input[name=daterangepicker_end]").val());
+           $(".second.right tbody .available").mousedown(function(){
+               $(".daterangepicker.dropdown-menu.show-calendar.opensleft").css("display","none");
+           });
+        });
+    });
+});
