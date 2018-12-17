@@ -3,12 +3,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Vùng miền</small>
+            <small>Sự kiện</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Vùng miền</li>
+            <li class="active">Sự kiện</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -28,8 +28,8 @@
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
-                                            <?php if ( $detail['avatar'] ): ?>
-                                                <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $detail['avatar'] ) ?>" alt="Image Detail" width=100%>    
+                                            <?php if ( $detail['image'] ): ?>
+                                                <img src="<?= base_url('assets/upload/cuisine_category/' . $detail['slug'] . '/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
                                             <?php endif ?>
                                         </div>
                                     </div>
@@ -41,20 +41,12 @@
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <th>Bài viết được chọn lên TOP</th>
-                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?>></i></td>
-                                            </tr>
-                                            <tr>
                                                 <th>Vùng miền</th>
                                                 <td><?= $region['title_vi'] ?></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="hidden">
                                                 <th>Tỉnh / Thành phố</th>
                                                 <td><?= $province ? $province['title_vi'] : '(Không có)' ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Tác giả</th>
-                                                <td><?= $detail['author'] ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>
@@ -62,20 +54,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin: 20px 0px;">
-                                <label>Hình ảnh</label>
-                                <div class="row">
-                                    <?php if ( json_decode($detail['image']) ): ?>
-                                        <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                            <div class="item col-md-3">
-                                                <div class="mask">
-                                                    <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
-                                                </div>
-                                            </div>
-                                        <?php endforeach ?>
-                                    <?php endif ?>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -103,12 +81,8 @@
                                                         <td> <?= $detail['title_vi'] ?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Giới thiệu: </th>
-                                                        <td> <?= $detail['description_vi'] ?> </td>
-                                                    </tr>
-                                                    <tr>
                                                         <th style="width: 100px">Nội dung: </th>
-                                                        <td> <?= $detail['body_vi'] ?> </td>
+                                                        <td> <?= $detail['description_vi'] ?> </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -123,12 +97,8 @@
                                                         <td> <?= $detail['title_en'] ?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Description: </th>
-                                                        <td> <?= $detail['description_en'] ?> </td>
-                                                    </tr>
-                                                    <tr>
                                                         <th style="width: 100px">Body: </th>
-                                                        <td> <?= $detail['body_en'] ?> </td>
+                                                        <td> <?= $detail['description_en'] ?> </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -149,7 +119,7 @@
                         <h3 class="box-title">Edit Information</h3>
                     </div>
                     <div class="box-body">
-                        <a href="<?= base_url('admin/blog/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
+                        <a href="<?= base_url('admin/cuisine_category/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
                     </div>
                 </div>
             </div>

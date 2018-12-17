@@ -216,7 +216,7 @@ class Blog extends Admin_Controller{
     }
 
     public function remove(){
-        handle_common_permission($this->permission_all);
+        handle_common_permission($this->permission_admin);
         $id = $this->input->get('id');
         $data = array('is_deleted' => 1);
         $update = $this->blog_model->update($id, $data);
@@ -288,5 +288,20 @@ class Blog extends Admin_Controller{
             return true;
         }
         return true;
+    }   
+    public function check_top(){
+        $id = $this->input->get('id');
+        $total = $this->blog_model->count_is_top(1);
+        if(is_numeric($id)){
+            $detail = $this->blog_model->find($id);
+            if($detail['is_top'] == 1){
+                $total = $total - 1;
+            }
+        }
+        if($total >=3){
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_CHECK_TOP_ERROR,'', false);
+        }else{
+            return $this->return_api(HTTP_SUCCESS,'','', true);
+        }
     }
 }

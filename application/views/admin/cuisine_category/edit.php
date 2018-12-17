@@ -2,9 +2,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm mới
+            Cập nhật
             <small>
-                Bài viết
+                danh mục món ăn
             </small>
         </h1>
     </section>
@@ -19,37 +19,37 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Thông tin cơ bản</h4>
+                            <h4 class="box-title">Cập nhật danh mục món ăn: <?= $detail['title_vi'] ?></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
+                                <label for="image">Hình ảnh đang sử dụng</label><br />
+                                <?php if ( $detail['image'] ): ?>
+                                    <img src="<?php echo base_url('assets/upload/cuisine_category/' . $detail['slug'] . '/' . $detail['image']) ?>" width="150">
+                                <?php else: ?>
+                                    Hiện chưa có hình ảnh cho danh mục món ăn
+                                <?php endif ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Hình ảnh (Dung lượng ảnh phải nhỏ hơn 1.2Mb)', 'image');
                                 echo form_error('image');
-                                echo form_upload('image[]', set_value('image'), 'class="form-control" multiple');
+                                echo form_upload('image', set_value('image'), 'class="form-control"');
                                 ?>
                             </div>
                             <br>
-                        </div>
-                        <div class="form-group col-xs-12" id="box_is_top">
-                            <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
-                                <label style="font-weight: bold;">
-                                <?php
-                                    echo form_checkbox('is_top', 1, false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
-                                ?>Chọn sự kiện lên top?
-                                <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
-                                </label>
-                            </div>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Slug', 'slug');
                                 echo form_error('slug');
-                                echo form_input('slug', set_value('slug'), 'class="form-control" id="slug" readonly');
+                                echo form_input('slug', $detail['slug'], 'class="form-control" id="slug" readonly');
                                 ?>
                             </div>
                         </div>
@@ -58,34 +58,16 @@
                                 <?php
                                 echo form_label('Vùng miền', 'region_id');
                                 echo form_error('region_id');
-                                echo form_dropdown('region_id', $region, 0, 'class="form-control" id="region_id" data-url="'. base_url('admin/blog/get_province') .'" ');
+                                echo form_dropdown('region_id', $region, $detail['region_id'], 'class="form-control" id="region_id" data-url="'. base_url('admin/cuisine_category/get_province') .'" ');
                                 ?>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12 hidden">
                             <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Tỉnh / Thành phố', 'province_id');
                                 echo form_error('province_id');
-                                echo form_dropdown('province_id', array('' => 'Chọn vùng miền trước'), 0, 'class="form-control" id="province_id" ');
-                                ?>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
-                                <?php
-                                echo form_label('Tác giả', 'author');
-                                echo form_error('author');
-                                echo form_input('author', set_value('author'), 'class="form-control" id="author" ');
-                                ?>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
-                                <?php
-                                echo form_label('Quốc tịch', 'nationality');
-                                echo form_error('nationality');
-                                echo form_input('nationality', set_value('nationality'), 'class="form-control" id="nationality" ');
+                                echo form_dropdown('province_id', $province, $detail['province_id'], 'class="form-control" id="province_id" ');
                                 ?>
                             </div>
                         </div>
@@ -110,21 +92,14 @@
                                         <?php 
                                             echo form_label('Tiêu đề', 'title_vi');
                                             echo form_error('title_vi');
-                                            echo form_input('title_vi', set_value('title_vi'), 'class="form-control" id="title_vi"');
+                                            echo form_input('title_vi', $detail['title_vi'], 'class="form-control" id="title_vi"');
                                         ?>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <?php
                                         echo form_label('Giới thiệu', 'description_vi');
                                         echo form_error('description_vi');
-                                        echo form_textarea('description_vi', set_value('description_vi'), 'class="form-control" id="description_vi"');
-                                        ?>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <?php
-                                        echo form_label('Nội dung', 'body_vi');
-                                        echo form_error('body_vi');
-                                        echo form_textarea('body_vi', set_value('body_vi'), 'class="form-control  tinymce-area" id="body_vi"');
+                                        echo form_textarea('description_vi', $detail['description_vi'], 'class="form-control" id="description_vi"');
                                         ?>
                                     </div>
                                 </div>
@@ -133,21 +108,14 @@
                                         <?php 
                                             echo form_label('Title', 'title_en');
                                             echo form_error('title_en');
-                                            echo form_input('title_en', set_value('title_en'), 'class="form-control" id="title_en"');
+                                            echo form_input('title_en', $detail['title_en'], 'class="form-control" id="title_en"');
                                         ?>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <?php
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
-                                        echo form_textarea('description_en', set_value('description_en'), 'class="form-control" id="description_en"');
-                                        ?>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <?php
-                                        echo form_label('Body', 'body_en');
-                                        echo form_error('body_en');
-                                        echo form_textarea('body_en', set_value('body_en'), 'class="form-control tinymce-area" id="body_en"');
+                                        echo form_textarea('description_en', $detail['description_en'], 'class="form-control" id="description_en"');
                                         ?>
                                     </div>
                                 </div>
@@ -155,7 +123,7 @@
                         </div>
                         <div class="form-group col-xs-12">
                             <a href="javascript:history.back()" class="btn btn-default">Quay lại</a>
-                            <?php echo form_submit('submit', 'Thêm mới', 'class="btn btn-primary pull-right margin-right-xs" '); ?>
+                            <?php echo form_submit('submit', 'Cập nhật', 'class="btn btn-primary pull-right margin-right-xs" '); ?>
                         </div>
                         <?php echo form_close(); ?>
                     </div>
