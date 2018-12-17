@@ -299,7 +299,7 @@ class Blog extends Admin_Controller{
             }
         }
         if($total >=3){
-            return $this->return_api(HTTP_SUCCESS,MESSAGE_CHECK_TOP_ERROR,'', false);
+            return $this->return_api(HTTP_SUCCESS,sprintf(MESSAGE_CHECK_TOP_ERROR,'Blog','Blog','Blog','Blog'),'', false);
         }else{
             return $this->return_api(HTTP_SUCCESS,'','', true);
         }

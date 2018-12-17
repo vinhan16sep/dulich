@@ -332,7 +332,7 @@ class Events extends Admin_Controller{
             }
         }
         if($total >=3){
-            return $this->return_api(HTTP_SUCCESS,MESSAGE_CHECK_TOP_ERROR,'', false);
+            return $this->return_api(HTTP_SUCCESS,sprintf(MESSAGE_CHECK_TOP_ERROR,'Events','Events','Events','Events'),'', false);
         }else{
             return $this->return_api(HTTP_SUCCESS,'','', true);
         }
