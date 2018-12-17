@@ -55,13 +55,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12" id="box_is_top">
+                            <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
+                                <label style="font-weight: bold;">
                                 <?php
-                                echo form_label('Chọn sự kiện lên top?', 'is_top');
-                                echo form_error('is_top') . '<br />';
-                                echo form_checkbox('is_top', 1, false, 'class="" id="is_top"');
-                                ?>
+                                    echo form_checkbox('is_top', 1, false, 'class="" id="is_top" data-url="'.base_url('admin/events/check_top').'" data-id="null"');
+                                ?>Chọn sự kiện lên top?
+                                <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                </label>
                             </div>
                         </div>
                         <div class="form-group col-xs-12">
@@ -166,4 +167,5 @@
         </div>
     </section>
 </div>
+<script src="<?php echo base_url('assets/js/admin/');?>admin.js" type="text/javascript" charset="utf-8" async defer></script>
 
