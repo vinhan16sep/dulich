@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+    <div id="encypted_ppbtn_all"></div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -29,7 +30,7 @@
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
                                             <?php if ( $detail['avatar'] ): ?>
-                                                <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $detail['avatar'] ) ?>" alt="Image Detail" width=100%>    
+                                                <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $detail['avatar'] ) ?>" alt="Image Detail" width=100% id="showavatar">    
                                             <?php endif ?>
                                         </div>
                                     </div>
@@ -66,13 +67,13 @@
                             </div>
                             <div class="col-md-12" style="margin: 20px 0px;">
                                 <label>Hình ảnh</label>
-                                <div class="row">
+                                <div class="row" id="showallimage">
                                     <?php if ( json_decode($detail['image']) ): ?>
-                                        <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                            <div class="item col-md-3">
-                                                <div class="mask">
-                                                    <img src="<?= base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
-                                                </div>
+                                        <?php foreach (json_decode($detail['image']) as $k => $val): ?>
+                                            <div class="col-sm-4 col-xs-6 row_<?php echo $k;?>" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
+                                                <img src="<?php echo base_url('assets/upload/blog/'.$detail['slug'].'/'. $val ) ?>" alt="Image Detail" width="100%" height="180px">
+                                                <i value="<?= $val ?>" class="fa-2x fa fa-check <?php echo ($detail['avatar'] == $val) ?'avata':''; ?>" style="cursor: pointer; position: absolute;color:<?php echo ($detail['avatar'] == $val) ?'green':'black'; ?>; top:0px;right:30px;" onclick="activated_image('blog','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
+                                                <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;" onclick="remove_image('blog','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
                                             </div>
                                         <?php endforeach ?>
                                     <?php endif ?>
@@ -158,3 +159,87 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
+<script type="text/javascript">
+    html_modal = `<div class="modal" role="dialog" style="display: block; opacity: 0.5">
+            <div class="modal-dialog" style="color:#fff; text-align:center; padding-top:300px;">
+                <i class="fa fa-2x fa-spinner fa-spin" aria-hidden="true"></i>
+            </div>
+        </div>`;
+    function remove_image(controller, id, image, k, event, slug){
+        if(confirm('Chắc chắn xóa ảnh này?')){
+            $.ajax({
+                method: "get",
+                url: HOSTNAMEADMIN + '/' + controller + '/remove_image_multiple',
+                data: {
+                    id : id, image: image
+                },
+                beforeSend:function() {
+                    document.getElementById('encypted_ppbtn_all').innerHTML = html_modal;
+                },
+                success: function(response){
+                    alert(response.message);
+                    document.getElementById('encypted_ppbtn_all').innerHTML = '';
+                    if(response.reponse.error == '' && response.reponse.error_permission == ''){
+                        $(`.row_${k}`).fadeOut();
+                        if(response.reponse.avatar != ''){
+                            document.getElementById('showavatar').src = HOSTNAME + 'assets/upload/' + controller + '/' + slug + '/' + response.reponse.avatar;
+                            document.getElementById('showallimage').querySelector(`[value="${response.reponse.avatar}"]`).setAttribute('class','fa-2x fa fa-check avata');
+                            document.getElementById('showallimage').querySelector(`[value="${response.reponse.avatar}"]`).style.color = 'green';
+                        }
+                        var number_img = document.getElementById('showallimage').querySelectorAll('div')
+                        for (var i = 0; i < number_img.length; i++) {
+                            number_img[i].setAttribute('class',`col-sm-4 col-xs-6 row_${i}`);
+                        }
+                    }
+                },
+                error: function(jqXHR, exception){
+                    console.log(errorHandle(jqXHR, exception));
+                    if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                        alert(jqXHR.responseJSON.message);
+                        location.reload();
+                    }
+                    document.getElementById('encypted_ppbtn_all').innerHTML = '';
+                }
+            });
+        }
+    }
+    function activated_image(controller, id, image, k, event, slug){
+        if(event.className.search("avata") != '-1'){
+            return false;
+        }else{
+            $.ajax({
+                method: "get",
+                url: HOSTNAMEADMIN + '/' + controller + '/img_activated',
+                data: {
+                    id : id, image: image
+                },
+                beforeSend:function() {
+                    document.getElementById('encypted_ppbtn_all').innerHTML = html_modal;
+                },
+                success: function(response){
+                    alert(response.message);
+                    document.getElementById('encypted_ppbtn_all').innerHTML = '';
+                    if(response.reponse.error_permission == ''){
+                        if(document.querySelector(`.avata`) != null){
+                            document.querySelector(`.avata`).style.color = 'black';
+                            document.querySelector(`.avata`).classList.remove('avata');
+                        }
+                        if(response.reponse.update_activated == '1'){
+                            document.querySelector(`.row_${k} .fa-check`).style.color = 'green';
+                            document.querySelector(`.row_${k} .fa-check`).classList.add('avata');
+                        }
+                        document.getElementById('showavatar').src = HOSTNAME + 'assets/upload/' + controller + '/' + slug + '/' + image;
+                    }
+                },
+                error: function(jqXHR, exception){
+                    console.log(errorHandle(jqXHR, exception));
+                    if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                        alert(jqXHR.responseJSON.message);
+                        location.reload();
+                    }
+                    document.getElementById('encypted_ppbtn_all').innerHTML = '';
+                }
+            });
+        }
+    }
+</script>

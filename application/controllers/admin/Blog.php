@@ -304,4 +304,68 @@ class Blog extends Admin_Controller{
             return $this->return_api(HTTP_SUCCESS,'','', true);
         }
     }
+
+    public function remove_image_multiple(){
+        handle_common_permission_ajax($this->permission_admin);
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->blog_model->find($id);
+        $array_image = json_decode($detail['image'],true);
+        $reponse = array(
+            'avatar' => '',
+            'error' => '',
+            'error_permission' => ''
+        );
+        if(count($array_image) == 1){
+            $reponse['error'] = 'error';
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_IMAGE_ERROR,$reponse);
+        }else{
+            $k = array_search($image,$array_image);
+            unset($array_image[$k]);
+            $array_image = array_values($array_image);
+        }
+        $data['image'] = json_encode($array_image);
+        if($detail['avatar'] == $image){
+            $data['avatar'] = $array_image[0];
+        }
+        $update = $this->blog_model->update($id, $data);
+        if($update == 1){
+            if($image != '' && file_exists('assets/upload/blog/'.$detail['slug'].'/'.$image)){
+                $this->remove_img($detail['slug'],$image);
+            }
+            if(isset($data['avatar'])){
+                $reponse['avatar'] = $data['avatar'];
+            }
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_SUCCESS,$reponse);
+        }
+        return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_ERROR,$reponse);
+    }
+    protected function remove_img($unique_slug = '',$image= ''){
+        if(file_exists('assets/upload/blog/'.$unique_slug.'/'.$image)){
+            unlink('assets/upload/blog/'.$unique_slug.'/'.$image);
+        }
+    }
+    public function img_activated(){
+        handle_common_permission_ajax($this->permission_admin);
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->blog_model->find($id);
+        if($detail['avatar'] != $image){
+            $avatar = $image;
+            $update_activated = "1";
+        }else{
+            $avatar = "";
+            $update_activated = "0";
+        }
+        $data = array('avatar' => $avatar);
+        $update = $this->blog_model->update($id, $data);
+        $reponse = array(
+            'update_activated' => $update_activated,
+            'error_permission' => ''
+        );
+        if($update == 1){
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_UPDATE_SUCCESS,$reponse);
+        }
+        return $this->return_api(HTTP_SUCCESS,MESSAGE_UPDATE_ERROR,$reponse);
+    }
 }
