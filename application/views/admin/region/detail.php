@@ -56,11 +56,13 @@
                                 <div class="row">
                                     <?php if ( json_decode($detail['image']) ): ?>
                                         <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                            <div class="item col-md-3">
-                                                <div class="mask">
-                                                    <img src="<?= base_url('assets/upload/region/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
+                                            <?php if ($value != $detail['avatar']): ?>
+                                                <div class="item col-md-3">
+                                                    <div class="mask">
+                                                        <img src="<?= base_url('assets/upload/region/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            <?php endif ?>
                                         <?php endforeach ?>
                                     <?php endif ?>
                                 </div>

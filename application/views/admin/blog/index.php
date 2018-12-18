@@ -66,7 +66,7 @@
                                     <th>Tên bài viết phố Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
-                                    <th>Duyệt Bài</th>
+                                    <th>Chờ duyệt</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -87,8 +87,15 @@
                                                 <td><?= $value['title_en'] ?></td>
                                                 <td><?= $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
-                                                <td>
+                                                <td class="is-active-<?= $value['id'] ?>">
                                                     <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
+                                                    <?php
+                                                        if ($value['is_active'] == 0) {
+                                                            echo '<span class="label label-warning">Chờ duyệt</span>';
+                                                        }else{
+                                                            echo '<span class="label label-success">Đã duyệt</span>';
+                                                        }
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url('admin/blog/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
@@ -101,6 +108,14 @@
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/remove' ) ?>" style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/active' ) ?>" style="color: #00a65a" >
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/deactive' ) ?>" style="color: #f0ad4e">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -125,7 +140,7 @@
                                             <th>Tên bài viết phố Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
-                                            <th>Duyệt Bài</th>
+                                            <th>Chờ duyệt</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

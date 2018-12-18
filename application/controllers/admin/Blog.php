@@ -131,10 +131,13 @@ class Blog extends Admin_Controller{
 
             $detail = $this->blog_model->find($id);
             $this->data['detail'] = $detail;
-            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
-                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
-                redirect('admin/blog/index', 'refresh');
+            if ( $this->ion_auth->in_group('mod') ) {
+                if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                    $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                    redirect('admin/blog/index', 'refresh');
+                }
             }
+            
 
             //Get province by region_id
             $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
@@ -230,6 +233,94 @@ class Blog extends Admin_Controller{
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_BAD_REQUEST)
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function remove_image(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->blog_model->find($id);
+        if ($image == $detail['avatar']) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => false)));
+        }
+        $upload = [];
+        $upload = json_decode($detail['image']);
+        $key = array_search($image, $upload);
+        unset($upload[$key]);
+        $newUpload = [];
+        foreach ($upload as $key => $value) {
+            $newUpload[] = $value;
+        }
+        
+        $image_json = json_encode($newUpload);
+        $data = array('image' => $image_json);
+
+        $update = $this->blog_model->update($id,$data);
+        if($update == 1){
+            if($image != '' && file_exists('assets/upload/blog/'.$detail['slug'].'/'.$image)){
+                unlink('assets/upload/blog/'.$detail['slug'].'/'.$image);
+            }
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function active_avatar(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $data = array('avatar' => $image);
+        $update = $this->blog_model->update($id,$data);
+        if($update == 1){
+            $detail = $this->blog_model->find($id);
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true, 'image_path' => base_url('assets/upload/blog/' . $detail['slug'] . '/' . $image) )));
+        }
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_BAD_REQUEST)
+                ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function active(){
+        $id = $this->input->get('id');
+        $data = array('is_active' => 1);
+        $update = $this->blog_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        $id = $this->input->get('id');
+        $data = array('is_active' => 0);
+        $update = $this->blog_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
     public function get_province(){

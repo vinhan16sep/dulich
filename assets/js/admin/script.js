@@ -4,6 +4,7 @@ switch(window.location.origin){
         break;
     default:
         var HOSTNAMEADMIN = 'http://localhost/dulich/admin';
+        
 }
 function logout() {
     window.location.href = HOSTNAMEADMIN + '/user/logout';
@@ -93,6 +94,9 @@ $('.remove-image').click(function(){
                 if ( response.status == 200 && response.isExisted == true ) {
                     $( '.remove-image-' + key ).fadeOut();
                 }
+                if ( response.status == 200 && response.isExisted == false ) {
+                    alert('Không thể xóa, do ảnh đang được chọn làm avatar');
+                }
             },
             error: function(jqXHR, exception){
                 if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
@@ -104,8 +108,102 @@ $('.remove-image').click(function(){
             }
         });
     }
-    
 });
+
+// change avatar
+$('.common-image').on('click', '.active-avatar', function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    var image = $(this).data('image');
+    var avatar = $( '.common-avatar #avatar' ).data('image');
+    var avatar_path = $( '.common-avatar #avatar' ).attr('src');
+    var selector = $(this)
+    if (confirm("Chắc chắn chọn ảnh này làm avatar?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id, image : image
+            },
+            success: function(response){
+                if ( response.status == 200 && response.isExisted == true ) {
+                    $( '.common-avatar #avatar' ).attr('src', response.image_path);
+                    $( '.common-avatar #avatar' ).data('image', image);
+                    selector.prev('img').attr('src', avatar_path);
+                    selector.data('image', avatar);
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
+
+// active
+$('.btn-active').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    if (confirm("Chắc chắn duyệt bài viết?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id
+            },
+            success: function(response){
+                if (response.status == 200 && response.isExisted) {
+                    $('.is-active-' + id).html('<span class="label label-success">Đã duyệt</span>');
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
+
+// deactive
+$('.btn-deactive').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    if (confirm("Chắc chắn tắt bài viết?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id
+            },
+            success: function(response){
+                if (response.status == 200 && response.isExisted) {
+                    $('.is-active-' + id).html('<span class="label label-warning">Chờ duyệt</span>');
+                }
+                if (response.status == 200 && response.isExisted == false) {
+                    alert(response.message);
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
+
 
 //old code
 $(window).scroll(function () {
