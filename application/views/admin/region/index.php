@@ -83,8 +83,15 @@
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
                                                 <td><?= $value['title_en'] ?></td>
-                                                <td>
+                                                <td class="is-active-<?= $value['id'] ?>">
                                                     <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
+                                                    <?php
+                                                        if ($value['is_active'] == 0) {
+                                                            echo '<span class="label label-warning">Chờ duyệt</span>';
+                                                        }else{
+                                                            echo '<span class="label label-success">Đã duyệt</span>';
+                                                        }
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url('admin/region/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
@@ -97,6 +104,14 @@
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/remove' ) ?>" data-name="vùng miền"  style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" style="color: #00a65a" >
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/deactive' ) ?>" style="color: #f0ad4e">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
                                             </tr>

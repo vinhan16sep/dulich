@@ -207,6 +207,106 @@ class Province extends Admin_Controller{
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
+    public function remove_image(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->province_model->find($id);
+        if ($image == $detail['avatar']) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => false)));
+        }
+        $upload = [];
+        $upload = json_decode($detail['image']);
+        $key = array_search($image, $upload);
+        unset($upload[$key]);
+        $newUpload = [];
+        foreach ($upload as $key => $value) {
+            $newUpload[] = $value;
+        }
+        
+        $image_json = json_encode($newUpload);
+        $data = array('image' => $image_json);
+
+        $update = $this->province_model->update($id,$data);
+        if($update == 1){
+            if($image != '' && file_exists('assets/upload/province/'.$detail['slug'].'/'.$image)){
+                unlink('assets/upload/province/'.$detail['slug'].'/'.$image);
+            }
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function active_avatar(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $data = array('avatar' => $image);
+        $update = $this->province_model->update($id,$data);
+        if($update == 1){
+            $detail = $this->province_model->find($id);
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true, 'image_path' => base_url('assets/upload/province/' . $detail['slug'] . '/' . $image) )));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function active(){
+        handle_common_permission($this->permission_admin);
+        $id = $this->input->get('id');
+        $data = array('is_active' => 1);
+        $update = $this->province_model->update($id, $data);
+        if($update == 1){
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        handle_common_permission($this->permission_admin);
+        $id = $this->input->get('id');
+        //check
+        $check_blog = $this->check_blog($id);
+
+        if ($check_blog == false) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => false, 'message' => 'Không thể tắt do có Bài viết thuộc Tỉnh / Thành phố này')));
+        }
+
+        $data = array('is_active' => 0);
+        $update = $this->province_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+    
     protected function check_multiple_imgs($filename, $filesize){
         $images = array('jpg', 'jpeg', 'png', 'gif');
         foreach ($filename as $key => $value) {
