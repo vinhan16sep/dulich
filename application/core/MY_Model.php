@@ -99,6 +99,15 @@ class MY_Model extends CI_Model {
         $this->db->order_by("id", "desc");
         return $this->db->get()->result_array();
     }
+    public function get_by_region_all($reion_id){
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->from($this->table);
+        $this->db->join('province', $this->table .'.province_id = province.id');
+        $this->db->where($this->table.'.is_deleted', 0);
+        $this->db->where($this->table.'.is_active', 0);
+        $this->db->order_by($this->table.".id", "desc");
+        return $this->db->get()->result_array();
+    }
 
     public function get_by_field($field, $id){
         $this->db->select('*');
@@ -172,6 +181,19 @@ class MY_Model extends CI_Model {
     public function find($id){
         $this->db->where(array('id' => $id,'is_deleted' => 0));
         return $this->db->get($this->table)->row_array();
+    }
+    public function find_slug($slug){
+        $this->db->where(array('slug' => $slug,'is_deleted' => 0,'is_active' => 0));
+        return $this->db->get($this->table)->row_array();
+    }
+    public function get_related($region_id, $not_id, $number = 3){
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->join('province', $this->table .'.province_id = province.id');
+        $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 0, $this->table.'.region_id' => $region_id));
+        $this->db->where($this->table.".id != $not_id");
+        $this->db->limit($number, 0);
+        $this->db->order_by($this->table.".id", "desc");
+        return $this->db->get($this->table)->result_array();
     }
     public function get_where_array($array){
         $this->db->select('*');

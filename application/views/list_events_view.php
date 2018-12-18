@@ -35,10 +35,11 @@
     <div class="container-fluid" id="list-events">
         <div class="container">
 			<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                <?php $Region = array('North' , 'Center' , 'Shouth') ?>
                 <?php for ($j = 0; $j < 3; $j++) { ?>
 					<li class="nav-item">
 						<a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
-							Region <?php echo $j+1 ?> of Vietnam
+							<?= $Region[$j] ?> of Vietnam
 						</a>
 					</li>
                 <?php } ?>
@@ -49,21 +50,21 @@
 					<div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
 						<div class="grid">
 							<div class="grid-sizer"></div>
-                            <?php for ($i = 0; $i < 13; $i++) { ?>
-								<div class="grid-item <?php echo ($i%2!=0)? 'item-odd' : 'item-even' ?>">
+                            <?php foreach ($region[$j] as $key => $value): ?>
+								<div class="grid-item <?php echo ($key%2!=0)? 'item-odd' : 'item-even' ?>">
 									<div class="mask">
-										<a href="<?php echo base_url('events/detail') ?>">
-											<img src="https://images.unsplash.com/photo-1544893028-f560118c307f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Event <?php echo $i+1 ?>">
+										<a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
+											<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']); ?>" alt="Image Event <?php echo $key+1 ?>">
 
 											<div class="content">
 
-												<span class="badge">Province</span>
-												<h3>Event Title</h3>
-												<h6>Date</h6>
+												<span class="badge"><?= $value['province_title_vi'] ?></span>
+												<h3><?= $value['title_vi'] ?></h3>
+												<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
 
-                                                <?php if ($i%2!=0) { ?>
+                                                <?php if ($key%2!=0) { ?>
 													<p class="text-wrapper">
-														Ut nunc ex, pellentesque at quam ut, ullamcorper feugiat est. Mauris vel volutpat ante, non tempus nibh. Mauris condimentum nisl dui, non molestie diam pulvinar sed. Pellentesque eu tellus mollis, feugiat lacus eu, maximus diam. Suspendisse gravida libero fringilla lorem aliquet venenatis.
+														<?= $value['description_vi'] ?>
 													</p>
                                                 <?php } ?>
 
@@ -71,7 +72,8 @@
 										</a>
 									</div>
 								</div>
-                            <?php } ?>
+                            
+                            <?php endforeach ?>
 						</div>
 					</div>
                 <?php } ?>
