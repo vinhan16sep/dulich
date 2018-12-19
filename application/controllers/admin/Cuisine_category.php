@@ -7,6 +7,7 @@ class Cuisine_category extends Admin_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('cuisine_category_model');
+        $this->load->model('cuisine_model');
         $this->load->model('region_model');
         $this->load->model('province_model');
         $this->load->helper('common_helper');
@@ -193,9 +194,62 @@ class Cuisine_category extends Admin_Controller{
         }
     }
 
-    public function remove(){
-        handle_common_permission($this->permission_admin);
+    public function active(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
         $id = $this->input->get('id');
+        $data = array('is_active' => 1);
+        $update = $this->cuisine_category_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $number_cuisine = $this->cuisine_model->find_rows(array('cuisine_category_id' => $id,'is_deleted' => 0,'is_active' => 1));
+        if($number_cuisine > 0){
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST, 'message' => 'Bạn không thể tắt danh mục này')));
+        }
+        $data = array('is_active' => 0);
+        $update = $this->cuisine_category_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+    public function remove(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $number_cuisine = $this->cuisine_model->find_rows(array('cuisine_category_id' => $id,'is_deleted' => 0));
+        if($number_cuisine > 0){
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST, 'message' => 'Bạn không thể xóa danh mục này')));
+        }
         $data = array('is_deleted' => 1);
         $update = $this->cuisine_category_model->update($id, $data);
         if($update == 1){
@@ -207,7 +261,7 @@ class Cuisine_category extends Admin_Controller{
             return $this->output
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_BAD_REQUEST)
-                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST, 'message' => 'Bạn không thể xóa danh mục này')));
     }
 
     public function get_province(){

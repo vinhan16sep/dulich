@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+    <div id="encypted_ppbtn_all"></div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -28,8 +29,8 @@
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
-                                            <?php if ( $detail['image'] ): ?>
-                                                <img src="<?= base_url('assets/upload/cuisine/' . $detail['slug'] . '/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
+                                            <?php if ( $detail['avatar'] ): ?>
+                                                <img src="<?= base_url('assets/upload/cuisine/' . $detail['slug'] . '/' . $detail['avatar'] ) ?>" alt="Image Detail" width=100% id="showavatar">    
                                             <?php endif ?>
                                         </div>
                                     </div>
@@ -54,6 +55,20 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="margin: 20px 0px;">
+                                <label>Hình ảnh</label>
+                                <div class="row" id="showallimage">
+                                    <?php if ( json_decode($detail['image']) ): ?>
+                                        <?php foreach (json_decode($detail['image']) as $k => $val): ?>
+                                            <div class="col-sm-4 col-xs-6 row_<?php echo $k;?>" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
+                                                <img src="<?php echo base_url('assets/upload/cuisine/'.$detail['slug'].'/'. $val ) ?>" alt="Image Detail" width="100%" height="180px">
+                                                <i value="<?= $val ?>" class="fa-2x fa fa-check <?php echo ($detail['avatar'] == $val) ?'avata':''; ?>" style="cursor: pointer; position: absolute;color:<?php echo ($detail['avatar'] == $val) ?'green':'black'; ?>; top:0px;right:30px;" onclick="activated_image('cuisine','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
+                                                <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;" onclick="remove_image('cuisine','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
+                                            </div>
+                                        <?php endforeach ?>
+                                    <?php endif ?>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -128,3 +143,4 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
+<script src="<?php echo base_url('assets/js/admin/');?>update-image.js" type="text/javascript" charset="utf-8" async defer></script>

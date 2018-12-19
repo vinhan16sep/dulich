@@ -67,7 +67,7 @@
                                     <th>Tên bài viết phố Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
-                                    <th>Chờ duyệt</th>
+                                    <th>Duyệt bài</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -113,11 +113,11 @@
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/active' ) ?>" style="color: #00a65a" >
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-name="bài viết" data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/blog/active' ) ?>" style="color: #00a65a" >
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/deactive' ) ?>" style="color: #f0ad4e">
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-name="bài viết" data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/blog/deactive' ) ?>" style="color: #f0ad4e">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                     <?php endif ?>
@@ -145,7 +145,7 @@
                                             <th>Tên bài viết phố Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
-                                            <th>Chờ duyệt</th>
+                                            <th>Duyệt bài</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

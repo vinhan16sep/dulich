@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+    <div id="encypted_ppbtn_all"></div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -27,11 +28,19 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <label for="image">Hình ảnh đang sử dụng</label><br />
-                                <?php if ( $detail['image'] ): ?>
-                                    <img src="<?php echo base_url('assets/upload/cuisine/' . $detail['slug'] . '/' . $detail['image']) ?>" width="150">
-                                <?php else: ?>
-                                    Hiện chưa có hình ảnh cho sự kiện
-                                <?php endif ?>
+                                <div class="row" id="showallimage">
+                                    <?php if ( json_decode($detail['image']) ): ?>
+                                        <?php foreach (json_decode($detail['image']) as $k => $val): ?>
+                                                <div class="col-sm-4 col-xs-6 row_<?php echo $k;?>" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
+                                                    <img src="<?php echo base_url('assets/upload/cuisine/'.$detail['slug'].'/'. $val ) ?>" alt="Image Detail" width="100%" height="180px">
+                                                    <i value="<?= $val ?>" class="fa-2x fa fa-check <?php echo ($detail['avatar'] == $val) ?'avata':''; ?>" style="cursor: pointer; position: absolute;color:<?php echo ($detail['avatar'] == $val) ?'green':'black'; ?>; top:0px;right:30px;" onclick="activated_image('cuisine','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
+                                                    <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;" onclick="remove_image('cuisine','<?php echo $detail['id']; ?>','<?php echo $val; ?>','<?php echo $k ?>',this,'<?= $detail['slug'] ?>')"></i>
+                                                </div>
+                                        <?php endforeach ?>
+                                    <?php else: ?>
+                                        Hiện chưa có hình ảnh cho sự kiện
+                                    <?php endif ?>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group col-xs-12">
@@ -39,7 +48,7 @@
                                 <?php
                                 echo form_label('Hình ảnh (Dung lượng ảnh phải nhỏ hơn 1.2Mb)', 'image');
                                 echo form_error('image');
-                                echo form_upload('image', set_value('image'), 'class="form-control"');
+                                echo form_upload('image[]', set_value('image'), 'class="form-control" multiple');
                                 ?>
                             </div>
                             <br>
@@ -124,7 +133,7 @@
                         </div>
                         <div class="form-group col-xs-12">
                             <a href="javascript:history.back()" class="btn btn-default">Quay lại</a>
-                            <?php echo form_submit('submit', 'Cập nhật', 'class="btn btn-primary pull-right margin-right-xs" '); ?>
+                            <?php echo form_submit('submit', 'Cập nhật', 'class="btn btn-primary pull-right margin-right-xs"  id="update" '); ?>
                         </div>
                         <?php echo form_close(); ?>
                     </div>
@@ -134,4 +143,5 @@
     </section>
 </div>
 <script src="<?php echo base_url('assets/js/admin/');?>admin.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="<?php echo base_url('assets/js/admin/');?>update-image.js" type="text/javascript" charset="utf-8" async defer></script>
 

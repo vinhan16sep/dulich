@@ -40,7 +40,7 @@ class Cuisine extends Admin_Controller{
     public function create(){
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         // Get all cuisine category
-        $cuisine_category = $this->cuisine_category_model->get_all();
+        $cuisine_category = $this->cuisine_category_model->get_all(1);
         $cuisine_category = build_array_by_id_for_dropdown($cuisine_category);
         $this->data['cuisine_category'] = $cuisine_category;
 
@@ -57,20 +57,22 @@ class Cuisine extends Admin_Controller{
             $this->render('admin/cuisine/create');
         } else {
             if ($this->input->post()) {
-                if(!empty($_FILES['image']['name'])){
-                    $this->check_img($_FILES['image']['name'], $_FILES['image']['size']);
+                if(!empty($_FILES['image']['name'][0])){
+                    $this->check_multiple_imgs($_FILES['image']['name'], $_FILES['image']['size']);
                 }
                 $slug = $this->input->post('slug');
                 $unique_slug = $this->cuisine_model->build_unique_slug($slug);
                 if(!file_exists('assets/upload/cuisine/' . $unique_slug)){
                     mkdir('assets/upload/cuisine/' . $unique_slug, 0777);
                 }
-                if ( !empty($_FILES['image']['name']) ) {
+                if ( !empty($_FILES['image']['name'][0]) ) {
                     chmod('assets/upload/cuisine/' . $unique_slug, 0777);
-                    $images = $this->upload_image('image', 'assets/upload/cuisine/' . $unique_slug, $_FILES['image']['name']);
+                    $images = $this->upload_multiple_image('assets/upload/cuisine/' . $unique_slug, 'image');
+                    $avatar = $images[0];
                 }
                 $data = array(
-                    'image' => $images,
+                    'image' => json_encode($images),
+                    'avatar' => $avatar,
                     'slug' => $unique_slug,
                     'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
                     'title_vi' => $this->input->post('title_vi'),
@@ -104,7 +106,7 @@ class Cuisine extends Admin_Controller{
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             // Get all cuisine category
-            $cuisine_category = $this->cuisine_category_model->get_all();
+            $cuisine_category = $this->cuisine_category_model->get_all(1);
             $cuisine_category = build_array_by_id_for_dropdown($cuisine_category);
             $this->data['cuisine_category'] = $cuisine_category;
 
@@ -126,8 +128,8 @@ class Cuisine extends Admin_Controller{
                 $this->render('admin/cuisine/edit');
             }else{
                 if ($this->input->post()) {
-                    if(!empty($_FILES['image']['name'])){
-                        $this->check_img($_FILES['image']['name'], $_FILES['image']['size']);
+                     if(!empty($_FILES['image']['name'][0])){
+                        $this->check_multiple_imgs($_FILES['image']['name'], $_FILES['image']['size']);
                     }
 
                     $slug = $this->input->post('slug');
@@ -140,13 +142,19 @@ class Cuisine extends Admin_Controller{
                         }
                     }
                     
-                    if ( !empty($_FILES['image']['name']) ) {
+                    $old_images = json_decode($detail['image']);
+                    if ( !empty($_FILES['image']['name'][0]) ) {
                         chmod('assets/upload/cuisine/' . $unique_slug, 0777);
-                        $images = $this->upload_image('image', 'assets/upload/cuisine/' . $unique_slug, $_FILES['image']['name']);
+                        $new_images = $this->upload_multiple_image('assets/upload/cuisine/'.$unique_slug, 'image');
+                        if($new_images){
+                            $this->check_multiple_imgs($_FILES['image']['name'], $_FILES['image']['size']);
+                            $images = array_values(array_merge($old_images, $new_images));
+                        }
                     }
 
                     $data = array(
                         'slug' => $unique_slug,
+                        'is_active' => 0,
                         'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
                         'title_vi' => $this->input->post('title_vi'),
                         'title_en' => $this->input->post('title_en'),
@@ -154,8 +162,8 @@ class Cuisine extends Admin_Controller{
                         'description_en' => $this->input->post('description_en'),
                         'cuisine_category_id' => $this->input->post('cuisine_category_id'),
                     );
-                    if ( !empty($_FILES['image']['name']) ) {
-                        $data['image'] = $images;
+                    if ( isset($images) ) {
+                        $data['image'] = json_encode($images);
                     }
                     $update = $this->cuisine_model->update($id,array_merge($data, $this->author_data));
                     if ($update) {
@@ -175,7 +183,9 @@ class Cuisine extends Admin_Controller{
     }
 
     public function remove(){
-        handle_common_permission($this->permission_admin);
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
         $id = $this->input->get('id');
         $data = array('is_deleted' => 1);
         $update = $this->cuisine_model->update($id, $data);
@@ -275,5 +285,114 @@ class Cuisine extends Admin_Controller{
         }else{
             return $this->return_api(HTTP_SUCCESS,'','', true);
         }
+    }
+    public function remove_image_multiple(){
+        $id = $this->input->get('id');
+        $detail = $this->cuisine_model->find($id);
+        if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+            if(!handle_common_permission_active_and_remove()){
+                return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+            }
+        }
+        $image = $this->input->get('image');
+        $array_image = json_decode($detail['image'],true);
+        $reponse = array(
+            'avatar' => '',
+            'error' => '',
+            'error_permission' => ''
+        );
+        if(count($array_image) == 1){
+            $reponse['error'] = 'error';
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_IMAGE_ERROR,$reponse);
+        }else{
+            $k = array_search($image,$array_image);
+            unset($array_image[$k]);
+            $array_image = array_values($array_image);
+        }
+        $data['image'] = json_encode($array_image);
+        $data['is_active'] = 0;
+        if($detail['avatar'] == $image){
+            $data['avatar'] = $array_image[0];
+        }
+        $update = $this->cuisine_model->update($id, $data);
+        if($update == 1){
+            if($image != '' && file_exists('assets/upload/cuisine/'.$detail['slug'].'/'.$image)){
+                $this->remove_img($detail['slug'],$image);
+            }
+            if(isset($data['avatar'])){
+                $reponse['avatar'] = $data['avatar'];
+            }
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_SUCCESS,$reponse);
+        }
+        return $this->return_api(HTTP_SUCCESS,MESSAGE_REMOVE_ERROR,$reponse);
+    }
+    protected function remove_img($unique_slug = '',$image= ''){
+        if(file_exists('assets/upload/cuisine/'.$unique_slug.'/'.$image)){
+            unlink('assets/upload/cuisine/'.$unique_slug.'/'.$image);
+        }
+    }
+    public function img_activated(){
+        if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+            if(!handle_common_permission_active_and_remove()){
+                return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+            }
+        }
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->cuisine_model->find($id);
+        if($detail['avatar'] != $image){
+            $avatar = $image;
+            $update_activated = "1";
+        }else{
+            $avatar = "";
+            $update_activated = "0";
+        }
+        $data = array('avatar' => $avatar,'is_active' => 0);
+        $update = $this->cuisine_model->update($id, $data);
+        $reponse = array(
+            'update_activated' => $update_activated,
+            'error_permission' => ''
+        );
+        if($update == 1){
+            return $this->return_api(HTTP_SUCCESS,MESSAGE_UPDATE_SUCCESS,$reponse);
+        }
+        return $this->return_api(HTTP_SUCCESS,MESSAGE_UPDATE_ERROR,$reponse);
+    }
+    public function active(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $data = array('is_active' => 1);
+        $update = $this->cuisine_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $data = array('is_active' => 0);
+        $update = $this->cuisine_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 }

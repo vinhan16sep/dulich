@@ -31,9 +31,8 @@ $('.btn-remove').click(function(event){
                 }
             },
             error: function(jqXHR, exception){
-                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
                     alert(jqXHR.responseJSON.message);
-                    location.reload();
                 }else{
                     console.log(errorHandle(jqXHR, exception));
                 }
@@ -150,7 +149,12 @@ $('.common-image').on('click', '.active-avatar', function(){
 $('.btn-active').click(function(){
     var url = $(this).data('url');
     var id = $(this).data('id');
-    if (confirm("Chắc chắn duyệt bài viết?")) {
+    var name = $(this).data('name');
+    if($(this).data('is_active') == '1'){
+        alert(`Không thể duyệt ${name} nữa. Vì ${name} hiện đã được duyệt`);
+        return false;
+    }
+    if (confirm(`Chắc chắn duyệt ${name}?`)) {
         $.ajax({
             method: "get",
             url: url,
@@ -158,14 +162,15 @@ $('.btn-active').click(function(){
                 id : id
             },
             success: function(response){
+                alert(`Duyệt ${name} thành công`);
                 if (response.status == 200 && response.isExisted) {
                     $('.is-active-' + id).html('<span class="label label-success">Đã duyệt</span>');
+                    $(`.remove-${id} [class*=active]`).data('is_active','1');
                 }
             },
             error: function(jqXHR, exception){
-                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
-                    alert(jqXHR.responseJSON.message);
-                    location.reload();
+                if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
+                    alert(`Duyệt ${name} thất bại`);
                 }else{
                     console.log(errorHandle(jqXHR, exception));
                 }
@@ -178,7 +183,12 @@ $('.btn-active').click(function(){
 $('.btn-deactive').click(function(){
     var url = $(this).data('url');
     var id = $(this).data('id');
-    if (confirm("Chắc chắn tắt bài viết?")) {
+    var name = $(this).data('name');
+    if($(this).data('is_active') == '0'){
+        alert(`${name} hiện chưa được duyệt nên bạn không thể hủy duyệt`);
+        return false;
+    }
+    if (confirm(`Chắc chắn tắt ${name}?`)) {
         $.ajax({
             method: "get",
             url: url,
@@ -188,15 +198,17 @@ $('.btn-deactive').click(function(){
             success: function(response){
                 if (response.status == 200 && response.isExisted) {
                     $('.is-active-' + id).html('<span class="label label-warning">Chờ duyệt</span>');
+                    console.log($(this).closest('td'));
+                    $(`.remove-${id} [class*=active]`).data('is_active','0');
+                    alert(`Tắt ${name} thành công`);
                 }
                 if (response.status == 200 && response.isExisted == false) {
-                    alert(response.message);
+                    alert(`Tắt ${name} thành công`);
                 }
             },
             error: function(jqXHR, exception){
-                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
-                    alert(jqXHR.responseJSON.message);
-                    location.reload();
+                if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
+                    alert(`Tắt ${name} thất bại`);
                 }else{
                     console.log(errorHandle(jqXHR, exception));
                 }
@@ -225,6 +237,15 @@ $('.btn-deactive').click(function(){
 //         });
 //     }
 // });
+
+$('#update').click(function(){
+    // var name = $(this).hasClass('is_category') ? 'Danh mục' : 'bài viết' ;
+    var name = 'bài viết';
+    if(confirm(`Chắc chắn thay đổi nếu thay đổi ${name} sẽ ở trạng thái trờ duyệt?`)){
+        return true;
+    }
+    return false;
+});
 
 
 //old code
