@@ -52,7 +52,7 @@
             .container{
                 @include translate(0, -46px);
 
-                ul{
+                .nav{
                     margin-bottom: 0;
 
                     border-bottom: 3px solid $primary-base;

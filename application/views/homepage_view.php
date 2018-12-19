@@ -149,14 +149,23 @@
 				<h3>Blog Review</h3>
 			</div>
 			<div class="body">
-				<div class="owl-carousel">
-					<?php for ($i = 0; $i < 5; $i++ ) { ?>
+				<div class="owl-carousel post-list">
+                    <?php for ($i = 0; $i < 7; $i++) { ?>
 						<div class="item">
 							<div class="mask">
-								<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Event <?php echo $i+1 ?>">
+								<img src="https://images.unsplash.com/photo-1545095572-9bfd2666d3e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80" alt="Image Slide">
+							</div>
+							<div class="content">
+								<span class="badge">Badge Subtitle</span>
+								<h3>Post Title</h3>
+								<p class="text-wrapper">Description</p>
+
+								<a href="<?php ?>" class="btn btn-primary" role="button">
+									View Detail
+								</a>
 							</div>
 						</div>
-					<?php } ?>
+                    <?php } ?>
 				</div>
 			</div>
 		</div>
@@ -168,6 +177,8 @@
 
 <!-- Mansory Layout js -->
 <script src="<?php echo site_url('assets/js/masonry.pkgd.min.js') ?>"></script>
+<!-- imagedLoaded js -->
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script>
 	$(document).ready(function(){
         // init Masonry
@@ -183,7 +194,20 @@
             $grid.masonry('layout');
         });
 
-        $(".owl-carousel").owlCarousel();
+        $(".owl-carousel").owlCarousel({
+            items: 3,
+            loop: true,
+            margin: 30,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                }
+            }
+		});
 	});
 </script>
 
