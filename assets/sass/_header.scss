@@ -78,6 +78,14 @@ TABLETS (less than 1200px)
 @media (max-width: 1199.98px){
     header{
         nav{
+            .nav-main{
+                width: 100%;
+
+                position: fixed;
+                top: 0;
+                left: 100%;
+            }
+
             .nav-expand{
                 display: block;
             }
@@ -94,6 +102,14 @@ MOBILE (less than 1024px)
 @media (max-width: 767.98px){
     header{
         nav{
+            .nav-main{
+                width: 100%;
+
+                position: fixed;
+                top: 0;
+                left: 100%;
+            }
+
             .nav-expand{
                 display: block;
             }

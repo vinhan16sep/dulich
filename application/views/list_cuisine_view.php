@@ -1,4 +1,4 @@
-<section id="events">
+<section id="cuisine">
     <div id="slide" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <?php for ($i = 0; $i < 3; $i++) { ?>
@@ -32,42 +32,42 @@
         </a>
     </div>
 
-    <div class="container-fluid" id="list-events">
+    <div class="container-fluid" id="list-cuisine">
         <div class="container">
-			<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
                 <?php for ($j = 0; $j < 3; $j++) { ?>
-					<li class="nav-item">
-						<a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
-							Region <?php echo $j+1 ?> of Vietnam
-						</a>
-					</li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
+                            Region <?php echo $j+1 ?> of Vietnam
+                        </a>
+                    </li>
                 <?php } ?>
-			</ul>
+            </ul>
 
-			<div class="tab-content" id="pills-tabContent">
-				<div class="tab-content" id="pills-tabContent">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-content" id="pills-tabContent">
                     <?php for ($j = 0; $j < 3; $j++) { ?>
-						<div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
-							<div class="row">
+                        <div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
+                            <div class="row">
                                 <?php for ($i = 0; $i < 6; $i++) { ?>
-									<div class="item col-xs-12 col-lg-6">
-										<div class="mask">
-											<img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Destination <?php echo $i+1 ?> ">
+                                    <div class="item col-xs-12 col-lg-6">
+                                        <div class="mask">
+                                            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Destination <?php echo $i+1 ?> ">
 
-											<div class="content">
-												<h4>Province</h4>
-												<p>Description</p>
+                                            <div class="content">
+                                                <h4>Province</h4>
+                                                <p>Description</p>
 
-												<h6>Date</h6>
-											</div>
-										</div>
-									</div>
+                                                <h6>Date</h6>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php } ?>
-							</div>
-						</div>
+                            </div>
+                        </div>
                     <?php } ?>
-				</div>
-			</div>
+                </div>
+            </div>
 
             <div class="see-more">
                 <button class="btn btn-default" type="button">
