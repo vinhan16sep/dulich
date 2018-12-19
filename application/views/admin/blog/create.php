@@ -34,16 +34,18 @@
                             </div>
                             <br>
                         </div>
-                        <div class="form-group col-xs-12" id="box_is_top">
-                            <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
-                                <label style="font-weight: bold;">
-                                <?php
-                                    echo form_checkbox('is_top', 1, false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
-                                ?>Chọn sự kiện lên top?
-                                <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
-                                </label>
+                        <?php if (handle_common_permission_active_and_remove()): ?>
+                            <div class="form-group col-xs-12" id="box_is_top">
+                                <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
+                                    <label style="font-weight: bold;">
+                                    <?php
+                                        echo form_checkbox('is_top', 1, false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
+                                    ?>Chọn sự kiện lên top?
+                                    <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif ?>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php

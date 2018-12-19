@@ -39,6 +39,7 @@
                             </div>
                             <br>
                         </div>
+                        <?php if (handle_common_permission_active_and_remove()): ?>
                         <div class="form-group col-xs-12" id="box_is_top">
                             <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
                                 <label style="font-weight: bold;">
@@ -49,6 +50,7 @@
                                 </label>
                             </div>
                         </div>
+                        <?php endif ?>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
