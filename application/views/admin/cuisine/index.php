@@ -39,10 +39,10 @@
 
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/province/create') ?>" class="btn btn-primary"  >Thêm mới</a>
+                            <a href="<?php echo base_url('admin/cuisine/create') ?>" class="btn btn-primary"  >Thêm mới</a>
                         </div>
                         <div class="col-md-6">
-                            <form action="<?php echo base_url('admin/province/index') ?>" method="get">
+                            <form action="<?php echo base_url('admin/cuisine/index') ?>" method="get">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="<?= $keywords ?>">
                                     <span class="input-group-btn">
@@ -62,9 +62,8 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tên Tỉnh / Thành phố Tiếng Việt</th>
-                                    <th>Tên Tỉnh / Thành phố Tiếng Anh</th>
-                                    <th>Vùng miền</th>
+                                    <th>Tiêu đề món ăn</th>
+                                    <th>Danh mục</th>
                                     <th>Duyệt Bài</th>
                                     <th>Action</th>
                                 </tr>
@@ -77,43 +76,25 @@
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
-                                                        <?php if ( json_decode($value['image']) ): ?>
-                                                            <img src="<?= base_url('assets/upload/province/' . $value['slug'] . '/' . json_decode($value['image'])[0] ) ?>"  width=150px>
-                                                        <?php endif ?>
+                                                        <img src="<?= base_url('assets/upload/cuisine/' . $value['slug'] . '/' . $value['image']) ?>"  width=150px height=100px>
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
-                                                <td><?= $value['title_en'] ?></td>
-                                                <td><?= $region[$value['region_id']] ?></td>
-                                                <td class="is-active-<?= $value['id'] ?>">
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
-                                                    <?php
-                                                        if ($value['is_active'] == 0) {
-                                                            echo '<span class="label label-warning">Chờ duyệt</span>';
-                                                        }else{
-                                                            echo '<span class="label label-success">Đã duyệt</span>';
-                                                        }
-                                                    ?>
+                                                <td><?= $value['title'] ?></td>
+                                                <td>
+                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/cuisine/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/province/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
+                                                    <a href="<?= base_url('admin/cuisine/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="<?= base_url('admin/province/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
+                                                    <a href="<?= base_url('admin/cuisine/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/remove' ) ?>"  data-name="tỉnh / thành phố" style="color: #d9534f" title="Xóa">
+                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/cuisine/remove' ) ?>" data-name="sự kiện" style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/active' ) ?>" style="color: #00a65a" >
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/deactive' ) ?>" style="color: #f0ad4e">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -122,7 +103,7 @@
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="6">
-                                                Chưa có tỉnh / thành phố nào được tạo
+                                                Chưa món ăn nào được tạo
                                             </td>
                                             
                                         </tr>
@@ -134,10 +115,10 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tên Tỉnh / Thành phố Tiếng Việt</th>
-                                            <th>Tên Tỉnh / Thành phố Tiếng Anh</th>
+                                            <th>Tiêu đề món ăn</th>
+                                            <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
-                                            <th>Duyệt Bài</th>
+                                            <th>Duyệt món ăn</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

@@ -24,12 +24,24 @@
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
                         </div>
+                        <div class="form-group col-xs-12 common-avatar">
+                            <label for="image">Ảnh đại diện</label><br />
+                            <?php if ( $detail['avatar'] ): ?>
+                                <img src="<?php echo base_url('assets/upload/blog/' . $detail['slug'] . '/' . $detail['avatar']) ?>" data-image="<?= $detail['avatar'] ?>" width="150" id="avatar">
+                            <?php endif ?>
+                        </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <label for="image">Hình ảnh đang sử dụng</label><br />
                                 <?php if ( json_decode($detail['image']) ): ?>
                                     <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                        <img src="<?php echo base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value) ?>" width="150">
+                                        <?php if ($value !== $detail['avatar']): ?>
+                                            <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
+                                                <img src="<?php echo base_url('assets/upload/blog/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" max-height="180px">
+                                                <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/blog/active_avatar') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="blog" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:black; top:0px;right:30px;"></i>
+                                                <i class="fa-2x fa fa-times remove-image" title="Xóa hình ảnh" data-url="<?= base_url('admin/blog/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                            </div>
+                                        <?php endif ?>
                                     <?php endforeach ?>
                                 <?php endif ?>
                             </div>
@@ -46,11 +58,12 @@
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
-                                <?php
-                                echo form_label('Chọn bài biết lên top?', 'is_top');
-                                echo form_error('is_top') . '<br />';
-                                echo form_checkbox('is_top', 1, ($detail['is_top'] == 1) ? true : false, 'class="" id="is_top"');
-                                ?>
+                                <label style="font-weight: bold;">
+                                    <?php
+                                        echo form_checkbox('is_top', 1, ($detail['is_top'] == 1) ? true : false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
+                                    ?>Chọn sự kiện lên top?
+                                    <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                </label>
                             </div>
                         </div>
                         <div class="form-group col-xs-12">
@@ -172,4 +185,5 @@
         </div>
     </section>
 </div>
+<script src="<?php echo base_url('assets/js/admin/');?>admin.js" type="text/javascript" charset="utf-8" async defer></script>
 

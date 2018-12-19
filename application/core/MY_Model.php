@@ -74,12 +74,38 @@ class MY_Model extends CI_Model {
 
         return $result = $this->db->get()->result_array();
     }
+    public function get_all_with_pagination_join_cayegory_search_by_create_by($limit = NULL, $start = NULL, $keywords) {
+        $username = $this->ion_auth->user()->row()->username;
+        $this->db->select($this->table .'.*, '. $this->table . '_category.title_vi as title');
+        $this->db->from($this->table);
+        $this->db->join($this->table . '_category', $this->table .'.cuisine_category_id = '. $this->table . '_category.' .'id');
+        if ( !empty($keywords) ){
+            $this->db->like($this->table .'.title_vi', $keywords)->or_like($this->table .'.title_en', $keywords);
+        }
+        $this->db->where($this->table .'.is_deleted', 0);
+        if ($this->ion_auth->in_group('mod')) {
+            $this->db->where($this->table .'.created_by', $username);
+        }
+        $this->db->limit($limit, $start);
+        $this->db->order_by($this->table .".id", "desc");
+
+        return $result = $this->db->get()->result_array();
+    }
 
     public function get_all(){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_deleted', 0);
         $this->db->order_by("id", "desc");
+        return $this->db->get()->result_array();
+    }
+    public function get_by_region_all($reion_id){
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->from($this->table);
+        $this->db->join('province', $this->table .'.province_id = province.id');
+        $this->db->where($this->table.'.is_deleted', 0);
+        $this->db->where($this->table.'.is_active', 0);
+        $this->db->order_by($this->table.".id", "desc");
         return $this->db->get()->result_array();
     }
 
@@ -156,11 +182,35 @@ class MY_Model extends CI_Model {
         $this->db->where(array('id' => $id,'is_deleted' => 0));
         return $this->db->get($this->table)->row_array();
     }
+    public function find_slug($slug){
+        $this->db->where(array('slug' => $slug,'is_deleted' => 0,'is_active' => 0));
+        return $this->db->get($this->table)->row_array();
+    }
+    public function get_related($region_id, $not_id, $number = 3){
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->join('province', $this->table .'.province_id = province.id');
+        $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 0, $this->table.'.region_id' => $region_id));
+        $this->db->where($this->table.".id != $not_id");
+        $this->db->limit($number, 0);
+        $this->db->order_by($this->table.".id", "desc");
+        return $this->db->get($this->table)->result_array();
+    }
     public function get_where_array($array){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where($array);
         return $result = $this->db->get()->result_array();
+    }
+
+    public function count_is_top($is_top, $id_category = ''){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_top', $is_top);
+        $this->db->where('is_deleted', 0);
+        if(!empty($id_category)){
+            $this->db->where($this->table.'_category_id', $id_category);
+        }
+        return $this->db->count_all_results();
     }
 }

@@ -3,12 +3,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Vùng miền</small>
+            <small>Sự kiện</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Vùng miền</li>
+            <li class="active">Sự kiện</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -18,18 +18,18 @@
             <div class="col-md-9">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Chi tiết <?= $detail['title_vi'] ?></h3>
+                        <h3 class="box-title">Chi tiết: <span class="label label-success"><?= $detail['title_vi'] ?></span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
                             <div class="detail-image col-md-6">
-                                <label>Hình ảnh</label>
+                                <label>Ảnh đại diện</label>
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
-                                            <?php if ( json_decode($detail['image']) ): ?>
-                                                <img src="<?= base_url('assets/upload/region/' . $detail['slug'] . '/' . json_decode($detail['image'])[0] ) ?>" alt="Image Detail" width=100%>    
+                                            <?php if ( $detail['image'] ): ?>
+                                                <img src="<?= base_url('assets/upload/cuisine_category/' . $detail['slug'] . '/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
                                             <?php endif ?>
                                         </div>
                                     </div>
@@ -41,7 +41,12 @@
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <th colspan="2">Thông tin cơ bản</th>
+                                                <th>Vùng miền</th>
+                                                <td><?= $region['title_vi'] ?></td>
+                                            </tr>
+                                            <tr class="hidden">
+                                                <th>Tỉnh / Thành phố</th>
+                                                <td><?= $province ? $province['title_vi'] : '(Không có)' ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>
@@ -49,22 +54,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin: 20px 0px;">
-                                <label>Hình ảnh</label>
-                                <div class="row">
-                                    <?php if ( json_decode($detail['image']) ): ?>
-                                        <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                            <?php if ($value != $detail['avatar']): ?>
-                                                <div class="item col-md-3">
-                                                    <div class="mask">
-                                                        <img src="<?= base_url('assets/upload/region/' . $detail['slug'] . '/' . $value ) ?>" alt="Image Detail" width=100%>    
-                                                    </div>
-                                                </div>
-                                            <?php endif ?>
-                                        <?php endforeach ?>
-                                    <?php endif ?>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -92,7 +81,7 @@
                                                         <td> <?= $detail['title_vi'] ?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Giới thiệu: </th>
+                                                        <th style="width: 100px">Nội dung: </th>
                                                         <td> <?= $detail['description_vi'] ?> </td>
                                                     </tr>
                                                 </tbody>
@@ -108,7 +97,7 @@
                                                         <td> <?= $detail['title_en'] ?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Description: </th>
+                                                        <th style="width: 100px">Body: </th>
                                                         <td> <?= $detail['description_en'] ?> </td>
                                                     </tr>
                                                 </tbody>
@@ -130,7 +119,7 @@
                         <h3 class="box-title">Edit Information</h3>
                     </div>
                     <div class="box-body">
-                        <a href="<?= base_url('admin/region/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
+                        <a href="<?= base_url('admin/cuisine_category/edit/' . $detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
                     </div>
                 </div>
             </div>

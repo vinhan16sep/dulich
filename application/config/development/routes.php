@@ -62,6 +62,8 @@ $route['^hu$'] = $route['default_controller'];
 $route['admin'] = 'admin/dashboard';
 
 
+$route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/detail/$1';
+
 $route['san-pham/([a-zA-Z0-9-_]+)'] = 'product/detail/$1';
 $route['nhom/([a-zA-Z0-9-_]+)'] = 'product/category/$1';
 

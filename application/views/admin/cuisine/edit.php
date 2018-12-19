@@ -2,9 +2,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Cập Nhật 
+            Cập nhật
             <small>
-                Vùng Miền
+                sự kiện
             </small>
         </h1>
     </section>
@@ -19,40 +19,40 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Thông tin cơ bản</h4>
+                            <h4 class="box-title">Cập nhật sự kiện: <?= $detail['title_vi'] ?></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
                         </div>
-                        <div class="form-group col-xs-12 common-avatar">
-                            <label for="image">Ảnh đại diện</label><br />
-                            <?php if ( $detail['avatar'] ): ?>
-                                <img src="<?php echo base_url('assets/upload/province/' . $detail['slug'] . '/' . $detail['avatar']) ?>" data-image="<?= $detail['avatar'] ?>" width="150" id="avatar">
-                            <?php endif ?>
-                        </div>
                         <div class="form-group col-xs-12">
-                            <label for="image">Hình ảnh đang sử dụng</label><br />
-                            <?php if ( json_decode($detail['image']) ): ?>
-                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
-                                    <?php if ($value !== $detail['avatar']): ?>
-                                        <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image" style="position: relative;padding-right:0px;padding-left: 10px; margin-bottom: 10px;">
-                                            <img src="<?php echo base_url('assets/upload/province/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" max-height="180px">
-                                            <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/province/active_avatar') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="province" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:black; top:0px;right:30px;"></i>
-                                            <i class="fa-2x fa fa-times remove-image" title="Xóa hình ảnh" data-url="<?= base_url('admin/province/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
-                                        </div>
-                                    <?php endif ?>
-                                <?php endforeach ?>
-                            <?php endif ?>
+                            <div class="form-group col-xs-12">
+                                <label for="image">Hình ảnh đang sử dụng</label><br />
+                                <?php if ( $detail['image'] ): ?>
+                                    <img src="<?php echo base_url('assets/upload/cuisine/' . $detail['slug'] . '/' . $detail['image']) ?>" width="150">
+                                <?php else: ?>
+                                    Hiện chưa có hình ảnh cho sự kiện
+                                <?php endif ?>
+                            </div>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
-                                echo form_label('Hình ảnh', 'image');
+                                echo form_label('Hình ảnh (Dung lượng ảnh phải nhỏ hơn 1.2Mb)', 'image');
                                 echo form_error('image');
-                                echo form_upload('image[]', set_value('image'), 'class="form-control" multiple');
+                                echo form_upload('image', set_value('image'), 'class="form-control"');
                                 ?>
                             </div>
                             <br>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <label style="font-weight: bold;">
+                                    <?php
+                                        echo form_checkbox('is_top', 1, ($detail['is_top'] == 1) ? true : false, 'class="" id="is_top" data-url="'.base_url('admin/cuisine/check_top').'" data-id="null"');
+                                    ?>Chọn sự kiện lên top?
+                                    <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
@@ -66,9 +66,9 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
-                                echo form_label('Vùng miền', 'region_id');
-                                echo form_error('region_id');
-                                echo form_dropdown('region_id', $region, $detail['region_id'], 'class="form-control"');
+                                echo form_label('Vùng miền', 'cuisine_category_id');
+                                echo form_error('cuisine_category_id');
+                                echo form_dropdown('cuisine_category_id', $cuisine_category, $detail['cuisine_category_id'], 'class="form-control" id="cuisine_category_id" data-url="'. base_url('admin/cuisine/get_province') .'" ');
                                 ?>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 </li>
                                 <li role="presentation" class="">
                                     <a href="#language_en" aria-controls="" role="tab" data-toggle="tab">
-                                        <span class="badge">2</span> Tiếng Anh
+                                        <span class="badge">2</span> English
                                     </a>
                                 </li>
                             </ul>
@@ -133,3 +133,5 @@
         </div>
     </section>
 </div>
+<script src="<?php echo base_url('assets/js/admin/');?>admin.js" type="text/javascript" charset="utf-8" async defer></script>
+
