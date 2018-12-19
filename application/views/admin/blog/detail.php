@@ -4,12 +4,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Vùng miền</small>
+            <small>Bài viết</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Vùng miền</li>
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/blog') ?>"><i class="fa fa-dashboard"></i> Danh sách bài viết</a></li>
+            <li class="active">Chi tiết bài viết</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -64,6 +64,22 @@
                                             <tr>
                                                 <th>Slug</th>
                                                 <td><?= $detail['slug'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản tạo bài viết</th>
+                                                <td><?= $detail['created_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian tạo bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['created_at'])) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản cập nhật bài viết</th>
+                                                <td><?= $detail['updated_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian cập nhật bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['updated_at'])) ?></td>
                                             </tr>
                                         </tbody>
                                     </table>

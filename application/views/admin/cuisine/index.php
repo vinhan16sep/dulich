@@ -6,9 +6,13 @@
         <h1>
             Danh sách
             <small>
-                Tỉnh / Thành phố
+                Món ăn
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/cuisine') ?>"><i class="fa fa-dashboard"></i> Danh sách món ăn</a></li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -62,7 +66,8 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tiêu đề món ăn</th>
+                                    <th>Tên món ăn Tiếng Việt</th>
+                                    <th>Tên món ăn Tiếng Anh</th>
                                     <th>Danh mục</th>
                                     <th>Duyệt Bài</th>
                                     <th>Action</th>
@@ -82,6 +87,7 @@
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
+                                                <td><?= $value['title_en'] ?></td>
                                                 <td><?= $value['title'] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
                                                     <?php
@@ -133,7 +139,8 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tiêu đề món ăn</th>
+                                            <th>Tên món ăn Tiếng Việt</th>
+                                            <th>Tên món ăn Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
                                             <th>Duyệt món ăn</th>

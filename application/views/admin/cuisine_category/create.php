@@ -4,9 +4,14 @@
         <h1>
             Thêm mới
             <small>
-                Bài viết
+                Danh mục món ăn
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/cuisine_category') ?>"><i class="fa fa-dashboard"></i> Danh sách danh mục món ăn</a></li>
+            <li class="active">Thêm mới danh mục món ăn</li>
+        </ol>
     </section>
 
     <!-- Main content -->

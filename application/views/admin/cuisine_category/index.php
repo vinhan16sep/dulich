@@ -6,9 +6,13 @@
         <h1>
             Danh sách
             <small>
-                danh mục món ăn
+                Danh mục món ăn
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/cuisine_category') ?>"><i class="fa fa-dashboard"></i> Danh sách danh mục món ăn</a></li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -62,7 +66,8 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tiêu đề danh mục</th>
+                                    <th>Tên danh mục Tiếng Việt</th>
+                                    <th>Tên danh mục Tiếng Anh</th>
                                     <th class="hidden">Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
                                     <th>Duyệt Bài</th>
@@ -81,6 +86,7 @@
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
+                                                <td><?= $value['title_en'] ?></td>
                                                 <td  class="hidden"><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
@@ -133,7 +139,8 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tiêu đề danh mục</th>
+                                            <th>Tên danh mục Tiếng Việt</th>
+                                            <th>Tên danh mục Tiếng Anh</th>
                                             <th class="hidden">Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
                                             <th>Duyệt danh mục</th>

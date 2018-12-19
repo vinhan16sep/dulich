@@ -4,9 +4,14 @@
         <h1>
             Cập nhật
             <small>
-                danh mục món ăn
+                Danh mục món ăn
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/cuisine_category') ?>"><i class="fa fa-dashboard"></i> Danh sách danh mục món ăn</a></li>
+            <li class="active">Cập nhật danh mục món ăn</li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -19,7 +24,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Cập nhật danh mục món ăn: <?= $detail['title_vi'] ?></h4>
+                            <h4 class="box-title">Cập nhật danh mục món ăn: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>

@@ -112,9 +112,11 @@ class Cuisine extends Admin_Controller{
 
             $detail = $this->cuisine_model->find($id);
             $this->data['detail'] = $detail;
-            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
-                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
-                redirect('admin/cuisine/index', 'refresh');
+            if ( $this->ion_auth->in_group('mod') ) {
+                if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                    $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                    redirect('admin/cuisine/index', 'refresh');
+                }
             }
 
             $this->load->helper('form');

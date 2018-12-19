@@ -24,7 +24,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Thông tin cơ bản</h4>
+                            <h4 class="box-title">Cập nhật vùng miền: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>

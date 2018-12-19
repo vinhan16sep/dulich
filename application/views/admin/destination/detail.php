@@ -59,6 +59,22 @@
                                                 <th>Slug</th>
                                                 <td><?= $detail['slug'] ?></td>
                                             </tr>
+                                            <tr>
+                                                <th>Tài khoản tạo bài viết</th>
+                                                <td><?= $detail['created_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian tạo bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['created_at'])) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản cập nhật bài viết</th>
+                                                <td><?= $detail['updated_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian cập nhật bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['updated_at'])) ?></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

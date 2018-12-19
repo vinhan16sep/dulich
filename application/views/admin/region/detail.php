@@ -18,7 +18,7 @@
             <div class="col-md-9">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Chi tiết <?= $detail['title_vi'] ?></h3>
+                        <h3 class="box-title">Chi tiết <span class="label label-success"><?= $detail['title_vi'] ?></span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -46,6 +46,22 @@
                                             <tr>
                                                 <th>Slug</th>
                                                 <td><?= $detail['slug'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản tạo bài viết</th>
+                                                <td><?= $detail['created_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian tạo bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['created_at'])) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản cập nhật bài viết</th>
+                                                <td><?= $detail['updated_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian cập nhật bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['updated_at'])) ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
