@@ -92,10 +92,13 @@ class MY_Model extends CI_Model {
         return $result = $this->db->get()->result_array();
     }
 
-    public function get_all(){
+    public function get_all($is_active = null){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_deleted', 0);
+        if($is_active != null){
+            $this->db->where('is_active',$is_active);
+        }
         $this->db->order_by("id", "desc");
         return $this->db->get()->result_array();
     }
@@ -104,7 +107,7 @@ class MY_Model extends CI_Model {
         $this->db->from($this->table);
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where($this->table.'.is_deleted', 0);
-        $this->db->where($this->table.'.is_active', 0);
+        $this->db->where($this->table.'.is_active', 1);
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get()->result_array();
     }
@@ -183,13 +186,13 @@ class MY_Model extends CI_Model {
         return $this->db->get($this->table)->row_array();
     }
     public function find_slug($slug){
-        $this->db->where(array('slug' => $slug,'is_deleted' => 0,'is_active' => 0));
+        $this->db->where(array('slug' => $slug,'is_deleted' => 0,'is_active' => 1));
         return $this->db->get($this->table)->row_array();
     }
     public function get_related($region_id, $not_id, $number = 3){
         $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
         $this->db->join('province', $this->table .'.province_id = province.id');
-        $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 0, $this->table.'.region_id' => $region_id));
+        $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 1, $this->table.'.region_id' => $region_id));
         $this->db->where($this->table.".id != $not_id");
         $this->db->limit($number, 0);
         $this->db->order_by($this->table.".id", "desc");

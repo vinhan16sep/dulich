@@ -67,7 +67,7 @@
                                     <th>Tên bài viết phố Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
-                                    <th>Chờ duyệt</th>
+                                    <th>Duyệt bài</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -145,7 +145,7 @@
                                             <th>Tên bài viết phố Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
-                                            <th>Chờ duyệt</th>
+                                            <th>Duyệt bài</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

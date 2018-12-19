@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 02:13 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 19, 2018 lúc 06:19 PM
+-- Phiên bản máy phục vụ: 10.1.22-MariaDB
+-- Phiên bản PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dulich_db`
+-- Cơ sở dữ liệu: `dulich_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about`
+-- Cấu trúc bảng cho bảng `about`
 --
 
 CREATE TABLE `about` (
@@ -41,7 +41,7 @@ CREATE TABLE `about` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `about`
+-- Đang đổ dữ liệu cho bảng `about`
 --
 
 INSERT INTO `about` (`id`, `image`, `is_deleted`, `facebook`, `instagram`, `created_at`, `created_by`, `modified_at`, `modified_by`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `about` (`id`, `image`, `is_deleted`, `facebook`, `instagram`, `crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about_lang`
+-- Cấu trúc bảng cho bảng `about_lang`
 --
 
 CREATE TABLE `about_lang` (
@@ -66,7 +66,7 @@ CREATE TABLE `about_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `about_lang`
+-- Đang đổ dữ liệu cho bảng `about_lang`
 --
 
 INSERT INTO `about_lang` (`id`, `about_id`, `name`, `slug`, `position`, `description`, `language`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `about_lang` (`id`, `about_id`, `name`, `slug`, `position`, `descrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner`
+-- Cấu trúc bảng cho bảng `banner`
 --
 
 CREATE TABLE `banner` (
@@ -97,7 +97,7 @@ CREATE TABLE `banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `banner`
+-- Đang đổ dữ liệu cho bảng `banner`
 --
 
 INSERT INTO `banner` (`id`, `image`, `is_actived`, `text`, `url`, `created_at`, `created_by`, `modified_at`, `modified_by`, `is_deleted`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `banner` (`id`, `image`, `is_actived`, `text`, `url`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
+-- Cấu trúc bảng cho bảng `blog`
 --
 
 CREATE TABLE `blog` (
@@ -137,7 +137,7 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `blog`
+-- Đang đổ dữ liệu cho bảng `blog`
 --
 
 INSERT INTO `blog` (`id`, `avatar`, `image`, `region_id`, `province_id`, `author`, `nationality`, `title_vi`, `title_en`, `slug`, `description_vi`, `description_en`, `body_vi`, `body_en`, `is_top`, `is_active`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
@@ -149,7 +149,7 @@ INSERT INTO `blog` (`id`, `avatar`, `image`, `region_id`, `province_id`, `author
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ci_sessions`
+-- Cấu trúc bảng cho bảng `ci_sessions`
 --
 
 CREATE TABLE `ci_sessions` (
@@ -160,7 +160,7 @@ CREATE TABLE `ci_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `ci_sessions`
+-- Đang đổ dữ liệu cho bảng `ci_sessions`
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
@@ -169,7 +169,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -188,7 +188,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `comment`
+-- Đang đổ dữ liệu cho bảng `comment`
 --
 
 INSERT INTO `comment` (`id`, `product_id`, `user_id`, `content`, `ip_address`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_activated`, `rating`) VALUES
@@ -206,7 +206,7 @@ INSERT INTO `comment` (`id`, `product_id`, `user_id`, `content`, `ip_address`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `config_contact`
+-- Cấu trúc bảng cho bảng `config_contact`
 --
 
 CREATE TABLE `config_contact` (
@@ -219,7 +219,7 @@ CREATE TABLE `config_contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `config_contact`
+-- Đang đổ dữ liệu cho bảng `config_contact`
 --
 
 INSERT INTO `config_contact` (`id`, `title`, `data`, `config_send_mail`, `is_activated`, `is_deleted`) VALUES
@@ -233,12 +233,13 @@ INSERT INTO `config_contact` (`id`, `title`, `data`, `config_send_mail`, `is_act
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cuisine`
+-- Cấu trúc bảng cho bảng `cuisine`
 --
 
 CREATE TABLE `cuisine` (
   `id` int(11) NOT NULL,
   `image` text COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `title_vi` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description_vi` text COLLATE utf8_unicode_ci NOT NULL,
@@ -255,21 +256,21 @@ CREATE TABLE `cuisine` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cuisine`
+-- Đang đổ dữ liệu cho bảng `cuisine`
 --
 
-INSERT INTO `cuisine` (`id`, `image`, `title_vi`, `title_en`, `description_vi`, `description_en`, `is_active`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`, `slug`, `is_top`, `cuisine_category_id`) VALUES
-(1, '89e885a45ba6a3f439c98a83a7959c34.jpg', 'Tuyển dụng 2', 'Tuyển dụng 2', '', '', 0, 0, '2018-12-17 21:14:57', 'administrator', '2018-12-17 21:14:57', 'administrator', 'tuyen-dung-2', 1, 1),
-(2, '7e6ae4fc99abe93a93ee5d4272b342e2.jpg', 'Về Chúng Tôi', 'Về Chúng Tôi', '1', '2', 0, 0, '2018-12-17 21:36:38', 'administrator', '2018-12-17 21:36:38', 'administrator', 've-chung-toi', 1, 1),
-(3, 'c3a31ae96628bd3a00012fae0daca022.jpg', 'Tuyển dụng 3', 'Tuyển dụng 3', '', '', 0, 1, '2018-12-17 21:37:26', 'administrator', '2018-12-17 21:37:26', 'administrator', 'tuyen-dung-3', 1, 1),
-(4, 'bccb9b4e20f2cefa53a64f136b46b9fa.jpg', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', '', '', 0, 0, '2018-12-17 21:48:48', 'administrator', '2018-12-17 21:48:48', 'administrator', 'aaaaaaaaaaaaaa', 1, 3),
-(5, 'a0a6e673723d65b3745db11044614729.jpg', 'Tuyển dụng 4', 'Tuyển dụng 4', 'Tuyển dụng 4', 'Tuyển dụng 4', 0, 0, '2018-12-17 21:49:52', 'administrator', '2018-12-17 21:49:52', 'administrator', 'tuyen-dung-4', 1, 1),
-(6, '', 'testttttt', 'testttttt', 'testttttt', 'testttttt', 0, 0, '2018-12-19 20:09:50', 'mod', '2018-12-19 20:09:50', 'mod', 'testttttt', 0, 1);
+INSERT INTO `cuisine` (`id`, `image`, `avatar`, `title_vi`, `title_en`, `description_vi`, `description_en`, `is_active`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`, `slug`, `is_top`, `cuisine_category_id`) VALUES
+(1, '[\"89e885a45ba6a3f439c98a83a7959c34.jpg\"]', '89e885a45ba6a3f439c98a83a7959c34.jpg', 'Tuyển dụng 2', 'Tuyển dụng 2', '', '', 1, 0, '2018-12-17 21:14:57', 'administrator', '2018-12-17 21:14:57', 'administrator', 'tuyen-dung-2', 1, 1),
+(2, '[\"7e6ae4fc99abe93a93ee5d4272b342e2.jpg\"]', '7e6ae4fc99abe93a93ee5d4272b342e2.jpg', 'Về Chúng Tôi', 'Về Chúng Tôi', '1', '2', 1, 0, '2018-12-17 21:36:38', 'administrator', '2018-12-17 21:36:38', 'administrator', 've-chung-toi', 1, 1),
+(3, '[\"c3a31ae96628bd3a00012fae0daca022.jpg\"]', 'c3a31ae96628bd3a00012fae0daca022.jpg', 'Tuyển dụng 3', 'Tuyển dụng 3', '', '', 0, 1, '2018-12-17 21:37:26', 'administrator', '2018-12-17 21:37:26', 'administrator', 'tuyen-dung-3', 1, 1),
+(4, '[\"bccb9b4e20f2cefa53a64f136b46b9fa.jpg\"]', 'bccb9b4e20f2cefa53a64f136b46b9fa.jpg', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', '', '', 1, 0, '2018-12-17 21:48:48', 'administrator', '2018-12-17 21:48:48', 'administrator', 'aaaaaaaaaaaaaa', 1, 3),
+(5, '[\"a0a6e673723d65b3745db11044614729.jpg\"]', 'a0a6e673723d65b3745db11044614729.jpg', 'Tuyển dụng 4', 'Tuyển dụng 4', 'Tuyển dụng 4', 'Tuyển dụng 4', 0, 0, '2018-12-17 21:49:52', 'administrator', '2018-12-17 21:49:52', 'administrator', 'tuyen-dung-4', 1, 1),
+(7, '[\"4f4b50ed7993757c1889b09fd1bc5fc7.jpg\",\"ca7ee8345c25369a8d224aff1ce279ce.jpg\"]', '4f4b50ed7993757c1889b09fd1bc5fc7.jpg', 'Test', 'Test', 'Test', 'Test', 0, 0, '2018-12-19 23:22:44', 'modmod', '2018-12-19 23:22:44', 'modmod', 'test', 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cuisine_category`
+-- Cấu trúc bảng cho bảng `cuisine_category`
 --
 
 CREATE TABLE `cuisine_category` (
@@ -291,18 +292,18 @@ CREATE TABLE `cuisine_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cuisine_category`
+-- Đang đổ dữ liệu cho bảng `cuisine_category`
 --
 
 INSERT INTO `cuisine_category` (`id`, `image`, `region_id`, `province_id`, `slug`, `title_vi`, `title_en`, `description_vi`, `description_en`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_active`) VALUES
-(1, 'd19494cfbd94a0e9de204ee084d680c6.jpg', 2, 3, 'bai-viet-11', 'Bài viết 11', 'Bài viết 12', 'Bài viết 11', 'Bài viết 12', '2018-12-17 20:26:32', 'administrator', '2018-12-17 20:26:32', 'administrator', 0, 0),
+(1, 'd19494cfbd94a0e9de204ee084d680c6.jpg', 2, 3, 'bai-viet-11', 'Bài viết 11', 'Bài viết 12', 'Bài viết 11', 'Bài viết 12', '2018-12-17 20:26:32', 'administrator', '2018-12-17 20:26:32', 'administrator', 0, 1),
 (2, 'e2c9cf13f0b35be0d6ca2b3365d3f972.jpg', 2, 2, 'assssssssssssssssssss', 'assssssssssssssssssss', 'assssssssssssssssssss', '1', '2', '2018-12-17 20:21:17', 'administrator', '2018-12-17 20:21:17', 'administrator', 1, 0),
-(3, '5f0fe48ba5ea0101da25e653f6fd55f2.jpg', 2, 2, 'tuyen-dung-2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', '2018-12-17 21:37:06', 'administrator', '2018-12-17 21:37:06', 'administrator', 0, 0);
+(3, '5f0fe48ba5ea0101da25e653f6fd55f2.jpg', 2, 2, 'tuyen-dung-2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', '2018-12-20 00:18:48', 'administrator', '2018-12-20 00:18:48', 'administrator', 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Cấu trúc bảng cho bảng `events`
 --
 
 CREATE TABLE `events` (
@@ -330,7 +331,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `events`
+-- Đang đổ dữ liệu cho bảng `events`
 --
 
 INSERT INTO `events` (`id`, `image`, `region_id`, `province_id`, `author`, `title_vi`, `title_en`, `description_vi`, `description_en`, `body_vi`, `body_en`, `is_top`, `is_active`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`, `date_start`, `date_end`, `slug`) VALUES
@@ -339,12 +340,13 @@ INSERT INTO `events` (`id`, `image`, `region_id`, `province_id`, `author`, `titl
 (3, 'de1d8b6bd2daba56febfe3efa79dfa7a.jpg', 2, 2, '', 'Tuyển dụng 2', '2222222222', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 0, 0, 0, '2018-12-17 19:28:16', 'administrator', '2018-12-17 19:28:16', 'administrator', '2018-12-16 00:00:00', '2018-12-20 23:59:59', 'tuyen-dung-2-2'),
 (4, 'ecb02c3afc4c5d26952f92e1f981dd6d.jpg', 2, 3, '', 'Bài viết 1', 'banner', 'banner', 'banner', 'banner', 'banner', 1, 0, 0, '2018-12-17 18:56:14', 'administrator', '2018-12-17 18:56:14', 'administrator', '2018-12-17 00:00:00', '2018-12-25 23:59:59', 'bai-viet-1'),
 (5, 'dfd5cd1ce555dd468885c1ec78f4cae0.jpg', 2, 2, '', 'Bài viết 1', 'banner', 'banner', 'banner', 'banner', 'banner', 1, 0, 0, '2018-12-17 18:56:33', 'administrator', '2018-12-17 18:56:33', 'administrator', '2018-12-17 00:00:00', '2018-12-25 23:59:59', 'bai-viet-1-1'),
-(6, '8164f1b32fa058ae7f472933f45570c3.jpg', 2, 2, '', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 1, 0, 0, '2018-12-18 23:32:08', 'administrator', '2018-12-18 23:32:08', 'administrator', '2018-12-17 00:00:00', '2018-12-17 23:59:59', 'tuyen-dung-2-3');
+(6, '8164f1b32fa058ae7f472933f45570c3.jpg', 2, 2, '', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 'Tuyển dụng 2', 1, 0, 0, '2018-12-18 23:32:08', 'administrator', '2018-12-18 23:32:08', 'administrator', '2018-12-17 00:00:00', '2018-12-17 23:59:59', 'tuyen-dung-2-3'),
+(7, 'ef05247c6005982aee50656c05f26271.jpg', 2, 2, '', 'test', 'test', 'test', 'test', 'test', 'test', 0, 0, 0, '2018-12-19 23:31:00', 'modmod', '2018-12-19 23:31:00', 'modmod', '2018-12-19 00:00:00', '2018-12-19 23:59:59', 'test');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `features`
+-- Cấu trúc bảng cho bảng `features`
 --
 
 CREATE TABLE `features` (
@@ -358,7 +360,7 @@ CREATE TABLE `features` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `features`
+-- Đang đổ dữ liệu cho bảng `features`
 --
 
 INSERT INTO `features` (`id`, `vi`, `en`, `is_deleted`, `icon`, `content_vi`, `content_en`) VALUES
@@ -369,7 +371,7 @@ INSERT INTO `features` (`id`, `vi`, `en`, `is_deleted`, `icon`, `content_vi`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Cấu trúc bảng cho bảng `groups`
 --
 
 CREATE TABLE `groups` (
@@ -379,7 +381,7 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `groups`
+-- Đang đổ dữ liệu cho bảng `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -391,7 +393,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_attempts`
+-- Cấu trúc bảng cho bảng `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -404,7 +406,7 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Cấu trúc bảng cho bảng `menu`
 --
 
 CREATE TABLE `menu` (
@@ -424,7 +426,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `menu`
+-- Đang đổ dữ liệu cho bảng `menu`
 --
 
 INSERT INTO `menu` (`id`, `sort`, `parent_id`, `url`, `slug`, `is_activated`, `is_deleted`, `check_menu_children`, `created_at`, `created_by`, `updated_at`, `updated_by`, `slug_post`) VALUES
@@ -447,7 +449,7 @@ INSERT INTO `menu` (`id`, `sort`, `parent_id`, `url`, `slug`, `is_activated`, `i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_lang`
+-- Cấu trúc bảng cho bảng `menu_lang`
 --
 
 CREATE TABLE `menu_lang` (
@@ -458,7 +460,7 @@ CREATE TABLE `menu_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `menu_lang`
+-- Đang đổ dữ liệu cho bảng `menu_lang`
 --
 
 INSERT INTO `menu_lang` (`id`, `menu_id`, `title`, `language`) VALUES
@@ -496,7 +498,7 @@ INSERT INTO `menu_lang` (`id`, `menu_id`, `title`, `language`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -515,7 +517,7 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Cấu trúc bảng cho bảng `post`
 --
 
 CREATE TABLE `post` (
@@ -535,7 +537,7 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `post`
+-- Đang đổ dữ liệu cho bảng `post`
 --
 
 INSERT INTO `post` (`id`, `post_category_id`, `templates_id`, `slug`, `avatar`, `image`, `data`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_activated`) VALUES
@@ -544,7 +546,7 @@ INSERT INTO `post` (`id`, `post_category_id`, `templates_id`, `slug`, `avatar`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_category`
+-- Cấu trúc bảng cho bảng `post_category`
 --
 
 CREATE TABLE `post_category` (
@@ -564,7 +566,7 @@ CREATE TABLE `post_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `post_category`
+-- Đang đổ dữ liệu cho bảng `post_category`
 --
 
 INSERT INTO `post_category` (`id`, `slug`, `parent_id`, `project`, `image`, `sort`, `type`, `is_activated`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
@@ -582,7 +584,7 @@ INSERT INTO `post_category` (`id`, `slug`, `parent_id`, `project`, `image`, `sor
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_category_lang`
+-- Cấu trúc bảng cho bảng `post_category_lang`
 --
 
 CREATE TABLE `post_category_lang` (
@@ -595,7 +597,7 @@ CREATE TABLE `post_category_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `post_category_lang`
+-- Đang đổ dữ liệu cho bảng `post_category_lang`
 --
 
 INSERT INTO `post_category_lang` (`id`, `post_category_id`, `title`, `language`, `metakeywords`, `metadescription`) VALUES
@@ -623,7 +625,7 @@ INSERT INTO `post_category_lang` (`id`, `post_category_id`, `title`, `language`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_lang`
+-- Cấu trúc bảng cho bảng `post_lang`
 --
 
 CREATE TABLE `post_lang` (
@@ -639,7 +641,7 @@ CREATE TABLE `post_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `post_lang`
+-- Đang đổ dữ liệu cho bảng `post_lang`
 --
 
 INSERT INTO `post_lang` (`id`, `post_id`, `title`, `description`, `content`, `data_lang`, `language`, `metakeywords`, `metadescription`) VALUES
@@ -649,7 +651,7 @@ INSERT INTO `post_lang` (`id`, `post_id`, `title`, `description`, `content`, `da
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -678,7 +680,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `product_category_id`, `templates_id`, `data`, `slug`, `avatar`, `image`, `trademark_id`, `features`, `price`, `color`, `common`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_activated`, `type`, `total_rating`, `count_rating`, `file`) VALUES
@@ -689,7 +691,7 @@ INSERT INTO `product` (`id`, `product_category_id`, `templates_id`, `data`, `slu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_category`
+-- Cấu trúc bảng cho bảng `product_category`
 --
 
 CREATE TABLE `product_category` (
@@ -708,7 +710,7 @@ CREATE TABLE `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `product_category`
+-- Đang đổ dữ liệu cho bảng `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `slug`, `parent_id`, `is_deleted`, `created_at`, `created_by`, `updated_at`, `updated_by`, `project`, `image`, `sort`, `is_activated`) VALUES
@@ -725,7 +727,7 @@ INSERT INTO `product_category` (`id`, `slug`, `parent_id`, `is_deleted`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_category_lang`
+-- Cấu trúc bảng cho bảng `product_category_lang`
 --
 
 CREATE TABLE `product_category_lang` (
@@ -736,7 +738,7 @@ CREATE TABLE `product_category_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `product_category_lang`
+-- Đang đổ dữ liệu cho bảng `product_category_lang`
 --
 
 INSERT INTO `product_category_lang` (`id`, `product_category_id`, `title`, `language`) VALUES
@@ -762,7 +764,7 @@ INSERT INTO `product_category_lang` (`id`, `product_category_id`, `title`, `lang
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_lang`
+-- Cấu trúc bảng cho bảng `product_lang`
 --
 
 CREATE TABLE `product_lang` (
@@ -776,7 +778,7 @@ CREATE TABLE `product_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `product_lang`
+-- Đang đổ dữ liệu cho bảng `product_lang`
 --
 
 INSERT INTO `product_lang` (`id`, `product_id`, `title`, `description`, `content`, `data_lang`, `language`) VALUES
@@ -790,7 +792,7 @@ INSERT INTO `product_lang` (`id`, `product_id`, `title`, `description`, `content
 -- --------------------------------------------------------
 
 --
--- Table structure for table `province`
+-- Cấu trúc bảng cho bảng `province`
 --
 
 CREATE TABLE `province` (
@@ -812,7 +814,7 @@ CREATE TABLE `province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `province`
+-- Đang đổ dữ liệu cho bảng `province`
 --
 
 INSERT INTO `province` (`id`, `avatar`, `image`, `region_id`, `title_vi`, `slug`, `title_en`, `description_vi`, `description_en`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_active`) VALUES
@@ -822,7 +824,7 @@ INSERT INTO `province` (`id`, `avatar`, `image`, `region_id`, `title_vi`, `slug`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quotation`
+-- Cấu trúc bảng cho bảng `quotation`
 --
 
 CREATE TABLE `quotation` (
@@ -838,7 +840,7 @@ CREATE TABLE `quotation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `quotation`
+-- Đang đổ dữ liệu cho bảng `quotation`
 --
 
 INSERT INTO `quotation` (`id`, `name`, `email`, `phone`, `content`, `image`, `created_at`, `status`, `is_deleted`) VALUES
@@ -859,7 +861,7 @@ INSERT INTO `quotation` (`id`, `name`, `email`, `phone`, `content`, `image`, `cr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recruitment`
+-- Cấu trúc bảng cho bảng `recruitment`
 --
 
 CREATE TABLE `recruitment` (
@@ -874,7 +876,7 @@ CREATE TABLE `recruitment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `recruitment`
+-- Đang đổ dữ liệu cho bảng `recruitment`
 --
 
 INSERT INTO `recruitment` (`id`, `status`, `description_image`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
@@ -886,7 +888,7 @@ INSERT INTO `recruitment` (`id`, `status`, `description_image`, `created_at`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recruitment_lang`
+-- Cấu trúc bảng cho bảng `recruitment_lang`
 --
 
 CREATE TABLE `recruitment_lang` (
@@ -899,7 +901,7 @@ CREATE TABLE `recruitment_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `recruitment_lang`
+-- Đang đổ dữ liệu cho bảng `recruitment_lang`
 --
 
 INSERT INTO `recruitment_lang` (`id`, `recruitment_id`, `title`, `description`, `content`, `language`) VALUES
@@ -915,7 +917,7 @@ INSERT INTO `recruitment_lang` (`id`, `recruitment_id`, `title`, `description`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Cấu trúc bảng cho bảng `region`
 --
 
 CREATE TABLE `region` (
@@ -936,7 +938,7 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `region`
+-- Đang đổ dữ liệu cho bảng `region`
 --
 
 INSERT INTO `region` (`id`, `avatar`, `image`, `slug`, `title_vi`, `title_en`, `description_vi`, `description_en`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`, `is_active`) VALUES
@@ -947,7 +949,7 @@ INSERT INTO `region` (`id`, `avatar`, `image`, `slug`, `title_vi`, `title_en`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `site_sessions`
+-- Cấu trúc bảng cho bảng `site_sessions`
 --
 
 CREATE TABLE `site_sessions` (
@@ -958,7 +960,7 @@ CREATE TABLE `site_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `site_sessions`
+-- Đang đổ dữ liệu cho bảng `site_sessions`
 --
 
 INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
@@ -966,6 +968,7 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('06qs07i562usnq8qvok135263btl3931', '::1', 1545056904, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035363930343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('0lcst22md667bcjq7628giimjihr07hs', '::1', 1544864834, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836343833343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('0ldng3jbaot5i7ucnql5pprppd444q7r', '::1', 1544897910, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343839373832393b6964656e746974797c733a31353a226d696e68407472756f6e672e636f6d223b656d61696c7c733a31353a226d696e68407472756f6e672e636f6d223b757365725f69647c733a323a223230223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383032383233223b6c6173745f636865636b7c693a313534343839373833353b6d6573736167655f6572726f727c733a34323a2254c3a069206b686fe1baa36e206b68c3b46e672063c3b320717579e1bb816e20747275792063e1baad70223b5f5f63695f766172737c613a313a7b733a31333a226d6573736167655f6572726f72223b733a333a226e6577223b7d),
+('14bm96hkuprbed9e2brvd91s7nvufttv', '::1', 1545239927, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233393932373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('1fibpg6dl58brrrgi4tocf7elpvt1ov9', '::1', 1544981260, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343938313236303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
 ('1gk19tk01t53hkv16qo9rb485qaol3h5', '::1', 1544977364, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937373336343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
 ('1ka4981qsqro04dl2ej17jcncndelnb4', '::1', 1544965582, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936353538323b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
@@ -973,6 +976,7 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('1s3gi4ef824fvbf5minfj7fl4k9ovi0d', '::1', 1544867219, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836373231393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('1s75hk4ccc1tbpek9959glk1u76e7hne', '::1', 1544882632, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838323633323b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('2a61d1hg9pqtdnhm6rqovf1u94fdstds', '::1', 1545057934, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035373933343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
+('2ddn113j1rdthah9javo3kprk9m1hu89', '::1', 1545238523, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233383532333b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('2fv8asorljssq8u07i5lhcm1crv96uf4', '::1', 1545052201, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035323230313b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('2gc53ei3604a165ackni4gtpt3stutap', '::1', 1544866279, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836363237393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('2t0iikd1fp6d1n9p6jsmrf9u3b5r606l', '::1', 1544980280, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343938303238303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
@@ -984,8 +988,10 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('4rkdlc6son19og0232mavvreduljtd1l', '::1', 1544871574, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837313537343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('4s50hi0hp8faeehl48rja3k81st9qr4e', '::1', 1545148287, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353134383238373b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
 ('55a13u06t75sk7rdctk4afrnlggg24p7', '::1', 1545152137, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353135323133373b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
+('57gkikidt9hedjje2g2sh31bt95v03t3', '::1', 1545239934, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233393932373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('5boguc8kthgji4af9p9bgi3b0apqr5gu', '::1', 1544960964, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936303934313b6964656e746974797c733a31353a226d696e68407472756f6e672e636f6d223b656d61696c7c733a31353a226d696e68407472756f6e672e636f6d223b757365725f69647c733a323a223230223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383937383335223b6c6173745f636865636b7c693a313534343935383835393b6d6573736167655f6572726f727c733a34323a2254c3a069206b686fe1baa36e206b68c3b46e672063c3b320717579e1bb816e20747275792063e1baad70223b5f5f63695f766172737c613a313a7b733a31333a226d6573736167655f6572726f72223b733a333a226f6c64223b7d),
 ('5cmuidr1fflbfv4sqtgttu8o0c69p9ra', '::1', 1545051898, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035313839383b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
+('5mcb4lb8idag4dakg2al9fa9mh5osdo6', '::1', 1545237631, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233373633313b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('5q62tp6bnt06corl551qsecgva9srim0', '::1', 1545144025, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353134343032353b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
 ('6530dgr103acs7ca19dao7g8r8qd77b3', '::1', 1544863294, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836333239343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('678ng0pggedrgbn6g0es6gvsqhkp6bvk', '::1', 1545058374, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035383337343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
@@ -995,10 +1001,12 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('6l1he6os2l39c0j6i9504vb06u7244fh', '::1', 1544865174, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836353137343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('6qjhkr82dio28s690vbct3unvdhc7iak', '::1', 1545062154, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353036323036303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b6c616e67416262726576696174696f6e7c733a323a227669223b),
 ('73mufhh4u6vlg5c9nhf221m7o2v28bcp', '::1', 1544970104, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937303130343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
+('77iuh4mmvus15erdekt0nmuj8eta0u9i', '::1', 1545237622, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233373334313b6964656e746974797c733a31333a226d6f6440676d61696c2e636f6d223b656d61696c7c733a31333a226d6f6440676d61696c2e636f6d223b757365725f69647c733a323a223238223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313534353233353730303b),
 ('7cfbuf2ubjorddnkoq9ajkj2rpffb100', '::1', 1544876210, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837363231303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('7q4a3g3g90unkdep81p5n7mrrudohv7r', '::1', 1544869058, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836393035383b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('7qsduekiv7umo09iq23p71guon4b6snu', '::1', 1544878589, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837383538393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('7via5kebm0hvg8278ea069ikvniu266u', '::1', 1544969418, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936393431383b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
+('808oadcji41e4s0oic785gic94i6vjq6', '::1', 1545238159, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233383135393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('8l5bcnn1vsvmkqerh2nuktlp9oe5t2t3', '::1', 1544968743, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936383734333b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
 ('931g6c73aqlivojp7civ8puadqcjrifk', '::1', 1545054369, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035343336393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('9375qn32le5t5nkg5hi5p7p7qqjf2smp', '::1', 1545053774, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035333737343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
@@ -1029,6 +1037,7 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('fjhijlglrbarc0cerd1kpbb5tqb9lo2k', '::1', 1544960941, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936303934313b6964656e746974797c733a31353a226d696e68407472756f6e672e636f6d223b656d61696c7c733a31353a226d696e68407472756f6e672e636f6d223b757365725f69647c733a323a223230223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383937383335223b6c6173745f636865636b7c693a313534343935383835393b6d6573736167655f6572726f727c733a34323a2254c3a069206b686fe1baa36e206b68c3b46e672063c3b320717579e1bb816e20747275792063e1baad70223b5f5f63695f766172737c613a313a7b733a31333a226d6573736167655f6572726f72223b733a333a226f6c64223b7d),
 ('frtevjlc9dnlumvr5qg9lrjon0rrtb8p', '::1', 1544885887, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838353838373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('gua1vji7jumhbvl938e5r6pdt1694ko8', '::1', 1545146588, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353134363538383b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
+('h27uc1shftu29hqjn35j9g8car0abka4', '::1', 1545238846, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233383834363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('i1j5e08kf2ku42h0j0345m5sbokfnvds', '::1', 1544968351, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936383335313b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
 ('i44la3natjjb9emp0t7s3qo27gu1ccop', '::1', 1544966437, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936363433373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
 ('i474bucc5nc1cf7p3htrh94gggrhme6u', '::1', 1545151091, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353135313039313b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
@@ -1047,6 +1056,7 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('k6vm220qptq5og4euaafrpgo6sh48dj0', '::1', 1544960053, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936303035333b6964656e746974797c733a31353a226d696e68407472756f6e672e636f6d223b656d61696c7c733a31353a226d696e68407472756f6e672e636f6d223b757365725f69647c733a323a223230223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383937383335223b6c6173745f636865636b7c693a313534343935383835393b6d6573736167655f6572726f727c733a37353a2254c3a069206b686fe1baa36e206b68c3b46e672063c3b320717579e1bb816e20747275792063e1baad7020686179207468e1bbb163206869e1bb876e207468616f2074c3a163206ec3a079223b5f5f63695f766172737c613a313a7b733a31333a226d6573736167655f6572726f72223b733a333a226e6577223b7d),
 ('ldf1m0f89fs5332shdj8h20tkfddrrs1', '::1', 1544969106, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343936393130363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
 ('ljencefss3gpoqem19gkgfis9qha5d89', '::1', 1544981793, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343938313739333b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
+('ls73osema6n68u9lnuinu461l2sccr93', '::1', 1545236015, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233363031353b6964656e746974797c733a31333a226d6f6440676d61696c2e636f6d223b656d61696c7c733a31333a226d6f6440676d61696c2e636f6d223b757365725f69647c733a323a223238223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313534353233353730303b),
 ('m19u42ern30ee1flt2au6egti6lkh75b', '::1', 1545140520, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353134303532303b6c616e67416262726576696174696f6e7c733a323a227669223b),
 ('mj5gcnohb3gmck2kun9f9c54l265nj84', '::1', 1544881539, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838313533393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('mjpdck5ttu1tp0hhpda6jdkmtkn7h9j9', '::1', 1544891915, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343839313931353b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
@@ -1066,27 +1076,33 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('oe3s74s1iqvaa1ug27ro4jjqbig57ge9', '::1', 1544970666, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937303636363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
 ('oeg4qiisccf87rla4le1hkp3d6au2lh4', '::1', 1544979033, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937393033333b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
 ('oj23apluv8etrnpqbkgufctspcr7urut', '::1', 1544979974, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937393937343b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393633383434223b6c6173745f636865636b7c693a313534343937363832383b),
+('oj5rmfcupc17no0i19n7aib7lbv9s35p', '::1', 1545237041, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233373034313b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('on1s03ru2imal35atm8pt9fiffcus9kq', '::1', 1544869527, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836393532373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('ovh1pab0b59i48sckearnensk16lesrj', '::1', 1544877381, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837373338313b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('p7552k94fos0k2v5us311ltlqebn1e35', '::1', 1544882175, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838323137353b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('q6f1a6mqb0gti2jgnq2hightdlothjgi', '::1', 1545059060, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035393036303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('qe4uemlmkpebk7l76tlg6e4epodg783a', '::1', 1544880306, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838303330363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
-('qgusje7lh7kp9eho6sqef1ll9k9hesd3', '::1', 1544971157, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937313135373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b),
+('qgusje7lh7kp9eho6sqef1ll9k9hesd3', '::1', 1544971157, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343937313135373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383632383232223b6c6173745f636865636b7c693a313534343936333834343b);
+INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 ('qk7vd2o43ghlkatd3m0b31k6qhanqbei', '::1', 1544883426, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838333432363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
+('qqhs5pu8j2tpjedrj41pmnck9rcbmhoi', '::1', 1545236549, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233363534393b6964656e746974797c733a31333a226d6f6440676d61696c2e636f6d223b656d61696c7c733a31333a226d6f6440676d61696c2e636f6d223b757365725f69647c733a323a223238223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313534353233353730303b),
 ('qqu5sflmdgf86fmfn27mdaavlttk53re', '::1', 1545062060, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353036323036303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('riuu6ihgqn1aptdsf4tqfmqlrb953t9u', '::1', 1545054728, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035343732383b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('s4p1a65r84le98k00gfhcfk9v43d65sv', '::1', 1545056585, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035363538353b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('sfr5qa7rmhva9co68t1hrq39r0ju7ple', '::1', 1544866586, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836363538363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('shga0f7pffh2281f3n1mj17dev8gu701', '::1', 1545059770, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035393737303b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('spmv98798modgbo59d6cphbi4a5o9ojl', '::1', 1544885003, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343838353030333b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b6d6573736167655f737563636573737c733a32353a225468c3aa6d206de1bb9b69207468c3a06e682063c3b46e6721223b5f5f63695f766172737c613a313a7b733a31353a226d6573736167655f73756363657373223b733a333a226e6577223b7d),
-('st7vecj5lper0qd4etfa06c6skgp95o7', '::1', 1544865907, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836353930373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b);
-INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('ss1c5sjcp7do7kkgjl9tfubbkejls2pb', '::1', 1545237010, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233373031303b6964656e746974797c733a31333a226d6f6440676d61696c2e636f6d223b656d61696c7c733a31333a226d6f6440676d61696c2e636f6d223b757365725f69647c733a323a223238223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313534353233353730303b),
+('st7vecj5lper0qd4etfa06c6skgp95o7', '::1', 1544865907, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836353930373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('svna8q7tdc98hslru244pp5bsa2274lu', '::1', 1545055546, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353035353534363b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434393736383238223b6c6173745f636865636b7c693a313534353034373632323b),
 ('tbj17v8dn7hcev2h47ss257j2e292ida', '::1', 1544866909, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836363930393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('th0u7utkl250au2dt10h951he4urrqgm', '::1', 1544867669, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836373636393b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b6d6573736167655f737563636573737c733a32353a225468c3aa6d206de1bb9b69207468c3a06e682063c3b46e6721223b5f5f63695f766172737c613a313a7b733a31353a226d6573736167655f73756363657373223b733a333a226f6c64223b7d),
 ('tqdstksrofaunmqh1jcupv3tdb5csu83', '::1', 1544959149, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343935393134393b6964656e746974797c733a31353a226d696e68407472756f6e672e636f6d223b656d61696c7c733a31353a226d696e68407472756f6e672e636f6d223b757365725f69647c733a323a223230223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383937383335223b6c6173745f636865636b7c693a313534343935383835393b),
+('tr637inpeftq1h60do7aausfljcu027p', '::1', 1545239587, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233393538373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('u32k0eqa93ib9g000dq8sfpluess70r4', '::1', 1545152137, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353135323133373b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
 ('u3bm0jsff34027piscvr0a5ssn6n5qun', '::1', 1545147035, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353134373033353b6c616e67416262726576696174696f6e7c733a323a227669223b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435303437363232223b6c6173745f636865636b7c693a313534353134303734393b),
+('uc6uq6lm9esshq17gsos12dr4dhhfi3v', '::1', 1545237341, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233373334313b6964656e746974797c733a31333a226d6f6440676d61696c2e636f6d223b656d61696c7c733a31333a226d6f6440676d61696c2e636f6d223b757365725f69647c733a323a223238223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313534353233353730303b),
+('umbh80ojjje83620mq162jnv0ukoh992', '::1', 1545239217, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534353233393231373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353435323335363630223b6c6173745f636865636b7c693a313534353233363135303b),
 ('v2481067vunc6at0h5smks72brpv7707', '::1', 1544870938, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837303933383b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('vamckfg90l8esb7ut698td86qbjoemo0', '::1', 1544875677, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343837353637373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b),
 ('vc8qk6r7fdjqloag9eqrps488t2lub9t', '::1', 1544868757, 0x5f5f63695f6c6173745f726567656e65726174657c693a313534343836383735373b6964656e746974797c733a31353a2261646d696e4061646d696e2e636f6d223b656d61696c7c733a31353a2261646d696e4061646d696e2e636f6d223b757365725f69647c733a313a2231223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231353434383034303331223b6c6173745f636865636b7c693a313534343836323832323b6d6573736167655f6572726f727c733a35323a22c49075c3b4692066696c6520696d616765207068e1baa369206cc3a0206a7067207c206a706567207c20706e67207c2067696621223b5f5f63695f766172737c613a313a7b733a31333a226d6573736167655f6572726f72223b733a333a226e6577223b7d),
@@ -1097,7 +1113,7 @@ INSERT INTO `site_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `templates`
+-- Cấu trúc bảng cho bảng `templates`
 --
 
 CREATE TABLE `templates` (
@@ -1110,7 +1126,7 @@ CREATE TABLE `templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `templates`
+-- Đang đổ dữ liệu cho bảng `templates`
 --
 
 INSERT INTO `templates` (`id`, `type`, `title`, `data`, `is_activated`, `is_deleted`) VALUES
@@ -1133,7 +1149,7 @@ INSERT INTO `templates` (`id`, `type`, `title`, `data`, `is_activated`, `is_dele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trademark`
+-- Cấu trúc bảng cho bảng `trademark`
 --
 
 CREATE TABLE `trademark` (
@@ -1145,7 +1161,7 @@ CREATE TABLE `trademark` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `trademark`
+-- Đang đổ dữ liệu cho bảng `trademark`
 --
 
 INSERT INTO `trademark` (`id`, `vi`, `en`, `product_category_id`, `is_deleted`) VALUES
@@ -1156,7 +1172,7 @@ INSERT INTO `trademark` (`id`, `vi`, `en`, `product_category_id`, `is_deleted`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -1181,20 +1197,21 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `address`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1545224694, 1, 'Admin', 'istrator', 'ADMIN', '0', NULL),
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1545236150, 1, 'Admin', 'istrator', 'ADMIN', '0', NULL),
 (24, '::1', 'manager', '$2y$08$Gmo0nTVxyx5aNIm3jduvaeyJDZEL4GkrBzbS7XwvGoVoLWqvHT81S', NULL, 'manager@manager.com', NULL, NULL, NULL, NULL, 1544965434, NULL, 1, 'Minh', 'Trường', NULL, NULL, NULL),
 (25, '::1', 'manager1', '$2y$08$P9TgIWXlotKU7bFpHjwkeezBG29mc9kFP.CefX8UPJ.N09DiB7uZ.', NULL, 'manager1@manager.com', NULL, NULL, NULL, NULL, 1544965475, NULL, 1, 'Minh', 'Minh', NULL, NULL, NULL),
 (26, '::1', 'mod', '$2y$08$zY2Mi2asgCa3BMqFE7AoAONl3xj3Y/EptWdbwl0qdLhtxcOMKdCQy', NULL, 'mod@mod.com', NULL, NULL, NULL, NULL, 1544965531, 1545224891, 1, 'Minh', 'MinhMod', NULL, NULL, NULL),
-(27, '::1', 'minhtruong', '$2y$08$nC9VD/o7Y2vNAKZh7IHSKeL0q2gFD.tYoXDyfHl6EAQej1wB/am1G', NULL, 'http.mt.html@gmail.com', NULL, 'hOZe82ijwCjmvtsJ2BG.muc91e1f6b1d81f5ef7f', 1545061367, NULL, 1545060376, NULL, 1, 'Minh', 'Trường', NULL, NULL, NULL);
+(27, '::1', 'minhtruong', '$2y$08$nC9VD/o7Y2vNAKZh7IHSKeL0q2gFD.tYoXDyfHl6EAQej1wB/am1G', NULL, 'http.mt.html@gmail.com', NULL, 'hOZe82ijwCjmvtsJ2BG.muc91e1f6b1d81f5ef7f', 1545061367, NULL, 1545060376, NULL, 1, 'Minh', 'Trường', NULL, NULL, NULL),
+(28, '::1', 'modmod', '$2y$08$.xyBML8PCdZwOEwCzLnFi.oUWp.tJXJM04ti/8RD201uGpbHIgyEi', NULL, 'mod@gmail.com', NULL, NULL, NULL, NULL, 1545235689, 1545235700, 1, 'mod', 'mod', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_groups`
+-- Cấu trúc bảng cho bảng `users_groups`
 --
 
 CREATE TABLE `users_groups` (
@@ -1204,7 +1221,7 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `users_groups`
+-- Đang đổ dữ liệu cho bảng `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
@@ -1213,221 +1230,222 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (25, 24, 2),
 (26, 25, 2),
 (27, 26, 3),
-(28, 27, 3);
+(28, 27, 3),
+(29, 28, 3);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `about`
+-- Chỉ mục cho bảng `about`
 --
 ALTER TABLE `about`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `about_lang`
+-- Chỉ mục cho bảng `about_lang`
 --
 ALTER TABLE `about_lang`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `banner`
+-- Chỉ mục cho bảng `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `blog`
+-- Chỉ mục cho bảng `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ci_sessions`
+-- Chỉ mục cho bảng `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `ci_sessions_timestamp` (`timestamp`) USING BTREE;
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `config_contact`
+-- Chỉ mục cho bảng `config_contact`
 --
 ALTER TABLE `config_contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cuisine`
+-- Chỉ mục cho bảng `cuisine`
 --
 ALTER TABLE `cuisine`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cuisine_category`
+-- Chỉ mục cho bảng `cuisine_category`
 --
 ALTER TABLE `cuisine_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `events`
+-- Chỉ mục cho bảng `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `features`
+-- Chỉ mục cho bảng `features`
 --
 ALTER TABLE `features`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `groups`
+-- Chỉ mục cho bảng `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `login_attempts`
+-- Chỉ mục cho bảng `login_attempts`
 --
 ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `menu`
+-- Chỉ mục cho bảng `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menu_lang`
+-- Chỉ mục cho bảng `menu_lang`
 --
 ALTER TABLE `menu_lang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_id` (`menu_id`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `post`
+-- Chỉ mục cho bảng `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_category_id` (`post_category_id`);
 
 --
--- Indexes for table `post_category`
+-- Chỉ mục cho bảng `post_category`
 --
 ALTER TABLE `post_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `post_category_lang`
+-- Chỉ mục cho bảng `post_category_lang`
 --
 ALTER TABLE `post_category_lang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_category_id` (`post_category_id`);
 
 --
--- Indexes for table `post_lang`
+-- Chỉ mục cho bảng `post_lang`
 --
 ALTER TABLE `post_lang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`post_id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_category_id` (`product_category_id`);
 
 --
--- Indexes for table `product_category`
+-- Chỉ mục cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_category_lang`
+-- Chỉ mục cho bảng `product_category_lang`
 --
 ALTER TABLE `product_category_lang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_category_id` (`product_category_id`);
 
 --
--- Indexes for table `product_lang`
+-- Chỉ mục cho bảng `product_lang`
 --
 ALTER TABLE `product_lang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`product_id`);
 
 --
--- Indexes for table `province`
+-- Chỉ mục cho bảng `province`
 --
 ALTER TABLE `province`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `quotation`
+-- Chỉ mục cho bảng `quotation`
 --
 ALTER TABLE `quotation`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `recruitment`
+-- Chỉ mục cho bảng `recruitment`
 --
 ALTER TABLE `recruitment`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `recruitment_lang`
+-- Chỉ mục cho bảng `recruitment_lang`
 --
 ALTER TABLE `recruitment_lang`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `region`
+-- Chỉ mục cho bảng `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `site_sessions`
+-- Chỉ mục cho bảng `site_sessions`
 --
 ALTER TABLE `site_sessions`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `ci_sessions_timestamp` (`timestamp`) USING BTREE;
 
 --
--- Indexes for table `templates`
+-- Chỉ mục cho bảng `templates`
 --
 ALTER TABLE `templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `trademark`
+-- Chỉ mục cho bảng `trademark`
 --
 ALTER TABLE `trademark`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `users_groups`
+-- Chỉ mục cho bảng `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD PRIMARY KEY (`id`) USING BTREE,
@@ -1436,249 +1454,217 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `about`
+-- AUTO_INCREMENT cho bảng `about`
 --
 ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
 --
--- AUTO_INCREMENT for table `about_lang`
+-- AUTO_INCREMENT cho bảng `about_lang`
 --
 ALTER TABLE `about_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
 --
--- AUTO_INCREMENT for table `banner`
+-- AUTO_INCREMENT cho bảng `banner`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
 --
--- AUTO_INCREMENT for table `blog`
+-- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
-
 --
--- AUTO_INCREMENT for table `config_contact`
+-- AUTO_INCREMENT cho bảng `config_contact`
 --
 ALTER TABLE `config_contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT for table `cuisine`
+-- AUTO_INCREMENT cho bảng `cuisine`
 --
 ALTER TABLE `cuisine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `cuisine_category`
+-- AUTO_INCREMENT cho bảng `cuisine_category`
 --
 ALTER TABLE `cuisine_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT cho bảng `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `features`
+-- AUTO_INCREMENT cho bảng `features`
 --
 ALTER TABLE `features`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT for table `groups`
+-- AUTO_INCREMENT cho bảng `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT for table `login_attempts`
+-- AUTO_INCREMENT cho bảng `login_attempts`
 --
 ALTER TABLE `login_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT cho bảng `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
 --
--- AUTO_INCREMENT for table `menu_lang`
+-- AUTO_INCREMENT cho bảng `menu_lang`
 --
 ALTER TABLE `menu_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT cho bảng `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
--- AUTO_INCREMENT for table `post_category`
+-- AUTO_INCREMENT cho bảng `post_category`
 --
 ALTER TABLE `post_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 --
--- AUTO_INCREMENT for table `post_category_lang`
+-- AUTO_INCREMENT cho bảng `post_category_lang`
 --
 ALTER TABLE `post_category_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
 --
--- AUTO_INCREMENT for table `post_lang`
+-- AUTO_INCREMENT cho bảng `post_lang`
 --
 ALTER TABLE `post_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
-
 --
--- AUTO_INCREMENT for table `product_category`
+-- AUTO_INCREMENT cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
 --
--- AUTO_INCREMENT for table `product_category_lang`
+-- AUTO_INCREMENT cho bảng `product_category_lang`
 --
 ALTER TABLE `product_category_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
-
 --
--- AUTO_INCREMENT for table `product_lang`
+-- AUTO_INCREMENT cho bảng `product_lang`
 --
 ALTER TABLE `product_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
-
 --
--- AUTO_INCREMENT for table `province`
+-- AUTO_INCREMENT cho bảng `province`
 --
 ALTER TABLE `province`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT for table `quotation`
+-- AUTO_INCREMENT cho bảng `quotation`
 --
 ALTER TABLE `quotation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- AUTO_INCREMENT for table `recruitment`
+-- AUTO_INCREMENT cho bảng `recruitment`
 --
 ALTER TABLE `recruitment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT for table `recruitment_lang`
+-- AUTO_INCREMENT cho bảng `recruitment_lang`
 --
 ALTER TABLE `recruitment_lang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
--- AUTO_INCREMENT for table `region`
+-- AUTO_INCREMENT cho bảng `region`
 --
 ALTER TABLE `region`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT for table `templates`
+-- AUTO_INCREMENT cho bảng `templates`
 --
 ALTER TABLE `templates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
 --
--- AUTO_INCREMENT for table `trademark`
+-- AUTO_INCREMENT cho bảng `trademark`
 --
 ALTER TABLE `trademark`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT for table `users_groups`
+-- AUTO_INCREMENT cho bảng `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `menu_lang`
+-- Các ràng buộc cho bảng `menu_lang`
 --
 ALTER TABLE `menu_lang`
   ADD CONSTRAINT `menu_lang_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`);
 
 --
--- Constraints for table `post`
+-- Các ràng buộc cho bảng `post`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`post_category_id`) REFERENCES `post_category` (`id`);
 
 --
--- Constraints for table `post_category_lang`
+-- Các ràng buộc cho bảng `post_category_lang`
 --
 ALTER TABLE `post_category_lang`
   ADD CONSTRAINT `post_category_lang_ibfk_1` FOREIGN KEY (`post_category_id`) REFERENCES `post_category` (`id`);
 
 --
--- Constraints for table `post_lang`
+-- Các ràng buộc cho bảng `post_lang`
 --
 ALTER TABLE `post_lang`
   ADD CONSTRAINT `post_lang_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`);
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `product_category` (`id`);
 
 --
--- Constraints for table `product_category_lang`
+-- Các ràng buộc cho bảng `product_category_lang`
 --
 ALTER TABLE `product_category_lang`
   ADD CONSTRAINT `product_category_lang_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `product_category` (`id`);
 
 --
--- Constraints for table `product_lang`
+-- Các ràng buộc cho bảng `product_lang`
 --
 ALTER TABLE `product_lang`
   ADD CONSTRAINT `product_lang_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
--- Constraints for table `users_groups`
+-- Các ràng buộc cho bảng `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
