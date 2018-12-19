@@ -200,6 +200,7 @@ class Blog extends Admin_Controller{
                         'description_en' => $this->input->post('description_en'),
                         'body_vi' => $this->input->post('body_vi'),
                         'body_en' => $this->input->post('body_en'),
+                        'is_active' => 0,
                     );
                     if ( !empty($_FILES['image']['name'][0]) ) {
                         $data['image'] = $images;

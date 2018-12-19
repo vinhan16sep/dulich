@@ -7,6 +7,11 @@
                 Vùng Miền
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/region') ?>"><i class="fa fa-dashboard"></i> Danh sách vùng miền</a></li>
+            <li class="active">Cập nhật vùng miền</li>
+        </ol>
     </section>
 
     <!-- Main content -->

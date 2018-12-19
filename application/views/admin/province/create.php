@@ -7,6 +7,11 @@
                 Tình / Thành phố
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tình / Thành phố</a></li>
+            <li class="active">Thêm mới Tình / Thành phố</li>
+        </ol>
     </section>
 
     <!-- Main content -->

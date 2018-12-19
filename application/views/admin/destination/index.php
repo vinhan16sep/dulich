@@ -6,12 +6,12 @@
         <h1>
             Danh sách
             <small>
-                Vùng Miền
+                Điểm đến
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/region') ?>"><i class="fa fa-dashboard"></i> Danh sách vùng miền</a></li>
+            <li><a href="<?= base_url('admin/destination') ?>"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
         </ol>
     </section>
 
@@ -43,12 +43,12 @@
 
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/region/create') ?>" class="btn btn-primary"  >Thêm mới</a>
+                            <a href="<?php echo base_url('admin/destination/create') ?>" class="btn btn-primary"  >Thêm mới</a>
                         </div>
                         <div class="col-md-6">
-                            <form action="<?php echo base_url('admin/region/index') ?>" method="get">
+                            <form action="<?php echo base_url('admin/destination/index') ?>" method="get">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="">
+                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="<?= $keywords ?>">
                                     <span class="input-group-btn">
                                         <input type="submit" class="btn btn-block btn-primary" value="Tìm kiếm">
                                     </span>
@@ -66,9 +66,11 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tên vùng miền Tiếng Việt</th>
-                                    <th>Tên vùng miền Tiếng Anh</th>
-                                    <th>Duyệt Bài</th>
+                                    <th>Tên điểm đến Tiếng Việt</th>
+                                    <th>Tên điểm đến phố Tiếng Anh</th>
+                                    <th>Tỉnh / Thành phố</th>
+                                    <th>Vùng miền</th>
+                                    <th>Chờ duyệt</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -80,15 +82,17 @@
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
-                                                        <?php if ( json_decode($value['image']) ): ?>
-                                                            <img src="<?= base_url('assets/upload/region/' . $value['slug'] . '/' . json_decode($value['image'])[0] ) ?>"  width=150px>
+                                                        <?php if ( $value['avatar'] ): ?>
+                                                            <img src="<?= base_url('assets/upload/destination/' . $value['slug'] . '/' . $value['avatar'] ) ?>"  width=150px>
                                                         <?php endif ?>
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
                                                 <td><?= $value['title_en'] ?></td>
+                                                <td><?= $province[$value['province_id']] ?></td>
+                                                <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
+                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
                                                     <?php
                                                         if ($value['is_active'] == 0) {
                                                             echo '<span class="label label-warning">Chờ duyệt</span>';
@@ -98,23 +102,23 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/region/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
+                                                    <a href="<?= base_url('admin/destination/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="<?= base_url('admin/region/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
+                                                    <a href="<?= base_url('admin/destination/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/remove' ) ?>" data-name="vùng miền"  style="color: #d9534f" title="Xóa">
+                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/remove' ) ?>" data-name="bài viết"  style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" style="color: #00a65a" >
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/active' ) ?>" style="color: #00a65a" >
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/deactive' ) ?>" style="color: #f0ad4e">
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/deactive' ) ?>" style="color: #f0ad4e">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
@@ -124,7 +128,7 @@
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="6">
-                                                Chưa có vùng miền nào được tạo
+                                                Chưa có điểm đến nào được tạo
                                             </td>
                                             
                                         </tr>
@@ -136,9 +140,11 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tên vùng miền Tiếng Việt</th>
-                                            <th>Tên vùng miền Tiếng Anh</th>
-                                            <th>Duyệt Bài</th>
+                                            <th>Tên điểm đến Tiếng Việt</th>
+                                            <th>Tên điểm đến phố Tiếng Anh</th>
+                                            <th>Tỉnh / Thành phố</th>
+                                            <th>Vùng miền</th>
+                                            <th>Chờ duyệt</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

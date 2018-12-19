@@ -3,12 +3,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Vùng miền</small>
+            <small>Tình / Thành phố</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Vùng miền</li>
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tình / Thành phố</a></li>
+            <li class="active">Chi tiết Tình / Thành phố</li>
         </ol>
     </section>
     <!-- Main content -->

@@ -9,6 +9,10 @@
                 Tỉnh / Thành phố
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tỉnh / Thành phố</a></li>
+        </ol>
     </section>
 
     <!-- Main content -->
