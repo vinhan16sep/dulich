@@ -66,6 +66,19 @@ if (!function_exists('handle_common_permission')) {
         }
     }
 }
+
+if (!function_exists('handle_common_permission_active_and_remove')) {
+    /**
+     * @return array
+     */
+    function handle_common_permission_active_and_remove() {
+        $CI =& get_instance();
+        if ( !$CI->ion_auth->in_group(array('admin', 'manager')) ){
+            return false;
+        }
+        return true;
+    }
+}
 // phan quyen ajax
 if (!function_exists('handle_common_permission_ajax')) {
     /**

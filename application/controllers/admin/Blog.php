@@ -9,7 +9,7 @@ class Blog extends Admin_Controller{
         $this->load->model('blog_model');
         $this->load->model('region_model');
         $this->load->model('province_model');
-        $this->load->helper('common_helper');
+        // $this->load->helper('common_helper');
         $this->author_data = handle_author_common_data();
     }
 
@@ -39,7 +39,6 @@ class Blog extends Admin_Controller{
 
         $province = $this->province_model->get_all();
         $province = build_array_by_id_for_dropdown($province);
-        
         $this->data['region'] = $region;
         $this->data['province'] = $province;
 
