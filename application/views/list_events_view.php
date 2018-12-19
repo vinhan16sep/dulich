@@ -52,20 +52,20 @@
                                 <?php foreach ($region[$j] as $key => $value): ?>
 									<div class="item col-xs-12 col-lg-6">
 										<div class="mask">
-                      <a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
-  											<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']); ?>" alt="Image Event <?php echo $key+1 ?>">
+                      						<a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
+												<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']); ?>" alt="Image Event <?php echo $key+1 ?>">
 
-											<div class="content">
-												<span class="badge"><?= $value['province_title_vi'] ?></span>
-												<h3><?= $value['title_vi'] ?></h3>
-												<p>Description</p>
-												<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
-											</div>
+												<div class="content">
+													<span class="badge"><?= $value['province_title_vi'] ?></span>
+													<h3><?= $value['title_vi'] ?></h3>
+													<p>Description</p>
+													<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
+												</div>
+											</a>
 										</div>
 									</div>
-								</div>
-                            
-                            <?php endforeach ?>
+                            	<?php endforeach ?>
+							</div>
 						</div>
                     <?php } ?>
 				</div>
