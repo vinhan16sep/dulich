@@ -7,6 +7,11 @@
                 Bài viết
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/blog') ?>"><i class="fa fa-dashboard"></i> Danh sách bài viết</a></li>
+            <li class="active">Thêm mới bài viết</li>
+        </ol>
     </section>
 
     <!-- Main content -->

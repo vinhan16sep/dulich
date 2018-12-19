@@ -4,9 +4,14 @@
         <h1>
             Thêm mới
             <small>
-                Bài viết
+                Sự kiện
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/events') ?>"><i class="fa fa-dashboard"></i> Danh sách sự kiện</a></li>
+            <li class="active">Thêm mới sự kiện</li>
+        </ol>
     </section>
 
     <!-- Main content -->

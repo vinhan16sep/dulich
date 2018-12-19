@@ -4,13 +4,13 @@
         <h1>
             Cập Nhật 
             <small>
-                Tình / Thành phố
+                Tỉnh / Thành phố
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tình / Thành phố</a></li>
-            <li class="active">Cập nhật Tình / Thành phố</li>
+            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tỉnh / Thành phố</a></li>
+            <li class="active">Cập nhật Tỉnh / Thành phố</li>
         </ol>
     </section>
 
@@ -24,7 +24,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Thông tin cơ bản</h4>
+                            <h4 class="box-title">Cập nhật Tỉnh / Thành phố: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>

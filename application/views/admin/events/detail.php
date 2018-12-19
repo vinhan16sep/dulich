@@ -6,9 +6,9 @@
             <small>Sự kiện</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
-            <li class="active">Sự kiện</li>
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/events') ?>"><i class="fa fa-dashboard"></i> Danh sách sự kiện</a></li>
+            <li class="active">Chi tiết sự kiện</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -58,11 +58,27 @@
                                             </tr>
                                             <tr>
                                                 <th>Top sự kiện</th>
-                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?>></i></td>
+                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?> "></i></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>
                                                 <td><?= $detail['slug'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản tạo bài viết</th>
+                                                <td><?= $detail['created_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian tạo bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['created_at'])) ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tài khoản cập nhật bài viết</th>
+                                                <td><?= $detail['updated_by'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thời gian cập nhật bài viết</th>
+                                                <td><?= date('H:i:s / d-m-Y', strtotime($detail['updated_at'])) ?></td>
                                             </tr>
                                         </tbody>
                                     </table>

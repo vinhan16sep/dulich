@@ -6,9 +6,13 @@
         <h1>
             Danh sách
             <small>
-                Tỉnh / Thành phố
+                Bài viết
             </small>
         </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/blog') ?>"><i class="fa fa-dashboard"></i> Danh sách bài viết</a></li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -128,7 +132,7 @@
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="6">
-                                                Chưa có tỉnh / thành phố nào được tạo
+                                                Chưa có bài viết nào được tạo
                                             </td>
                                             
                                         </tr>

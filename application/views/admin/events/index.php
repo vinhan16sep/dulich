@@ -6,9 +6,13 @@
         <h1>
             Danh sách
             <small>
-                Tỉnh / Thành phố
+                Sự kiện
             </small>
         </h1>
+         <ol class="breadcrumb">
+            <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('admin/events') ?>"><i class="fa fa-dashboard"></i> Danh sách sự kiện</a></li>
+        </ol>
     </section>
 
     <!-- Main content -->
@@ -62,7 +66,8 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tiêu đề sự kiện</th>
+                                    <th>Tên sự kiện Tiếng Việt</th>
+                                    <th>Tên sự kiện Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
                                     <th>Duyệt Bài</th>
@@ -81,6 +86,7 @@
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
+                                                <td><?= $value['title_en'] ?></td>
                                                 <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
@@ -133,7 +139,8 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tiêu đề sự kiện</th>
+                                            <th>Tên sự kiện Tiếng Việt</th>
+                                            <th>Tên sự kiện Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
                                             <th>Duyệt sự kiện</th>
