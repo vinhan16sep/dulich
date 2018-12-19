@@ -2,15 +2,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm Mới
+            Thêm mới
             <small>
-                Vùng Miền
+                Điểm đến
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/region') ?>"><i class="fa fa-dashboard"></i> Danh sách vùng miền</a></li>
-            <li class="active">Thêm mới vùng miền</li>
+            <li><a href="<?= base_url('admin/destination') ?>"><i class="fa fa-dashboard"></i> Danh sách điểm đến</a></li>
+            <li class="active">Thêm mới điểm đến</li>
         </ol>
     </section>
 
@@ -39,12 +39,40 @@
                             </div>
                             <br>
                         </div>
+                        <div class="form-group col-xs-12" id="box_is_top">
+                            <div class="form-group col-xs-12" style="margin: 0px;padding-left: 0px;">
+                                <label style="font-weight: bold;">
+                                <?php
+                                    echo form_checkbox('is_top', 1, false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
+                                ?>Chọn sự kiện lên top?
+                                <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Slug', 'slug');
                                 echo form_error('slug');
                                 echo form_input('slug', set_value('slug'), 'class="form-control" id="slug" readonly');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Vùng miền', 'region_id');
+                                echo form_error('region_id');
+                                echo form_dropdown('region_id', $region, 0, 'class="form-control" id="region_id" data-url="'. base_url('admin/blog/get_province') .'" ');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Tỉnh / Thành phố', 'province_id');
+                                echo form_error('province_id');
+                                echo form_dropdown('province_id', array('' => 'Chọn vùng miền trước'), 0, 'class="form-control" id="province_id" ');
                                 ?>
                             </div>
                         </div>
@@ -58,7 +86,7 @@
                                 </li>
                                 <li role="presentation" class="">
                                     <a href="#language_en" aria-controls="" role="tab" data-toggle="tab">
-                                        <span class="badge">2</span> Tiếng Anh
+                                        <span class="badge">2</span> English
                                     </a>
                                 </li>
                             </ul>
@@ -79,6 +107,13 @@
                                         echo form_textarea('description_vi', set_value('description_vi'), 'class="form-control" id="description_vi"');
                                         ?>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Nội dung', 'body_vi');
+                                        echo form_error('body_vi');
+                                        echo form_textarea('body_vi', set_value('body_vi'), 'class="form-control  tinymce-area" id="body_vi"');
+                                        ?>
+                                    </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="language_en">
                                     <div class="form-group col-xs-12">
@@ -95,6 +130,13 @@
                                         echo form_textarea('description_en', set_value('description_en'), 'class="form-control" id="description_en"');
                                         ?>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Body', 'body_en');
+                                        echo form_error('body_en');
+                                        echo form_textarea('body_en', set_value('body_en'), 'class="form-control tinymce-area" id="body_en"');
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -109,3 +151,5 @@
         </div>
     </section>
 </div>
+<script src="<?php echo base_url('assets/js/admin/');?>admin.js" type="text/javascript" charset="utf-8" async defer></script>
+
