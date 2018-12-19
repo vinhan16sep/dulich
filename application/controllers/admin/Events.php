@@ -203,6 +203,7 @@ class Events extends Admin_Controller{
 
                     $data = array(
                         'slug' => $unique_slug,
+                        'is_active' => 0,
                         'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
                         'region_id' => $this->input->post('region_id'),
                         'province_id' => $this->input->post('province_id'),
@@ -236,7 +237,9 @@ class Events extends Admin_Controller{
     }
 
     public function remove(){
-        handle_common_permission($this->permission_admin);
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
         $id = $this->input->get('id');
         $data = array('is_deleted' => 1);
         $update = $this->events_model->update($id, $data);
@@ -336,5 +339,42 @@ class Events extends Admin_Controller{
         }else{
             return $this->return_api(HTTP_SUCCESS,'','', true);
         }
+    }
+    public function active(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $data = array('is_active' => 1);
+        $update = $this->events_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        if(!handle_common_permission_active_and_remove()){
+            return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
+        }
+        $id = $this->input->get('id');
+        $data = array('is_active' => 0);
+        $update = $this->events_model->update($id,$data);
+        if ($update == 1) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true) ));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 }

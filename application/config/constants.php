@@ -223,7 +223,7 @@ defined('MESSAGE_ERROR_REMOVE_TRADEMARK') OR define('MESSAGE_ERROR_REMOVE_TRADEM
 
 defined('MESSAGE_ERROR_UPDATE_BY_PERMISSION') OR define('MESSAGE_ERROR_UPDATE_BY_PERMISSION', 'Tài khoản không có quyền sửa bài viết này');
 
-defined('MESSAGE_REMOVE_IMAGE_ERROR') OR define('MESSAGE_REMOVE_IMAGE_ERROR', 'Hiện tại bài viết chỉ có một hình ảnh duy nhất bạn không thể xóa');
+defined('MESSAGE_REMOVE_IMAGE_ERROR') OR define('MESSAGE_REMOVE_IMAGE_ERROR', 'Hiện tại chỉ có một hình ảnh duy nhất bạn không thể xóa');
 
 
 

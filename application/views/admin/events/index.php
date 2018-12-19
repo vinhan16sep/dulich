@@ -83,8 +83,14 @@
                                                 <td><?= $value['title_vi'] ?></td>
                                                 <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
-                                                <td>
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/events/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
+                                                <td class="is-active-<?= $value['id'] ?>">
+                                                    <?php
+                                                        if ($value['is_active'] == 0) {
+                                                            echo '<span class="label label-warning">Chờ duyệt</span>';
+                                                        }else{
+                                                            echo '<span class="label label-success">Đã duyệt</span>';
+                                                        }
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url('admin/events/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
@@ -94,10 +100,20 @@
                                                     <a href="<?= base_url('admin/events/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
+                                                    <?php if (handle_common_permission_active_and_remove()): ?>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/events/remove' ) ?>" data-name="sự kiện" style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-name="sự kiện" data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/events/active' ) ?>" style="color: #00a65a" >
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-name="sự kiện" data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/events/deactive' ) ?>" style="color: #f0ad4e">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </a>
+                                                    <?php endif ?>
                                                 </td>
                                             </tr>
                                             <?php $serial++ ?>
