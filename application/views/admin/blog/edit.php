@@ -19,7 +19,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Cập nhật bài viết: <?= $detail['title_vi'] ?></h4>
+                            <h4 class="box-title">Cập nhật bài viết: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
@@ -56,16 +56,18 @@
                             </div>
                             <br>
                         </div>
-                        <div class="form-group col-xs-12">
+                        <?php if (handle_common_permission_active_and_remove()): ?>
                             <div class="form-group col-xs-12">
-                                <label style="font-weight: bold;">
-                                    <?php
-                                        echo form_checkbox('is_top', 1, ($detail['is_top'] == 1) ? true : false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
-                                    ?>Chọn sự kiện lên top?
-                                    <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
-                                </label>
+                                <div class="form-group col-xs-12">
+                                    <label style="font-weight: bold;">
+                                        <?php
+                                            echo form_checkbox('is_top', 1, ($detail['is_top'] == 1) ? true : false, 'class="" id="is_top" data-url="'.base_url('admin/blog/check_top').'" data-id="null"');
+                                        ?>Chọn sự kiện lên top?
+                                        <span class="check_top_error" style="font-weight: 700;display: block;color:red;"></span>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif ?>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php

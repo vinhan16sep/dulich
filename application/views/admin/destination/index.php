@@ -66,6 +66,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
+                                    <th>TOP</th>
                                     <th>Tên điểm đến Tiếng Việt</th>
                                     <th>Tên điểm đến phố Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
@@ -87,6 +88,7 @@
                                                         <?php endif ?>
                                                     </div>
                                                 </td>
+                                                <td><?= ($value['is_top'] == 1)? '<i class="fa fa-check" aria-hidden="true" style="color: #00a65a"></i>' : '<i class="fa fa-times" aria-hidden="true" style="color: #f0ad4e"></i>' ?></td>
                                                 <td><?= $value['title_vi'] ?></td>
                                                 <td><?= $value['title_en'] ?></td>
                                                 <td><?= $province[$value['province_id']] ?></td>
@@ -109,6 +111,7 @@
                                                     <a href="<?= base_url('admin/destination/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
+                                                    <?php if (handle_common_permission_active_and_remove()): ?>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/remove' ) ?>" data-name="bài viết"  style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -121,6 +124,7 @@
                                                     <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/destination/deactive' ) ?>" style="color: #f0ad4e">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
+                                                    <?php endif ?>
                                                 </td>
                                             </tr>
                                             <?php $serial++ ?>
@@ -140,6 +144,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
+                                            <th>TOP</th>
                                             <th>Tên điểm đến Tiếng Việt</th>
                                             <th>Tên điểm đến phố Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>

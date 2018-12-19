@@ -24,7 +24,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Cập nhật điểm đến: <?= $detail['title_vi'] ?></h4>
+                            <h4 class="box-title">Cập nhật điểm đến: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
@@ -61,6 +61,7 @@
                             </div>
                             <br>
                         </div>
+                        <?php if (handle_common_permission_active_and_remove()): ?>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <label style="font-weight: bold;">
@@ -71,6 +72,7 @@
                                 </label>
                             </div>
                         </div>
+                        <?php endif ?>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php

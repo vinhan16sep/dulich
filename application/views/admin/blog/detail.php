@@ -43,7 +43,7 @@
                                         <tbody>
                                             <tr>
                                                 <th>Bài viết được chọn lên TOP</th>
-                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?>></i></td>
+                                                <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?> "></i></td>
                                             </tr>
                                             <tr>
                                                 <th>Vùng miền</th>
@@ -56,6 +56,10 @@
                                             <tr>
                                                 <th>Tác giả</th>
                                                 <td><?= $detail['author'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Quốc tịch</th>
+                                                <td><?= $detail['nationality'] ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>
