@@ -205,6 +205,27 @@ $('.btn-deactive').click(function(){
     }
 });
 
+// $('#is_top').change(function(){
+//     var url = $(this).data('url');
+//     if (confirm("Chọn bài viết này lên TOP?")) {
+//         $.ajax({
+//             method: "get",
+//             url: url,
+//             success: function(response){
+//                 console.log(response);
+//             },
+//             error: function(jqXHR, exception){
+//                 if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+//                     alert(jqXHR.responseJSON.message);
+//                     location.reload();
+//                 }else{
+//                     console.log(errorHandle(jqXHR, exception));
+//                 }
+//             }
+//         });
+//     }
+// });
+
 
 //old code
 $(window).scroll(function () {
