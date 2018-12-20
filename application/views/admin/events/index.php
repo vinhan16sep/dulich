@@ -66,8 +66,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tên sự kiện Tiếng Việt</th>
-                                    <th>Tên sự kiện Tiếng Anh</th>
+                                    <th>Tên sự kiện</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
                                     <th>Duyệt Bài</th>
@@ -86,7 +85,6 @@
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
-                                                <td><?= $value['title_en'] ?></td>
                                                 <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
@@ -139,8 +137,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tên sự kiện Tiếng Việt</th>
-                                            <th>Tên sự kiện Tiếng Anh</th>
+                                            <th>Tên sự kiện</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
                                             <th>Duyệt sự kiện</th>
