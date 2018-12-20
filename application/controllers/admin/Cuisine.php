@@ -365,6 +365,10 @@ class Cuisine extends Admin_Controller{
             return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
         }
         $id = $this->input->get('id');
+        $detail = $this->cuisine_model->find($id);
+        if($this->cuisine_category_model->find_rows(array('is_deleted' => 0, 'is_active' => 1,'id' => $detail['cuisine_category_id'])) == 0){
+            return $this->return_api(HTTP_BAD_REQUEST,'Danh mục cha của cuisine chưa được duyệt nên bạn không thể duyệt cuisine này',array('error_permission' => 'error'), false);
+        }
         $data = array('is_active' => 1);
         $update = $this->cuisine_model->update($id,$data);
         if ($update == 1) {
