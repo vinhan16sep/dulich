@@ -170,7 +170,11 @@ $('.btn-active').click(function(){
             },
             error: function(jqXHR, exception){
                 if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
-                    alert(`Duyệt ${name} thất bại`);
+                    if(jqXHR.responseJSON.reponse.error_permission == 'error'){
+                        alert(jqXHR.responseJSON.message);
+                    }else{
+                        alert(`Duyệt ${name} thất bại`);
+                    }
                 }else{
                     console.log(errorHandle(jqXHR, exception));
                 }
