@@ -9,6 +9,7 @@ class Events extends Public_Controller {
         $this->load->model('region_model');
         $this->load->model('province_model');
         $this->load->helper('common_helper');
+        $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
     public function index(){
