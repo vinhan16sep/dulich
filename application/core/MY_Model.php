@@ -217,4 +217,18 @@ class MY_Model extends CI_Model {
         }
         return $this->db->count_all_results();
     }
+
+
+    //Frontend
+    public function get_by_where($where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
 }

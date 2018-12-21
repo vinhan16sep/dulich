@@ -35,52 +35,58 @@
     <div class="container-fluid" id="list-destinations">
         <div class="container">
             <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                <?php for ($j = 0; $j < 3; $j++) { ?>
+                <?php foreach ($region as $key => $value): ?>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
-                            Region <?php echo $j+1 ?> of Vietnam
+                        <a class="nav-link <?= ($key == 0)? 'active' : '' ?>" id="pills-region-<?= $value['id'] ?>-tab" data-toggle="pill" href="#pills-region-<?= $value['id'] ?>" role="tab" aria-controls="pills-<?= $value['id'] ?>" aria-selected="true">
+                            <?= $value['title_vi'] ?>
                         </a>
                     </li>
-                <?php } ?>
+                <?php endforeach ?>
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <?php for ($j = 0; $j < 3; $j++) { ?>
-                    <div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
-                        <div class="row">
-                            <?php for ($i = 0; $i < 6; $i++) { ?>
-                                <div class="item col-xs-12 col-lg-6">
-                                    <div class="mask">
-                                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Destination <?php echo $i+1 ?> ">
+                <?php if ($region): ?>
+                    <?php foreach ($region as $i => $item): ?>
+                        <div class="tab-pane fade show <?= ($i == 0)? 'active' : '' ?>" id="pills-region-<?= $item['id'] ?>" role="tabpanel" aria-labelledby="pills-region-<?= $item['id'] ?>-tab">
+                            <div class="row">
+                            <?php if ($province): ?>
+                                <?php foreach ($province as $key => $value): ?>
+                                    <?php if ($value['region_id'] == $item['id']): ?>
+                                        <div class="item col-xs-12 col-lg-6">
+                                            <div class="mask">
+                                                <img src="<?= base_url('assets/upload/province/') . $value['slug'] .'/'. $value['avatar'] ?>" alt="Image Destination <?= $value['slug'] ?> ">
+                                                <div class="content">
+                                                    <h2><?= $value['title_vi'] ?></h2>
+                                                    <h6><?= $value['description_vi'] ?></h6>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <ul>
+                                                    <?php if ($value['destination']): ?>
+                                                        <?php foreach ($value['destination'] as $k => $val): ?>
+                                                        <li>
+                                                            <a href="<?php echo base_url('destinations/detail/' . $val['slug']) ?>">
+                                                                <?= $val['title_vi'] ?>
+                                                            </a>
+                                                        </li>
+                                                        <?php endforeach ?>
+                                                    <?php endif ?>
+                                                </ul>
 
-                                        <div class="content">
-                                            <h2>Province</h2>
-                                            <h6>Province Title</h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <ul>
-                                            <?php for ($k = 0; $k < 6; $k++) { ?>
-                                                <li>
-                                                    <a href="<?php echo base_url('destinations/detail') ?>">
-                                                        Location of this Province
+                                                <div class="item-footer">
+                                                    <a href="<?php echo base_url('destinations/detail') ?>" class="btn btn-primary" role="button">
+                                                        See More
                                                     </a>
-                                                </li>
-                                            <?php } ?>
-                                        </ul>
-
-                                        <div class="item-footer">
-                                            <a href="<?php echo base_url('destinations/detail') ?>" class="btn btn-primary" role="button">
-                                                See More
-                                            </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </div>
 
             <div class="see-more">
