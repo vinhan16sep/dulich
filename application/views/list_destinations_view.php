@@ -65,7 +65,7 @@
                                                     <?php if ($value['destination']): ?>
                                                         <?php foreach ($value['destination'] as $k => $val): ?>
                                                         <li>
-                                                            <a href="<?php echo base_url('destinations/detail/' . $val['slug']) ?>">
+                                                            <a href="<?php echo base_url('diem-den/'.$item['slug'].'/'.$value['slug'].'/' . $val['slug']) ?>">
                                                                 <?= $val['title_vi'] ?>
                                                             </a>
                                                         </li>
@@ -74,7 +74,7 @@
                                                 </ul>
 
                                                 <div class="item-footer">
-                                                    <a href="<?php echo base_url('destinations/detail') ?>" class="btn btn-primary" role="button">
+                                                    <a href="<?php echo base_url('diem-den/'.$item['slug'].'/'.$value['slug']) ?>" class="btn btn-primary" role="button">
                                                         See More
                                                     </a>
                                                 </div>

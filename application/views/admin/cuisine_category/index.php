@@ -41,7 +41,7 @@
                         </h3>
                     </div>
 
-                    <div class="row" style="padding: 10px;">
+                    <div class="row hidden" style="padding: 10px;">
                         <div class="col-md-6">
                             <a href="<?php echo base_url('admin/cuisine_category/create') ?>" class="btn btn-primary"  >Thêm mới</a>
                         </div>
@@ -68,8 +68,6 @@
                                     <th>Hình ảnh</th>
                                     <th>Tên danh mục Tiếng Việt</th>
                                     <th>Tên danh mục Tiếng Anh</th>
-                                    <th class="hidden">Tỉnh / Thành phố</th>
-                                    <th>Vùng miền</th>
                                     <th>Duyệt Bài</th>
                                     <th>Action</th>
                                 </tr>
@@ -87,8 +85,6 @@
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>
                                                 <td><?= $value['title_en'] ?></td>
-                                                <td  class="hidden"><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
-                                                <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
                                                     <?php
                                                         if ($value['is_active'] == 0) {
@@ -106,20 +102,22 @@
                                                     <a href="<?= base_url('admin/cuisine_category/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
                                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     </a>
-                                                    <?php if (handle_common_permission_active_and_remove()): ?>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/cuisine_category/remove' ) ?>" data-name="danh mục"  style="color: #d9534f" title="Xóa">
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-name="danh mục"  data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/cuisine_category/active' ) ?>" style="color: #00a65a" >
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt danh mục" data-id="<?= $value['id'] ?>" data-name="danh mục"  data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/cuisine_category/deactive' ) ?>" style="color: #f0ad4e">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </a>
-                                                    <?php endif ?>
+                                                    <div class="hidden">
+                                                        <?php if (handle_common_permission_active_and_remove()): ?>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/cuisine_category/remove' ) ?>" data-name="danh mục"  style="color: #d9534f" title="Xóa">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </a>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-name="danh mục"  data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/cuisine_category/active' ) ?>" style="color: #00a65a" >
+                                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                                        </a>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a href="javascript:void(0)" class="btn-deactive" title="Tắt danh mục" data-id="<?= $value['id'] ?>" data-name="danh mục"  data-is_active = "<?= $value['is_active'] ;?>" data-url="<?= base_url('admin/cuisine_category/deactive' ) ?>" style="color: #f0ad4e">
+                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                        </a>
+                                                        <?php endif ?>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <?php $serial++ ?>
@@ -141,8 +139,6 @@
                                             <th>Hình ảnh</th>
                                             <th>Tên danh mục Tiếng Việt</th>
                                             <th>Tên danh mục Tiếng Anh</th>
-                                            <th class="hidden">Tỉnh / Thành phố</th>
-                                            <th>Vùng miền</th>
                                             <th>Duyệt danh mục</th>
                                             <th>Action</th>
                                         </tr>

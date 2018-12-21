@@ -41,14 +41,6 @@
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <th>Vùng miền</th>
-                                                <td><?= $region['title_vi'] ?></td>
-                                            </tr>
-                                            <tr class="hidden">
-                                                <th>Tỉnh / Thành phố</th>
-                                                <td><?= $province ? $province['title_vi'] : '(Không có)' ?></td>
-                                            </tr>
-                                            <tr>
                                                 <th>Slug</th>
                                                 <td><?= $detail['slug'] ?></td>
                                             </tr>

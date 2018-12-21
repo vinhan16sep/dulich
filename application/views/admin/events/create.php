@@ -30,7 +30,7 @@
                         <?php
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
-                        <div class="col-xs-12">
+                        <div class="col-xs-12" style="padding: 0px;">
                             <h4 class="box-title">Thông tin cơ bản</h4>
                         </div>
                         <div class="row">
@@ -70,8 +70,8 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12"  style="padding-right: 0px;">
+                            <div class="form-group col-xs-12"  style="padding-right: 0px;">
                                 <?php
                                 echo form_label('Slug', 'slug');
                                 echo form_error('slug');
@@ -79,8 +79,8 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12"  style="padding-right: 0px;">
+                            <div class="form-group col-xs-12"  style="padding-right: 0px;">
                                 <?php
                                 echo form_label('Vùng miền', 'region_id');
                                 echo form_error('region_id');
@@ -88,8 +88,8 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="form-group col-xs-12">
-                            <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12"  style="padding-right: 0px;">
+                            <div class="form-group col-xs-12"  style="padding-right: 0px;">
                                 <?php
                                 echo form_label('Tỉnh / Thành phố', 'province_id');
                                 echo form_error('province_id');
@@ -99,18 +99,20 @@
                         </div>
 
                         <div>
-                            <ul class="nav nav-pills nav-justified" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#language_vi" aria-controls="" role="tab" data-toggle="tab">
-                                        <span class="badge">1</span> Tiếng Việt
-                                    </a>
-                                </li>
-                                <li role="presentation" class="">
-                                    <a href="#language_en" aria-controls="" role="tab" data-toggle="tab">
-                                        <span class="badge">2</span> English
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="form-group col-xs-12">
+                                <ul class="nav nav-pills nav-justified" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#language_vi" aria-controls="" role="tab" data-toggle="tab">
+                                            <span class="badge">1</span> Tiếng Việt
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#language_en" aria-controls="" role="tab" data-toggle="tab">
+                                            <span class="badge">2</span> English
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <hr>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="language_vi">
