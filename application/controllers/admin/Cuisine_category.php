@@ -48,6 +48,7 @@ class Cuisine_category extends Admin_Controller{
     }
 
     public function create(){
+        redirect('admin/cuisine_category');
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         // Get all region
         $region = $this->region_model->get_all();
@@ -60,8 +61,6 @@ class Cuisine_category extends Admin_Controller{
 
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
-        $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
-        // $this->form_validation->set_rules('province_id', 'Tỉnh / Thành phố', 'required');
         $this->form_validation->set_rules('image', 'Hình ảnh', 'callback_check_file');
 
         if ($this->form_validation->run() == FALSE) {
@@ -83,8 +82,6 @@ class Cuisine_category extends Admin_Controller{
                 $data = array(
                     'image' => $images,
                     'slug' => $unique_slug,
-                    'region_id' => $this->input->post('region_id'),
-                    // 'province_id' => !empty($this->input->post('province_id')) ? $this->input->post('province_id') : 0,
                     'title_vi' => $this->input->post('title_vi'),
                     'title_en' => $this->input->post('title_en'),
                     'description_vi' => $this->input->post('description_vi'),
@@ -105,22 +102,13 @@ class Cuisine_category extends Admin_Controller{
 
     public function detail($id){
         $detail = $this->cuisine_category_model->find($id);
-        $region = $this->region_model->find($detail['region_id']);
-        $province = $this->province_model->find($detail['province_id']);
         $this->data['detail'] = $detail;
-        $this->data['region'] = $region;
-        $this->data['province'] = $province ? $province : null ;
         $this->render('admin/cuisine_category/detail');
     }
 
     public function edit($id){
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
-            //Get all region
-            $region = $this->region_model->get_all();
-            $region = build_array_by_id_for_dropdown($region);
-            $this->data['region'] = $region;
-
             $detail = $this->cuisine_category_model->find($id);
             $this->data['detail'] = $detail;
             if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
@@ -128,20 +116,12 @@ class Cuisine_category extends Admin_Controller{
                 redirect('admin/cuisine_category/index', 'refresh');
             }
 
-            //Get province by region_id
-            // $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
-            // $province = build_array_by_id_for_dropdown($province);
-            // $this->data['province'] = $province;
-
             $this->load->helper('form');
             $this->load->library('form_validation');
 
             $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
             $this->form_validation->set_rules('title_en', 'Title', 'required');
-            $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
-            // $this->form_validation->set_rules('province_id', 'Tỉnh / Thành phố', 'required');
 
-            
             if ($this->form_validation->run() == FALSE) {
                 $this->render('admin/cuisine_category/edit');
             }else{
@@ -167,8 +147,6 @@ class Cuisine_category extends Admin_Controller{
 
                     $data = array(
                         'slug' => $unique_slug,
-                        'region_id' => $this->input->post('region_id'),
-                        // 'province_id' => $this->input->post('province_id'),
                         'title_vi' => $this->input->post('title_vi'),
                         'title_en' => $this->input->post('title_en'),
                         'description_vi' => $this->input->post('description_vi'),

@@ -44,6 +44,10 @@ class Cuisine extends Admin_Controller{
         $cuisine_category = build_array_by_id_for_dropdown($cuisine_category);
         $this->data['cuisine_category'] = $cuisine_category;
 
+        //Get all region
+        $region = $this->region_model->get_all();
+        $region = build_array_by_id_for_dropdown($region);
+        $this->data['region'] = $region;
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -51,6 +55,7 @@ class Cuisine extends Admin_Controller{
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('image', 'Hình ảnh', 'callback_check_file');
+        $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
         $this->form_validation->set_rules('cuisine_category_id', 'Danh mục', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -80,6 +85,7 @@ class Cuisine extends Admin_Controller{
                     'description_vi' => $this->input->post('description_vi'),
                     'description_en' => $this->input->post('description_en'),
                     'cuisine_category_id' => $this->input->post('cuisine_category_id'),
+                    'region_id' => $this->input->post('region_id'),
                 );
                 $insert = $this->cuisine_model->insert(array_merge($data, $this->author_data));
                 if ($insert) {
@@ -110,6 +116,11 @@ class Cuisine extends Admin_Controller{
             $cuisine_category = build_array_by_id_for_dropdown($cuisine_category);
             $this->data['cuisine_category'] = $cuisine_category;
 
+            //Get all region
+            $region = $this->region_model->get_all();
+            $region = build_array_by_id_for_dropdown($region);
+            $this->data['region'] = $region;
+
             $detail = $this->cuisine_model->find($id);
             $this->data['detail'] = $detail;
             if ( $this->ion_auth->in_group('mod') ) {
@@ -124,6 +135,7 @@ class Cuisine extends Admin_Controller{
 
             $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
             $this->form_validation->set_rules('title_en', 'Title', 'required');
+            $this->form_validation->set_rules('region_id', 'Vùng miền', 'required');
             $this->form_validation->set_rules('cuisine_category_id', 'Danh mục', 'required');
 
             if ($this->form_validation->run() == FALSE) {
@@ -163,6 +175,7 @@ class Cuisine extends Admin_Controller{
                         'description_vi' => $this->input->post('description_vi'),
                         'description_en' => $this->input->post('description_en'),
                         'cuisine_category_id' => $this->input->post('cuisine_category_id'),
+                        'region_id' => $this->input->post('region_id'),
                     );
                     if ( isset($images) ) {
                         $data['image'] = json_encode($images);
@@ -275,7 +288,8 @@ class Cuisine extends Admin_Controller{
     public function check_top(){
         $id = $this->input->get('id');
         $value = $this->input->get('value');
-        $total = $this->cuisine_model->count_is_top(1,$value);
+        $region_id = $this->input->get('region_id');
+        $total = $this->cuisine_model->count_is_top(1,$value,$region_id);
         if(is_numeric($id)){
             $detail = $this->cuisine_model->find($id);
             if($detail['is_top'] == 1){

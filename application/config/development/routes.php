@@ -69,3 +69,10 @@ $route['nhom/([a-zA-Z0-9-_]+)'] = 'product/category/$1';
 
 $route['bai-viet/([a-zA-Z0-9-_]+)'] = 'post/detail/$1';
 $route['danh-muc/([a-zA-Z0-9-_]+)'] = 'post/category/$1';
+
+
+//url cho destination
+$route['diem-den'] = 'destinations/index';
+$route['diem-den/([a-zA-Z0-9-_]+)'] = 'destinations/category/$1';
+$route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/province/$1/$2';
+$route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detail/$1/$2/$3';

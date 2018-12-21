@@ -3,13 +3,14 @@ $('#is_top').change(function(){
 	if($(this).is(':checked')){
 		var url = $(this).data('url');
 		var id = $(this).data('id');
-		var value = ($("#cuisine_category_id").val() == 0) ? '' : $("#cuisine_category_id").val();
+        var value = ($("#cuisine_category_id").val() == 0) ? '' : $("#cuisine_category_id").val();
+		var region_id = ($("#region_id").val() == 0) ? '' : $("#region_id").val();
 		console.log(value);
 		$.ajax({
             method: "get",
             url: url,
             data: {
-            	id : id, value: value
+            	id : id, value: value, region_id:region_id
             },
             success: function(response){
                 if(response.isExisted == false){
@@ -27,7 +28,7 @@ $('#is_top').change(function(){
         });
 	}
 });
-$('#cuisine_category_id').change(function(){
+$('#cuisine_category_id, #region_id').change(function(){
 	var url = $(this).data('url');
 	var id = $(this).val();
 	$.ajax({

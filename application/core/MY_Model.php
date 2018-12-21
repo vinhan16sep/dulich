@@ -208,13 +208,14 @@ class MY_Model extends CI_Model {
         return $result = $this->db->get()->result_array();
     }
 
-    public function count_is_top($is_top, $id_category = ''){
+    public function count_is_top($is_top, $id_category = '', $region_id = ''){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_top', $is_top);
         $this->db->where('is_deleted', 0);
-        if(!empty($id_category)){
+        if(!empty($id_category) && !empty($id_category)){
             $this->db->where($this->table.'_category_id', $id_category);
+            $this->db->where('region_id', $region_id);
         }
         return $this->db->count_all_results();
     }
@@ -224,6 +225,20 @@ class MY_Model extends CI_Model {
     public function get_by_where($where = array()){
         $this->db->select('*');
         $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
+    
+
+    public function get_multiple_id_where($multiple_id = array(),$where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where_in('province_id', $multiple_id);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);
         if ($where) {
