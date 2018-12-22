@@ -13,19 +13,56 @@ class Cuisine extends Public_Controller {
         $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
-    public function index(){
-    	$this->data['region'][] = $this->cuisine_category_model->get_by_region_all(2);
-    	$this->data['region'][] = $this->cuisine_category_model->get_by_region_all(3);
-    	$this->data['region'][] = $this->cuisine_category_model->get_by_region_all(4);
-    	foreach ($this->data['region'] as $key => $value) {
-    		foreach ($value as $k => $val) {
-    			$this->data['region'][$key][$k]['cuisine'] = $this->cuisine_model->get_where_array(array('is_active' => 1,'cuisine_category_id' => $val['id']));
-    		}
-    	}
-        $this->render('list_cuisine_view');
+    // list all cuisine của region
+    public function region($slug){
+        $region = $this->region_model->get_by_where(array('slug' => $slug));
+        if(!empty($region)){
+            // get all cuisine thuộc miền
+            $cuisine_category = $this->cuisine_category_model->get_by_where();
+            foreach ($cuisine_category as $key => $value) {
+                $cuisine_category[$key]['cuisine'] = $this->cuisine_model->get_by_where(array('cuisine_category_id' => $value['id'], 'region_id' => $region[0]['id']));
+            }
+            $this->data['region'] = $region;
+            $this->data['cuisine_category'] = $cuisine_category;
+            echo '<pre>';
+            print_r($this->data['cuisine_category']);
+            echo '</pre>';die;
+
+            echo 'Trang danh sách cuisine của region';
+            return false;
+
+                    
+            return $this->render('list_cuisine_view');
+        }
+        //return view 404
+        echo 'Lỗi 404';
+        return false;
     }
 
-    public function detail(){
-        $this->render('detail_cuisine_view');
+    // list all cuisine của region và category
+    public function category($region_slug,$slug){
+        $cuisine_category = $this->cuisine_category_model->find_where(array('slug' => $slug));
+        if(!empty($cuisine_category)){
+            $region = $this->region_model->find_where(array('slug' => $region_slug));
+            if(!empty($region)){
+                // get all cuisine thuộc miền
+                $cuisine = $this->cuisine_model->find_where(array('cuisine_category_id' => $cuisine_category['id'], 'region_id' => $region['id']));
+               
+                $this->data['region'] = $region;
+                $this->data['cuisine'] = $cuisine;
+                echo '<pre>';
+                print_r($this->data['cuisine']);
+                echo '</pre>';die;
+
+                echo 'Trang danh sách cuisine của region';
+                return false;
+
+                        
+                return $this->render('list_cuisine_view');
+            }
+        }
+        //return view 404
+        echo 'Lỗi 404';
+        return false;
     }
 }

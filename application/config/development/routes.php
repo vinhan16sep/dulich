@@ -73,6 +73,21 @@ $route['danh-muc/([a-zA-Z0-9-_]+)'] = 'post/category/$1';
 
 //url cho destination
 $route['diem-den'] = 'destinations/index';
-$route['diem-den/([a-zA-Z0-9-_]+)'] = 'destinations/category/$1';
+$route['diem-den/([a-zA-Z0-9-_]+)'] = 'destinations/region/$1';
 $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/province/$1/$2';
 $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detail/$1/$2/$3';
+
+//url cho cusnine
+$route['mon-an'] = 'cuisine/index';
+$route['mon-an/([a-zA-Z0-9-_]+)'] = 'cuisine/region/$1';
+$route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/category/$1/$2';
+
+//url cho events
+$route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/region/$1';
+$route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/province/$1/$2';
+$route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/detail/$1/$2/$3';
+
+//url cho blogs
+$route['bai-viet/([a-zA-Z0-9-_]+)'] = 'blogs/region/$1';
+$route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/province/$1/$2';
+$route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1/$2/$3';

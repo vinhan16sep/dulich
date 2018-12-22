@@ -113,15 +113,15 @@
                                                     </a>
                                                     <?php if (handle_common_permission_active_and_remove()): ?>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/remove' ) ?>" data-name="bài viết"  style="color: #d9534f" title="Xóa">
+                                                        <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-name="bài viết" data-url="<?= base_url('admin/blog/remove' ) ?>" data-name="bài viết"  style="color: #d9534f" title="Xóa">
                                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </a>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/active' ) ?>" style="color: #00a65a" >
+                                                        <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-name="bài viết" data-url="<?= base_url('admin/blog/active' ) ?>" style="color: #00a65a" >
                                                             <i class="fa fa-check" aria-hidden="true"></i>
                                                         </a>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/deactive' ) ?>" style="color: #f0ad4e">
+                                                        <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-name="bài viết" data-url="<?= base_url('admin/blog/deactive' ) ?>" style="color: #f0ad4e">
                                                             <i class="fa fa-times" aria-hidden="true"></i>
                                                         </a>
                                                     <?php endif ?>
