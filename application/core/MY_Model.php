@@ -104,7 +104,7 @@ class MY_Model extends CI_Model {
         return $this->db->get()->result_array();
     }
     public function get_by_region_all($region_id){
-        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en, province.slug as province_slug');
         $this->db->from($this->table);
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where($this->table.'.is_deleted', 0);
@@ -232,6 +232,19 @@ class MY_Model extends CI_Model {
         }
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->result_array();
+    }
+
+    //Frontend
+    public function find_where($where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->row_array();
     }
     
 
