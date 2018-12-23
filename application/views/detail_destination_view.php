@@ -2,25 +2,27 @@
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.theme.default.min.css">
 
 <section id="detail-destination">
-	<div id="slide" class="carousel slide carousel-fade main-slide" data-ride="carousel">
+	<div id="slide" class="carousel slide main-slide" data-ride="carousel">
 		<div class="carousel-inner">
-            <?php for ($i = 0; $i < 3; $i++) { ?>
-				<div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
-					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
-					</div>
-					<div class="carousel-caption">
-						<div class="row">
-							<div class="item col-xs-12 col-lg-6">
-								<h1><?php echo $province['title_vi'] ?></h1>
-								<p class="text-wrapper">
-									<?php echo $province['description_vi'] ?>
-								</p>
+			<?php if ( json_decode($province['image']) ): ?>
+				<?php foreach (json_decode($province['image']) as $key => $value): ?>
+					<div class="carousel-item <?php echo ($key == 0)? 'active' : '' ?>">
+						<div class="mask">
+							<img src="<?php echo base_url('assets/upload/province/' . $province['slug'] . '/' . $value) ?>" alt="Image slide">
+						</div>
+						<div class="carousel-caption">
+							<div class="row">
+								<div class="item col-xs-12 col-lg-6">
+									<h1><?php echo $province['title_vi'] ?></h1>
+									<p class="text-wrapper">
+										<?php echo $province['description_vi'] ?>
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-            <?php } ?>
+				<?php endforeach ?>
+			<?php endif ?>
 		</div>
 		<a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -223,7 +225,7 @@
 
         $(".owl-carousel.post-list").owlCarousel({
             items: 3,
-			loop: true,
+			loop: false,
             margin: 30,
 			dots: true,
             responsiveClass: true,

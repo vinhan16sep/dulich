@@ -1,15 +1,15 @@
 <section id="detail-destination-post" class="detail-post">
     <div class="main-cover">
         <div class="mask">
-            <img src="https://images.unsplash.com/photo-1545540307-1765af16ce99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image Cover Blog">
+            <img src="<?php echo base_url('assets/upload/destination/' . $destination['slug'] . '/' . $destination['avatar']) ?>" alt="Image <?php echo $destination['slug'] ?>">
 
             <div class="content">
                 <div class="container">
                     <div class="row">
                         <div class="item col-xs-12 col-lg-6">
-                            <h1>Title Comes Here</h1>
+                            <h1><?php echo $destination['title_vi'] ?></h1>
                             <p class="text-wrapper">
-                                Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                <?php echo $destination['description_vi'] ?>
                             </p>
                         </div>
                     </div>
@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="left col-xs-12 col-lg-8">
                     <div>
-                        <strong>Time: 99:00</strong>
+                        <strong>Time: <?php echo date_format(date_create($destination['updated_at']),"d-m-Y") ?></strong>
                     </div>
                     <article>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas enim eget tellus cursus mollis. Quisque condimentum odio metus, a semper metus sagittis ac. Morbi aliquam odio consequat felis aliquam convallis. Integer imperdiet dictum felis, eget scelerisque dolor aliquet sed. Aenean scelerisque egestas pulvinar. Praesent lobortis imperdiet massa id molestie. Integer facilisis, ex ac tristique consequat, dui dolor eleifend velit, dapibus iaculis massa tellus et quam. Donec nec metus id justo volutpat pharetra. Mauris risus felis, malesuada et augue eu, fringilla maximus nibh. Maecenas semper faucibus sodales.</p>
+                        <p><?php echo $destination['body_vi'] ?></p>
                     </article>
                 </div>
 

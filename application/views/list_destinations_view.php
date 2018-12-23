@@ -1,7 +1,7 @@
 <section id="destinations">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $region_detail['avatar']) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
