@@ -10,6 +10,7 @@ class Destinations extends Public_Controller {
         $this->load->model('events_model');
         $this->load->model('region_model');
         $this->load->model('province_model');
+        $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den

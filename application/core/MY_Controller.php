@@ -319,7 +319,7 @@ class Public_Controller extends MY_Controller {
         $this->load->library('session');
         $this->load->helper('form');
         $this->langAbbreviation = $this->session->userdata('langAbbreviation') ? $this->session->userdata('langAbbreviation') : 'en';
-
+        
         if($this->langAbbreviation == 'vi' || $this->langAbbreviation == 'en' || $this->langAbbreviation == ''){
             $this->session->set_userdata('langAbbreviation', $this->langAbbreviation);
         }
