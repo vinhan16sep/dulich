@@ -238,13 +238,16 @@ class MY_Model extends CI_Model {
 
 
     //Frontend
-    public function get_by_where($where = array()){
+    public function get_by_where($where = array(),$check=1){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);
         if ($where) {
             $this->db->where($where);
+        }
+        if($check == 0){
+            $this->db->order_by("id", "asc");
         }
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->result_array();

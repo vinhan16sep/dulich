@@ -70,14 +70,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="nav-main">
 			<ul>
-				<li class="li-sub">
-					<a href="<?php echo base_url('diem-den/mien-bac') ?>">
-						Destination <i class="fas fa-caret-down"></i>
+				<li>
+					<a href="<?php echo base_url('diem-den') ?>">
+						Destination
 					</a>
 				</li>
-				<li class="li-sub">
+				<li>
 					<a href="<?php echo base_url('su-kien/mien-bac') ?>">
-						Events <i class="fas fa-caret-down"></i>
+						Events
 					</a>
 				</li>
 				<li>
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('bai-viet/mien-bac') ?>">
+					<a href="<?php echo base_url('bai-viet') ?>">
 						Blog Review
 					</a>
 				</li>

@@ -25,7 +25,7 @@ class Events_model extends MY_Model {
         return $this->db->get()->result_array();
     }
     public function get_by_related($region_id, $province_id, $not_id = '', $number = 3){
-        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en');
+        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en, province.slug as province_slug');
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 1, $this->table.'.region_id' => $region_id, $this->table.'.province_id' => $province_id));
         if(!empty($not_id)){
