@@ -58,4 +58,8 @@ class Cuisine extends Public_Controller {
     //     echo 'Lỗi 404';
     //     return false;
     // }
+
+    public function detail(){
+        $this->render('detail_cuisine_view');
+    }
 }

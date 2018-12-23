@@ -1,79 +1,121 @@
 #cuisine{
-    .slide{
-        width: 100%;
-        height: calc(100vh - 120px);
+    .main-cover{
+        //Import Main Cover Stylesheet
+    }
 
-        .carousel-inner{
-            height: 100%;
+    .container-fluid {
+        &#list-cuisine{
+            padding-left: 0;
+            padding-right: 0;
 
-            .carousel-item{
-                height: 100%;
+            .cuisine-style{
+                position: relative;
 
-                .mask{
-                    width: 100%;
-                    height: 100%;
+                margin-bottom: 15px;
+
+                &:last-of-type{
+                    margin-bottom: 0;
                 }
 
-                .carousel-caption{
-                    text-align: left;
+                .background-image{
+                    width: 100%;
+                    height: 100%;
 
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    opacity: 0.15;
+                }
+
+                .container{
+                    padding-top: 50px;
                     padding-bottom: 50px;
 
+                    .heading{
+                        text-align: center;
+
+                        padding-top: 0;
+                        padding-bottom: 15px;
+
+                        position: relative;
+
+                        &:after{
+                            content: "";
+
+                            width: 100%;
+                            height: 1px;
+
+                            background-color: $gray-base;
+
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                        }
+
+                        h2{
+                            font-weight: 400;
+                        }
+                    }
+
                     .row{
+                        padding-top: 30px;
+
                         .item{
-                            h3{
-                                margin-bottom: 7px;
-                            }
+                            margin-bottom: 30px;
 
-                            h6{
-                                font-weight: 400;
+                            .inner{
+                                @include boxShadow(0,0,15px,rgba(0,0,0,0.15));
 
-                                &.text-wrapper{
+                                .mask{
+                                    width: 100%;
+                                    height: 270px;
 
-                                }
-                            }
+                                    position: relative;
 
-                            p{
-                                &.text-wrapper{
+                                    .badge{
+                                        position: absolute;
+                                        top: 15px;
+                                        left: 30px;
 
+                                        padding: 7px 15px;
+
+                                        @include gradient(rgba(41, 169, 224, 1), #29a9e0, rgba(41, 59, 143, 1), #293b8f, -45deg, bottom left, top right);
+                                        color: #fff;
+                                    }
+
+                                    .content{
+                                        width: 100%;
+
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+
+                                        padding: 50px 30px 30px;
+
+                                        background: rgba(255,255,255,0);
+                                        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 100%);
+                                        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,0.65)));
+                                        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 100%);
+                                        background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 100%);
+                                        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 100%);
+                                        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 100%);
+                                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+
+                                        h3{
+                                            font-weight: 400;
+
+                                            color: $gray-base;
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-    }
-
-    .container-fluid {
-        &#list-cuisine{
-            background-color: #f7f7f7;
 
             .container{
-                @include translate(0, -46px);
-
-                .nav{
-                    margin-bottom: 0;
-
-                    border-bottom: 3px solid $primary-base;
-
-                    li{
-                        a{
-                            font-family: 'Lora', Serif;
-                            font-weight: 400;
-
-                            color: #fff;
-
-                            &.active{
-                                font-weight: 700;
-
-                                background-color: transparent;
-                                border-bottom: 3px solid $primary-base;
-                            }
-                        }
-                    }
-                }
-
                 .tab-content {
                     padding-top: 30px;
 
