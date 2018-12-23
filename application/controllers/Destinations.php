@@ -14,47 +14,57 @@ class Destinations extends Public_Controller {
 
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den
     public function index(){
-        echo  'Chưa biết để làm gì';
-        return false;
+//        echo  'Chưa biết để làm gì';
+//        return false;
         $this->render('list_destinations_view');
     }
 
-    // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung/thanh-hoa/nghe-an-3
-    public function detail($region_slug, $province_slug,$slug){
-        $destination = $this->destination_model->find_where(array('slug' => $slug));
-        if(!empty($destination)){
-            $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $destination['province_id']));
-            if(!empty($province)){
-                $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']));
-                if(!empty($region)){
-                    $this->data['region'] = $region;
-                    $this->data['province'] = $province;
-                    $this->data['destination'] = $destination;
-
-                    //destination liên quan đến tỉnh
-                    $this->data['get_related'] = $this->destination_model->get_by_related($destination['region_id'],$destination['province_id'],$destination['id']);
-
-                    // sự kiện liên quan đến tỉnh
-                    $this->data['get_related_evnets'] = $this->events_model->get_by_related($destination['region_id'],$destination['province_id']);
-
-                    // món ăn liên quanh đến miền
-                    $this->data['get_related_cuisine'] = $this->cuisine_model->get_by_related($destination['region_id']);
-
-                    echo "<pre>";
-                    print_r($this->data['destination']);
-                    echo "<pre>";
-
-                    echo 'Trang chi tiết destination';
-                    return false;
-
-
-                    return $this->render('detail_destination_view');
-                }
-            }
-        }
-        echo 'Lỗi 404';
-        return false;
+    public function detail(){
+        $this->render('detail_destination_view');
     }
+
+    public function detailpost(){
+        $this->render('detail_destination_post_view');
+    }
+
+    // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung/thanh-hoa/nghe-an-3
+
+    // hung.luong commented
+//    public function detail($region_slug, $province_slug,$slug){
+//        $destination = $this->destination_model->find_where(array('slug' => $slug));
+//        if(!empty($destination)){
+//            $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $destination['province_id']));
+//            if(!empty($province)){
+//                $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']));
+//                if(!empty($region)){
+//                    $this->data['region'] = $region;
+//                    $this->data['province'] = $province;
+//                    $this->data['destination'] = $destination;
+//
+//                    //destination liên quan đến tỉnh
+//                    $this->data['get_related'] = $this->destination_model->get_by_related($destination['region_id'],$destination['province_id'],$destination['id']);
+//
+//                    // sự kiện liên quan đến tỉnh
+//                    $this->data['get_related_evnets'] = $this->events_model->get_by_related($destination['region_id'],$destination['province_id']);
+//
+//                    // món ăn liên quanh đến miền
+//                    $this->data['get_related_cuisine'] = $this->cuisine_model->get_by_related($destination['region_id']);
+//
+//                    echo "<pre>";
+//                    print_r($this->data['destination']);
+//                    echo "<pre>";
+//
+//                    echo 'Trang chi tiết destination';
+//                    return false;
+//
+//
+//                    return $this->render('detail_destination_view');
+//                }
+//            }
+//        }
+//        echo 'Lỗi 404';
+//        return false;
+//    }
 
     // list all destination của region
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung
