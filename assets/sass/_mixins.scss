@@ -36,6 +36,14 @@
     border-radius: $radius;
 }
 
+//Set Box Shadow
+
+@mixin boxShadow($x, $y, $blur, $color){
+    -webkit-box-shadow:  $x $y $blur $color;
+    -moz-box-shadow:  $x $y $blur $color;
+    box-shadow:  $x $y $blur $color;
+}
+
 //Make Gradient
 @mixin gradient($start-rgba, $start-hex, $end-rgba, $end-hex, $deg, $star-pos, $end-pos){
     background: $start-rgba;

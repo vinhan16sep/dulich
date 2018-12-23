@@ -16,7 +16,7 @@
 
     //Setup Primary Buttons
     &.btn-primary{
-        background-color: $primary-base;
+        @include gradient(rgba(41, 169, 224, 1), #29a9e0, rgba(41, 59, 143, 1), #293b8f, -45deg, bottom left, top right);
         border-color: $primary-lighter;
 
         font-weight: 500;
