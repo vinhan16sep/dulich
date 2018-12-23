@@ -5,7 +5,7 @@ class MY_Controller extends CI_Controller {
     protected $data = array();
     protected $author_info = array();
     protected $page_languages = array('vi', 'en');
-    protected $langAbbreviation = 'vi';
+    protected $langAbbreviation = 'en';
 
     protected $author_data = array();
     protected $permission_admin = array('admin');
@@ -318,20 +318,20 @@ class Public_Controller extends MY_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('form');
-        $this->langAbbreviation = $this->session->userdata('langAbbreviation') ? $this->session->userdata('langAbbreviation') : 'vi';
+        $this->langAbbreviation = $this->session->userdata('langAbbreviation') ? $this->session->userdata('langAbbreviation') : 'en';
 
         if($this->langAbbreviation == 'vi' || $this->langAbbreviation == 'en' || $this->langAbbreviation == ''){
             $this->session->set_userdata('langAbbreviation', $this->langAbbreviation);
         }
         
-        if($this->session->userdata('langAbbreviation') == 'vi' || $this->session->userdata('langAbbreviation') == ''){
+        if($this->session->userdata('langAbbreviation') == 'vi'){
             $langName = 'vietnamese';
             $this->config->set_item('language', $langName); 
             $this->session->set_userdata("langAbbreviation",'vi');
             $this->lang->load('vietnamese_lang', 'vietnamese');
         }
         
-        if($this->session->userdata('langAbbreviation') == 'en'){
+        if($this->session->userdata('langAbbreviation') == 'en' || $this->session->userdata('langAbbreviation') == ''){
             $langName = 'english';
             $this->config->set_item('language', $langName); 
             $this->session->set_userdata("langAbbreviation",'en');
