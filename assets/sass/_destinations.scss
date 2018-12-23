@@ -3,6 +3,11 @@
         &#list-destinations{
             background-color: #f7f7f7;
 
+            background-image: url("../img/bg-trongdong-full.png");
+            background-size: unset;
+            background-repeat: repeat-y;
+            background-position: center center;
+
             .container{
                 padding-top: 50px;
                 padding-bottom: 50px;
@@ -133,8 +138,6 @@
 
     .container-fluid {
         &#content{
-            background-color: #f7f7f7;
-
             padding:50px 0;
 
             .container-fluid{
@@ -194,6 +197,13 @@
 
 
                 &#images{
+                    background-color: $gray-lightest;
+
+                    background-image: url("../img/bg-dragon.png");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+
                     .heading{
                         width: 100%;
 
@@ -208,6 +218,8 @@
                     }
 
                     .body{
+                        padding-bottom: 50px;
+
                         .owl-carousel{
                             .owl-stage-outer{
                                 .owl-item{
@@ -222,7 +234,7 @@
                 }
 
                 &.posts{
-                    background-color: #e9e9e9;
+                    background-color: #fff;
 
                     margin-left: -15px;
                     margin-right: -15px;
@@ -237,30 +249,25 @@
                             text-align: center;
 
                             h3{
-                                text-transform: uppercase;
+                                font-weight: 400;
 
                                 color: $gray-darker;
 
                                 position: relative;
 
-                                &:before, &:after{
-                                    content: '';
-
-                                    width: 15vw;
-                                    height: 1px;
-
-                                    background-color: $gray-darker;
-
-                                    position: absolute;
-                                    bottom: 50%;
-                                }
-
-                                &:before{
-                                    left: 0;
-                                }
+                                padding-bottom: 15px;
 
                                 &:after{
-                                    right: 0;
+                                    content: "";
+
+                                    width: 100%;
+                                    height: 1px;
+
+                                    background-color: $gray-base;
+
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
                                 }
                             }
                         }

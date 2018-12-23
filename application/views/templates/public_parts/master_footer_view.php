@@ -1,10 +1,11 @@
 <footer>
 	<div class="footer-top">
+		<div class="footer-bg"></div>
 		<div class="container">
 			<div class="row">
 				<div class="item col-xs-12 col-lg-3">
 					<a href="<?php base_url('') ?>">
-						<img src="" alt="logo Vietnam Travellog">
+						<img src="<?php echo site_url('assets/img/logo-w.png') ?>" alt="Logo Vietnam Travellog">
 					</a>
 				</div>
 				<div class="item col-xs-12 col-lg-3">
@@ -71,7 +72,10 @@
 		</div>
 	</div>
 	<div class="footer-bottom">
-
+		<div class="container">
+			<h6>2018 SSL</h6>
+			<h6>&copy; 2018 Copyrights Brand</h6>
+		</div>
 	</div>
 
 </footer>

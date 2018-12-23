@@ -7,9 +7,28 @@ footer{
 
         @include gradient(rgba(41, 169, 224, 1), #29a9e0, rgba(41, 59, 143, 1), #293b8f, -45deg, bottom left, top right);
 
+        position: relative;
+
+        .footer-bg{
+            width: 100%;
+            height: 100%;
+
+            background-image: url("../img/bg-header.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
         .container{
             .row{
                 .item{
+                    font-family: 'Lora', Serif;
+                    font-weight: 400;
+
                     h4{
                         color: #fff;
 
@@ -37,11 +56,18 @@ footer{
                         li{
                             a{
                                 color: #fff;
-
-                                font-family: 'Lora', Serif;
-                                font-weight: 400;
                             }
                         }
+                    }
+
+                    p{
+                        color: #fff;
+                    }
+
+                    > a{
+                        color: #fff;
+
+                        text-decoration: underline;
                     }
                 }
             }
@@ -49,7 +75,23 @@ footer{
     }
 
     .footer-bottom{
+        background-color: $primary-base;
 
+        .container{
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+
+            h6{
+                font-weight: 400;
+
+                color: #fff;
+            }
+        }
     }
 }
 

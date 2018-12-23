@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.theme.default.min.css">
 
 <section id="homepage">
-	<div id="slideHomepage" class="carousel slide carousel-fade" data-ride="carousel">
+	<div id="slideHomepage" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
             <?php for ($i = 0; $i < 3; $i++) { ?>
 				<li data-target="#slideHomepage" data-slide-to="<?php echo $i ?>" class="<?php echo ($i == 0)? 'active' : '' ?>"></li>
@@ -19,14 +19,14 @@
 						<div class="row">
 							<div class="item col-xs-12 col-lg-4">
 								<span class="badge">Badge Subtitle</span>
-								<h3>Province</h3>
-								<h6 class="text-wrapper">Description</h6>
+								<h1>Province</h1>
+								<h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
 							</div>
 							<div class="item col-xs-12 col-lg-4">
 								<p class="text-wrapper">
 									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 								</p>
-								<a href="<?php echo base_url('') ?>" class="btn btn-default" role="button">
+								<a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
 									View Detail
 								</a>
 							</div>
@@ -61,8 +61,8 @@
 
 								<div class="content">
 									<?php if($i == 0) { ?>
-										<h1>Region Title</h1>
-										<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+										<h1>North of Vietnam</h1>
+										<a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
 											See all Destinations
 										</a>
 									<?php } ?>
@@ -90,8 +90,8 @@
 							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
 
 							<div class="content">
-								<h1>Region Title</h1>
-								<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+								<h1>Center of Vietnam</h1>
+								<a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
 									See all Destinations
 								</a>
 							</div>
@@ -131,8 +131,8 @@
 							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
 
 							<div class="content">
-								<h1>Region Title</h1>
-								<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+								<h1>South of Vietnam</h1>
+								<a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
 									See all Destinations
 								</a>
 							</div>
@@ -156,41 +156,46 @@
 		</div>
 	</div>
 
-	<div class="container" id="events">
-		<div class="heading">
-			<h3>Festivals & Events</h3>
-		</div>
-		<div class="body">
-			<div class="grid">
-				<div class="grid-sizer"></div>
+	<div class="container-fluid" id="events">
+		<div class="container">
+			<div class="heading">
+				<h3>Festivals & Events</h3>
+			</div>
+			<div class="body">
+				<div class="grid">
+					<div class="grid-sizer"></div>
 
-				<?php for ($i = 0; $i < 7; $i++) { ?>
-					<div class="grid-item <?php echo $i+1 ?>">
-						<div class="mask">
-							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Event <?php echo $i+1 ?>">
+                    <?php for ($i = 0; $i < 7; $i++) { ?>
+						<div class="grid-item <?php echo $i+1 ?>">
+							<div class="mask">
+								<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Event <?php echo $i+1 ?>">
 
-							<?php if ($i < 6){
-                                echo '<div class="content">';
-									echo '<a href=" ' . base_url('') . ' ">';
-										echo '<span class="badge">Badge Province</span>';
-										echo '<h4>Province Title</h4>';
-									echo '</a>';
-								echo '</div>';
-							} elseif ($i == 6){
-								echo '<div class="content">';
-									echo '<a href=" ' . base_url('') . ' ">';
-										echo '<i class="far fa-plus-square"></i>';
-										echo '<p>More content</p>';
-									echo '</a>';
-                                echo '</div>';
-							}
-							?>
+                                <?php if ($i < 6) { ?>
+									<div class="content">
+										<a href="<?php echo base_url('') ?>">
+											<span class="badge">Badge Province</span>
+											<h4>Province Title</h4>
+										</a>
+									</div>
+                                <?php } ?>
+                                <?php if ($i == 6) { ?>
+									<div class="content">
+										<a href="<?php echo base_url('') ?>">
+											<i class="far fa-plus-square"></i>
+											<p>More content</p>
+										</a>
+									</div>
+                                <?php } ?>
 
+							</div>
 						</div>
-					</div>
-				<?php } ?>
+                    <?php } ?>
+				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container" id="events">
+
 	</div>
 
 	<div class="container-fluid" id="blogs">

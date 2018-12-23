@@ -60,10 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <header class="">
+	<div class="header-bg"></div>
 	<nav>
 		<div class="nav-brand">
 			<a href="<?php echo base_url('') ?>">
-				Vietnam <br> Travellog
+				<img src="<?php echo site_url('assets/img/logo-w.png') ?>" alt="Logo Vietnam Travellog">
 			</a>
 		</div>
 
@@ -92,6 +93,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li>
 					<a href="<?php echo base_url('') ?>">
 						Contact
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<i class="fas fa-search"></i>
 					</a>
 				</li>
 			</ul>

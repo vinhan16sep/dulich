@@ -139,7 +139,7 @@
         $("#images .owl-carousel").owlCarousel({
 			center: true,
 			items: 3,
-			loop: false,
+			loop: true,
 			margin: 30,
 			responsiveClass: true,
 			responsive: {
