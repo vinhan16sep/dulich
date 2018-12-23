@@ -45,80 +45,44 @@
                         -->
 
 						<p>
-							Nullam molestie nisi sed neque porta porttitor. Aliquam tristique lacus non purus elementum tincidunt. Nunc lectus diam, hendrerit sed felis a, rhoncus dignissim ex. Curabitur hendrerit mattis odio, a vestibulum lacus pharetra eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur eu viverra tellus, vitae fringilla urna. Mauris congue ut nulla eu ornare. Donec ullamcorper, tellus a tempor dignissim, odio velit imperdiet est, vel tempus augue nisl sed neque. Ut vitae dui id nisi semper elementum. Morbi tempor lectus eu tortor consectetur euismod. In aliquet consectetur nisl, at fermentum libero rhoncus sit amet. Etiam in neque non erat ultrices blandit. Ut rutrum dui enim, at rhoncus purus mattis at. Aliquam imperdiet vitae felis egestas ullamcorper. Maecenas hendrerit libero ut lorem viverra mollis.
+							<?php echo $events['body_'.$lang] ?>
 						</p>
 
-						<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image of Post">
+						<img src="<?php echo base_url('assets/upload/events/'.$events['slug'].'/'.$events['image']) ?>" alt="Image of Post">
                     </article>
                 </div>
 
                 <div class="right col-xs-12 col-lg-4">
                     <div class="recommended">
-<!--                        --><?php //foreach ($get_related as $key => $value): ?>
-<!--                            -->
-<!--                            <div class="item">-->
-<!--                                <div class="item-image">-->
-<!--                                    <div class="mask">-->
-<!--										<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image Blog">-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="item-content">-->
-<!--                                    <div class="content-header">-->
-<!--										<span class="badge">Province</span>-->
-<!--                                        <a href="--><?php //echo base_url('su-kien/'.$value['slug']) ?><!--">-->
-<!--                                            <h3>--><?//= $value['title_vi'] ?><!--</h3>-->
-<!--                                        </a>-->
-<!--                                        <h6>Time | <small> --><?//= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?><!--</small></h6>-->
-<!--                                        <ul>-->
-<!--                                            <li>Rating</li>-->
-<!---->
-<!--                                            <li>Created Date</li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="content-body">-->
-<!--                                        <p class="text-wrapper">-->
-<!--                                            --><?//= $value['description_vi'] ?>
-<!--                                        </p>-->
-<!--                                    </div>-->
-<!--                                    <div class="content-footer">-->
-<!--                                        <a href="--><?php //echo base_url('su-kien/'.$value['slug']) ?><!--" class="btn btn-primary" role="button">-->
-<!--                                            View Detail-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        --><?php //endforeach ?>
-						<!-- hungluong commented above -->
-
-						<?php for ($i = 0; $i < 3; $i++) { ?>
+                    	<?php foreach ($get_related as $key => $value): ?>
 							<div class="item">
 								<div class="item-image">
 									<div class="mask">
 										<a href="<?php echo base_url('events/detail') ?>">
-											<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image Blog">
+											<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']) ?>" alt="Image Blog">
 										</a>
 									</div>
 								</div>
 								<div class="item-content">
 									<div class="content-header">
-										<span class="badge">Province</span>
+										<span class="badge"><?php echo $value['province_title_'.$lang] ?></span>
 										<a href="<?php echo base_url('events/detail') ?>">
-											<h3 class="text-wrapper">Event Title</h3>
+											<h3 class="text-wrapper"><?php echo $value['title_'.$lang] ?></h3>
 										</a>
 										<ul>
 											<li>Rating</li>
 
-											<li><h6>Date</h6></li>
+											<li><h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6></li>
 										</ul>
 									</div>
 									<div class="content-body">
 										<p class="text-wrapper">
-											Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
+											<?php echo $value['description_'.$lang] ?>
 										</p>
 									</div>
 								</div>
 							</div>
-						<?php } ?>
+                    	<?php endforeach ?>
                     </div>
                 </div>
             </div>
