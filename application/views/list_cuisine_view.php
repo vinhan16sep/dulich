@@ -1,20 +1,27 @@
+<style type="text/css" media="screen">
+    .row .item .mask img{
+        height: 300px;
+    }
+    .tab-content h1 {
+        text-align: center;
+    }
+</style>
 <section id="cuisine">
     <div id="slide" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <?php for ($i = 0; $i < 3; $i++) { ?>
                 <div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
                     <div class="mask">
-                        <img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
+                        <img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image slide">
                     </div>
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="item col-xs-12 col-lg-4">
-                                <h3>Title Comes Here</h3>
-                                <h6 class="text-wrapper">Description</h6>
+                                <h3><?php echo $region['title_'.$lang];?></h3>
                             </div>
                             <div class="item col-xs-12 col-lg-4">
                                 <p class="text-wrapper">
-                                    Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                    <?php echo $region['description_'.$lang];?>
                                 </p>
                             </div>
                         </div>
@@ -35,44 +42,38 @@
     <div class="container-fluid" id="list-cuisine">
         <div class="container">
             <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                <?php for ($j = 0; $j < 3; $j++) { ?>
+                <?php foreach ($region_full as $key => $value): ?>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
-                            Region <?php echo $j+1 ?> of Vietnam
+                        <a class="nav-link <?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('mon-an/'.$value['slug']) ?>" r>
+                            <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
                         </a>
                     </li>
-                <?php } ?>
+                <?php endforeach ?>
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-content" id="pills-tabContent">
-                    <?php for ($j = 0; $j < 3; $j++) { ?>
-                        <div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
+                    
+                    <?php foreach ($cuisine_category as $k => $val): ?>
+                        <h1><?php echo $val['title_'.$lang] ?><h1/h1>
+                        <div class="tab-pane fade show active">
                             <div class="row">
-                                <?php for ($i = 0; $i < 6; $i++) { ?>
+                                <?php foreach ($val['cuisine'] as $key => $value): ?>
                                     <div class="item col-xs-12 col-lg-6">
                                         <div class="mask">
-                                            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Destination <?php echo $i+1 ?> ">
+                                            <img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Destination <?php echo $i+1 ?> ">
 
                                             <div class="content">
-                                                <h4>Province</h4>
-                                                <p>Description</p>
-
-                                                <h6>Date</h6>
+                                                <h4><?php echo $value['title_'.$lang]?></h4>
+                                                <p><?php echo $region['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?></p>
                                             </div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php endforeach ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php endforeach ?>
                 </div>
-            </div>
-
-            <div class="see-more">
-                <button class="btn btn-default" type="button">
-                    See more <i class="fas fa-angle-double-right"></i>
-                </button>
             </div>
         </div>
     </div>
@@ -85,10 +86,8 @@
 
 <script>
     //init Masonry
-
     $('a[data-toggle=pill]').each(function (){
         var $this = $(this);
-
         $this.on('shown.bs.tab', function () {
             var $grid = $('.grid').masonry({
                 // set itemSelector so .grid-sizer is not used in layout

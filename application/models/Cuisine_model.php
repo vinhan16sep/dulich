@@ -22,4 +22,16 @@ class Cuisine_model extends MY_Model {
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get($this->table)->result_array();
     }
+    public function get_by_where($where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->limit(4, 0);
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
 }

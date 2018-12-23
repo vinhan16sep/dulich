@@ -6,3 +6,4 @@
  *
  */
 $lang['detector'] = 'en';
+$lang['ofvietnam'] = 'of Vietnam';

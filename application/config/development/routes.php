@@ -78,9 +78,9 @@ $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/province/$1
 $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detail/$1/$2/$3';
 
 //url cho cusnine
-$route['mon-an'] = 'cuisine/index';
+// $route['mon-an'] = 'cuisine/index';
 $route['mon-an/([a-zA-Z0-9-_]+)'] = 'cuisine/region/$1';
-$route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/category/$1/$2';
+// $route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/category/$1/$2';
 
 //url cho events
 $route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/region/$1';
