@@ -27,9 +27,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="item col-xs-12 col-lg-6">
-						<h1><?php echo $province['title_vi'] ?></h1>
+						<h1><?php echo $province['title_' . $lang] ?></h1>
 						<p class="text-wrapper">
-                            <?php echo $province['description_vi'] ?>
+                            <?php echo $province['description_' . $lang] ?>
 						</p>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 					<?php foreach ($region_all as $key => $value): ?>
 						<li class="<?php echo ($this->uri->segment(2) == $value['slug']) ? 'active' : '' ?>">
 							<a href="<?php echo base_url('diem-den/') . $value['slug'] ?>">
-								<?php echo $value['title_vi'] ?>
+								<?php echo $value['title_' . $lang] ?>
 							</a>
 						</li>
 					<?php endforeach ?>
@@ -57,7 +57,7 @@
 						<?php foreach ($province_all as $key => $value): ?>
 							<li class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>">
 								<a href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
-									<?php echo $value['title_vi'] ?>
+									<?php echo $value['title_' . $lang] ?>
 								</a>
 							</li>
 						<?php endforeach ?>
@@ -80,8 +80,8 @@
 
 							<div class="content col-xs-12 col-lg-4">
 								<div class="text">
-									<h3><?php echo $value['title_vi'] ?></h3>
-									<p><?php echo $value['description_vi'] ?></p>
+									<h3><?php echo $value['title_' . $lang] ?></h3>
+									<p><?php echo $value['description_' . $lang] ?></p>
 								</div>
 							</div>
 						</div>
@@ -129,8 +129,8 @@
 									</div>
 									<div class="content">
 										<span class="badge">Badge Subtitle</span>
-										<h3><?php echo $value['title_vi'] ?></h3>
-										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
+										<h3><?php echo $value['title_' . $lang] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 										<a href="<?php echo base_url('diem-den/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']); ?>" class="btn btn-primary" role="button">
 											View Detail
@@ -159,8 +159,8 @@
 									</div>
 									<div class="content">
 										<span class="badge">Badge Subtitle</span>
-										<h3><?php echo $value['title_vi'] ?></h3>
-										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
+										<h3><?php echo $value['title_' . $lang] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 										<a href="<?php echo base_url('su-kien/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
 											View Detail
@@ -189,8 +189,8 @@
 									</div>
 									<div class="content">
 										<span class="badge">Badge Subtitle</span>
-										<h3><?php echo $value['title_vi'] ?></h3>
-										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
+										<h3><?php echo $value['title_' . $lang] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 										<a href="<?php ?>" class="btn btn-primary" role="button">
 											View Detail

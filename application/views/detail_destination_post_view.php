@@ -7,9 +7,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="item col-xs-12 col-lg-6">
-                            <h1><?php echo $destination['title_vi'] ?></h1>
+                            <h1><?php echo $destination['title_'  . $lang] ?></h1>
                             <p class="text-wrapper">
-                                <?php echo $destination['description_vi'] ?>
+                                <?php echo $destination['description_'  . $lang] ?>
                             </p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <strong>Time: <?php echo date_format(date_create($destination['updated_at']),"d-m-Y") ?></strong>
                     </div>
                     <article>
-                        <p><?php echo $destination['body_vi'] ?></p>
+                        <p><?php echo $destination['body_'  . $lang] ?></p>
                     </article>
                 </div>
 
@@ -42,9 +42,9 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge"><?= $value['title_vi'] ?></span>
+                                        <span class="badge"><?= $value['title_'  . $lang] ?></span>
                                         <a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
-                                            <h3><?= $value['title_vi'] ?></h3>
+                                            <h3><?= $value['title_'  . $lang] ?></h3>
                                         </a>
                                         <h6>Time | <small> <?= date_format(date_create($value['updated_at']),"d M Y") ?></small></h6>
                                         <ul>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="content-body">
                                         <p class="text-wrapper">
-                                            <?= $value['description_vi'] ?>
+                                            <?= $value['description_'  . $lang] ?>
                                         </p>
                                     </div>
                                     <div class="content-footer">
