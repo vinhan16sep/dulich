@@ -81,8 +81,8 @@
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
-                                                        <?php if ( json_decode($value['image']) ): ?>
-                                                            <img src="<?= base_url('assets/upload/province/' . $value['slug'] . '/' . json_decode($value['image'])[0] ) ?>"  width=150px>
+                                                        <?php if ( $value['avatar'] ): ?>
+                                                            <img src="<?= base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar'] ) ?>"  width=150px>
                                                         <?php endif ?>
                                                     </div>
                                                 </td>

@@ -12,9 +12,9 @@
 					<div class="carousel-caption">
 						<div class="row">
 							<div class="item col-xs-12 col-lg-6">
-								<h1>Title Comes Here</h1>
+								<h1><?php echo $province['title_vi'] ?></h1>
 								<p class="text-wrapper">
-									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+									<?php echo $province['description_vi'] ?>
 								</p>
 							</div>
 						</div>
@@ -33,26 +33,30 @@
 
 		<div class="link-region">
 			<ul>
-                <?php for ($i = 0; $i < 3; $i++) { ?>
-					<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-						<a href="<?php echo base_url('destinations/detail') ?>">
-							Region <?php echo $i+1 ?> of Vietnam
-						</a>
-					</li>
-                <?php } ?>
+				<?php if ($region_all): ?>
+					<?php foreach ($region_all as $key => $value): ?>
+						<li class="<?php echo ($this->uri->segment(2) == $value['slug']) ? 'active' : '' ?>">
+							<a href="<?php echo base_url('diem-den/') . $value['slug'] ?>">
+								<?php echo $value['title_vi'] ?>
+							</a>
+						</li>
+					<?php endforeach ?>
+				<?php endif ?>
 			</ul>
 		</div>
 
 		<div class="link-control">
 			<div class="container">
 				<ul>
-                    <?php for ($i = 0; $i < 9; $i++) { ?> <!-- Max 9 items -->
-						<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-							<a href="<?php echo base_url('') ?>">
-								City <?php echo $i+1 ?> of Vietnam
-							</a>
-						</li>
-                    <?php } ?>
+					<?php if ($province_all): ?>
+						<?php foreach ($province_all as $key => $value): ?>
+							<li class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>">
+								<a href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
+									<?php echo $value['title_vi'] ?>
+								</a>
+							</li>
+						<?php endforeach ?>
+					<?php endif ?>
 				</ul>
 			</div>
 		</div>
@@ -61,22 +65,24 @@
     <div class="container-fluid" id="content">
 
 		<div class="container-fluid" id="introduce">
-            <?php for ($i = 0; $i < 4; $i++) { ?>
-				<div class="item">
-					<div class="row <?php echo ($i%2!=0)? 'reversed' : '' ?>">
-						<div class="mask col-xs-12 col-lg-8">
-							<img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Destination <?php echo $i+1 ?> ">
-						</div>
+			<?php if ($destination): ?>
+				<?php foreach ($destination as $key => $value): ?>
+					<div class="item">
+						<div class="row <?php echo ($key % 2 != 0)? 'reversed' : '' ?>">
+							<div class="mask col-xs-12 col-lg-8">
+								<img src="<?php echo base_url('assets/upload/destination/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="image-<?php echo $value['slug'] ?> ">
+							</div>
 
-						<div class="content col-xs-12 col-lg-4">
-							<div class="text">
-								<h3>Title comes here</h3>
-								<p>Sed accumsan commodo hendrerit. Nullam at vestibulum nunc. Duis id consectetur ligula. Ut non tellus ultrices, porta quam sed, cursus tortor. Aenean eget sagittis diam. Pellentesque venenatis tellus sit amet nisi vehicula, id bibendum est dapibus. Ut efficitur efficitur orci, quis porttitor quam laoreet non. Duis in finibus quam. Aenean a libero lobortis, feugiat quam congue, cursus diam.</p>
+							<div class="content col-xs-12 col-lg-4">
+								<div class="text">
+									<h3><?php echo $value['title_vi'] ?></h3>
+									<p><?php echo $value['description_vi'] ?></p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-            <?php } ?>
+				<?php endforeach ?>
+			<?php endif ?>
 		</div>
 
 
@@ -90,46 +96,109 @@
 			</div>
 			<div class="body">
 				<div class="owl-carousel">
-					<?php for ($i = 0; $i < 7; $i++) { ?>
-						<div class="item">
-							<div class="mask">
-								<img src="https://images.unsplash.com/photo-1545095572-9bfd2666d3e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80" alt="Image Slide">
+					<?php if (json_decode($province['image'])): ?>
+						<?php foreach (json_decode($province['image']) as $key => $value): ?>
+							<div class="item">
+								<div class="mask">
+									<img src="<?php echo base_url('assets/upload/province/') . $province['slug'] . '/' . $value ?>" alt="Image Slide">
+								</div>
 							</div>
-						</div>
-					<?php } ?>
+						<?php endforeach ?>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>
+		
+		<?php if ($destination_bottom): ?>
+			<div class="container-fluid posts">
+				<div class="container">
+					<div class="heading">
+						<h3>Điểm đến</h3>
+					</div>
+					<div class="body">
+						<div class="owl-carousel post-list">
+							<?php foreach ($destination_bottom as $key => $value): ?>
+								<div class="item">
+									<div class="mask">
+										<img src="<?php echo base_url('assets/upload/destination/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
+									</div>
+									<div class="content">
+										<span class="badge">Badge Subtitle</span>
+										<h3><?php echo $value['title_vi'] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
 
-		<?php for ($j = 0; $j < 3; $j++) { ?>
-		<div class="container-fluid posts">
-			<div class="container">
-				<div class="heading">
-					<h3>Post Heading</h3>
-				</div>
-				<div class="body">
-					<div class="owl-carousel post-list">
-                        <?php for ($i = 0; $i < 7; $i++) { ?>
-							<div class="item">
-								<div class="mask">
-									<img src="https://images.unsplash.com/photo-1545095572-9bfd2666d3e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80" alt="Image Slide">
+										<a href="<?php echo base_url('diem-den/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']); ?>" class="btn btn-primary" role="button">
+											View Detail
+										</a>
+									</div>
 								</div>
-								<div class="content">
-									<span class="badge">Badge Subtitle</span>
-									<h3>Post Title</h3>
-									<p class="text-wrapper">Description</p>
-
-									<a href="<?php ?>" class="btn btn-primary" role="button">
-										View Detail
-									</a>
-								</div>
-							</div>
-                        <?php } ?>
+							<?php endforeach ?>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<?php } ?>
+		<?php endif ?>
+
+		<?php if ($events_bottom): ?>
+			<div class="container-fluid posts">
+				<div class="container">
+					<div class="heading">
+						<h3>Sự kiện</h3>
+					</div>
+					<div class="body">
+						<div class="owl-carousel post-list">
+							<?php foreach ($events_bottom as $key => $value): ?>
+								<div class="item">
+									<div class="mask">
+										<img src="<?php echo base_url('assets/upload/events/') . $value['slug'] . '/' . $value['image'] ?>" alt="Image Slide">
+									</div>
+									<div class="content">
+										<span class="badge">Badge Subtitle</span>
+										<h3><?php echo $value['title_vi'] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
+
+										<a href="<?php echo base_url('su-kien/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+											View Detail
+										</a>
+									</div>
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endif ?>
+
+		<?php if ($cuisine_bottom): ?>
+			<div class="container-fluid posts">
+				<div class="container">
+					<div class="heading">
+						<h3>Món ăn</h3>
+					</div>
+					<div class="body">
+						<div class="owl-carousel post-list">
+							<?php foreach ($cuisine_bottom as $key => $value): ?>
+								<div class="item">
+									<div class="mask">
+										<img src="<?php echo base_url('assets/upload/cuisine/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
+									</div>
+									<div class="content">
+										<span class="badge">Badge Subtitle</span>
+										<h3><?php echo $value['title_vi'] ?></h3>
+										<p class="text-wrapper"><?php echo $value['description_vi'] ?></p>
+
+										<a href="<?php ?>" class="btn btn-primary" role="button">
+											View Detail
+										</a>
+									</div>
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endif ?>
+		
     </div>
 </section>
 
@@ -139,7 +208,7 @@
         $("#images .owl-carousel").owlCarousel({
 			center: true,
 			items: 3,
-			loop: false,
+			loop: true,
 			margin: 30,
 			responsiveClass: true,
 			responsive: {

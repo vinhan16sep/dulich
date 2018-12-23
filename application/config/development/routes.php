@@ -75,7 +75,7 @@ $route['danh-muc/([a-zA-Z0-9-_]+)'] = 'post/category/$1';
 $route['diem-den'] = 'destinations/index';
 $route['diem-den/([a-zA-Z0-9-_]+)'] = 'destinations/region/$1';
 $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/province/$1/$2';
-$route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detail/$1/$2/$3';
+$route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detailpost/$1/$2/$3';
 
 //url cho cusnine
 // $route['mon-an'] = 'cuisine/index';

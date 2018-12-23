@@ -45,7 +45,7 @@ class MY_Model extends CI_Model {
         return $result = $this->db->get()->num_rows();
     }
 
-    public function get_all_with_pagination_search($limit = NULL, $start = NULL, $keywords) {
+    public function get_all_with_pagination_search($limit = NULL, $start = NULL, $keywords = null) {
         $this->db->select('*');
         $this->db->from($this->table);
         if ( !empty($keywords) ){
@@ -103,6 +103,22 @@ class MY_Model extends CI_Model {
         $this->db->order_by("id", "desc");
         return $this->db->get()->result_array();
     }
+
+    public function get_all_order_by($is_active = null, $order = null, $by = null){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted', 0);
+        if($is_active != null){
+            $this->db->where('is_active',$is_active);
+        }
+        if ($order != null && $by != null) {
+            $this->db->order_by($order, $by);
+        }else{
+            $this->db->order_by("id", "desc");
+        }
+        return $this->db->get()->result_array();
+    }
+
     public function get_by_region_all($region_id){
         $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en, province.slug as province_slug');
         $this->db->from($this->table);
@@ -245,6 +261,31 @@ class MY_Model extends CI_Model {
         }
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->row_array();
+    }
+
+    public function get_by_where_with_limit($limit, $start, $where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
+
+    public function get_where_by_limit($limit, $start, $where = array()){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted',0);
+        $this->db->where('is_active',1);
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->limit($limit, $start);
+        $this->db->order_by("updated_at", "desc");
+        return $this->db->get()->result_array();
     }
     
 
