@@ -23,7 +23,7 @@ class Events extends Public_Controller {
     // list all events của region
     public function region($slug){
         $this->data['region_full'] = $this->region_model->get_by_where();
-        $region = $this->region_model->find_where(array('slug' => $slug));
+        $region = $this->region_model->find_where(array('slug' => $slug),0);
         if(!empty($region)){
 
             // dữ liệu miền cho events
