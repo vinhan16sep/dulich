@@ -18,8 +18,8 @@
 					<div class="link-control">
 						<ul>
 							<?php foreach ($region_full as $key => $value): ?>
-			                    <li class="nav-item">
-			                        <a class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('su-kien/'.$value['slug']) ?>" r>
+			                    <li class="nav-item <?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
+			                        <a class="" href="<?php echo base_url('su-kien/'.$value['slug']) ?>" r>
 			                            <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
 			                        </a>
 			                    </li>

@@ -43,15 +43,15 @@
 
 	<div class="main-cover">
 		<div class="mask">
-			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1>Title Comes Here</h1>
+							<h1><?php echo $region['title_'.$lang];?></h1>
 							<p class="text-wrapper">
-								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								<?php echo $region['description_'.$lang];?>
 							</p>
 						</div>
 					</div>
