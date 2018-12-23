@@ -1,0 +1,109 @@
+.detail-post{
+    .main-cover{
+
+    }
+
+    .container-fluid{
+        &#content{
+            background-color: #f7f7f7;
+
+            .row{
+                .left{
+                    background-color: #fff;
+
+                    padding-top: 30px;
+                    padding-bottom: 150px;
+                    article{
+                        p{
+                            font-family: 'Lora', Serif;
+
+                            color: $gray-lighter;
+                        }
+
+                        img{
+                            width: 100% !important;
+
+                            margin-top: 30px;
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+
+                .right{
+                    padding-top: 50px;
+
+                    .recommended{
+                        .item{
+                            width: 100%;
+
+                            margin-bottom: 30px;
+
+                            display: flex;
+                            flex-direction: column;
+
+                            background-color: #fff;
+
+                            .item-image{
+                                width: 100%;
+                                height: 200px;
+
+                                .mask{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            .item-content{
+                                width: 100%;
+                                padding: 15px 30px;
+
+                                .content-header{
+                                    margin-bottom: 30px;
+
+                                    span{
+
+                                    }
+
+                                    a{
+                                        color: $gray-base;
+
+                                        h3{
+                                            font-weight: 400;
+                                        }
+                                    }
+
+                                    ul{
+                                        li{
+                                            display: inline-block;
+
+                                            font-size: 0.75rem;
+
+                                            color: $gray-lightest;
+
+                                            &:last-of-type{
+                                                margin-left: 15px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .content-body{
+                                    margin-bottom: 15px;
+
+                                    p{
+                                        color: $gray-lighter;
+
+                                        &.text-wrapper{
+                                            height: 4.3rem;
+                                            -webkit-line-clamp: 3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
