@@ -12,6 +12,13 @@ class Blogs extends Public_Controller {
         $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
+    public function index(){
+        $this->render('list_blogs_view');
+    }
+
+    public function detail(){
+        $this->render('detail_blog_view');
+    }
 
     // list all blog của region
     public function region($slug){
@@ -64,29 +71,31 @@ class Blogs extends Public_Controller {
         echo 'Lỗi 404';
         return false;
     }
-    public function detail($region_slug, $province_slug,$slug){
-        $blog = $this->blog_model->find_where(array('slug' => $slug));
-        if(!empty($blog)){
-            $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $blog['province_id']));
-            if(!empty($province)){
-                $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']));
-                if(!empty($region)){
-                    $this->data['blog'] = $blog;//chi tiết bài viết
-                    $this->data['region'] = $region;//miền của tất cả bài viết
-                    $this->data['province'] = $province;//tỉnh của tất cả bài viết
-                    // bài viết liên quan
-                    $this->data['get_related'] = $this->blog_model->get_by_related($blog['region_id'],$blog['province_id'],$blog['id']);
-                    echo "<pre>";
-                    print_r($blog);
-                    echo "<pre>";
-                    echo 'Trang chi tiết blog';
-                    return false;
 
-                    return $this->render('detail_blog_view');
-                }
-            }
-        }
-        echo 'Lỗi 404';
-        return false;
-    }
+    //hungluong commented
+//    public function detail($region_slug, $province_slug,$slug){
+//        $blog = $this->blog_model->find_where(array('slug' => $slug));
+//        if(!empty($blog)){
+//            $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $blog['province_id']));
+//            if(!empty($province)){
+//                $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']));
+//                if(!empty($region)){
+//                    $this->data['blog'] = $blog;//chi tiết bài viết
+//                    $this->data['region'] = $region;//miền của tất cả bài viết
+//                    $this->data['province'] = $province;//tỉnh của tất cả bài viết
+//                    // bài viết liên quan
+//                    $this->data['get_related'] = $this->blog_model->get_by_related($blog['region_id'],$blog['province_id'],$blog['id']);
+//                    echo "<pre>";
+//                    print_r($blog);
+//                    echo "<pre>";
+//                    echo 'Trang chi tiết blog';
+//                    return false;
+//
+//                    return $this->render('detail_blog_view');
+//                }
+//            }
+//        }
+//        echo 'Lỗi 404';
+//        return false;
+//    }
 }

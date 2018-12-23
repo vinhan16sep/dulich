@@ -1,14 +1,30 @@
-<section id="detail-blog">
-    <div class="cover">
+<section id="detail-blog" class="detail-post">
+	<div class="main-cover">
 		<div class="mask">
 			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
-					<h2>Blog Title Comes Here</h2>
-					<p class="text-wrapper">
-						Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
-					</p>
+					<div class="row">
+						<div class="item col-xs-12 col-lg-6">
+							<h1>Title Comes Here</h1>
+							<p class="text-wrapper">
+								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+							</p>
+						</div>
+					</div>
+
+					<div class="link-control">
+						<ul>
+                            <?php for ($i = 0; $i < 3; $i++) { ?>
+								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
+									<a href="<?php echo base_url('') ?>">
+										Region <?php echo $i+1 ?> of Vietnam
+									</a>
+								</li>
+                            <?php } ?>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -18,18 +34,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="left col-xs-12 col-lg-8">
+					<div>
+						<!--
+                        <strong>Time: <?= (date_format(date_create($detail['date_start']),"d M Y") == date_format(date_create($detail['date_end']),"d M Y")) ? date_format(date_create($detail['date_start']),"d M Y") : date_format(date_create($detail['date_start']),"d M Y").' - '.date_format(date_create($detail['date_end']),"d M Y") ?></strong>
+                        -->
+					</div>
 					<article>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis nunc imperdiet tellus aliquet vulputate. Donec commodo eget sem eget cursus. Nunc erat tortor, porttitor at blandit vel, viverra et ipsum. Etiam elementum felis at felis mattis, ut finibus lorem blandit. Pellentesque eleifend nisl quis elementum facilisis. Nam vulputate malesuada dui ut tincidunt. Integer at dignissim leo. Proin nec sapien metus. Sed a risus justo. Donec dictum sapien magna, ac semper nisi varius a. Curabitur ornare egestas metus, sed aliquam elit lacinia vitae. Duis at tempor velit. Cras dolor ligula, congue sit amet aliquam eget, facilisis sed risus. Aliquam ac nisl in est semper facilisis nec quis felis.</p>
+						<!--
+                        <?= $detail['body_vi'] ?>
+                        -->
 
-						<p>Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.</p>
+						<p>
+							Nullam molestie nisi sed neque porta porttitor. Aliquam tristique lacus non purus elementum tincidunt. Nunc lectus diam, hendrerit sed felis a, rhoncus dignissim ex. Curabitur hendrerit mattis odio, a vestibulum lacus pharetra eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur eu viverra tellus, vitae fringilla urna. Mauris congue ut nulla eu ornare. Donec ullamcorper, tellus a tempor dignissim, odio velit imperdiet est, vel tempus augue nisl sed neque. Ut vitae dui id nisi semper elementum. Morbi tempor lectus eu tortor consectetur euismod. In aliquet consectetur nisl, at fermentum libero rhoncus sit amet. Etiam in neque non erat ultrices blandit. Ut rutrum dui enim, at rhoncus purus mattis at. Aliquam imperdiet vitae felis egestas ullamcorper. Maecenas hendrerit libero ut lorem viverra mollis.
+						</p>
 
-						<p>Ut euismod nisi id maximus varius. Donec et tincidunt magna. Nam ac mi mauris. Maecenas non euismod erat. Donec dolor elit, rutrum non massa non, vulputate sollicitudin urna. Donec ac turpis vitae neque ultricies blandit et eget est. Vestibulum sagittis, turpis in finibus malesuada, diam sem varius magna, quis scelerisque leo sem ultricies turpis. Pellentesque placerat cursus lacus, quis congue urna vestibulum nec. Aenean facilisis sit amet sapien quis viverra.</p>
-
-						<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image in Blog">
-
-						<p>Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.</p>
-
-						<p>Ut euismod nisi id maximus varius. Donec et tincidunt magna. Nam ac mi mauris. Maecenas non euismod erat. Donec dolor elit, rutrum non massa non, vulputate sollicitudin urna. Donec ac turpis vitae neque ultricies blandit et eget est. Vestibulum sagittis, turpis in finibus malesuada, diam sem varius magna, quis scelerisque leo sem ultricies turpis. Pellentesque placerat cursus lacus, quis congue urna vestibulum nec. Aenean facilisis sit amet sapien quis viverra.</p>
+						<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image of Post">
 					</article>
 				</div>
 
@@ -39,31 +58,27 @@
 							<div class="item">
 								<div class="item-image">
 									<div class="mask">
-										<img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Blog <?php echo $i+1 ?>">
+										<a href="<?php echo base_url('events/detail') ?>">
+											<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image Blog">
+										</a>
 									</div>
 								</div>
 								<div class="item-content">
 									<div class="content-header">
-										<span class="badge">Badge Subtitle</span>
-										<a href="<?php echo base_url('blogs/detail') ?>">
-											<h3>Blog Title</h3>
+										<span class="badge">Province</span>
+										<a href="<?php echo base_url('events/detail') ?>">
+											<h3 class="text-wrapper">Event Title</h3>
 										</a>
-										<h6>Author Name | <small>Author's Nationality</small></h6>
 										<ul>
 											<li>Rating</li>
 
-											<li>Created Date</li>
+											<li><h6>Date</h6></li>
 										</ul>
 									</div>
 									<div class="content-body">
 										<p class="text-wrapper">
-											Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
+											Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
 										</p>
-									</div>
-									<div class="content-footer">
-										<a href="<?php echo base_url('blogs/detail') ?>" class="btn btn-primary" role="button">
-											View Detail
-										</a>
 									</div>
 								</div>
 							</div>

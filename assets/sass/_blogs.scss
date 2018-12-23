@@ -1,48 +1,6 @@
 #blogs{
-    .slide{
-        width: 100%;
-        height: calc(100vh - 120px);
-
-        .carousel-inner{
-            height: 100%;
-
-            .carousel-item{
-                height: 100%;
-
-                .mask{
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .carousel-caption{
-                    text-align: left;
-
-                    padding-bottom: 50px;
-
-                    .row{
-                        .item{
-                            h3{
-                                margin-bottom: 7px;
-                            }
-
-                            h6{
-                                font-weight: 400;
-
-                                &.text-wrapper{
-
-                                }
-                            }
-
-                            p{
-                                &.text-wrapper{
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    .main-cover{
+        //Import Main Cover Stylesheet
     }
 
     .container-fluid{
@@ -50,295 +8,106 @@
 
         &#list-blogs{
             .container{
-                @include translate(0, -46px);
+                padding-top: 50px;
+                padding-bottom: 50px;
 
-                .nav{
-                    margin-bottom: 0;
-
-                    border-bottom: 3px solid $primary-base;
-
-                    li{
-                        a{
-                            font-family: 'Lora', Serif;
-                            font-weight: 400;
-
-                            color: #fff;
-
-                            &.active{
-                                font-weight: 700;
-
-                                background-color: transparent;
-                                border-bottom: 3px solid $primary-base;
-                            }
-                        }
-                    }
-                }
-
-                .tab-content{
-                    padding-top: 30px;
-
-                    .tab-pane{
-                        .row{
-                            .left{
-                                .item{
-                                    width: 100%;
-
-                                    margin-bottom: 30px;
-
-                                    display: flex;
-                                    flex-direction: row;
-
-                                    background-color: #fff;
-
-                                    -webkit-box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
-                                    -moz-box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
-                                    box-shadow: 2px 2px 7px  rgba(0,0,0,0.3);
-
-                                    .item-image{
-                                        width: 305px;
-                                        height: 305px;
-
-                                        .mask{
-                                            width: 100%;
-                                            height: 100%;
-                                        }
-                                    }
-
-                                    .item-content{
-                                        width: calc(100% - 305px);
-                                        padding: 15px 30px;
-
-                                        .content-header{
-                                            margin-bottom: 30px;
-
-                                            span{
-
-                                            }
-
-                                            a{
-                                                color: $gray-base;
-
-                                                h3{
-                                                    font-weight: 400;
-                                                }
-                                            }
-
-                                            ul{
-                                                li{
-                                                    display: inline-block;
-
-                                                    font-size: 0.75rem;
-
-                                                    color: $gray-lightest;
-
-                                                    &:last-of-type{
-                                                        margin-left: 15px;
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        .content-body{
-                                            margin-bottom: 15px;
-
-                                            p{
-                                                &.text-wrapper{
-                                                    height: 4.3rem;
-                                                    -webkit-line-clamp: 3;
-                                                }
-                                            }
-                                        }
-
-                                        .content-footer{
-                                            text-align: right;
-                                        }
-                                    }
-                                }
-
-                                .see-more{
-                                    width: 100%;
-
-                                    text-align: center;
-                                }
-                            }
-
-                            .right{
-                                .heading{
-                                    padding: 7px 15px;
-                                    margin-bottom: 30px;
-
-                                    text-align: center;
-
-                                    background-color: #fff;
-
-                                    h4{
-                                        font-weight: 400;
-                                    }
-                                }
-
-                                .body{
-                                    .item{
-                                        width: 100%;
-
-                                        margin-bottom: 30px;
-
-                                        display: flex;
-                                        flex-direction: column;
-
-                                        background-color: #fff;
-
-                                        .item-image{
-                                            width: 100%;
-                                            height: 215px;
-
-                                            .mask{
-                                                width: 100%;
-                                                height: 100%;
-                                            }
-                                        }
-
-                                        .item-content{
-                                            width: 100%;
-                                            padding: 15px 30px;
-
-                                            .content-header{
-                                                margin-bottom: 30px;
-
-                                                span{
-
-                                                }
-
-                                                a{
-                                                    color: $gray-base;
-
-                                                    h3{
-                                                        font-weight: 400;
-                                                    }
-                                                }
-
-                                                ul{
-                                                    li{
-                                                        display: inline-block;
-
-                                                        font-size: 0.75rem;
-
-                                                        color: $gray-lightest;
-
-                                                        &:last-of-type{
-                                                            margin-left: 15px;
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            .content-body{
-                                                margin-bottom: 15px;
-
-                                                p{
-                                                    &.text-wrapper{
-                                                        height: 4.3rem;
-                                                        -webkit-line-clamp: 3;
-                                                    }
-                                                }
-                                            }
-
-                                            .content-footer{
-                                                text-align: right;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-#detail-blog{
-    .cover{
-        width: 100%;
-        height: 500px;
-
-        .mask{
-            width: 100%;
-            height: 100%;
-
-            position: relative;
-
-            .content{
-                width: 100%;
-                max-height: 50%;
-
-                position: absolute;
-                bottom: 0;
-                left: 0;
-
-                background: rgba(0,0,0,0);
-                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.65)));
-                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-                background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-                background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
-
-                .container{
-                    padding-top: 30px;
-                    padding-bottom: 30px;
-
-                    color: #fff;
-
-                    h2{
-                        max-width: 25%;
-                    }
-
-                    p{
-                        &.text-wrapper{
-                            max-width: 50%;
-                            height: 4.3rem;
-                            -webkit-line-clamp: 3;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .container-fluid{
-        &#content{
-            background-color: #f7f7f7;
-
-            .container{
                 .row{
                     .left{
-                        background-color: #fff;
+                        .item{
+                            width: 100%;
 
-                        padding-top: 30px;
-                        padding-bottom: 150px;
+                            margin-bottom: 30px;
 
-                        article{
-                            p{
-                                font-family: 'Lora', Serif;
+                            display: flex;
+                            flex-direction: row;
 
-                                color: $gray-lighter;
+                            background-color: #fff;
+
+                            @include boxShadow(0,0,15px,rgba(0,0,0,0.15));
+
+                            .item-image{
+                                width: 305px;
+                                height: 305px;
+
+                                .mask{
+                                    width: 100%;
+                                    height: 100%;
+                                }
                             }
 
-                            img{
-                                width: 100% !important;
+                            .item-content{
+                                width: calc(100% - 305px);
+                                padding: 15px 30px;
 
-                                margin-top: 30px;
-                                margin-bottom: 30px;
+                                .content-header{
+                                    margin-bottom: 30px;
+
+                                    span{
+
+                                    }
+
+                                    a{
+                                        color: $gray-base;
+
+                                        h3{
+                                            font-weight: 400;
+                                        }
+                                    }
+
+                                    ul{
+                                        li{
+                                            display: inline-block;
+
+                                            font-size: 0.75rem;
+
+                                            color: $gray-lightest;
+
+                                            &:last-of-type{
+                                                margin-left: 15px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .content-body{
+                                    margin-bottom: 15px;
+
+                                    p{
+                                        &.text-wrapper{
+                                            height: 4.3rem;
+                                            -webkit-line-clamp: 3;
+                                        }
+                                    }
+                                }
+
+                                .content-footer{
+                                    text-align: right;
+                                }
                             }
+                        }
+
+                        .see-more{
+                            width: 100%;
+
+                            text-align: center;
                         }
                     }
 
                     .right{
-                        padding-top: 50px;
+                        .heading{
+                            padding: 7px 15px;
+                            margin-bottom: 30px;
 
-                        .recommended{
+                            text-align: center;
+
+                            background-color: #fff;
+
+                            h4{
+                                font-weight: 400;
+                            }
+                        }
+
+                        .body{
                             .item{
                                 width: 100%;
 
@@ -351,7 +120,7 @@
 
                                 .item-image{
                                     width: 100%;
-                                    height: 200px;
+                                    height: 215px;
 
                                     .mask{
                                         width: 100%;
@@ -415,4 +184,8 @@
             }
         }
     }
+}
+
+#detail-blog{
+    //Import Detail Post Stylesheet
 }
