@@ -42,11 +42,11 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge"><?= $value['province_title_vi'] ?></span>
+                                        <span class="badge"><?= $value['title_vi'] ?></span>
                                         <a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
                                             <h3><?= $value['title_vi'] ?></h3>
                                         </a>
-                                        <h6>Time | <small> <?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></small></h6>
+                                        <h6>Time | <small> <?= date_format(date_create($value['updated_at']),"d M Y") ?></small></h6>
                                         <ul>
                                             <li>Rating</li>
 

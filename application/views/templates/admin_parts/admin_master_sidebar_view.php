@@ -59,6 +59,11 @@
                         <i class="fa fa-cubes"></i> <span>Món ăn</span>
                     </a>
                 </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'destination')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/destination') ?>">
+                        <i class="fa fa-newspaper-o"></i> <span>Điểm đến</span>
+                    </a>
+                </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'events')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/events') ?>">
                         <i class="fa fa-newspaper-o"></i> <span>Sự kiện</span>
