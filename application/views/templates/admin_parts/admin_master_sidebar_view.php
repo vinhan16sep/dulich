@@ -34,68 +34,44 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
+                <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
-                </li> 
-                <li class="treeview">
-                    <a href="">
-                        <i class="fa fa-home"></i>
-                        <span>Homepage</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url('admin/homepage') ?>"><i class="fa fa-desktop"></i> Overview</a></li>
-                        <li><a href="<?php echo base_url('admin/homepage/slider') ?>"><i class="fa fa-picture-o"></i> Slider</a></li>
-                        <li><a href="<?php echo base_url('admin/homepage/featured') ?>"><i class="fa fa-star-o"></i> Featured</a></li>
-                    </ul>
                 </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/templates') ?>">
-                        <i class="fa fa-cubes"></i> <span>Templates</span>
+                <li class="<?php echo ($this->uri->segment(2) == 'region')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/region') ?>">
+                        <i class="fa fa-cubes"></i> <span>Vùng miền</span>
                     </a>
                 </li>
-                <li class="active">
+                <li class="<?php echo ($this->uri->segment(2) == 'province')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/province') ?>">
+                        <i class="fa fa-newspaper-o"></i> <span>Tỉnh / Thành Phố</span>
+                    </a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'cuisine_category')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/cuisine_category') ?>">
+                        <i class="fa fa-newspaper-o"></i> <span>Danh mục món ăn</span>
+                    </a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'cuisine')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/cuisine') ?>">
+                        <i class="fa fa-cubes"></i> <span>Món ăn</span>
+                    </a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'events')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/events') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Events</span>
+                        <i class="fa fa-newspaper-o"></i> <span>Sự kiện</span>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/post') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Post</span>
+                <li class="<?php echo ($this->uri->segment(2) == 'blog')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/blog') ?>">
+                        <i class="fa fa-newspaper-o"></i> <span>Bài viết</span>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/color') ?>">
-                        <i class="fa fa-cubes"></i> <span>Color</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/features') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Features</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/trademark') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Trademark</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/product') ?>">
-                        <i class="fa fa-cubes"></i> <span>Product</span>
-                    </a>
-                </li>
-                <li class="active">
+                <li class="">
                     <a href="<?php echo base_url('admin/config_contact') ?>">
                         <i class="fa fa-inbox"></i> <span>Contact</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="<?php echo base_url('admin/menu') ?>">
-                        <i class="fa fa-align-left"></i> <span>Menu</span>
                     </a>
                 </li>
                 <li class="header">DOCUMENTATION</li>
