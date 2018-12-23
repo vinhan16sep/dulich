@@ -1,28 +1,29 @@
 <section id="events">
+	<div id="encypted_ppbtn_all"></div>
 	<div class="main-cover">
 		<div class="mask">
-			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1>Title Comes Here</h1>
+							<h1><?php echo $region['title_'.$lang];?></h1>
 							<p class="text-wrapper">
-								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								<?php echo $region['description_'.$lang];?>
 							</p>
 						</div>
 					</div>
 
 					<div class="link-control">
 						<ul>
-                            <?php for ($i = 0; $i < 3; $i++) { ?>
-								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-									<a href="<?php echo base_url('') ?>">
-										Region <?php echo $i+1 ?> of Vietnam
-									</a>
-								</li>
-                            <?php } ?>
+							<?php foreach ($region_full as $key => $value): ?>
+			                    <li class="nav-item">
+			                        <a class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('su-kien/'.$value['slug']) ?>" r>
+			                            <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
+			                        </a>
+			                    </li>
+			                <?php endforeach ?>
 						</ul>
 					</div>
 				</div>
@@ -34,32 +35,34 @@
 		<div class="container">
 			<div class="grid">
 				<div class="grid-sizer"></div>
-                <?php for ($i = 1; $i < 9; $i++) { ?>
-					<div class="grid-item <?php if( ($i == 1) || ($i == 4) || ($i == 5) || ($i == 8) ) { ?> grid-item-2 <?php } ?>">
-						<a href="<?php echo base_url('events/detail') ?>">
+				<?php foreach ($events as $key => $value): ?>
+					<div class="grid-item <?php if( ($key+1 == 1) || ($key+1 == 4) || ($key+1 == 5) || ($key+1 == 8) ) { ?> grid-item-2 <?php } ?>">
+						<a href="<?php echo base_url('su-kien/'.$region['slug'].'/'.$value['province_slug'].'/'.$value['slug']) ?>">
 							<div class="inner">
 								<div class="mask">
-									<img src="https://images.unsplash.com/photo-1540202404-fad3e2190841?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80" alt="Image Province">
+									<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']) ?>" alt="Image Province">
 
 									<div class="title">
-										<span class="badge">Badge Subtitle</span>
-										<h2>Province</h2>
+										<span class="badge"><?php echo $value['province_title_'.$lang] ?></span>
+										<h2><?php echo $value['title_'.$lang] ?></h2>
 										<p class="text-wrapper">
-											Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
+											<?php echo $value['description_'.$lang] ?>
 										</p>
-										<h6>Province Title</h6>
+										<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
 									</div>
 								</div>
 							</div>
 						</a>
 					</div>
-                <?php } ?>
+				<?php endforeach ?>
 			</div>
-
+			<div class = "clearfix"></div>
 			<div class="see-more">
-				<button class="btn btn-primary" type="button">
+				<button class="btn btn-primary" type="button" id="limit">
 					See more <i class="fas fa-angle-double-right"></i>
 				</button>
+				<input id="start" type="hidden" value="8" name="">
+				<input id="slug_region" type="hidden" value="<?php echo $region['slug'] ?>" name="">
 			</div>
 		</div>
     </div>
@@ -90,4 +93,68 @@
             });
         });
     });
+</script>
+<script type="text/javascript">
+	html_modal = `<div class="modal" role="dialog" style="display: block; opacity: 0.5">
+        <div class="modal-dialog" style="color:#fff; text-align:center; padding-top:300px;">
+            <i class="fa fa-2x fa-spinner fa-spin" aria-hidden="true"></i>
+        </div>
+    </div>`;
+    HOSTNAME = 'http://localhost/dulich/';
+	var limit = Number($('#start').val());
+    var start = 0;
+    var slug = $('#slug_region').val();
+    $("#limit").click(function(){
+      start+= limit;
+      $('#start').val(start);
+      $.ajax({
+        method: "get",
+        url: HOSTNAME+'events/ajax_event',
+        data: {
+          slug: slug, start: start, limit:limit
+        },
+        beforeSend:function() {
+            document.getElementById('encypted_ppbtn_all').innerHTML = html_modal;
+        },
+        success: function(response){
+
+        	console.log(response);
+        	if(!response.reponse.check){
+        		$('.see-more').hide(200);
+        	}else{
+        		console.log(2);
+        	}
+            for (var i = 0; i < response.reponse.events.length; i++) {
+            	date = new Date(response.reponse.events[i]["date_start"]);
+	            result = `
+		            <div class="grid-item ${( (i+1 == 1) || (i+1 == 4) || (i+1 == 5) || (i+1 == 8) ) ? 'grid-item-2' : '' }">
+						<a href="${HOSTNAME}su-kien/${response.reponse.region['slug']}/${response.reponse.events[i]['province_slug']}/${response.reponse.events[i]['slug']}">
+							<div class="inner">
+								<div class="mask">
+									<img src="${HOSTNAME}assets/upload/events/${response.reponse.events[i]['slug']}/${response.reponse.events[i]['image']}" alt="Image Province">
+									<div class="title">
+										<span class="badge">${response.reponse.events[i]['province_title_'+response.reponse.lang]}</span>
+										<h2>${response.reponse.events[i]['title_'+response.reponse.lang]}</h2>
+										<p class="text-wrapper">
+											${response.reponse.events[i]['description_'+response.reponse.lang]}
+										</p>
+										<h6>${response.reponse.events[i]['date']}</h6>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+	              `;
+            }
+            $(".container .grid").append(result);
+            document.getElementById('encypted_ppbtn_all').innerHTML = '';
+        },
+        error: function(jqXHR, exception){
+            console.log(errorHandle(jqXHR, exception));
+            if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                location.reload();
+            }
+        }
+      });
+    }); 
 </script>
