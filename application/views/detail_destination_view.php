@@ -2,22 +2,12 @@
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.theme.default.min.css">
 
 <section id="detail-destination">
-	<div id="slide" class="carousel slide carousel-fade main-slide" data-ride="carousel">
+	<div id="slide" class="carousel slide main-slide" data-ride="carousel">
 		<div class="carousel-inner">
             <?php for ($i = 0; $i < 3; $i++) { ?>
 				<div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
 					<div class="mask">
 						<img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
-					</div>
-					<div class="carousel-caption">
-						<div class="row">
-							<div class="item col-xs-12 col-lg-6">
-								<h1>Title Comes Here</h1>
-								<p class="text-wrapper">
-									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-								</p>
-							</div>
-						</div>
 					</div>
 				</div>
             <?php } ?>
@@ -30,6 +20,19 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
+
+		<div class="carousel-caption">
+			<div class="container">
+				<div class="row">
+					<div class="item col-xs-12 col-lg-6">
+						<h1>Title Comes Here</h1>
+						<p class="text-wrapper">
+							Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="link-region">
 			<ul>

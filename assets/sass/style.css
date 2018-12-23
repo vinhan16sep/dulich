@@ -1073,6 +1073,17 @@ MOBILE (less than 1024px)
       width: 100%;
       text-align: center; }
 
+#detail-destination .main-slide .carousel-caption {
+  text-align: left;
+  padding-bottom: 150px; }
+  #detail-destination .main-slide .carousel-caption .row .item h1 {
+    max-width: 75%;
+    font-weight: 400;
+    margin-bottom: 7px; }
+  #detail-destination .main-slide .carousel-caption .row .item p.text-wrapper {
+    max-width: 75%;
+    max-height: 6em;
+    -webkit-line-clamp: 4; }
 #detail-destination .main-slide .link-control .container ul li {
   width: 10%; }
 #detail-destination .main-slide .link-region {
