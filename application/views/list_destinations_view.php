@@ -73,7 +73,7 @@
 							<a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$value['slug']) ?>">
 								<div class="inner">
 									<div class="mask">
-										<img src="https://images.unsplash.com/photo-1540202404-fad3e2190841?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80" alt="Image Province">
+										<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
 
 										<div class="title">
 											<h2><?php echo $value['title_' . $lang] ?></h2>

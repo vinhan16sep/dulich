@@ -263,34 +263,35 @@
     <div class="container" id="events">
 
     </div>
+	<div class="container-fluid" id="blogs">
+		<div class="container">
+			<div class="heading">
+				<h3>Blog Review</h3>
+			</div>
+			<div class="body">
+				<div class="owl-carousel post-list">
+					<?php if ($blogs): ?>
+						<?php foreach ($blogs as $key => $value): ?>
+							<div class="item">
+								<div class="mask">
+									<img src="<?php echo base_url('assets/upload/blog/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Slide">
+								</div>
+								<div class="content">
+									<span class="badge"><?php echo $value['province']['title_' . $lang] ?></span>
+									<h3><?php echo $value['title_' . $lang] ?></h3>
+									<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
-    <div class="container-fluid" id="blogs">
-        <div class="container">
-            <div class="heading">
-                <h3>Blog Review</h3>
-            </div>
-            <div class="body">
-                <div class="owl-carousel post-list">
-                    <?php for ($i = 0; $i < 7; $i++) { ?>
-                        <div class="item">
-                            <div class="mask">
-                                <img src="https://images.unsplash.com/photo-1545095572-9bfd2666d3e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80" alt="Image Slide">
-                            </div>
-                            <div class="content">
-                                <span class="badge">Badge Subtitle</span>
-                                <h3>Post Title</h3>
-                                <p class="text-wrapper">Description</p>
-
-                                <a href="<?php ?>" class="btn btn-primary" role="button">
-                                    View Detail
-                                </a>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-    </div>
+									<a href="<?php echo base_url('bai-viet/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+										View Detail
+									</a>
+								</div>
+							</div>
+						<?php endforeach ?>
+					<?php endif ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- Owl Carousel js -->
