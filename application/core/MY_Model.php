@@ -259,9 +259,6 @@ class MY_Model extends CI_Model {
         if ($where) {
             $this->db->where($where);
         }
-        if($check == 0){
-            $this->db->order_by("id", "asc");
-        }
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->row_array();
     }
