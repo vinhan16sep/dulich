@@ -60,26 +60,22 @@
 								<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Province <?php echo $i+1 ?>">
 
 								<div class="content">
-									<?php
-										if($i == 0) {
-                                            echo '<h1>Region Title</h1>';
-											echo '<a href=" '.  base_url() . ' " class="btn btn-default" role="button">';
-                                                echo 'See all Destinations';
-                                            echo '</a>';
-										}
-									?>
+									<?php if($i == 0) { ?>
+										<h1>Region Title</h1>
+										<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+											See all Destinations
+										</a>
+									<?php } ?>
 
-                                    <?php
-                                    if($i > 0) {
-                                    	echo '<a href=" ' . base_url() . '">';
-											echo '<span class="badge">Badge Province</span>';
-											echo '<h4>Province Title</h4>';
-											echo '<p class="text-wrapper">';
-												echo 'Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
-											echo '</p>';
-										echo '</a>';
-                                    }
-                                    ?>
+                                    <?php if($i > 0) { ?>
+										<a href="<?php echo base_url('') ?>">
+											<span class="badge">Badge Province</span>
+											<h4>Province Title</h4>
+											<p class="text-wrapper">
+												Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+											</p>
+										</a>
+                                    <?php } ?>
 								</div>
 							</div>
 						</div>
@@ -87,21 +83,75 @@
 				</div>
 			</div>
 
-			<!--
 			<div id="center">
 				<div class="row">
 					<div class="left col-xs-12 col-lg-7">
 						<div class="mask">
 							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+
+							<div class="content">
+								<h1>Region Title</h1>
+								<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+									See all Destinations
+								</a>
+							</div>
+
+							<div class="list-region">
+								<ul>
+									<?php for ($i = 0; $i < 18; $i++) { ?>
+										<li>
+											<a href="<?php echo base_url() ?>">
+												Region of Center Vietnam
+											</a>
+										</li>
+									<?php } ?>
+								</ul>
+							</div>
 						</div>
 					</div>
 
 					<div class="right col-xs-12 col-lg-5">
-
+						<div class="row">
+							<?php for ($i = 0; $i < 4; $i++) { ?>
+                                <div class="item col-xs-12 col-lg-6">
+									<div class="mask">
+										<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+									</div>
+								</div>
+							<?php } ?>
+						</div>
 					</div>
 				</div>
 			</div>
-			-->
+
+			<div id="south">
+				<div class="row">
+					<div class="top col-xs-12 col-lg-12">
+						<div class="mask">
+							<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+
+							<div class="content">
+								<h1>Region Title</h1>
+								<a href=" <?php echo base_url('') ?>" class="btn btn-default" role="button">
+									See all Destinations
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bottom col-xs-12 col-lg-12">
+						<div class="row">
+                            <?php for ($i = 0; $i < 4; $i++) { ?>
+								<div class="item col-xs-12 col-lg-3">
+									<div class="mask">
+										<img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+									</div>
+								</div>
+                            <?php } ?>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		</div>
 	</div>
@@ -198,6 +248,7 @@
             items: 3,
             loop: true,
             margin: 30,
+			dots: true,
             responsiveClass: true,
             responsive: {
                 0: {
