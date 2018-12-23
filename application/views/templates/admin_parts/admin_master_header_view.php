@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
          <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>iCheck/square/blue.css">
-    <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dist/css/skins/skin-black-light.css">
+    <link rel="stylesheet" href="<?php echo site_url('assets/lib/dist/css/skins/_all-skins.min.css') ?>">
     <!-- DatePickerX Plugin -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>DatePickerX/DatePickerX.min.css">
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/bootstrap/css/bootstrap-toggle.min.css') ?>">
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
 </head>
 
-<body class="hold-transition skin-black-light sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
     <!-- <p id="remove-space"></p> -->
     <header class="main-header">
