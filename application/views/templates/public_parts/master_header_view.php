@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="header-bg"></div>
 	<nav>
 		<div class="nav-brand">
-			<a href="<?php echo base_url('') ?>">
+			<a href="<?php echo base_url('/') ?>">
 				<img src="<?php echo site_url('assets/img/logo-w.png') ?>" alt="Logo Vietnam Travellog">
 			</a>
 		</div>
@@ -71,27 +71,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="nav-main">
 			<ul>
 				<li class="li-sub">
-					<a href="<?php echo base_url('') ?>">
+					<a href="<?php echo base_url('diem-den/mien-bac') ?>">
 						Destination <i class="fas fa-caret-down"></i>
 					</a>
 				</li>
 				<li class="li-sub">
-					<a href="<?php echo base_url('') ?>">
+					<a href="<?php echo base_url('su-kien/mien-bac') ?>">
 						Events <i class="fas fa-caret-down"></i>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('') ?>">
+					<a href="<?php echo base_url('mon-an/mien-bac') ?>">
 						Cuisine
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('') ?>">
+					<a href="<?php echo base_url('bai-viet/mien-bac') ?>">
 						Blog Review
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('') ?>">
+					<a href="<?php echo base_url('contact') ?>">
 						Contact
 					</a>
 				</li>
