@@ -7,6 +7,7 @@
     }
 </style>
 <section id="cuisine">
+	<!--
     <div id="slide" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <?php for ($i = 0; $i < 3; $i++) { ?>
@@ -38,68 +39,72 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    -->
+
+	<div class="main-cover">
+		<div class="mask">
+			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="item col-xs-12 col-lg-6">
+							<h1>Title Comes Here</h1>
+							<p class="text-wrapper">
+								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+							</p>
+						</div>
+					</div>
+
+					<div class="link-control">
+						<ul>
+                            <?php foreach ($region_full as $key => $value): ?>
+								<li class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
+									<a href="<?php echo base_url('mon-an/'.$value['slug']) ?>">
+                                        <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
+									</a>
+								</li>
+                            <?php endforeach ?>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <div class="container-fluid" id="list-cuisine">
-        <div class="container">
-            <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                <?php foreach ($region_full as $key => $value): ?>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('mon-an/'.$value['slug']) ?>" r>
-                            <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
-                        </a>
-                    </li>
-                <?php endforeach ?>
-            </ul>
+        <?php foreach ($cuisine_category as $k => $val): ?>
+			<div class="container-fluid cuisine-style">
+				<div class="background-image mask">
+					<img src="https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80" alt="Cuisine style background">
+				</div>
+				<div class="container">
+					<div class="heading">
+						<h2><?php echo $val['title_'.$lang] ?></h2>
+					</div>
+					<div class="row">
+                        <?php foreach ($val['cuisine'] as $key => $value): ?>
+							<div class="item col-xs-12 col-lg-6">
+								<div class="inner">
+									<div class="mask">
+										<a href="<?php echo base_url('cuisine/detail') ?>">
+											<img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Cuisine Post">
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-content" id="pills-tabContent">
-                    
-                    <?php foreach ($cuisine_category as $k => $val): ?>
-                        <h1><?php echo $val['title_'.$lang] ?><h1/h1>
-                        <div class="tab-pane fade show active">
-                            <div class="row">
-                                <?php foreach ($val['cuisine'] as $key => $value): ?>
-                                    <div class="item col-xs-12 col-lg-6">
-                                        <div class="mask">
-                                            <img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Destination <?php echo $i+1 ?> ">
+											<div class="badge">
+												Region of Vietnam
+											</div>
 
-                                            <div class="content">
-                                                <h4><?php echo $value['title_'.$lang]?></h4>
-                                                <p><?php echo $region['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach ?>
-                            </div>
-                        </div>
-                    <?php endforeach ?>
-                </div>
-            </div>
-        </div>
+											<div class="content">
+												<h3><?php echo $value['title_'.$lang]?></h3>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						<?php endforeach ?>
+					</div>
+				</div>
+			</div>
+		<?php endforeach ?>
     </div>
 </section>
-
-<!-- Mansory Layout js -->
-<script src="<?php echo site_url('assets/js/masonry.pkgd.min.js') ?>"></script>
-<!-- imagedLoaded js -->
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
-<script>
-    //init Masonry
-    $('a[data-toggle=pill]').each(function (){
-        var $this = $(this);
-        $this.on('shown.bs.tab', function () {
-            var $grid = $('.grid').masonry({
-                // set itemSelector so .grid-sizer is not used in layout
-                itemSelector: '.grid-item',
-                // use element for option
-                columnWidth: '.grid-sizer',
-                percentPosition: true
-            });
-            // layout Masonry after each image loads
-            $grid.imagesLoaded().progress( function() {
-                $grid.masonry('layout');
-            });
-        });
-    });
-</script>
