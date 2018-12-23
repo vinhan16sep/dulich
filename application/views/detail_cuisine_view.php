@@ -14,7 +14,7 @@
                         </div>
                     </div>
 
-                    <div class="link-control">
+                    <div class="link-control" style="display: none;">
                         <ul>
                             <?php for ($i = 0; $i < 3; $i++) { ?>
                                 <li class="<?php echo ($i == 1)? 'active' : '' ?>">
@@ -45,10 +45,10 @@
                         -->
 
                         <p>
-                            Nullam molestie nisi sed neque porta porttitor. Aliquam tristique lacus non purus elementum tincidunt. Nunc lectus diam, hendrerit sed felis a, rhoncus dignissim ex. Curabitur hendrerit mattis odio, a vestibulum lacus pharetra eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur eu viverra tellus, vitae fringilla urna. Mauris congue ut nulla eu ornare. Donec ullamcorper, tellus a tempor dignissim, odio velit imperdiet est, vel tempus augue nisl sed neque. Ut vitae dui id nisi semper elementum. Morbi tempor lectus eu tortor consectetur euismod. In aliquet consectetur nisl, at fermentum libero rhoncus sit amet. Etiam in neque non erat ultrices blandit. Ut rutrum dui enim, at rhoncus purus mattis at. Aliquam imperdiet vitae felis egestas ullamcorper. Maecenas hendrerit libero ut lorem viverra mollis.
+                            <?php echo $cuisine['description_'.$lang] ?>
                         </p>
 
-                        <img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image of Post">
+                        <img src="<?php echo base_url('assets/upload/cuisine/'.$cuisine['slug'].'/'.$cuisine['avatar']) ?>" alt="Image of Post">
                     </article>
                 </div>
 
@@ -90,35 +90,30 @@
                         <!--                        --><?php //endforeach ?>
                         <!-- hungluong commented above -->
 
-                        <?php for ($i = 0; $i < 3; $i++) { ?>
+                        <?php foreach ($get_related as $key => $value): ?>
                             <div class="item">
                                 <div class="item-image">
                                     <div class="mask">
-                                        <a href="<?php echo base_url('events/detail') ?>">
-                                            <img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image Blog">
+                                        <a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$cuisine_category['slug'].'/'.$value['slug']) ?>">
+                                            <img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Blog">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge">Province</span>
-                                        <a href="<?php echo base_url('events/detail') ?>">
-                                            <h3 class="text-wrapper">Event Title</h3>
+                                        <span class="badge"><?php echo $region['title_'.$lang] ?></span>
+                                        <a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$cuisine_category['slug'].'/'.$value['slug']) ?>">
+                                            <h3 class="text-wrapper"><?php echo $value['title_'.$lang] ?></h3>
                                         </a>
-                                        <ul>
-                                            <li>Rating</li>
-
-                                            <li><h6>Date</h6></li>
-                                        </ul>
                                     </div>
                                     <div class="content-body">
                                         <p class="text-wrapper">
-                                            Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
+                                            <?php echo $value['description_'.$lang] ?>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php endforeach;?>
                     </div>
                 </div>
             </div>

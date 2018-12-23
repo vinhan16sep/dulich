@@ -80,7 +80,7 @@ $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destina
 //url cho cusnine
 // $route['mon-an'] = 'cuisine/index';
 $route['mon-an/([a-zA-Z0-9-_]+)'] = 'cuisine/region/$1';
-// $route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/category/$1/$2';
+$route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/detail/$1/$2/$3';
 
 //url cho events
 $route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/region/$1';
