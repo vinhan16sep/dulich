@@ -1,28 +1,30 @@
 <section id="detail-blog" class="detail-post">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/blog/' . $blog['slug'] . '/' . $blog['avatar']) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1>Title Comes Here</h1>
+							<h1><?php echo $blog['title_vi'] ?></h1>
 							<p class="text-wrapper">
-								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								<?php echo $blog['description_vi'] ?>
 							</p>
 						</div>
 					</div>
 
 					<div class="link-control">
 						<ul>
-                            <?php for ($i = 0; $i < 3; $i++) { ?>
-								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-									<a href="<?php echo base_url('') ?>">
-										Region <?php echo $i+1 ?> of Vietnam
-									</a>
-								</li>
-                            <?php } ?>
+							<?php if ($region_all): ?>
+								<?php foreach ($region_all as $key => $value): ?>
+									<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
+										<a href="<?php echo base_url('bai-viet/' . $value['slug']) ?>">
+											<?php echo $value['title_vi'] ?>
+										</a>
+									</li>
+								<?php endforeach ?>
+							<?php endif ?>
 						</ul>
 					</div>
 				</div>
@@ -40,49 +42,45 @@
                         -->
 					</div>
 					<article>
-						<!--
-                        <?= $detail['body_vi'] ?>
-                        -->
-
 						<p>
-							Nullam molestie nisi sed neque porta porttitor. Aliquam tristique lacus non purus elementum tincidunt. Nunc lectus diam, hendrerit sed felis a, rhoncus dignissim ex. Curabitur hendrerit mattis odio, a vestibulum lacus pharetra eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur eu viverra tellus, vitae fringilla urna. Mauris congue ut nulla eu ornare. Donec ullamcorper, tellus a tempor dignissim, odio velit imperdiet est, vel tempus augue nisl sed neque. Ut vitae dui id nisi semper elementum. Morbi tempor lectus eu tortor consectetur euismod. In aliquet consectetur nisl, at fermentum libero rhoncus sit amet. Etiam in neque non erat ultrices blandit. Ut rutrum dui enim, at rhoncus purus mattis at. Aliquam imperdiet vitae felis egestas ullamcorper. Maecenas hendrerit libero ut lorem viverra mollis.
+							<?php echo $blog['body_vi'] ?>
 						</p>
-
-						<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image of Post">
 					</article>
 				</div>
 
 				<div class="right col-xs-12 col-lg-4">
 					<div class="recommended">
-                        <?php for ($i = 0; $i < 3; $i++) { ?>
-							<div class="item">
-								<div class="item-image">
-									<div class="mask">
-										<a href="<?php echo base_url('events/detail') ?>">
-											<img src="https://images.unsplash.com/photo-1545502648-e079208cf734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Image Blog">
-										</a>
+						<?php if ($blogs_top): ?>
+							<?php foreach ($blogs_top as $key => $value): ?>
+								<div class="item">
+									<div class="item-image">
+										<div class="mask">
+											<a href="<?php echo base_url('bai-viet/' . $region['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+												<img src="<?php echo base_url('assets/upload/blog/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Blog">
+											</a>
+										</div>
 									</div>
-								</div>
-								<div class="item-content">
-									<div class="content-header">
-										<span class="badge">Province</span>
-										<a href="<?php echo base_url('events/detail') ?>">
-											<h3 class="text-wrapper">Event Title</h3>
-										</a>
-										<ul>
-											<li>Rating</li>
+									<div class="item-content">
+										<div class="content-header">
+											<span class="badge"><?php echo $value['province']['title_vi']; ?></span>
+											<a href="<?php echo base_url('bai-viet/' . $region['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+												<h3 class="text-wrapper"><?php echo $value['title_vi']; ?></h3>
+											</a>
+											<ul>
+												<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
 
-											<li><h6>Date</h6></li>
-										</ul>
-									</div>
-									<div class="content-body">
-										<p class="text-wrapper">
-											Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
-										</p>
+												<li><h6><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></h6></li>
+											</ul>
+										</div>
+										<div class="content-body">
+											<p class="text-wrapper">
+												<?php echo $blog['description_vi'] ?>
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
-                        <?php } ?>
+							<?php endforeach ?>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>

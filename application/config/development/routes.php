@@ -88,6 +88,7 @@ $route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/province/$1/$2';
 $route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/detail/$1/$2/$3';
 
 //url cho blogs
+$route['bai-viet'] = 'blogs/index';
 $route['bai-viet/([a-zA-Z0-9-_]+)'] = 'blogs/region/$1';
 $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/province/$1/$2';
 $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1/$2/$3';

@@ -1,28 +1,34 @@
 <section id="blogs">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $region_detail['avatar']) ?>" alt="Image banner <?php echo $region_detail['slug'] ?>">
 
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1>Title Comes Here</h1>
+							<h1><?php echo $region_detail['title_vi'] ?></h1>
 							<p class="text-wrapper">
-								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								<?php echo $region_detail['description_vi'] ?>
 							</p>
 						</div>
 					</div>
 
 					<div class="link-control">
 						<ul>
-                            <?php for ($i = 0; $i < 3; $i++) { ?>
-								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-									<a href="<?php echo base_url('') ?>">
-										Region <?php echo $i+1 ?> of Vietnam
-									</a>
-								</li>
-                            <?php } ?>
+							<?php if ($region): ?>
+								<?php foreach ($region as $key => $value): ?>
+									<?php if ($this->uri->segment(2) == ''): ?>
+										<li class="<?php echo ($key == 0)? 'active' : '' ?>">
+									<?php else: ?>
+										<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
+									<?php endif ?>
+										<a href="<?php echo base_url('bai-viet/' . $value['slug']) ?>">
+											<?php echo $value['title_vi'] ?>
+										</a>
+									</li>
+								<?php endforeach ?>
+							<?php endif ?>
 						</ul>
 					</div>
 				</div>
@@ -34,39 +40,43 @@
 		<div class="container">
 			<div class="row">
 				<div class="left col-xs-12 col-lg-8">
-                    <?php for ($i = 0; $i < 5; $i++) { ?>
-						<div class="item">
-							<div class="item-image">
-								<div class="mask">
-									<img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Blog <?php echo $i+1 ?>">
+					<?php if ($blogs): ?>
+						<?php foreach ($blogs as $key => $value): ?>
+							<div class="item">
+								<div class="item-image">
+									<div class="mask">
+										<img src="<?php echo base_url('assets/upload/blog/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Blog <?php echo $value['slug'] ?>">
+									</div>
 								</div>
-							</div>
-							<div class="item-content">
-								<div class="content-header">
-									<span class="badge">Badge Subtitle</span>
-									<a href="<?php echo base_url('blogs/detail') ?>">
-										<h3>Blog Title</h3>
-									</a>
-									<h6>Author Name | <small>Author's Nationality</small></h6>
-									<ul>
-										<li>Rating</li>
+								<div class="item-content">
+									<div class="content-header">
+										<span class="badge"><?php echo $value['province']['title_vi']; ?></span>
+										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+											<h3><?php echo $value['title_vi']; ?></h3>
+										</a>
+										<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
+										<ul>
+											<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
 
-										<li>Created Date</li>
-									</ul>
-								</div>
-								<div class="content-body">
-									<p class="text-wrapper">
-										Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
-									</p>
-								</div>
-								<div class="content-footer">
-									<a href="<?php echo base_url('blogs/detail') ?>" class="btn btn-primary" role="button">
-										View Detail
-									</a>
+											<li><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></li>
+										</ul>
+									</div>
+									<div class="content-body">
+										<p class="text-wrapper">
+											<?php echo $value['description_vi'] ?>
+										</p>
+									</div>
+									<div class="content-footer">
+										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+											View Detail
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-                    <?php } ?>
+						<?php endforeach ?>
+					<?php else: ?>
+							Chưa có bài viết
+					<?php endif ?>
 
 					<div class="see-more">
 						<button class="btn btn-primary" type="button">
@@ -80,39 +90,41 @@
 						<h4>Top Review</h4>
 					</div>
 					<div class="body">
-                        <?php for ($i = 0; $i < 4; $i++) { ?>
-							<div class="item">
-								<div class="item-image">
-									<div class="mask">
-										<img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Blog <?php echo $i+1 ?>">
+						<?php if ($blogs_top): ?>
+							<?php foreach ($blogs_top as $key => $value): ?>
+								<div class="item">
+									<div class="item-image">
+										<div class="mask">
+											<img src="<?php echo base_url('assets/upload/blog/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Blog <?php echo $value['slug'] ?>">
+										</div>
 									</div>
-								</div>
-								<div class="item-content">
-									<div class="content-header">
-										<span class="badge">Badge Subtitle</span>
-										<a href="<?php echo base_url('blogs/detail') ?>">
-											<h3>Blog Title</h3>
-										</a>
-										<h6>Author Name | <small>Author's Nationality</small></h6>
-										<ul>
-											<li>Rating</li>
+									<div class="item-content">
+										<div class="content-header">
+											<span class="badge"><?php echo $value['province']['title_vi']; ?></span>
+											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+												<h3><?php echo $value['title_vi']; ?></h3>
+											</a>
+											<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
+											<ul>
+												<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
 
-											<li>Created Date</li>
-										</ul>
-									</div>
-									<div class="content-body">
-										<p class="text-wrapper">
-											Nam blandit consectetur nisi, sit amet scelerisque risus facilisis pellentesque. Proin risus arcu, pretium non elit non, faucibus consectetur metus. In hac habitasse platea dictumst. Curabitur maximus turpis mi, a dapibus nulla ultricies ut. Aenean gravida nisl ut orci facilisis, quis molestie ipsum finibus. Aliquam lectus tellus, accumsan vel mi ut, pulvinar ultricies enim. Etiam varius massa et volutpat feugiat. Suspendisse bibendum ipsum et elit tincidunt tincidunt. In semper et neque sit amet euismod.
-										</p>
-									</div>
-									<div class="content-footer">
-										<a href="<?php echo base_url('blogs/detail') ?>" class="btn btn-primary" role="button">
-											View Detail
-										</a>
+												<li><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></li>
+											</ul>
+										</div>
+										<div class="content-body">
+											<p class="text-wrapper">
+												<?php echo $value['description_vi'] ?>
+											</p>
+										</div>
+										<div class="content-footer">
+											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+												View Detail
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-                        <?php } ?>
+							<?php endforeach ?>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>
