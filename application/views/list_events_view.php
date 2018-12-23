@@ -1,82 +1,67 @@
 <section id="events">
-    <div id="slide" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <?php for ($i = 0; $i < 3; $i++) { ?>
-                <div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
-                    <div class="mask">
-                        <img src="https://images.unsplash.com/photo-1544842413-05944bc01da2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="Image slide">
-                    </div>
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="item col-xs-12 col-lg-4">
-                                <h3>Title Comes Here</h3>
-                                <h6 class="text-wrapper">Description</h6>
-                            </div>
-                            <div class="item col-xs-12 col-lg-4">
-                                <p class="text-wrapper">
-                                    Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-        <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+	<div class="main-cover">
+		<div class="mask">
+			<img src="https://images.unsplash.com/photo-1544903256-014821bdd421?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Image Cover Blog">
 
-    <div class="container-fluid" id="list-events">
-        <div class="container">
-			<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                <?php $Region = array('North' , 'Center' , 'Shouth') ?>
-                <?php for ($j = 0; $j < 3; $j++) { ?>
-					<li class="nav-item">
-						<a class="nav-link <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>-tab" data-toggle="pill" href="#pills-region-<?php echo $j+1 ?>" role="tab" aria-controls="pills-<?php echo $j+1 ?>" aria-selected="true">
-							<?= $Region[$j] ?> of Vietnam
-						</a>
-					</li>
-                <?php } ?>
-			</ul>
-
-			<div class="tab-content" id="pills-tabContent">
-                    <?php for ($j = 0; $j < 3; $j++) { ?>
-						<div class="tab-pane fade show <?php echo ($j == 0)? 'active' : '' ?>" id="pills-region-<?php echo $j+1 ?>" role="tabpanel" aria-labelledby="pills-region-<?php echo $j+1 ?>-tab">
-							<div class="row">
-                                <?php foreach ($region[$j] as $key => $value): ?>
-									<div class="item col-xs-12 col-lg-6">
-										<div class="mask">
-                      						<a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
-												<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']); ?>" alt="Image Event <?php echo $key+1 ?>">
-
-												<div class="content">
-													<span class="badge"><?= $value['province_title_'.$lang] ?></span>
-													<h3><?= $value['title_'.$lang] ?></h3>
-													<p><?= $value['description_'.$lang] ?></p>
-													<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
-												</div>
-											</a>
-										</div>
-									</div>
-                            	<?php endforeach ?>
-							</div>
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="item col-xs-12 col-lg-6">
+							<h1>Title Comes Here</h1>
+							<p class="text-wrapper">
+								Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+							</p>
 						</div>
-                    <?php } ?>
+					</div>
+
+					<div class="link-control">
+						<ul>
+                            <?php for ($i = 0; $i < 3; $i++) { ?>
+								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
+									<a href="<?php echo base_url('') ?>">
+										Region <?php echo $i+1 ?> of Vietnam
+									</a>
+								</li>
+                            <?php } ?>
+						</ul>
+					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 
-            <div class="see-more">
-                <button class="btn btn-default" type="button">
-                    See more <i class="fas fa-angle-double-right"></i>
-                </button>
-            </div>
-        </div>
+    <div class="container-fluid" id="list-events">
+		<div class="container">
+			<div class="grid">
+				<div class="grid-sizer"></div>
+                <?php for ($i = 1; $i < 9; $i++) { ?>
+					<div class="grid-item <?php if( ($i == 1) || ($i == 4) || ($i == 5) || ($i == 8) ) { ?> grid-item-2 <?php } ?>">
+						<a href="<?php echo base_url('events/detail') ?>">
+							<div class="inner">
+								<div class="mask">
+									<img src="https://images.unsplash.com/photo-1540202404-fad3e2190841?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80" alt="Image Province">
+
+									<div class="title">
+										<span class="badge">Badge Subtitle</span>
+										<h2>Province</h2>
+										<p class="text-wrapper">
+											Nulla ante orci, condimentum non justo at, aliquam viverra risus. Fusce eget ante luctus, suscipit lectus sed, ultrices ligula. Cras augue eros, ullamcorper eu mollis placerat, dignissim vel nibh. Ut eget rhoncus metus. Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.
+										</p>
+										<h6>Province Title</h6>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+                <?php } ?>
+			</div>
+
+			<div class="see-more">
+				<button class="btn btn-primary" type="button">
+					See more <i class="fas fa-angle-double-right"></i>
+				</button>
+			</div>
+		</div>
     </div>
 </section>
 
