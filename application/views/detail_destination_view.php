@@ -10,16 +10,6 @@
 						<div class="mask">
 							<img src="<?php echo base_url('assets/upload/province/' . $province['slug'] . '/' . $value) ?>" alt="Image slide">
 						</div>
-						<div class="carousel-caption">
-							<div class="row">
-								<div class="item col-xs-12 col-lg-6">
-									<h1><?php echo $province['title_vi'] ?></h1>
-									<p class="text-wrapper">
-										<?php echo $province['description_vi'] ?>
-									</p>
-								</div>
-							</div>
-						</div>
 					</div>
 				<?php endforeach ?>
 			<?php endif ?>
@@ -32,6 +22,19 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
+
+		<div class="carousel-caption">
+			<div class="container">
+				<div class="row">
+					<div class="item col-xs-12 col-lg-6">
+						<h1><?php echo $province['title_vi'] ?></h1>
+						<p class="text-wrapper">
+                            <?php echo $province['description_vi'] ?>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="link-region">
 			<ul>
