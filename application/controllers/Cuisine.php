@@ -15,8 +15,8 @@ class Cuisine extends Public_Controller {
 
     // list all cuisine của region
     public function region($slug){
-        $this->data['region_full'] = $this->region_model->get_by_where();
-        $region = $this->region_model->find_where(array('slug' => $slug),0);
+        $this->data['region_full'] = $this->region_model->get_all_order_by(1,'asc');
+        $region = $this->region_model->find_where(array('slug' => $slug));
         if(!empty($region)){
             // get all cuisine thuộc miền
             $cuisine_category = $this->cuisine_category_model->get_by_where();
