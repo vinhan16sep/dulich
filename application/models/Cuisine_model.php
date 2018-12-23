@@ -22,7 +22,7 @@ class Cuisine_model extends MY_Model {
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get($this->table)->result_array();
     }
-    public function get_by_where($where = array()){
+    public function get_by_where($where = array(), $limit = 4, $not_id = ''){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
@@ -30,7 +30,10 @@ class Cuisine_model extends MY_Model {
         if ($where) {
             $this->db->where($where);
         }
-        $this->db->limit(4, 0);
+        if(!empty($not_id)){
+            $this->db->where($this->table.".id != $not_id");
+        }
+        $this->db->limit($limit, 0);
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->result_array();
     }

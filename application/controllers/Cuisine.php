@@ -33,33 +33,29 @@ class Cuisine extends Public_Controller {
     }
 
     // list all cuisine của region và category
-    // public function category($region_slug,$slug){
-    //     $cuisine_category = $this->cuisine_category_model->find_where(array('slug' => $slug));
-    //     if(!empty($cuisine_category)){
-    //         $region = $this->region_model->find_where(array('slug' => $region_slug));
-    //         if(!empty($region)){
-    //             // get all cuisine thuộc miền
-    //             $cuisine = $this->cuisine_model->find_where(array('cuisine_category_id' => $cuisine_category['id'], 'region_id' => $region['id']));
+    public function detail($region_slug,$category_slug,$slug){
+        $this->data['region_full'] = $this->region_model->get_by_where();
+        $cuisine_category = $this->cuisine_category_model->find_where(array('slug' => $category_slug));
+        if(!empty($cuisine_category)){
+            $region = $this->region_model->find_where(array('slug' => $region_slug));
+            if(!empty($region)){
+                // get all cuisine thuộc miền
+                $cuisine = $this->cuisine_model->find_where(array('cuisine_category_id' => $cuisine_category['id'], 'region_id' => $region['id'],'slug' => $slug));
                
-    //             $this->data['region'] = $region;
-    //             $this->data['cuisine'] = $cuisine;
-    //             echo '<pre>';
-    //             print_r($this->data['cuisine']);
-    //             echo '</pre>';die;
+                $this->data['region'] = $region;
+                $this->data['cuisine'] = $cuisine;
+                $this->data['cuisine_category'] = $cuisine_category;
+                $this->data['get_related'] = $this->cuisine_model->get_by_where(array('cuisine_category_id' => $cuisine_category['id'], 'region_id' => $region['id']),3,$cuisine['id']);
 
-    //             echo 'Trang danh sách cuisine của region';
-    //             return false;
-
-                        
-    //             return $this->render('list_cuisine_view');
-    //         }
-    //     }
-    //     //return view 404
-    //     echo 'Lỗi 404';
-    //     return false;
-    // }
-
-    public function detail(){
-        $this->render('detail_cuisine_view');
+                return $this->render('detail_cuisine_view');
+            }
+        }
+        //return view 404
+        echo 'Lỗi 404';
+        return false;
     }
+
+    // public function detail(){
+    //     $this->render('detail_cuisine_view');
+    // }
 }

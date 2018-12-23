@@ -87,11 +87,11 @@
 							<div class="item col-xs-12 col-lg-6">
 								<div class="inner">
 									<div class="mask">
-										<a href="<?php echo base_url('cuisine/detail') ?>">
+										<a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$val['slug'].'/'.$value['slug']) ?>">
 											<img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Cuisine Post">
 
 											<div class="badge">
-												Region of Vietnam
+												<?php echo $region['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
 											</div>
 
 											<div class="content">
