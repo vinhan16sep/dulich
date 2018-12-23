@@ -13,32 +13,78 @@ class Blogs extends Public_Controller {
     }
 
     public function index(){
+        $region = $this->region_model->get_all_order_by(1, 'id', 'asc');
+        $this->data['region'] = $region;
+
+        $region_first = reset($region);
+        $region_detail = $this->region_model->find_where(array('slug' => $region_first['slug']));
+        $this->data['region_detail'] = $region_detail;
+
+        $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']));
+        foreach ($blogs as $key => $value) {
+            $province = $this->province_model->find_where(array('id' => $value['province_id']));
+            $blogs[$key]['province'] = $province;
+        }
+        $this->data['blogs'] = $blogs;
+
+        $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1));
+        foreach ($blogs_top as $key => $value) {
+            $province = $this->province_model->find_where(array('id' => $value['province_id']));
+            $blogs_top[$key]['province'] = $province;
+        }
+        $this->data['blogs_top'] = $blogs_top;
+
+
         $this->render('list_blogs_view');
     }
 
-    public function detail(){
-        $this->render('detail_blog_view');
+    public function detail($region_slug, $province_slug, $slug){
+        $region = $this->region_model->find_where(array('slug' => $region_slug));
+        $province = $this->province_model->find_where(array('slug' => $province_slug));
+        if (!empty($region) && !empty($province)) {
+            $this->data['region'] = $region;
+            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc');
+            $this->data['region_all'] = $region_all;
+
+            $blog = $this->blog_model->find_where(array('slug' => $slug));
+            $this->data['blog'] = $blog;
+
+            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1));
+            foreach ($blogs_top as $key => $value) {
+                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $blogs_top[$key]['province'] = $province;
+            }
+            $this->data['blogs_top'] = $blogs_top;
+
+            $this->render('detail_blog_view');
+        }
     }
 
     // list all blog của region
     public function region($slug){
-        $region = $this->region_model->find_where(array('slug' => $slug));
-        if(!empty($region)){
-
+        $region_detail = $this->region_model->find_where(array('slug' => $slug));
+        if(!empty($region_detail)){
             // dữ liệu miền cho blog
+            $region = $this->region_model->get_all_order_by(1, 'id', 'asc');
             $this->data['region'] = $region;
+            $this->data['region_detail'] = $region_detail;
 
-            // trong list blog đã có tỉnh nên không cần dữ liệu tỉnh
-            $this->data['blog'] = $this->blog_model->get_by_region_all($region['id']);
-            echo '<pre>';
-            print_r($this->data['blog']);
-            echo '</pre>';
+            $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']));
+            foreach ($blogs as $key => $value) {
+                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $blogs[$key]['province'] = $province;
+            }
+            $this->data['blogs'] = $blogs;
 
-            echo 'Trang danh sách blog của region';
-            return false;
+            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1));
+            foreach ($blogs_top as $key => $value) {
+                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $blogs_top[$key]['province'] = $province;
+            }
+            $this->data['blogs_top'] = $blogs_top;
 
                     
-            return $this->render('list_blog_view');
+            return $this->render('list_blogs_view');
         }
         //return view 404
         echo 'Lỗi 404';
