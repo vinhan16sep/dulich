@@ -18,6 +18,8 @@ class Events_model extends MY_Model {
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where($this->table.'.is_deleted', 0);
         $this->db->where($this->table.'.is_active', 1);
+        $this->db->where('province.is_deleted', 0);
+        $this->db->where('province.is_active', 1);
         $this->db->where($this->table.'.region_id', $region_id);
         if($limit != '' && $start != ''){
             $this->db->limit($limit, $start);

@@ -341,4 +341,20 @@ class MY_Model extends CI_Model {
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->result_array();
     }
+
+    public function get_search($table = '',$search = '',$lang=''){
+        if(!empty($lang)){
+            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, body_'.$lang.' as body, province.title_'.$lang.' as title , province.slug as province_slug, region.title_'.$lang.' as title , region.slug as region_slug,');
+        }else{
+            $this->db->select('*');
+        }
+        $this->db->from($table);
+        $this->db->join('province', $table .'.province_id = province.id');
+        $this->db->join('region', $table .'.region_id = region.id');
+        $this->db->where($table.'.is_deleted',0);
+        $this->db->where($table.'.is_active',1);
+        $this->db->like($table.'.title_'.$lang, $search);
+        $this->db->order_by($table.".updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
 }
