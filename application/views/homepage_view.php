@@ -10,30 +10,6 @@
             <?php } ?>
         </ol>
         <div class="carousel-inner">
-            <!--			--><?php //for ($i = 0; $i < 3; $i++) { ?>
-            <!--				<div class="carousel-item --><?php //echo ($i == 0)? 'active' : '' ?><!--">-->
-            <!--					<div class="mask">-->
-            <!--						<img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image slide">-->
-            <!--					</div>-->
-            <!--					<div class="carousel-caption">-->
-            <!--						<div class="row">-->
-            <!--							<div class="item col-xs-12 col-lg-4">-->
-            <!--								<span class="badge">Badge Subtitle</span>-->
-            <!--								<h1>Province</h1>-->
-            <!--								<h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>-->
-            <!--							</div>-->
-            <!--							<div class="item col-xs-12 col-lg-4">-->
-            <!--								<p class="text-wrapper">-->
-            <!--									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.-->
-            <!--								</p>-->
-            <!--								<a href="--><?php //echo base_url('') ?><!--" class="btn btn-primary" role="button">-->
-            <!--									View Detail-->
-            <!--								</a>-->
-            <!--							</div>-->
-            <!--						</div>-->
-            <!--					</div>-->
-            <!--				</div>-->
-            <!--			--><?php //} ?>
             <div class="carousel-item active">
                 <div class="mask">
                     <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image slide">
@@ -44,6 +20,10 @@
                             <span class="badge">Badge Subtitle</span>
                             <h1>Province</h1>
                             <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
+
+							<a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
+								View Detail
+							</a>
                         </div>
                         <div class="item col-xs-12 col-lg-4">
                             <p class="text-wrapper">
@@ -66,6 +46,10 @@
                             <span class="badge">Badge Subtitle</span>
                             <h1>Province</h1>
                             <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
+
+							<a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
+								View Detail
+							</a>
                         </div>
                         <div class="item col-xs-12 col-lg-4">
                             <p class="text-wrapper">
@@ -88,6 +72,10 @@
                             <span class="badge">Badge Subtitle</span>
                             <h1>Province</h1>
                             <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
+
+							<a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
+								View Detail
+							</a>
                         </div>
                         <div class="item col-xs-12 col-lg-4">
                             <p class="text-wrapper">
@@ -179,7 +167,7 @@
                     <div class="right col-xs-12 col-lg-5">
                         <div class="row">
                             <?php for ($i = 0; $i < 4; $i++) { ?>
-                                <div class="item col-xs-12 col-lg-6">
+                                <div class="item col-xs-12 col-md-3 col-lg-6">
                                     <div class="mask">
                                         <img src="https://kenh14cdn.com/2016/anh-du-lich-sapa-qua-instagram-hop-hon-gioi-tre-hinh-2-1455158019251.jpg" alt="Image Region">
                                     </div>
@@ -208,7 +196,7 @@
                     <div class="bottom col-xs-12 col-lg-12">
                         <div class="row">
                             <?php for ($i = 0; $i < 4; $i++) { ?>
-                                <div class="item col-xs-12 col-lg-3">
+                                <div class="item col-xs-12 col-md-6 col-lg-3">
                                     <div class="mask">
                                         <img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
                                     </div>
@@ -326,7 +314,10 @@
                 0: {
                     items: 1
                 },
-                768: {
+				768:{
+                    items: 2
+				},
+                1200: {
                     items: 3
                 }
             }

@@ -375,3 +375,80 @@
 
     }
 }
+
+/*
+=========================================
+TABLETS (less than 1200px)
+=========================================
+ */
+
+@media (max-width: 1199.98px){
+    #destinations {
+        .container-fluid {
+            &#list-destinations {
+                .container {
+                    .grid {
+                        margin-left: 0;
+                        margin-right: 0;
+
+                        .grid-sizer {
+                            width: 100%;
+                        }
+
+                        .grid-item {
+                            width: 100%;
+
+                            &.grid-item-2{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #detail-destination{
+        .main-slide{
+            .link-region{
+                top: 150px;
+
+                width: 100%;
+
+                ul{
+                    display: flex;
+
+                    li{
+                        flex: 1 1 auto;
+
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .container-fluid{
+            &#content{
+                .container-fluid{
+                    &#introduce{
+                        .item{
+                            .row{
+                                .mask{
+                                    padding-left: 0;
+                                    padding-right: 0;
+                                }
+
+                                &.reversed{
+                                    .mask{
+                                        padding-left: 0;
+                                        padding-right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

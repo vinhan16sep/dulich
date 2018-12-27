@@ -3,12 +3,12 @@
 		<div class="footer-bg"></div>
 		<div class="container">
 			<div class="row">
-				<div class="item col-xs-12 col-lg-3">
+				<div class="item col-xs-12 col-md-12 col-lg-3">
 					<a href="<?php base_url('') ?>">
 						<img src="<?php echo site_url('assets/img/logo-w.png') ?>" alt="Logo Vietnam Travellog">
 					</a>
 				</div>
-				<div class="item col-xs-12 col-lg-3">
+				<div class="item col-xs-12 col-md-4 col-lg-3">
 					<h4>About Us</h4>
 
 					<ul>
@@ -34,7 +34,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="item col-xs-12 col-lg-3">
+				<div class="item col-xs-12 col-md-4 col-lg-3">
 					<h4>Our Partners</h4>
 
 					<ul>
@@ -60,7 +60,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="item col-xs-12 col-lg-3">
+				<div class="item col-xs-12 col-md-4 col-lg-3">
 					<h4>Our Address</h4>
 
 					<p>HANOI HEAD OFFICE</p>
@@ -84,7 +84,7 @@
 <!-- jQuery -->
 
 <!-- Script -->
-<script src="<?php echo site_url('assets/js/') ?>script.js"></script>
+<script src="<?php echo site_url('assets/js/') ?>script.min.js"></script>
 
 <!-- Cart -->
 <script src="<?php echo site_url('assets/js/') ?>cart.js"></script>
