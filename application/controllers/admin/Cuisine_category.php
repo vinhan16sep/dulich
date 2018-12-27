@@ -107,13 +107,15 @@ class Cuisine_category extends Admin_Controller{
     }
 
     public function edit($id){
-        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_manager, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             $detail = $this->cuisine_category_model->find($id);
             $this->data['detail'] = $detail;
-            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
-                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
-                redirect('admin/cuisine_category/index', 'refresh');
+            if ( $this->ion_auth->in_group('mod') ) {
+                if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                    $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                    redirect('admin/cuisine_category/index', 'refresh');
+                }
             }
 
             $this->load->helper('form');

@@ -49,7 +49,7 @@ class Events extends Admin_Controller{
     public function create(){
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         // Get all region
-        $region = $this->region_model->get_all();
+        $region = $this->region_model->get_all(1);
         $region = build_array_by_id_for_dropdown($region);
         $this->data['region'] = $region;
 
@@ -134,22 +134,24 @@ class Events extends Admin_Controller{
     }
 
     public function edit($id){
-        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_manager, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             //Get all region
-            $region = $this->region_model->get_all();
+            $region = $this->region_model->get_all(1);
             $region = build_array_by_id_for_dropdown($region);
             $this->data['region'] = $region;
 
             $detail = $this->events_model->find($id);
             $this->data['detail'] = $detail;
-            if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
-                $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
-                redirect('admin/events/index', 'refresh');
+            if ( $this->ion_auth->in_group('mod') ) {
+                if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
+                    $this->session->set_flashdata('message_error', MESSAGE_ERROR_UPDATE_BY_PERMISSION);
+                    redirect('admin/events/index', 'refresh');
+                }
             }
 
             //Get province by region_id
-            $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
+            $province = $this->province_model->get_by_field_is_active('region_id', $detail['region_id']);
             $province = build_array_by_id_for_dropdown($province);
             $this->data['province'] = $province;
 
@@ -257,7 +259,7 @@ class Events extends Admin_Controller{
 
     public function get_province(){
         $region_id = $this->input->get('region_id');
-        $province = $this->province_model->get_by_field('region_id', $region_id);
+        $province = $this->province_model->get_by_field_is_active('region_id', $region_id);
         if ($province) {
             // $province = build_array_by_id_for_dropdown($province);
             return $this->output

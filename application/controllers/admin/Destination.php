@@ -49,7 +49,7 @@ class Destination extends Admin_Controller{
     public function create(){
         handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
         // Get all region
-        $region = $this->region_model->get_all();
+        $region = $this->region_model->get_all(1);
         $region = build_array_by_id_for_dropdown($region);
         $this->data['region'] = $region;
 
@@ -118,10 +118,10 @@ class Destination extends Admin_Controller{
     }
 
     public function edit($id){
-        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_manager, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             //Get all region
-            $region = $this->region_model->get_all();
+            $region = $this->region_model->get_all(1);
             $region = build_array_by_id_for_dropdown($region);
             $this->data['region'] = $region;
 
@@ -136,7 +136,7 @@ class Destination extends Admin_Controller{
             
 
             //Get province by region_id
-            $province = $this->province_model->get_by_field('region_id', $detail['region_id']);
+            $province = $this->province_model->get_by_field_is_active('region_id', $detail['region_id']);
             $province = build_array_by_id_for_dropdown($province);
             $this->data['province'] = $province;
 
@@ -319,7 +319,7 @@ class Destination extends Admin_Controller{
 
     public function get_province(){
         $region_id = $this->input->get('region_id');
-        $province = $this->province_model->get_by_field('region_id', $region_id);
+        $province = $this->province_model->get_by_field_is_active('region_id', $region_id);
         if ($province) {
             // $province = build_array_by_id_for_dropdown($province);
             return $this->output
