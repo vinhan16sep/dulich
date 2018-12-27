@@ -132,3 +132,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div class="header-wrapper"></div>
 </header>
+<!--<form style="margin: 50px;" method="post" action="--><?php //echo base_url('search'); ?><!--">-->
+<!--    <input type="text" name="--><?php //echo $this->security->get_csrf_token_name(); ?><!--" value="--><?php //echo $this->security->get_csrf_hash() ?><!--" placeholder="" class="form-control" id="csrf_sitecom_token" style="display: none;">-->
+<!--    <div class="form-group">-->
+<!--        <select class="form-control form-control-lg" name="table">-->
+<!--            <option value="destination" >Destination</option>-->
+<!--            <option value="cuisine" >Cuisine</option>-->
+<!--            <option value="events" >Events</option>-->
+<!--            <option value="blog" >Blog</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <input class="form-control form-control-lg" name="search" type="text" placeholder=".form-control-lg">-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary form-control-lg" style="float: left">Confirm identity</button>-->
+<!--</form>-->
