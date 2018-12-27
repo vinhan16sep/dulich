@@ -22,8 +22,12 @@ class Cuisine_model extends MY_Model {
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get($this->table)->result_array();
     }
-    public function get_by_where($where = array(), $limit = 4, $not_id = ''){
-        $this->db->select('*');
+    public function get_by_where($lang = '',$where = array(), $limit = 4, $not_id = ''){
+        if(!empty($lang)){
+            $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+        }else{
+            $this->db->select('*');
+        }
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);

@@ -8,8 +8,12 @@ class Events_model extends MY_Model {
     function __construct(){
 		parent::__construct();
 	}
-    public function get_by_region_events($region_id,$start = '',$limit = '',$check = false){
-        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en, province.slug as province_slug');
+    public function get_by_region_events($region_id,$start = '',$limit = '',$check = false,$lang = ''){
+        if(!empty($lang)){
+            $this->db->select($this->table.'.*, '.$this->table.'.title_'.$lang.' as title, '.$this->table.'.description_'.$lang.' as description, body_'.$lang.' as body, province.title_'.$lang.' as province_title, province.slug as province_slug');
+        }else{
+            $this->db->select($this->table.'.*, province.title_en as province_title_en, province.slug as province_slug');
+        }
         $this->db->from($this->table);
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where($this->table.'.is_deleted', 0);
@@ -24,8 +28,12 @@ class Events_model extends MY_Model {
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get()->result_array();
     }
-    public function get_by_related($region_id, $province_id, $not_id = '', $number = 3){
-        $this->db->select($this->table.'.*, province.title_vi as province_title_vi, province.title_en as province_title_en, province.slug as province_slug');
+    public function get_by_related($region_id, $province_id, $not_id = '', $number = 3,$lang = ''){
+        if(!empty($lang)){
+            $this->db->select($this->table.'.*, '.$this->table.'.title_'.$lang.' as title, '.$this->table.'.description_'.$lang.' as description, body_'.$lang.' as body, province.title_'.$lang.' as province_title, province.slug as province_slug');
+        }else{
+            $this->db->select($this->table.'.*, province.title_en as province_title_en, province.slug as province_slug');
+        }
         $this->db->join('province', $this->table .'.province_id = province.id');
         $this->db->where(array($this->table.'.is_deleted' => 0,$this->table.'.is_active' => 1, $this->table.'.region_id' => $region_id, $this->table.'.province_id' => $province_id));
         if(!empty($not_id)){

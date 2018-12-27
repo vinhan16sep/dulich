@@ -5,11 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Model extends CI_Model {
 
     public $table = '';
-
     function __construct() {
-        parent::__construct();
+        parent::__construct(); 
     }
 
+    
     /**
      * @param $data
      * @return integer|bool
@@ -104,8 +104,16 @@ class MY_Model extends CI_Model {
         return $this->db->get()->result_array();
     }
 
-    public function get_all_order_by($is_active = null, $order = null, $by = null){
-        $this->db->select('*');
+    public function get_all_order_by($is_active = null, $order = null, $by = null, $lang = ''){
+        if(!empty($lang)){
+            if(in_array($this->table, array('destination','events','blog'))){
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+            }else{
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+            }
+        }else{
+            $this->db->select('*');
+        }
         $this->db->from($this->table);
         $this->db->where('is_deleted', 0);
         if($is_active != null){
@@ -216,6 +224,7 @@ class MY_Model extends CI_Model {
         $this->db->order_by($this->table.".id", "desc");
         return $this->db->get($this->table)->result_array();
     }
+
     public function get_where_array($array){
         $this->db->select('*');
         $this->db->from($this->table);
@@ -238,8 +247,16 @@ class MY_Model extends CI_Model {
 
 
     //Frontend
-    public function get_by_where($where = array()){
-        $this->db->select('*');
+    public function get_by_where($where = array(),$lang = ''){
+        if(!empty($lang)){
+            if(in_array($this->table, array('destination','events','blog'))){
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+            }else{
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+            }
+        }else{
+            $this->db->select('*');
+        }
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);
@@ -251,8 +268,16 @@ class MY_Model extends CI_Model {
     }
 
     //Frontend
-    public function find_where($where = array()){
-        $this->db->select('*');
+    public function find_where($where = array(),$lang=''){
+        if(!empty($lang)){
+            if(in_array($this->table, array('destination','events','blog'))){
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+            }else{
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+            }
+        }else{
+            $this->db->select('*');
+        }
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);
@@ -263,9 +288,16 @@ class MY_Model extends CI_Model {
         return $this->db->get()->row_array();
     }
 
-    public function get_by_where_with_limit($limit, $start, $where = array()){
-        $this->db->select('*');
-        $this->db->from($this->table);
+    public function get_by_where_with_limit($limit, $start, $where = array(),$lang){
+        if(!empty($lang)){
+            if(in_array($this->table, array('destination','events','blog'))){
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+            }else{
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+            }
+        }else{
+            $this->db->select('*');
+        }        $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);
         if ($where) {
@@ -275,8 +307,16 @@ class MY_Model extends CI_Model {
         return $this->db->get()->result_array();
     }
 
-    public function get_where_by_limit($limit, $start, $where = array()){
-        $this->db->select('*');
+    public function get_where_by_limit($limit, $start, $where = array(),$lang){
+        if(!empty($lang)){
+            if(in_array($this->table, array('destination','events','blog'))){
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+            }else{
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+            }
+        }else{
+            $this->db->select('*');
+        }
         $this->db->from($this->table);
         $this->db->where('is_deleted',0);
         $this->db->where('is_active',1);

@@ -13,23 +13,23 @@ class Blogs extends Public_Controller {
     }
 
     public function index(){
-        $region = $this->region_model->get_all_order_by(1, 'id', 'asc');
+        $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $this->data['region'] = $region;
 
         $region_first = reset($region);
-        $region_detail = $this->region_model->find_where(array('slug' => $region_first['slug']));
+        $region_detail = $this->region_model->find_where(array('slug' => $region_first['slug']),$this->data['lang']);
         $this->data['region_detail'] = $region_detail;
 
-        $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']));
+        $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']),$this->data['lang']);
         foreach ($blogs as $key => $value) {
-            $province = $this->province_model->find_where(array('id' => $value['province_id']));
+            $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
             $blogs[$key]['province'] = $province;
         }
         $this->data['blogs'] = $blogs;
 
-        $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1));
+        $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1),$this->data['lang']);
         foreach ($blogs_top as $key => $value) {
-            $province = $this->province_model->find_where(array('id' => $value['province_id']));
+            $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
             $blogs_top[$key]['province'] = $province;
         }
         $this->data['blogs_top'] = $blogs_top;
@@ -39,19 +39,18 @@ class Blogs extends Public_Controller {
     }
 
     public function detail($region_slug, $province_slug, $slug){
-        $region = $this->region_model->find_where(array('slug' => $region_slug));
-        $province = $this->province_model->find_where(array('slug' => $province_slug));
+        $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
+        $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
         if (!empty($region) && !empty($province)) {
             $this->data['region'] = $region;
-            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc');
+            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
             $this->data['region_all'] = $region_all;
 
-            $blog = $this->blog_model->find_where(array('slug' => $slug));
+            $blog = $this->blog_model->find_where(array('slug' => $slug),$this->data['lang']);
             $this->data['blog'] = $blog;
-
-            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1));
+            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1),$this->data['lang']);
             foreach ($blogs_top as $key => $value) {
-                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
                 $blogs_top[$key]['province'] = $province;
             }
             $this->data['blogs_top'] = $blogs_top;
@@ -62,23 +61,23 @@ class Blogs extends Public_Controller {
 
     // list all blog của region
     public function region($slug){
-        $region_detail = $this->region_model->find_where(array('slug' => $slug));
+        $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         if(!empty($region_detail)){
             // dữ liệu miền cho blog
-            $region = $this->region_model->get_all_order_by(1, 'id', 'asc');
+            $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
             $this->data['region'] = $region;
             $this->data['region_detail'] = $region_detail;
 
-            $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']));
+            $blogs = $this->blog_model->get_where_by_limit(6, 0, array('region_id' => $region_detail['id']),$this->data['lang']);
             foreach ($blogs as $key => $value) {
-                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
                 $blogs[$key]['province'] = $province;
             }
             $this->data['blogs'] = $blogs;
 
-            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1));
+            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region_detail['id'], 'is_top' => 1),$this->data['lang']);
             foreach ($blogs_top as $key => $value) {
-                $province = $this->province_model->find_where(array('id' => $value['province_id']));
+                $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
                 $blogs_top[$key]['province'] = $province;
             }
             $this->data['blogs_top'] = $blogs_top;
@@ -93,9 +92,9 @@ class Blogs extends Public_Controller {
 
     // list all blog thuộc tỉnh và miền
     public function province($region_slug,$slug){
-        $province = $this->province_model->find_where(array('slug' => $slug));
+        $province = $this->province_model->find_where(array('slug' => $slug),$this->data['lang']);
         if(!empty($province)){
-            $region = $this->region_model->find_where(array('slug' => $region_slug,'id' => $province['region_id']));
+            $region = $this->region_model->find_where(array('slug' => $region_slug,'id' => $province['region_id']),$this->data['lang']);
             if(!empty($region)){
                 $blog = $this->blog_model->get_by_where(array('province_id' => $province['id'],'region_id' => $region['id']));
                 $this->data['blog'] = $blog;//tất cả bài viết thuộc miền và tỉnh

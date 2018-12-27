@@ -11,10 +11,10 @@ class Homepage extends Public_Controller {
     }
 
     public function index(){
-    	$blogs = $this->blog_model->get_where_by_limit(9, 0);
+    	$blogs = $this->blog_model->get_where_by_limit(9, 0, array(), $this->data['lang']);
     	foreach ($blogs as $key => $value) {
-            $province = $this->province_model->find_where(array('id' => $value['province_id']));
-            $region = $this->region_model->find_where(array('id' => $province['region_id']));
+            $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
+            $region = $this->region_model->find_where(array('id' => $province['region_id']),$this->data['lang']);
             $blogs[$key]['province'] = $province;
             $blogs[$key]['region'] = $region;
         }

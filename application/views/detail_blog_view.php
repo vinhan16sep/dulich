@@ -7,9 +7,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $blog['title_' . $lang] ?></h1>
+							<h1><?php echo $blog['title'] ?></h1>
 							<p class="text-wrapper">
-								<?php echo $blog['description_' . $lang] ?>
+								<?php echo $blog['description'] ?>
 							</p>
 						</div>
 					</div>
@@ -20,7 +20,7 @@
 								<?php foreach ($region_all as $key => $value): ?>
 									<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
 										<a href="<?php echo base_url('bai-viet/' . $value['slug']) ?>">
-											<?php echo $value['title_' . $lang] ?>
+											<?php echo $value['title'] ?>
 										</a>
 									</li>
 								<?php endforeach ?>
@@ -43,7 +43,7 @@
 					</div>
 					<article>
 						<p>
-							<?php echo $blog['body_' . $lang] ?>
+							<?php echo $blog['body'] ?>
 						</p>
 					</article>
 				</div>
@@ -62,9 +62,9 @@
 									</div>
 									<div class="item-content">
 										<div class="content-header">
-											<span class="badge"><?php echo $value['province']['title_' . $lang]; ?></span>
+											<span class="badge"><?php echo $value['province']['title']; ?></span>
 											<a href="<?php echo base_url('bai-viet/' . $region['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
-												<h3 class="text-wrapper"><?php echo $value['title_' . $lang]; ?></h3>
+												<h3 class="text-wrapper"><?php echo $value['title']; ?></h3>
 											</a>
 											<ul>
 												<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
@@ -74,7 +74,7 @@
 										</div>
 										<div class="content-body">
 											<p class="text-wrapper">
-												<?php echo $blog['description_' . $lang] ?>
+												<?php echo $blog['description'] ?>
 											</p>
 										</div>
 									</div>

@@ -15,17 +15,17 @@ class Destinations extends Public_Controller {
 
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den
     public function index(){
-        $region = $this->region_model->get_all_order_by(1, 'id', 'asc');
+        $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $this->data['region'] = $region;
 
         $region_first = reset($region);
-        $region_detail = $this->region_model->find_where(array('slug' => $region_first['slug']));
+        $region_detail = $this->region_model->find_where(array('slug' => $region_first['slug']),$this->data['lang']);
         $this->data['region_detail'] = $region_detail;
         $province = null;
         if (!empty($region)) {
             foreach ($region as $key => $value) {
                 if ($key == 0) {
-                    $province = $this->province_model->get_by_where_with_limit(8, 0, array('region_id' => $value['id']));
+                    $province = $this->province_model->get_by_where_with_limit(8, 0, array('region_id' => $value['id']),$this->data['lang']);
                 }
                 
             }
@@ -53,7 +53,7 @@ class Destinations extends Public_Controller {
                         $limit = 2;
                         break;
                 }
-                $destination = $this->destination_model->get_where_by_limit($limit, 0, $where);
+                $destination = $this->destination_model->get_where_by_limit($limit, 0, $where,$this->data['lang']);
                 $province[$key]['destination'] = $destination;
             }
         }
@@ -66,13 +66,13 @@ class Destinations extends Public_Controller {
     }
 
     public function detailpost($region_slug, $province_slug, $slug){
-        $region = $this->region_model->find_where(array('slug' => $region_slug));
-        $province = $this->province_model->find_where(array('slug' => $province_slug));
+        $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
+        $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
         if (!empty($region) && !empty($province)) {
-            $destination = $this->destination_model->find_where(array('slug' => $slug));
+            $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
             $this->data['destination'] = $destination;
 
-            $get_related = $this->destination_model->get_where_by_limit(3, 0, array('province_id' => $province['id']));
+            $get_related = $this->destination_model->get_where_by_limit(3, 0, array('province_id' => $province['id']),$this->data['lang']);
             $this->data['get_related'] = $get_related;
 
             $this->render('detail_destination_post_view');
@@ -122,11 +122,11 @@ class Destinations extends Public_Controller {
     // list all destination của region
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung
     public function region($slug){
-        $region_detail = $this->region_model->find_where(array('slug' => $slug));
+        $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         if(!empty($region_detail)){
-            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc');
+            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
             // get all destination thuộc miền
-            $province = $this->province_model->get_by_where_with_limit(8, 0, array('region_id' => $region_detail['id']));
+            $province = $this->province_model->get_by_where_with_limit(8, 0, array('region_id' => $region_detail['id']),$this->data['lang']);
             foreach ($province as $key => $value) {
                 $where = array('province_id' => $value['id']);
                 $limit = 2;
@@ -149,7 +149,7 @@ class Destinations extends Public_Controller {
                         $limit = 2;
                         break;
                 }
-                $destination = $this->destination_model->get_where_by_limit($limit, 0, $where);
+                $destination = $this->destination_model->get_where_by_limit($limit, 0, $where,$this->data['lang']);
                 $province[$key]['destination'] = $destination;
             }
             $this->data['region'] = $region_all;
@@ -165,17 +165,17 @@ class Destinations extends Public_Controller {
     // list all destination của province
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung/thanh-hoa
     public function province($region_slug,$slug){
-        $province = $this->province_model->find_where(array('slug' => $slug));
+        $province = $this->province_model->find_where(array('slug' => $slug),$this->data['lang']);
         if(!empty($province)){
             $this->load->model('events_model');
             $this->load->model('cuisine_model');
 
-            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc');
-            $region = $this->region_model->find_where(array('slug' => $region_slug,'id' => $province['region_id']));
-            $province_all = $this->province_model->get_by_where(array('region_id' => $region['id']));
+            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
+            $region = $this->region_model->find_where(array('slug' => $region_slug,'id' => $province['region_id']),$this->data['lang']);
+            $province_all = $this->province_model->get_by_where(array('region_id' => $region['id']),$this->data['lang']);
 
             if(!empty($region)){
-                $destination = $this->destination_model->get_by_where_with_limit(4, 0, array('province_id' => $province['id'],'region_id' => $region['id']));
+                $destination = $this->destination_model->get_by_where_with_limit(4, 0, array('province_id' => $province['id'],'region_id' => $region['id']),$this->data['lang']);
 
 
                 $this->data['destination'] = $destination;//tất cả destination thuộc miền và tỉnh
@@ -185,14 +185,14 @@ class Destinations extends Public_Controller {
                 $this->data['province_all'] = $province_all;
 
                 //post heading
-                $destination_bottom = $this->destination_model->get_by_where_with_limit(6, 0, array('province_id' => $province['id'],'region_id' => $region['id']));
+                $destination_bottom = $this->destination_model->get_by_where_with_limit(6, 0, array('province_id' => $province['id'],'region_id' => $region['id']),$this->data['lang']);
                 $this->data['destination_bottom'] = $destination_bottom;
 
-                $events_bottom = $this->events_model->get_by_where_with_limit(6, 0, array('province_id' => $province['id'],'region_id' => $region['id']));
+                $events_bottom = $this->events_model->get_by_where_with_limit(6, 0, array('province_id' => $province['id'],'region_id' => $region['id']),$this->data['lang']);
                 $this->data['events_bottom'] = $events_bottom;
 
 
-                $cuisine_bottom = $this->cuisine_model->get_by_where_with_limit(100, 0, array('region_id' => $region['id']));
+                $cuisine_bottom = $this->cuisine_model->get_by_where_with_limit(100, 0, array('region_id' => $region['id']),$this->data['lang']);
                 $this->data['cuisine_bottom'] = $cuisine_bottom;
 
                 return $this->render('detail_destination_view');

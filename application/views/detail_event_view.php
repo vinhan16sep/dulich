@@ -7,9 +7,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region['title_'.$lang];?></h1>
+							<h1><?php echo $region['title'];?></h1>
 							<p class="text-wrapper">
-								<?php echo $region['description_'.$lang];?>
+								<?php echo $region['description'];?>
 							</p>
 						</div>
 					</div>
@@ -45,7 +45,7 @@
                         -->
 
 						<p>
-							<?php echo $events['body_'.$lang] ?>
+							<?php echo $events['body'] ?>
 						</p>
 
 						<img src="<?php echo base_url('assets/upload/events/'.$events['slug'].'/'.$events['image']) ?>" alt="Image of Post">
@@ -65,9 +65,9 @@
 								</div>
 								<div class="item-content">
 									<div class="content-header">
-										<span class="badge"><?php echo $value['province_title_'.$lang] ?></span>
+										<span class="badge"><?php echo $value['province_title'] ?></span>
 										<a href="<?php echo base_url('su-kien/'.$region['slug'].'/'.$value['province_slug'].'/'.$value['slug']) ?>">
-											<h3 class="text-wrapper"><?php echo $value['title_'.$lang] ?></h3>
+											<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										</a>
 										<ul>
 											<li>Rating</li>
@@ -77,7 +77,7 @@
 									</div>
 									<div class="content-body">
 										<p class="text-wrapper">
-											<?php echo $value['description_'.$lang] ?>
+											<?php echo $value['description'] ?>
 										</p>
 									</div>
 								</div>
