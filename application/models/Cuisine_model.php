@@ -41,4 +41,19 @@ class Cuisine_model extends MY_Model {
         $this->db->order_by("updated_at", "desc");
         return $this->db->get()->result_array();
     }
+    public function get_search($table = '',$search = '',$lang=''){
+        if(!empty($lang)){
+            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, region.title_'.$lang.' as title , region.slug as region_slug, cuisine_category.title_'.$lang.' as title , cuisine_category.slug as cuisine_category_slug,');
+        }else{
+            $this->db->select('*');
+        }
+        $this->db->from($table);
+        $this->db->join('region', $table .'.region_id = region.id');
+        $this->db->join('cuisine_category', $table .'.cuisine_category_id = cuisine_category.id');
+        $this->db->where($table.'.is_deleted',0);
+        $this->db->where($table.'.is_active',1);
+        $this->db->like($table.'.title_'.$lang, $search);
+        $this->db->order_by($table.".updated_at", "desc");
+        return $this->db->get()->result_array();
+    }
 }
