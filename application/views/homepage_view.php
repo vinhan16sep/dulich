@@ -27,7 +27,7 @@
                                     <?php echo $value['description'] ?>
                                 </p>
                                 <a href="<?php echo $value['url'] ?>" class="btn btn-primary" role="button">
-                                    View Detail
+                                    <?php echo $this->lang->line('view_detail'); ?>
                                 </a>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
 
     <div class="container-fluid" id="exp-activities">
         <div class="heading">
-            <h3>Experience Activities</h3>
+            <h3><?php echo $this->lang->line('experience_activities'); ?></h3>
         </div>
 
         <div class="body">
@@ -60,9 +60,9 @@
                             <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Province">
 
                             <div class="content">
-                                    <h1>North of Vietnam</h1>
+                                    <h1><?php echo $this->lang->line('north'); ?></h1>
                                     <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
-                                        See all Destinations
+                                        <?php echo $this->lang->line('see_all_destination'); ?>
                                     </a>
                             </div>
                         </div>
@@ -94,9 +94,9 @@
                             <img src="http://vanhoaviet.com/wp-content/uploads/2016/07/kinh-nghiem-thue-tau-va-du-thuyen-tham-quan-du-lich-kham-pha-vinh-ha-long.jpg" alt="Image Region">
 
                             <div class="content">
-                                <h1>Center of Vietnam</h1>
+                                <h1><?php echo $this->lang->line('middle'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-trung') ?>" class="btn btn-primary" role="button">
-                                    See all Destinations
+                                    <?php echo $this->lang->line('see_all_destination'); ?>
                                 </a>
                             </div>
 
@@ -135,9 +135,9 @@
                             <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
 
                             <div class="content">
-                                <h1>South of Vietnam</h1>
+                                <h1><?php echo $this->lang->line('south'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-nam') ?>" class="btn btn-primary" role="button">
-                                    See all Destinations
+                                    <?php echo $this->lang->line('see_all_destination'); ?>
                                 </a>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
     <div class="container-fluid" id="events">
         <div class="container">
             <div class="heading">
-                <h3>Festivals & Events</h3>
+                <h3><?php echo $this->lang->line('festivals_events'); ?></h3>
             </div>
             <div class="body">
                 <div class="grid">
@@ -184,7 +184,7 @@
                                     <div class="content">
                                         <a href="<?php echo base_url('su-kien/mien-bac') ?>">
                                             <i class="far fa-plus-square"></i>
-                                            <p>More content</p>
+                                            <p><?php echo $this->lang->line('view_detail'); ?></p>
                                         </a>
                                     </div>
                                 <?php endif ?>
@@ -201,7 +201,7 @@
 	<div class="container-fluid" id="blogs">
 		<div class="container">
 			<div class="heading">
-				<h3>Blog Review</h3>
+				<h3><?php echo $this->lang->line('blog_review'); ?></h3>
 			</div>
 			<div class="body">
 				<div class="owl-carousel post-list">
@@ -217,7 +217,7 @@
 									<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 									<a href="<?php echo base_url('bai-viet/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
-										View Detail
+                                        <?php echo $this->lang->line('more_content'); ?>
 									</a>
 								</div>
 							</div>
