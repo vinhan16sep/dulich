@@ -109,7 +109,7 @@ class Cuisine extends Admin_Controller{
     }
 
     public function edit($id){
-        handle_common_permission(array_merge($this->permission_admin, $this->permission_mod));
+        handle_common_permission(array_merge($this->permission_admin, $this->permission_manager, $this->permission_mod));
         if($id &&  is_numeric($id) && ($id > 0)){
             // Get all cuisine category
             $cuisine_category = $this->cuisine_category_model->get_all(1);

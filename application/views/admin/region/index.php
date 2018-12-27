@@ -110,11 +110,11 @@
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" style="color: #00a65a" >
+                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" data-name="<?php echo $value['title_vi'] ?>" style="color: #00a65a" >
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/deactive' ) ?>" style="color: #f0ad4e">
+                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/deactive' ) ?>" data-name="<?php echo $value['title_vi'] ?>" style="color: #f0ad4e">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>

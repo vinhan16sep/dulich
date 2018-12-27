@@ -146,6 +146,15 @@ class MY_Model extends CI_Model {
         $this->db->order_by('updated_at', 'desc');
         return $this->db->get()->result_array();
     }
+    public function get_by_field_is_active($field, $id){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_deleted', 0);
+        $this->db->where($field, $id);
+        $this->db->where('is_active',1);
+        $this->db->order_by('updated_at', 'desc');
+        return $this->db->get()->result_array();
+    }
 
     public function count_by_field($field, $id){
         $this->db->select('*');

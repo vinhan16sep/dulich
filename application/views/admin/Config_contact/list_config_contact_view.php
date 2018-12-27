@@ -89,10 +89,16 @@
                                             <?php else: ?>
                                                 <a href="javascript:void(0);" onclick="deactive('<?php echo $controller; ?>', <?php echo $value['id'] ?>, 'Chăc chắn tắt cấu hình')" class="dataActionDelete" title="Tắt cấu hình"><i class="fa fa-eye" aria-hidden="true"></i> </a>
                                             <?php endif ?>
-
-                                            <a href="<?php echo base_url('admin/'.$controller.'/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                                            &nbsp&nbsp&nbsp
-                                            <a href="javascript:void(0);" onclick="remove('<?php echo $controller; ?>', <?php echo $value['id'] ?>)" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="<?php echo base_url('admin/'.$controller.'/edit/'. $value['id']) ?>" class="dataActionEdit"  style="color: #f0ad4e" title="Cập nhật">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            </a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <?php if (handle_common_permission_active_and_remove()): ?>
+                                                <a href="javascript:void(0);" onclick="remove('<?php echo $controller; ?>', <?php echo $value['id'] ?>)" class="dataActionDelete" style="color: #d9534f" title="Xóa">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                            <?php endif ?>
                                             <!-- <a href="<?php echo base_url('admin/'.$controller.'/remove/'.$value['id']); ?>" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a> -->
                                         </td>
 
