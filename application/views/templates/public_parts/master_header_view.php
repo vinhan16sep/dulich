@@ -72,27 +72,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul>
 				<li>
 					<a href="<?php echo base_url('diem-den') ?>">
-						Destination
+						<?php echo $this->lang->line('menu_destination'); ?>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('su-kien/mien-bac') ?>">
-						Events
+                        <?php echo $this->lang->line('menu_event'); ?>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('mon-an/mien-bac') ?>">
-						Cuisine
+                        <?php echo $this->lang->line('menu_cuisine'); ?>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('bai-viet') ?>">
-						Blog Review
+                        <?php echo $this->lang->line('menu_blog'); ?>
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('contact') ?>">
-						Contact
+                        <?php echo $this->lang->line('menu_contact'); ?>
 					</a>
 				</li>
 

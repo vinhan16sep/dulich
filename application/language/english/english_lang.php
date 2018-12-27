@@ -7,3 +7,10 @@
  */
 $lang['detector'] = 'en';
 $lang['ofvietnam'] = 'of Vietnam';
+
+// Menu
+$lang['menu_destination'] = 'Destination';
+$lang['menu_event'] = 'Event';
+$lang['menu_cuisine'] = 'Cuisine';
+$lang['menu_blog'] = 'Blog Review';
+$lang['menu_contact'] = 'Contact';
