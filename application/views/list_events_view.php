@@ -124,9 +124,11 @@
         	}else{
         		console.log(2);
         	}
+        	result = '';
             for (var i = 0; i < response.reponse.events.length; i++) {
             	date = new Date(response.reponse.events[i]["date_start"]);
-	            result = `
+            	console.log(i+1);
+	            result += `
 		            <div class="grid-item ${( (i+1 == 1) || (i+1 == 4) || (i+1 == 5) || (i+1 == 8) ) ? 'grid-item-2' : '' }">
 						<a href="${HOSTNAME}su-kien/${response.reponse.region['slug']}/${response.reponse.events[i]['province_slug']}/${response.reponse.events[i]['slug']}">
 							<div class="inner">
