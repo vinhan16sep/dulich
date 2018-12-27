@@ -8,9 +8,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region['title_'.$lang];?></h1>
+							<h1><?php echo $region['title'];?></h1>
 							<p class="text-wrapper">
-								<?php echo $region['description_'.$lang];?>
+								<?php echo $region['description'];?>
 							</p>
 						</div>
 					</div>
@@ -20,7 +20,7 @@
 							<?php foreach ($region_full as $key => $value): ?>
 			                    <li class="nav-item <?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
 			                        <a class="" href="<?php echo base_url('su-kien/'.$value['slug']) ?>" r>
-			                            <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
+			                            <?php echo $value['title'].' '.$this->lang->line('ofvietnam'); ?>
 			                        </a>
 			                    </li>
 			                <?php endforeach ?>
@@ -43,10 +43,10 @@
 									<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']) ?>" alt="Image Province">
 
 									<div class="title">
-										<span class="badge"><?php echo $value['province_title_'.$lang] ?></span>
-										<h2><?php echo $value['title_'.$lang] ?></h2>
+										<span class="badge"><?php echo $value['province_title'] ?></span>
+										<h2><?php echo $value['title'] ?></h2>
 										<p class="text-wrapper">
-											<?php echo $value['description_'.$lang] ?>
+											<?php echo $value['description'] ?>
 										</p>
 										<h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6>
 									</div>

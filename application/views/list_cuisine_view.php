@@ -18,11 +18,11 @@
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="item col-xs-12 col-lg-4">
-                                <h3><?php echo $region['title_'.$lang];?></h3>
+                                <h3><?php echo $region['title'];?></h3>
                             </div>
                             <div class="item col-xs-12 col-lg-4">
                                 <p class="text-wrapper">
-                                    <?php echo $region['description_'.$lang];?>
+                                    <?php echo $region['description'];?>
                                 </p>
                             </div>
                         </div>
@@ -49,9 +49,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region['title_'.$lang];?></h1>
+							<h1><?php echo $region['title'];?></h1>
 							<p class="text-wrapper">
-								<?php echo $region['description_'.$lang];?>
+								<?php echo $region['description'];?>
 							</p>
 						</div>
 					</div>
@@ -61,7 +61,7 @@
                             <?php foreach ($region_full as $key => $value): ?>
 								<li class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
 									<a href="<?php echo base_url('mon-an/'.$value['slug']) ?>">
-                                        <?php echo $value['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
+                                        <?php echo $value['title'].' '.$this->lang->line('ofvietnam'); ?>
 									</a>
 								</li>
                             <?php endforeach ?>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="container">
 					<div class="heading">
-						<h2><?php echo $val['title_'.$lang] ?></h2>
+						<h2><?php echo $val['title'] ?></h2>
 					</div>
 					<div class="row">
                         <?php foreach ($val['cuisine'] as $key => $value): ?>
@@ -91,11 +91,11 @@
 											<img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Cuisine Post">
 
 											<div class="badge">
-												<?php echo $region['title_'.$lang].' '.$this->lang->line('ofvietnam'); ?>
+												<?php echo $region['title'].' '.$this->lang->line('ofvietnam'); ?>
 											</div>
 
 											<div class="content">
-												<h3><?php echo $value['title_'.$lang]?></h3>
+												<h3><?php echo $value['title']?></h3>
 											</div>
 										</a>
 									</div>

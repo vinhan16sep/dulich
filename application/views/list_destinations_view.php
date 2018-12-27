@@ -7,9 +7,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region_detail['title_' . $lang] ?></h1>
+							<h1><?php echo $region_detail['title'] ?></h1>
 							<p class="text-wrapper">
-								<?php echo $region_detail['description_' . $lang] ?>
+								<?php echo $region_detail['description'] ?>
 							</p>
 						</div>
 					</div>
@@ -25,7 +25,7 @@
                             		<?php endif ?>
                             		
 										<a href="<?php echo base_url('diem-den/' . $value['slug']) ?>">
-											<?php echo $value['title_' . $lang] ?>
+											<?php echo $value['title'] ?>
 										</a>
 									</li>
                             	<?php endforeach ?>
@@ -76,8 +76,8 @@
 										<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
 
 										<div class="title">
-											<h2><?php echo $value['title_' . $lang] ?></h2>
-											<h6><?php echo $value['description_' . $lang] ?></h6>
+											<h2><?php echo $value['title'] ?></h2>
+											<h6><?php echo $value['description'] ?></h6>
 										</div>
 									</div>
 									<div class="content">
@@ -86,7 +86,7 @@
 												<?php foreach ($value['destination'] as $k => $val): ?>
 													<li>
 														<a href="<?php echo base_url('diem-den/' . $slug_region . '/' . $value['slug'] . '/' . $val['slug']); ?>">
-															<?php echo $val['title_' . $lang] ?>
+															<?php echo $val['title'] ?>
 														</a>
 													</li>
 												<?php endforeach ?>

@@ -7,9 +7,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region_detail['title_' . $lang] ?></h1>
+							<h1><?php echo $region_detail['title'] ?></h1>
 							<p class="text-wrapper">
-								<?php echo $region_detail['description_' . $lang] ?>
+								<?php echo $region_detail['description'] ?>
 							</p>
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 										<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
 									<?php endif ?>
 										<a href="<?php echo base_url('bai-viet/' . $value['slug']) ?>">
-											<?php echo $value['title_' . $lang] ?>
+											<?php echo $value['title'] ?>
 										</a>
 									</li>
 								<?php endforeach ?>
@@ -50,9 +50,9 @@
 								</div>
 								<div class="item-content">
 									<div class="content-header">
-										<span class="badge"><?php echo $value['province']['title_' . $lang]; ?></span>
+										<span class="badge"><?php echo $value['province']['title']; ?></span>
 										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
-											<h3><?php echo $value['title_' . $lang]; ?></h3>
+											<h3><?php echo $value['title']; ?></h3>
 										</a>
 										<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
 										<ul>
@@ -63,7 +63,7 @@
 									</div>
 									<div class="content-body">
 										<p class="text-wrapper">
-											<?php echo $value['description_' . $lang] ?>
+											<?php echo $value['description'] ?>
 										</p>
 									</div>
 									<div class="content-footer">
@@ -100,9 +100,9 @@
 									</div>
 									<div class="item-content">
 										<div class="content-header">
-											<span class="badge"><?php echo $value['province']['title_' . $lang]; ?></span>
+											<span class="badge"><?php echo $value['province']['title']; ?></span>
 											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
-												<h3><?php echo $value['title_' . $lang]; ?></h3>
+												<h3><?php echo $value['title']; ?></h3>
 											</a>
 											<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
 											<ul>
@@ -113,7 +113,7 @@
 										</div>
 										<div class="content-body">
 											<p class="text-wrapper">
-												<?php echo $value['description_' . $lang] ?>
+												<?php echo $value['description'] ?>
 											</p>
 										</div>
 										<div class="content-footer">
