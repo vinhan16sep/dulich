@@ -90,24 +90,25 @@
 <script src="<?php echo site_url('assets/js/') ?>cart.js"></script>
 <script>
     var url = window.location.protocol + '//' + window.location.hostname;
-    var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-    $(document).ready(function(){
+
+    $(".change-language").click(function(){
         $.ajax({
-            method: "get",
-            url: url + '/soundon/checkout',
+            method: "GET",
+            url: "<?php echo base_url(); ?>homepage/change_language",
             data: {
-                cart: JSON.stringify(cart)
+                lang: $(this).data('language')
             },
-            success: function(response){
-            	console.log(response);
+            async:false,
+            success: function(res){
+                if(res.message == 'changed'){
+                    window.location.reload();
+                }
             },
-            error: function(jqXHR, exception){
+            error: function(){
+
             }
         });
-    })
-    function login(){
-    	return false;
-    }
+    });
 </script>
 
 </body>

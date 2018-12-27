@@ -97,15 +97,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 
 				<li class="li-lang">
-					<a href="">
-						En
-					</a>
+                    <a class="change-language" data-language="en" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+                        En
+                    </a>
 				</li>
 
 				<li class="li-lang">
-					<a href="">
-						Vi
-					</a>
+                    <a class="active change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+                        Vi
+                    </a>
 				</li>
 
 				<li>
