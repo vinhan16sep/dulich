@@ -52,7 +52,7 @@ textarea{
 //Setup Main Slide Style
 .main-slide{
     width: 100%;
-    height: calc(100vh - 120px);
+    height: 100vh;
 
     .carousel-inner{
         height: 100%;
@@ -102,13 +102,16 @@ textarea{
 
         .container{
             ul{
+                display: flex;
+                flex-direction: row;
+
                 margin-bottom: 0;
                 border-bottom: 5px solid $primary-base;
 
                 li{
                     width: 33%;
 
-                    display: inline-block;
+                    flex: 1 1 auto;
 
                     text-align: center;
 
@@ -164,7 +167,7 @@ textarea{
 //Setup Main Cover Style
 .main-cover{
     width: 100%;
-    height: calc(100vh - 120px);
+    height: 100vh;
 
     .mask{
         width: 100%;
@@ -221,13 +224,14 @@ textarea{
                     left: 0;
 
                     ul{
+                        display: flex;
+                        flex-direction: row;
+
                         margin-bottom: 0;
                         border-bottom: 5px solid $primary-base;
 
                         li{
-                            width: 33%;
-
-                            display: inline-block;
+                            flex: 1 1 auto;
 
                             text-align: center;
 

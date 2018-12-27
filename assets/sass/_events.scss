@@ -104,3 +104,33 @@
 #detail-event{
     // Import Detail Post Stylesheet
 }
+
+/*
+=========================================
+TABLETS (less than 1200px)
+=========================================
+ */
+
+@media (max-width: 1199.98px){
+    #events {
+        .container-fluid {
+            &#list-events {
+                .container {
+                    .grid {
+                        .grid-sizer {
+                            width: 100%;
+                        }
+
+                        .grid-item {
+                            width: 100%;
+
+                            &.grid-item-2{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
