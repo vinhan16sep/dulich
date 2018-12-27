@@ -81,7 +81,7 @@
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
-                                                        <img src="<?= base_url('assets/upload/banner/' . $value['slug'] . '/' . $value['image']) ?>"  width=150px height=100px>
+                                                        <img src="<?= base_url('assets/upload/banner/' . $value['image']) ?>"  width=150px height=100px>
                                                     </div>
                                                 </td>
                                                 <td><?= $value['title_vi'] ?></td>

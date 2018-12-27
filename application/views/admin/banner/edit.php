@@ -4,13 +4,13 @@
         <h1>
             Cập nhật
             <small>
-                Sự kiện
+                Banner
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/banner') ?>"><i class="fa fa-dashboard"></i> Danh sách sự kiện</a></li>
-            <li class="active">Cập nhật sự kiện</li>
+            <li><a href="<?= base_url('admin/banner') ?>"><i class="fa fa-dashboard"></i> Danh sách banner</a></li>
+            <li class="active">Cập nhật banner</li>
         </ol>
     </section>
 
@@ -24,7 +24,7 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Cập nhật sự kiện: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
+                            <h4 class="box-title">Cập nhật banner: <span class="label label-success"><?= $detail['title_vi'] ?></span></h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
@@ -33,9 +33,9 @@
                             <div class="form-group col-xs-12">
                                 <label for="image">Hình ảnh đang sử dụng</label><br />
                                 <?php if ( $detail['image'] ): ?>
-                                    <img src="<?php echo base_url('assets/upload/banner/' . $detail['slug'] . '/' . $detail['image']) ?>" width="150">
+                                    <img src="<?php echo base_url('assets/upload/banner/' . $detail['image']) ?>" width="150">
                                 <?php else: ?>
-                                    Hiện chưa có hình ảnh cho sự kiện
+                                    Hiện chưa có hình ảnh cho banner
                                 <?php endif ?>
                             </div>
                         </div>
@@ -114,6 +114,13 @@
                                         echo form_textarea('description_vi', $detail['description_vi'], 'class="form-control" id="description_vi"');
                                         ?>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Nội dung', 'body_vi');
+                                        echo form_error('body_vi');
+                                        echo form_textarea('body_vi', $detail['body_vi'], 'class="form-control" id="body_vi"');
+                                        ?>
+                                    </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="language_en">
                                     <div class="form-group col-xs-12">
@@ -128,6 +135,13 @@
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
                                         echo form_textarea('description_en', $detail['description_en'], 'class="form-control" id="description_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Body', 'body_en');
+                                        echo form_error('body_en');
+                                        echo form_textarea('body_en', $detail['body_en'], 'class="form-control" id="body_en"');
                                         ?>
                                     </div>
                                 </div>
