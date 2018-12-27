@@ -1,7 +1,7 @@
 #homepage{
     #slideHomepage{
         width: 100%;
-        height: calc(100vh - 120px);
+        height: 100vh;
 
         .carousel-inner{
             height: 100%;
@@ -21,6 +21,12 @@
 
                     .row{
                         .item{
+                            &:first-of-type{
+                                a{
+                                    display: none;
+                                }
+                            }
+
                             h1{
                                 margin-bottom: 7px;
                             }
@@ -616,10 +622,156 @@ TABLETS (less than 1200px)
  */
 
 @media (max-width: 1199.98px){
-    header{
-        nav{
-            .nav-expand{
-                display: block;
+    #homepage{
+        #slideHomepage{
+            .carousel-inner{
+                .carousel-item{
+                    .carousel-caption{
+                        text-align: left;
+
+                        padding-bottom: 30px;
+
+                        .row{
+                            .item{
+                                &:first-of-type{
+                                    margin-bottom: 30px;
+                                    
+                                    a{
+                                        margin-top: 30px;
+
+                                        display: block;
+                                    }
+                                }
+
+                                &:nth-of-type(2){
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .container-fluid{
+            &#exp-activities{
+                .body{
+                    #north{
+                        .grid{
+                            margin-left: 0;
+                            margin-right: 0;
+
+                            .grid-sizer, .grid-item{
+                                width: 100%;
+                            }
+
+                            .grid-item{
+                                margin-bottom: 15px;
+
+                                &.item-full{
+                                    height: 340px;
+                                }
+
+                                &.item-half{
+                                    height: 340px;
+                                }
+                            }
+                        }
+                    }
+
+                    #center{
+                        > .row{
+                            margin-left: 0;
+                            margin-right: 0;
+
+                            .left{
+                                margin-bottom: 15px;
+
+                                .mask{
+                                    height: 340px;
+                                }
+                            }
+
+                            .right{
+                                .row{
+                                    .item{
+                                        .mask{
+                                            height: 230px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    #south{
+                        > .row{
+                            margin-left: 0;
+                            margin-right: 0;
+
+                            .top{
+                                .mask{
+                                    height: 340px;
+                                }
+                            }
+
+                            .bottom{
+                                .row{
+                                    .item{
+                                        margin-bottom: 30px;
+
+                                        .mask{
+                                            height: 230px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#events{
+                .container{
+                    padding-left: 0;
+                    padding-right: 0;
+
+                    .body{
+                        .grid{
+                            .grid-sizer, .grid-item{
+                                width: 50%;
+                            }
+
+                            .grid-item{
+                                height: 250px;
+
+                                &:nth-of-type(2){
+                                    width: 100%;
+                                }
+
+                                &:nth-of-type(3), &:nth-of-type(4){
+                                    width: 50%;
+                                }
+
+                                &:nth-of-type(5){
+                                    width: 100%;
+                                }
+
+                                &:nth-of-type(6){
+                                    width: 100%;
+                                }
+
+                                &:nth-of-type(7){
+                                    width: 50%;
+                                }
+
+                                &:nth-of-type(8) {
+                                    width: 50%;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -632,11 +784,5 @@ MOBILE (less than 1024px)
  */
 
 @media (max-width: 767.98px){
-    header{
-        nav{
-            .nav-expand{
-                display: block;
-            }
-        }
-    }
+
 }

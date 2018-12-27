@@ -95,16 +95,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						Contact
 					</a>
 				</li>
+
+				<li class="li-lang">
+                    <a class="change-language" data-language="en" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+                        En
+                    </a>
+				</li>
+
+				<li class="li-lang">
+                    <a class="active change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+                        Vi
+                    </a>
+				</li>
+
 				<li>
 					<a href="javascript:void(0);">
-						<i class="fas fa-search"></i>
+						<i class="fas fa-search"></i> <span>Search</span>
 					</a>
 				</li>
 			</ul>
+
+			<div class="info">
+				<h4>Our Address</h4>
+
+				<p>HANOI HEAD OFFICE</p>
+				<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
+				<a href="tel:+84 123 456 789">+84 123 456 789</a>
+				<a href="mailto:info@vietnamtravellog.vn">info@vietnamtravellog.vn</a>
+			</div>
 		</div>
 
-		<div class="nav-expand">
-			<i class="fas fa-bars"></i>
+		<div class="nav-expand" id="nav-expand">
+			<span class="line"></span>
 		</div>
 	</nav>
 

@@ -231,3 +231,13 @@ defined('MESSAGE_CHECK_TOP_ERROR') OR define('MESSAGE_CHECK_TOP_ERROR', 'Hiện 
 defined('MESSAGE_CHECK_TOP_CATEGORY_ERROR') OR define('MESSAGE_CHECK_TOP_CATEGORY_ERROR', 'Hiện tại đã có đủ 3 cuisine thuộc TOP 3 cuisine của danh mục hiện tại. Vui lòng tắt 1 cuisine thuộc danh mục hiên tại nếu bạn muốn thêm cuisine vào TOP 3!');
 /*=====  End of Message for Create  ======*/
 
+/**
+ * Message Success code
+ */
+defined('MESSAGE_CHANGE_LANGUAGE_SUCCESS') OR define('MESSAGE_CHANGE_LANGUAGE_SUCCESS', 'changed');
+
+/**
+ * Message Success code
+ */
+defined('MESSAGE_CHANGE_LANGUAGE_FAIL') OR define('MESSAGE_CHANGE_LANGUAGE_FAIL', 'fail changed');
+
