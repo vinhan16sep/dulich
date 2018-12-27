@@ -3,12 +3,12 @@
     <section class="content-header">
         <h1>
             Chi tiết
-            <small>Sự kiện</small>
+            <small>Banner</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/banner') ?>"><i class="fa fa-dashboard"></i> Danh sách sự kiện</a></li>
-            <li class="active">Chi tiết sự kiện</li>
+            <li><a href="<?= base_url('admin/banner') ?>"><i class="fa fa-dashboard"></i> Danh sách banner</a></li>
+            <li class="active">Chi tiết banner</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -29,7 +29,7 @@
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
                                             <?php if ( $detail['image'] ): ?>
-                                                <img src="<?= base_url('assets/upload/banner/' . $detail['slug'] . '/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
+                                                <img src="<?= base_url('assets/upload/banner/' . $detail['image'] ) ?>" alt="Image Detail" width=100%>    
                                             <?php endif ?>
                                         </div>
                                     </div>

@@ -5,101 +5,36 @@
 <section id="homepage">
     <div id="slideHomepage" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <?php for ($i = 0; $i < 3; $i++) { ?>
-                <li data-target="#slideHomepage" data-slide-to="<?php echo $i ?>" class="<?php echo ($i == 0)? 'active' : '' ?>"></li>
-            <?php } ?>
+            <?php foreach ($banners as $key => $value): ?>
+                <li data-target="#slideHomepage" data-slide-to="<?php echo $key ?>" class="<?php echo ($key == 0)? 'active' : '' ?>"></li>
+            <?php endforeach ?>
         </ol>
         <div class="carousel-inner">
-            <!--			--><?php //for ($i = 0; $i < 3; $i++) { ?>
-            <!--				<div class="carousel-item --><?php //echo ($i == 0)? 'active' : '' ?><!--">-->
-            <!--					<div class="mask">-->
-            <!--						<img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image slide">-->
-            <!--					</div>-->
-            <!--					<div class="carousel-caption">-->
-            <!--						<div class="row">-->
-            <!--							<div class="item col-xs-12 col-lg-4">-->
-            <!--								<span class="badge">Badge Subtitle</span>-->
-            <!--								<h1>Province</h1>-->
-            <!--								<h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>-->
-            <!--							</div>-->
-            <!--							<div class="item col-xs-12 col-lg-4">-->
-            <!--								<p class="text-wrapper">-->
-            <!--									Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.-->
-            <!--								</p>-->
-            <!--								<a href="--><?php //echo base_url('') ?><!--" class="btn btn-primary" role="button">-->
-            <!--									View Detail-->
-            <!--								</a>-->
-            <!--							</div>-->
-            <!--						</div>-->
-            <!--					</div>-->
-            <!--				</div>-->
-            <!--			--><?php //} ?>
-            <div class="carousel-item active">
-                <div class="mask">
-                    <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image slide">
-                </div>
-                <div class="carousel-caption">
-                    <div class="row">
-                        <div class="item col-xs-12 col-lg-4">
-                            <span class="badge">Badge Subtitle</span>
-                            <h1>Province</h1>
-                            <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
-                        </div>
-                        <div class="item col-xs-12 col-lg-4">
-                            <p class="text-wrapper">
-                                Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            </p>
-                            <a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
-                                View Detail
-                            </a>
+            <?php foreach ($banners as $key => $value): ?>
+                <div class="carousel-item <?php echo ($key == 0)? 'active' : '' ?>">
+                    <div class="mask">
+                        <img src="<?php echo base_url('assets/upload/banner/' . $value['image']) ?>" alt="Image slide">
+                    </div>
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="item col-xs-12 col-lg-4">
+                                <span class="badge"><?php echo $value['province']['title'] ?></span>
+                                <h1><?php echo $value['title'] ?></h1>
+                                <h4 class="text-wrapper"><?php echo $value['description'] ?></h4>
+                            </div>
+                            <div class="item col-xs-12 col-lg-4">
+                                <p class="text-wrapper">
+                                    <?php echo $value['description'] ?>
+                                </p>
+                                <a href="<?php echo $value['url'] ?>" class="btn btn-primary" role="button">
+                                    View Detail
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="mask">
-                    <img src="http://vanhoaviet.com/wp-content/uploads/2016/07/kinh-nghiem-thue-tau-va-du-thuyen-tham-quan-du-lich-kham-pha-vinh-ha-long.jpg" alt="Image slide">
-                </div>
-                <div class="carousel-caption">
-                    <div class="row">
-                        <div class="item col-xs-12 col-lg-4">
-                            <span class="badge">Badge Subtitle</span>
-                            <h1>Province</h1>
-                            <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
-                        </div>
-                        <div class="item col-xs-12 col-lg-4">
-                            <p class="text-wrapper">
-                                Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            </p>
-                            <a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
-                                View Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="mask">
-                    <img src="https://www.elleman.vn/wp-content/uploads/2017/12/31/dia-diem-du-lich-elleman17.jpg" alt="Image slide">
-                </div>
-                <div class="carousel-caption">
-                    <div class="row">
-                        <div class="item col-xs-12 col-lg-4">
-                            <span class="badge">Badge Subtitle</span>
-                            <h1>Province</h1>
-                            <h4 class="text-wrapper">Ut congue tincidunt diam ac tincidunt. Vivamus malesuada eros at nunc sodales viverra. Proin id purus sit amet dui maximus pellentesque et ut lacus.</h4>
-                        </div>
-                        <div class="item col-xs-12 col-lg-4">
-                            <p class="text-wrapper">
-                                Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            </p>
-                            <a href="<?php echo base_url('') ?>" class="btn btn-primary" role="button">
-                                View Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach ?>
+            
         </div>
         <a class="carousel-control-prev" href="#slideHomepage" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -120,32 +55,35 @@
             <div id="north">
                 <div class="grid">
                     <div class="grid-sizer"></div>
-                    <?php for ($i = 0; $i < 3; $i++) { ?>
-                        <div class="grid-item <?php if($i == 0) { echo 'item-full';} elseif($i > 0) { echo 'item-half';}  ?>">
+                    <div class="grid-item item-full">
+                        <div class="mask">
+                            <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Province">
+
+                            <div class="content">
+                                    <h1>North of Vietnam</h1>
+                                    <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
+                                        See all Destinations
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php foreach ($destination_north as $key => $value): ?>
+                        <div class="grid-item item-half">
                             <div class="mask">
-                                <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Province <?php echo $i+1 ?>">
+                                <img src="<?php echo base_url('assets/upload/destination/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
 
                                 <div class="content">
-                                    <?php if($i == 0) { ?>
-                                        <h1>North of Vietnam</h1>
-                                        <a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
-                                            See all Destinations
-                                        </a>
-                                    <?php } ?>
-
-                                    <?php if($i > 0) { ?>
-                                        <a href="<?php echo base_url('') ?>">
-                                            <span class="badge">Badge Province</span>
-                                            <h4>Province Title</h4>
-                                            <p class="text-wrapper">
-                                                Donec pellentesque libero ac varius lobortis. Cras placerat imperdiet urna, in posuere urna elementum in. Ut commodo lectus diam, a volutpat elit iaculis eget. Nunc varius nec ex eu volutpat. Morbi fermentum metus quis quam posuere vehicula. Mauris consectetur arcu nulla, sed cursus arcu auctor et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                            </p>
-                                        </a>
-                                    <?php } ?>
+                                    <a href="<?php echo base_url('diem-den/mien-bac/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+                                        <span class="badge"><?php echo $value['province']['title'] ?></span>
+                                        <h4><?php echo $value['title'] ?></h4>
+                                        <p class="text-wrapper">
+                                            <?php echo $value['description'] ?>
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php endforeach ?>
                 </div>
             </div>
 
@@ -157,20 +95,20 @@
 
                             <div class="content">
                                 <h1>Center of Vietnam</h1>
-                                <a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
+                                <a href=" <?php echo base_url('diem-den/mien-trung') ?>" class="btn btn-primary" role="button">
                                     See all Destinations
                                 </a>
                             </div>
 
                             <div class="list-region">
                                 <ul>
-                                    <?php for ($i = 0; $i < 18; $i++) { ?>
+                                    <?php foreach ($province_center_all as $key => $value): ?>
                                         <li>
-                                            <a href="<?php echo base_url() ?>">
-                                                Region of Center Vietnam
+                                            <a href="<?php echo base_url('diem-den/mien-trung/' . $value['slug']) ?>">
+                                                <?php echo $value['title'] ?>
                                             </a>
                                         </li>
-                                    <?php } ?>
+                                    <?php endforeach ?>
                                 </ul>
                             </div>
                         </div>
@@ -178,13 +116,13 @@
 
                     <div class="right col-xs-12 col-lg-5">
                         <div class="row">
-                            <?php for ($i = 0; $i < 4; $i++) { ?>
+                            <?php foreach ($province_center as $key => $value): ?>
                                 <div class="item col-xs-12 col-lg-6">
                                     <div class="mask">
-                                        <img src="https://kenh14cdn.com/2016/anh-du-lich-sapa-qua-instagram-hop-hon-gioi-tre-hinh-2-1455158019251.jpg" alt="Image Region">
+                                        <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
                                     </div>
                                 </div>
-                            <?php } ?>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
@@ -198,7 +136,7 @@
 
                             <div class="content">
                                 <h1>South of Vietnam</h1>
-                                <a href=" <?php echo base_url('') ?>" class="btn btn-primary" role="button">
+                                <a href=" <?php echo base_url('diem-den/mien-nam') ?>" class="btn btn-primary" role="button">
                                     See all Destinations
                                 </a>
                             </div>
@@ -207,13 +145,13 @@
 
                     <div class="bottom col-xs-12 col-lg-12">
                         <div class="row">
-                            <?php for ($i = 0; $i < 4; $i++) { ?>
+                            <?php foreach ($province_south as $key => $value): ?>
                                 <div class="item col-xs-12 col-lg-3">
                                     <div class="mask">
-                                        <img src="https://images.unsplash.com/photo-1544807375-1768e388cb98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Image Region">
+                                        <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
                                     </div>
                                 </div>
-                            <?php } ?>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
@@ -230,32 +168,29 @@
             <div class="body">
                 <div class="grid">
                     <div class="grid-sizer"></div>
-
-                    <?php for ($i = 0; $i < 7; $i++) { ?>
-                        <div class="grid-item <?php echo $i+1 ?>">
+                    <?php foreach ($events as $key => $value): ?>
+                        <div class="grid-item <?php echo $key+1 ?>">
                             <div class="mask">
-                                <img src="https://www.chudu24.com/wp-content/uploads/2018/07/1-75.jpg" alt="Image Event <?php echo $i+1 ?>">
-
-                                <?php if ($i < 6) { ?>
+                                <img src="<?php echo base_url('assets/upload/events/' . $value['slug'] . '/' . $value['image']) ?>" alt="<?php echo $value['slug'] ?>">
+                                <?php if ($key < 6): ?>
                                     <div class="content">
-                                        <a href="<?php echo base_url('') ?>">
-                                            <span class="badge">Badge Province</span>
-                                            <h4>Province Title</h4>
+                                        <a href="<?php echo base_url('su-kien/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+                                            <span class="badge"><?php echo $value['province']['title'] ?></span>
+                                            <h4><?php echo $value['title'] ?></h4>
                                         </a>
                                     </div>
-                                <?php } ?>
-                                <?php if ($i == 6) { ?>
+                                <?php endif ?>
+                                <?php if ($key == 6): ?>
                                     <div class="content">
-                                        <a href="<?php echo base_url('') ?>">
+                                        <a href="<?php echo base_url('su-kien/mien-bac') ?>">
                                             <i class="far fa-plus-square"></i>
                                             <p>More content</p>
                                         </a>
                                     </div>
-                                <?php } ?>
-
+                                <?php endif ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

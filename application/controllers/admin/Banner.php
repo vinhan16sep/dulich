@@ -72,12 +72,12 @@ class Banner extends Admin_Controller{
                 }
                 $slug = $this->input->post('slug');
                 $unique_slug = $this->banner_model->build_unique_slug($slug);
-                if(!file_exists('assets/upload/banner/' . $unique_slug)){
-                    mkdir('assets/upload/banner/' . $unique_slug, 0777);
-                }
+                // if(!file_exists('assets/upload/banner/' . $unique_slug)){
+                //     mkdir('assets/upload/banner/' . $unique_slug, 0777);
+                // }
                 if ( !empty($_FILES['image']['name']) ) {
-                    chmod('assets/upload/banner/' . $unique_slug, 0777);
-                    $images = $this->upload_image('image', 'assets/upload/banner/' . $unique_slug, $_FILES['image']['name']);
+                    chmod('assets/upload/banner/', 0777);
+                    $images = $this->upload_image('image', 'assets/upload/banner/', $_FILES['image']['name']);
                 }
                 $data = array(
                     'image' => $images,
@@ -88,11 +88,13 @@ class Banner extends Admin_Controller{
                     'title_en' => $this->input->post('title_en'),
                     'description_vi' => $this->input->post('description_vi'),
                     'description_en' => $this->input->post('description_en'),
+                    'body_vi' => $this->input->post('body_vi'),
+                    'body_en' => $this->input->post('body_en'),
                     'url' => $this->input->post('url'),
                 );
                 $insert = $this->banner_model->insert(array_merge($data, $this->author_data));
                 if ($insert) {
-                    chmod('assets/upload/banner/' . $unique_slug, 0755);
+                    chmod('assets/upload/banner/', 0755);
                     $this->session->set_flashdata('message_success', MESSAGE_CREATE_SUCCESS);
                     redirect('admin/banner', 'refresh');
                 }else{
@@ -152,17 +154,17 @@ class Banner extends Admin_Controller{
 
                     $slug = $this->input->post('slug');
                     $unique_slug = $detail['slug'];
-                    if ($slug != $unique_slug) {
-                        $unique_slug = $this->banner_model->build_unique_slug($slug);
-                        if(file_exists('assets/upload/banner/' . $detail['slug'])) {
-                            chmod('assets/upload/banner/' . $detail['slug'], 0777);
-                            rename('assets/upload/banner/' . $detail['slug'], 'assets/upload/banner/' . $unique_slug);
-                        }
-                    }
+                    // if ($slug != $unique_slug) {
+                    //     $unique_slug = $this->banner_model->build_unique_slug($slug);
+                    //     if(file_exists('assets/upload/banner/' . $detail['slug'])) {
+                    //         chmod('assets/upload/banner/' . $detail['slug'], 0777);
+                    //         rename('assets/upload/banner/' . $detail['slug'], 'assets/upload/banner/' . $unique_slug);
+                    //     }
+                    // }
                     
                     if ( !empty($_FILES['image']['name']) ) {
-                        chmod('assets/upload/banner/' . $unique_slug, 0777);
-                        $images = $this->upload_image('image', 'assets/upload/banner/' . $unique_slug, $_FILES['image']['name']);
+                        chmod('assets/upload/banner/', 0777);
+                        $images = $this->upload_image('image', 'assets/upload/banner/', $_FILES['image']['name']);
                     }
 
                     $data = array(
@@ -174,6 +176,8 @@ class Banner extends Admin_Controller{
                         'title_en' => $this->input->post('title_en'),
                         'description_vi' => $this->input->post('description_vi'),
                         'description_en' => $this->input->post('description_en'),
+                        'body_vi' => $this->input->post('body_vi'),
+                        'body_en' => $this->input->post('body_en'),
                         'url' => $this->input->post('url'),
                     );
                     if ( !empty($_FILES['image']['name']) ) {
@@ -181,10 +185,10 @@ class Banner extends Admin_Controller{
                     }
                     $update = $this->banner_model->update($id,array_merge($data, $this->author_data));
                     if ($update) {
-                        chmod('assets/upload/banner/' . $unique_slug, 0755);
+                        chmod('assets/upload/banner/', 0755);
                         $this->session->set_flashdata('message_success', MESSAGE_UPDATE_SUCCESS);
-                        if(isset($images) && $images != $detail['image'] && file_exists('assets/upload/banner/'.$unique_slug.'/'.$detail['image'])){
-                            unlink('assets/upload/banner/'.$unique_slug.'/'.$detail['image']);
+                        if(isset($images) && $images != $detail['image'] && file_exists('assets/upload/banner/' . $detail['image'])){
+                            unlink('assets/upload/banner/' . $detail['image']);
                         }
                         redirect('admin/banner/index', 'refresh');
                     }else{
