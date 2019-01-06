@@ -47,7 +47,7 @@
 
 					<div class="row">
 						<?php for($i = 0; $i < 8; $i++) { ?>
-							<div class="item col-xs-12 col-md-6 col-lg-4">
+							<div class="item col-6 col-lg-4">
 								<div class="mask">
 									<img src="<?php echo site_url('assets/img/logo-w.png')?>" alt="Logo of ">
 								</div>
@@ -60,8 +60,34 @@
 	</div>
 	<div class="footer-bottom">
 		<div class="container">
-			<h6>2018 SSL</h6>
-			<h6>&copy; 2018 Copyrights Brand</h6>
+			<h6>2018 SSL &copy; 2018 Copyright Brand</h6>
+			<ul>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-youtube-square"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-google-plus"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-skype"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 

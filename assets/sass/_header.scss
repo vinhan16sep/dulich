@@ -215,7 +215,7 @@ TABLETS (less than 1200px)
 
                         text-align: center;
 
-                        &:last-of-type{
+                        &:nth-of-type(6){
                             order: -1;
 
                             span{
@@ -336,10 +336,14 @@ MOBILE (less than 1024px)
             .nav-main{
                 ul{
                     @include translate(0, -30px);
+
+                    li{
+                        padding: 0 15px 5px;
+                    }
                 }
 
                 .info{
-                    margin-top: 30px;
+                    margin-top: 15px;
                 }
             }
         }

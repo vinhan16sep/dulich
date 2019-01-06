@@ -305,9 +305,9 @@ TABLETS (less than 1200px)
           header nav .nav-main ul li {
             margin: 7.5px 0;
             text-align: center; }
-            header nav .nav-main ul li:last-of-type {
+            header nav .nav-main ul li:nth-of-type(6) {
               order: -1; }
-              header nav .nav-main ul li:last-of-type span {
+              header nav .nav-main ul li:nth-of-type(6) span {
                 display: inline; }
         header nav .nav-main .info {
           display: block;
@@ -400,8 +400,10 @@ MOBILE (less than 1024px)
       -ms-transform: translate(0, -30px);
       -o-transform: translate(0, -30px);
       transform: translate(0, -30px); }
+      header nav .nav-main ul li {
+        padding: 0 15px 5px; }
     header nav .nav-main .info {
-      margin-top: 30px; } }
+      margin-top: 15px; } }
 body {
   overflow-x: hidden; }
 
@@ -616,10 +618,30 @@ footer {
       padding-bottom: 15px;
       display: flex;
       flex-direction: row;
-      justify-content: space-between; }
+      justify-content: space-between;
+      align-items: center; }
       footer .footer-bottom .container h6 {
         font-weight: 400;
         color: #fff; }
+      footer .footer-bottom .container ul li {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-color: #fff;
+        display: inline-block;
+        margin: 0 5px; }
+        footer .footer-bottom .container ul li a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #0471A0;
+          text-align: center; }
+          footer .footer-bottom .container ul li a i {
+            font-size: 75%; }
 
 /*
 =========================================
@@ -635,6 +657,18 @@ TABLETS (less than 1200px)
 MOBILE (less than 1024px)
 =========================================
  */
+@media (max-width: 767.98px) {
+  footer .footer-top .container .row .item {
+    margin-bottom: 15px; }
+    footer .footer-top .container .row .item .row .item {
+      margin-bottom: 15px; }
+      footer .footer-top .container .row .item .row .item .mask {
+        height: 50px;
+        margin: 0 auto; }
+  footer .footer-bottom .container {
+    flex-direction: column; }
+    footer .footer-bottom .container h6 {
+      margin-bottom: 15px; } }
 /* Pages */
 #homepage #slideHomepage {
   width: 100%;
@@ -1708,5 +1742,87 @@ TABLETS (less than 1200px)
             .detail-post .container-fluid#content .row .right .recommended .item .item-content .content-body p.text-wrapper {
               height: 4.3rem;
               -webkit-line-clamp: 3; }
+
+#contact .cover {
+  width: 100%;
+  height: 100vh; }
+  #contact .cover .mask {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    #contact .cover .mask .overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0);
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
+    #contact .cover .mask .container {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      z-index: 2;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+      #contact .cover .mask .container .row {
+        align-items: center; }
+        #contact .cover .mask .container .row .left {
+          text-align: center;
+          color: #fff; }
+          #contact .cover .mask .container .row .left h2 {
+            font-weight: 400;
+            margin-bottom: 30px; }
+          #contact .cover .mask .container .row .left .info {
+            margin-bottom: 15px; }
+            #contact .cover .mask .container .row .left .info h6 {
+              font-family: "Roboto", sans-serif;
+              margin-bottom: 5px; }
+            #contact .cover .mask .container .row .left .info a {
+              font-family: "Lora", Serif;
+              color: #fff; }
+        #contact .cover .mask .container .row .right .inner {
+          width: 100%;
+          padding: 30px;
+          background-color: #fff;
+          -webkit-border-radius: 7px;
+          -moz-border-radius: 7px;
+          border-radius: 7px; }
+          #contact .cover .mask .container .row .right .inner h2 {
+            font-weight: 400;
+            margin-bottom: 15px; }
+          #contact .cover .mask .container .row .right .inner p {
+            color: #949494;
+            margin-bottom: 30px; }
+          #contact .cover .mask .container .row .right .inner .form-horizontal .form-group .form-control {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid #666; }
+          #contact .cover .mask .container .row .right .inner .form-horizontal .form-group:last-of-type {
+            text-align: right; }
+
+/*
+=========================================
+MOBILE (less than 1024px)
+=========================================
+ */
+@media (max-width: 767.98px) {
+  #contact .cover {
+    height: auto;
+    min-height: 100vh; }
+    #contact .cover .mask {
+      height: 200vh; } }
 
 /*# sourceMappingURL=style.css.map */
