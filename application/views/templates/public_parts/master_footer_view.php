@@ -35,38 +35,25 @@
 					</ul>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
-					<h4>Our Partners</h4>
-
-					<ul>
-						<li>
-							<a href="<?php base_url('') ?>">
-								Who we are
-							</a>
-						</li>
-						<li>
-							<a href="<?php base_url('') ?>">
-								Core Values
-							</a>
-						</li>
-						<li>
-							<a href="<?php base_url('') ?>">
-								Our Services
-							</a>
-						</li>
-						<li>
-							<a href="<?php base_url('') ?>">
-								Meet our Team
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="item col-xs-12 col-md-4 col-lg-3">
 					<h4>Our Address</h4>
 
 					<p>HANOI HEAD OFFICE</p>
 					<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
 					<a href="tel:+84 123 456 789">+84 123 456 789</a>
 					<a href="mailto:info@vietnamtravellog.vn">info@vietnamtravellog.vn</a>
+				</div>
+				<div class="item col-xs-12 col-md-4 col-lg-3">
+					<h4>Our Partners</h4>
+
+					<div class="row">
+						<?php for($i = 0; $i < 8; $i++) { ?>
+							<div class="item col-xs-12 col-md-6 col-lg-4">
+								<div class="mask">
+									<img src="<?php echo site_url('assets/img/logo-w.png')?>" alt="Logo of ">
+								</div>
+							</div>
+						<?php } ?>
+					</div>
 				</div>
 			</div>
 		</div>

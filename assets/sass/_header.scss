@@ -90,22 +90,42 @@ header{
 
                     &.li-lang{
                         margin: 0 7.5px;
+
+                        padding: 0 15px 0;
+
+                        &.active{
+                            @include borderRadius(3px);
+
+                            background-color: #fff;
+
+                            a{
+                                color: $primary-darkest;
+                            }
+                        }
+
+                        &:hover{
+                            a{
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    &.li-search{
+                        &:hover{
+                            a{
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                        }
                     }
 
                     &:hover{
                         a{
                             &:after{
                                 display: block;
-                            }
-                        }
-                    }
-
-                    &:last-of-type{
-                        &:hover{
-                            a{
-                                &:after{
-                                    display: none;
-                                }
                             }
                         }
                     }
