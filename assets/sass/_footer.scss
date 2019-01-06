@@ -69,6 +69,17 @@ footer{
 
                         text-decoration: underline;
                     }
+
+                    .row{
+                        .item{
+                            margin-bottom: 15px;
+
+                            .mask{
+                                width: 100%;
+                                height: 30px;
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -96,21 +96,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 				</li>
 
-				<li class="li-lang">
-                    <a class="change-language" data-language="en" href="javascript:void(0)" href="<?php echo base_url('') ?>">
-                        En
-                    </a>
-				</li>
-
-				<li class="li-lang">
-                    <a class="active change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
-                        Vi
-                    </a>
-				</li>
-
-				<li>
+				<li class="li-search">
 					<a href="javascript:void(0);">
 						<i class="fas fa-search"></i> <span>Search</span>
+					</a>
+				</li>
+
+				<li class="li-lang active">
+					<a class="change-language" data-language="en" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+						En
+					</a>
+				</li>
+
+				<li class="li-lang">
+					<a class="active change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+						Vi
 					</a>
 				</li>
 			</ul>
