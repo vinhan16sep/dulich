@@ -1824,5 +1824,83 @@ MOBILE (less than 1024px)
     min-height: 100vh; }
     #contact .cover .mask {
       height: 200vh; } }
+#about .container-fluid {
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #about .container-fluid#content {
+    background-color: #f7f7f7;
+    background-image: url("../img/bg-floral.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center; }
+    #about .container-fluid#content .container .heading {
+      text-align: center; }
+      #about .container-fluid#content .container .heading h3 {
+        text-transform: uppercase;
+        color: #2D2D2D;
+        position: relative;
+        padding-bottom: 15px; }
+        #about .container-fluid#content .container .heading h3:after {
+          content: "";
+          width: 100%;
+          height: 1px;
+          background-color: #666;
+          position: absolute;
+          bottom: 0;
+          left: 0; }
+    #about .container-fluid#content .container#introduce .item {
+      width: 100%;
+      background-color: #fff;
+      margin-bottom: 15px; }
+      #about .container-fluid#content .container#introduce .item.reverse .row {
+        flex-direction: row-reverse; }
+      #about .container-fluid#content .container#introduce .item .row .image {
+        height: 100%; }
+        #about .container-fluid#content .container#introduce .item .row .image .mask {
+          width: 100%;
+          height: 100%; }
+      #about .container-fluid#content .container#introduce .item .row .content {
+        padding: 30px;
+        display: flex;
+        justify-content: left;
+        align-items: center; }
+        #about .container-fluid#content .container#introduce .item .row .content .text h2 {
+          font-weight: 400;
+          display: block;
+          border-bottom: 1px solid #666;
+          margin-bottom: 15px;
+          padding-bottom: 7.5px; }
+        #about .container-fluid#content .container#introduce .item .row .content .text p {
+          color: #949494; }
+    #about .container-fluid#content .container#services {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      background-color: #fff; }
+      #about .container-fluid#content .container#services .row .item {
+        padding-top: 15px;
+        padding-bottom: 15px; }
+        #about .container-fluid#content .container#services .row .item .mask {
+          width: 100%;
+          height: 190px;
+          -webkit-border-radius: 7px;
+          -moz-border-radius: 7px;
+          border-radius: 7px;
+          margin-bottom: 15px; }
+    #about .container-fluid#content .container#team {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      background-color: #fff; }
+      #about .container-fluid#content .container#team .row .item {
+        padding-top: 15px;
+        padding-bottom: 15px; }
+        #about .container-fluid#content .container#team .row .item .mask {
+          width: 100%;
+          height: 500px;
+          margin-bottom: 15px; }
+        #about .container-fluid#content .container#team .row .item p {
+          padding-left: 30px;
+          padding-right: 30px;
+          text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
