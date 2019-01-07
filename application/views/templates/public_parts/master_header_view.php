@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	CDN
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	-->
+
 	<!-- From Source -->
 	<script src="<?php echo site_url('node_modules/') ?>popper.js/dist/popper.min.js"></script>
 
@@ -70,15 +71,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="nav-main">
 			<ul>
-				<li>
+				<li class="li-sub">
 					<a href="<?php echo base_url('diem-den') ?>">
-						<?php echo $this->lang->line('menu_destination'); ?>
+						<?php echo $this->lang->line('menu_destination'); ?> <i class="fas fa-caret-down"></i>
 					</a>
+
+					<ul>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+					</ul>
 				</li>
-				<li>
+				<li class="li-sub">
 					<a href="<?php echo base_url('su-kien/mien-bac') ?>">
-                        <?php echo $this->lang->line('menu_event'); ?>
+                        <?php echo $this->lang->line('menu_event'); ?> <i class="fas fa-caret-down"></i>
 					</a>
+
+					<ul>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url('') ?>">
+								Region of Vietnam
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<a href="<?php echo base_url('mon-an/mien-bac') ?>">
@@ -97,9 +134,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 
 				<li class="li-search">
-					<a href="javascript:void(0);">
-						<i class="fas fa-search"></i> <span>Search</span>
+					<a href="#">
+						<i class="fas fa-search"></i>
+
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" type="button" id="button-addon2">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
 					</a>
+
+					<div class="search-input">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+								<button class="btn btn-outline-secondary" type="button" id="closeSearch"><i class="fas fa-times"></i></button>
+							</div>
+						</div>
+					</div>
 				</li>
 
 				<li class="li-lang active">

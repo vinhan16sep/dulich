@@ -55,6 +55,8 @@ header{
 
                     padding: 0 15px 15px;
 
+                    position: relative;
+
                     span{
                         display: none;
                     }
@@ -88,6 +90,31 @@ header{
                         }
                     }
 
+                    ul{
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+
+                        width: 200px;
+                        background-color: #fff;
+
+                        display: none;
+
+                        li{
+                            padding: 15px;
+
+                            border-bottom: 1px solid $primary-base;
+
+                            &:last-of-type{
+                                border-bottom: none;
+                            }
+
+                            a{
+                                color: $primary-darkest;
+                            }
+                        }
+                    }
+
                     &.li-lang{
                         margin: 0 7.5px;
 
@@ -113,6 +140,30 @@ header{
                     }
 
                     &.li-search{
+                        a{
+                            .input-group{
+                                display: none;
+                            }
+                        }
+
+                        .search-input{
+                            position: absolute;
+                            bottom: 5px;
+                            right: 0;
+                            z-index: 99;
+
+                            width: 700px;
+                            height: 100%;
+
+                            background-color: #fff;
+
+                            display: none;
+
+                            &.show{
+                                display: block;
+                            }
+                        }
+
                         &:hover{
                             a{
                                 &:after{
@@ -126,6 +177,16 @@ header{
                         a{
                             &:after{
                                 display: block;
+                            }
+                        }
+
+                        ul{
+                            li{
+                                a{
+                                    &:after{
+                                        display: none;
+                                    }
+                                }
                             }
                         }
                     }
@@ -151,6 +212,30 @@ header{
         width: 100%;
         height: 100%;
     }
+}
+
+/*
+=========================================
+DESKTOP (more than 1200px)
+=========================================
+ */
+
+@media (min-width: 1199.98px){
+header{
+    nav{
+        .nav-main{
+            ul{
+                li{
+                    &:hover{
+                        ul{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 }
 
 /*
@@ -220,6 +305,65 @@ TABLETS (less than 1200px)
 
                             span{
                                 display: inline;
+                            }
+                        }
+
+                        ul{
+                            display: none;
+                        }
+
+                        &.li-search{
+                            a{
+                                i{
+                                    display: none;
+                                }
+
+                                .input-group{
+                                    display: flex;
+
+                                    input{
+                                        text-align: center;
+
+                                        background-color: transparent;
+                                        border: none;
+
+                                        font-family: "Lora", Serif;
+                                        font-size: 1rem;
+                                        font-weight: 700;
+                                        text-transform: uppercase;
+
+                                        color: #fff;
+
+                                        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                                            color: #fff;
+                                        }
+                                        &::-moz-placeholder { /* Firefox 19+ */
+                                            color: #fff;
+                                        }
+                                        &:-ms-input-placeholder { /* IE 10+ */
+                                            color: #fff;
+                                        }
+                                        &:-moz-placeholder { /* Firefox 18- */
+                                            color: #fff;
+                                        }
+                                    }
+
+                                    .input-group-append{
+                                        .btn{
+                                            border: none;
+                                            color: #fff;
+
+                                            i{
+                                                display: block;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            .search-input{
+                                display: none;
                             }
                         }
                     }
@@ -335,7 +479,7 @@ MOBILE (less than 1024px)
 
             .nav-main{
                 ul{
-                    @include translate(0, -30px);
+                    @include translate(0, -50px);
 
                     li{
                         padding: 0 15px 5px;
@@ -343,7 +487,7 @@ MOBILE (less than 1024px)
                 }
 
                 .info{
-                    margin-top: 15px;
+                    margin-top: 0px;
                 }
             }
         }
