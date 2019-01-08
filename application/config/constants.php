@@ -237,7 +237,15 @@ defined('MESSAGE_CHECK_TOP_CATEGORY_ERROR') OR define('MESSAGE_CHECK_TOP_CATEGOR
 defined('MESSAGE_CHANGE_LANGUAGE_SUCCESS') OR define('MESSAGE_CHANGE_LANGUAGE_SUCCESS', 'changed');
 
 /**
- * Message Success code
+ * Message Error code
  */
 defined('MESSAGE_CHANGE_LANGUAGE_FAIL') OR define('MESSAGE_CHANGE_LANGUAGE_FAIL', 'fail changed');
+
+/**
+ * Message about
+ */
+defined('MESSAGE_CREATE_ERROR_SERVICE') OR define('MESSAGE_CREATE_ERROR_SERVICE', 'Bạn chỉ được phép tạo nhiều nhất 3 nội dung cho phần dịch vu about, nếu muốn tạo vui lòng xóa đi 1 dịch vụ');
+defined('MESSAGE_CREATE_ERROR_TEAM') OR define('MESSAGE_CREATE_ERROR_TEAM', 'Bạn chỉ được phép tạo 1 nội dung cho phần team, nếu muốn tạo vui lòng xóa đi team hiện tại');
+
+defined('MESSAGE_CREATE_ERROR_BANNER') OR define('MESSAGE_CREATE_ERROR_BANNER', 'Bạn chỉ được phép tạo 1 nội dung cho phần banner, nếu muốn tạo vui lòng xóa đi banner hiện tại');
 

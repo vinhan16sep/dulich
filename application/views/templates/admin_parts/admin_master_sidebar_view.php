@@ -39,6 +39,21 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="treeview <?php echo ($this->uri->segment(2) == 'about')? 'menu-open' : '' ?>">
+                    <a href="">
+                        <i class="fa fa-user-circle-o"></i>
+                        <span>About us</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" style="<?php echo ($this->uri->segment(2) == 'about')? 'display:block' : 'display:none' ?>">
+                        <li class="<?php echo ($this->uri->segment(3) == 'bai-viet')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/bai-viet') ?>"><i class="fa fa-newspaper-o"></i>Bài viết mô tả</a></li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'dich-vu')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/dich-vu') ?>"><i class="fa fa-gears"></i> Dịch vụ</a></li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'team')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/team') ?>"><i class="fa fa-group"></i> Team</a></li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'banner')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/banner') ?>"><i class="fa fa-desktop"></i> Banner</a></li>
+                    </ul>
+                </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'region')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/region') ?>">
                         <i class="fa fa-cubes"></i> <span>Vùng miền</span>
@@ -101,24 +116,8 @@
 
 
 
-
-                <!-- <li class="treeview">
-                    <a href="">
-                        <i class="fa fa-user-circle-o"></i>
-                        <span>About us</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url('admin/about') ?>"><i class="fa fa-desktop"></i> Overview</a></li>
-                        <li><a href="<?php echo base_url('admin/about/description') ?>"><i class="fa fa-comment-o"></i> Description</a></li>
-                        <li><a href="<?php echo base_url('admin/about/services') ?>"><i class="fa fa-gears"></i> Services</a></li>
-                        <li><a href="<?php echo base_url('admin/about/team') ?>"><i class="fa fa-group"></i> Team</a></li>
-                        <li><a href="<?php echo base_url('admin/about/testinomials') ?>"><i class="fa fa-comments-o"></i> Testinomials</a></li>
-                    </ul>
-                </li>
-
+                
+<!-- 
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-drivers-license-o"></i>

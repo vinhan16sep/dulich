@@ -16,7 +16,6 @@ class MY_Model extends CI_Model {
      */
     function insert($data) {
         $this->db->set($data)->insert($this->table);
-
         if ($this->db->affected_rows() == 1) {
             return $this->db->insert_id();
         }
