@@ -104,7 +104,7 @@
 
 			<div class="see-more">
 				<button class="btn btn-primary" type="button">
-					See more <i class="fas fa-angle-double-right"></i>
+					<?php echo $this->lang->line('btn_see_more') ?> <i class="fas fa-angle-double-right"></i>
 				</button>
 			</div>
 		</div>

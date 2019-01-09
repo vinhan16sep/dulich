@@ -9,33 +9,33 @@
 					</a>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
-					<h4>About Us</h4>
+                    <h4><?php echo $this->lang->line('footer_about') ?></h4>
 
 					<ul>
 						<li>
 							<a href="<?php echo base_url('ve-chung-toi') ?>">
-								Who we are
+								<?php echo $this->lang->line('footer_who_we_are') ?>
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url('ve-chung-toi') ?>">
-								Core Values
+                                <?php echo $this->lang->line('footer_core_value') ?>
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url('ve-chung-toi') ?>">
-								Our Services
+                                <?php echo $this->lang->line('footer_our_services') ?>
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url('ve-chung-toi') ?>">
-								Meet our Team
+                                <?php echo $this->lang->line('footer_meet_our_team') ?>
 							</a>
 						</li>
 					</ul>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
-					<h4>Our Address</h4>
+					<h4><?php echo $this->lang->line('footer_address') ?></h4>
 
 					<p>HANOI HEAD OFFICE</p>
 					<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
@@ -43,7 +43,7 @@
 					<a href="mailto:info@vietnamtravellog.vn">info@vietnamtravellog.vn</a>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
-					<h4>Our Partners</h4>
+					<h4><?php echo $this->lang->line('footer_partners') ?></h4>
 
 					<div class="row">
 						<?php for($i = 0; $i < 8; $i++) { ?>

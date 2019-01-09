@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul>
 				<li class="li-sub">
 					<a href="<?php echo base_url('diem-den') ?>">
-						<?php echo $this->lang->line('menu_destination'); ?> <i class="fas fa-caret-down"></i>
+						<?php echo $this->lang->line('menu_destinations'); ?> <i class="fas fa-caret-down"></i>
 					</a>
 
 					<ul>
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 				<li class="li-sub">
 					<a href="<?php echo base_url('su-kien/mien-bac') ?>">
-                        <?php echo $this->lang->line('menu_event'); ?> <i class="fas fa-caret-down"></i>
+                        <?php echo $this->lang->line('menu_events'); ?> <i class="fas fa-caret-down"></i>
 					</a>
 
 					<ul>
@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 				<li>
 					<a href="<?php echo base_url('bai-viet') ?>">
-                        <?php echo $this->lang->line('menu_blog'); ?>
+                        <?php echo $this->lang->line('menu_blogs'); ?>
 					</a>
 				</li>
 				<li>
@@ -171,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</ul>
 
 			<div class="info">
-				<h4>Our Address</h4>
+				<h4><?php echo $this->lang->line('footer_address') ?></h4>
 
 				<p>HANOI HEAD OFFICE</p>
 				<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>

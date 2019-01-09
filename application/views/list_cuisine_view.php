@@ -1,11 +1,3 @@
-<style type="text/css" media="screen">
-    .row .item .mask img{
-        height: 300px;
-    }
-    .tab-content h1 {
-        text-align: center;
-    }
-</style>
 <section id="cuisine">
 	<!--
     <div id="slide" class="carousel slide carousel-fade" data-ride="carousel">

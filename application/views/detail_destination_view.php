@@ -97,7 +97,7 @@
 
 		<div class="container-fluid" id="images">
 			<div class="heading">
-				<h3>Images & Videos</h3>
+				<h3><?php echo $this->lang->line('destinations_title_images') ?></h3>
 			</div>
 			<div class="body">
 				<div class="owl-carousel">
@@ -118,7 +118,7 @@
 			<div class="container-fluid posts">
 				<div class="container">
 					<div class="heading">
-						<h3>Điểm đến</h3>
+						<h3><?php echo $this->lang->line('menu_destinations') ?></h3>
 					</div>
 					<div class="body">
 						<div class="owl-carousel post-list">
@@ -133,7 +133,7 @@
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php echo base_url('diem-den/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']); ?>" class="btn btn-primary" role="button">
-											View Detail
+                                            <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
 								</div>
@@ -148,7 +148,7 @@
 			<div class="container-fluid posts">
 				<div class="container">
 					<div class="heading">
-						<h3>Sự kiện</h3>
+						<h3><?php echo $this->lang->line('menu_events') ?></h3>
 					</div>
 					<div class="body">
 						<div class="owl-carousel post-list">
@@ -163,7 +163,7 @@
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php echo base_url('su-kien/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
-											View Detail
+                                            <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
 								</div>
@@ -178,7 +178,7 @@
 			<div class="container-fluid posts">
 				<div class="container">
 					<div class="heading">
-						<h3>Món ăn</h3>
+						<h3><?php echo $this->lang->line('menu_cuisine') ?></h3>
 					</div>
 					<div class="body">
 						<div class="owl-carousel post-list">
@@ -193,7 +193,7 @@
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php ?>" class="btn btn-primary" role="button">
-											View Detail
+                                            <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
 								</div>

@@ -13,20 +13,6 @@
 							</p>
 						</div>
 					</div>
-
-					<div class="link-control">
-						<ul>
-							<?php if ($region_all): ?>
-								<?php foreach ($region_all as $key => $value): ?>
-									<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
-										<a href="<?php echo base_url('bai-viet/' . $value['slug']) ?>">
-											<?php echo $value['title'] ?>
-										</a>
-									</li>
-								<?php endforeach ?>
-							<?php endif ?>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>
