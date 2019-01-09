@@ -8,10 +8,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="left col-xs-12 col-lg-6">
-						<h2>Contact Detail</h2>
+						<h2><?php echo $this->lang->line('contact_detail') ?></h2>
 
 						<div class="info">
-							<h6>Address</h6>
+							<h6><?php echo $this->lang->line('footer_address') ?></h6>
 							<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
 						</div>
 
@@ -33,7 +33,7 @@
 
 					<div class="right col-xs-12 col-lg-6">
 						<div class="inner">
-							<h2>Contact Us</h2>
+							<h2><?php echo $this->lang->line('menu_contact') ?></h2>
 							<p>Quisque eget odio at metus posuere accumsan. Donec eu dignissim magna. Fusce eget consectetur velit. In id purus dolor. Morbi quis ultrices diam, ac luctus eros. Quisque tincidunt velit sed metus finibus faucibus. Donec molestie ligula semper, vestibulum purus id, ornare elit. Suspendisse in fermentum nisi, ac consectetur arcu.</p>
 
                             <?php
@@ -44,21 +44,21 @@
 								<div class="form-group col-xs-12 col-lg-4">
 									<?php
 									echo form_error('contact_name', '<div class="error">', '</div>');
-									echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name" placeholder="Fullname"');
+									echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name" placeholder="' . $this->lang->line('form_fullname') . '"');
 									?>
 								</div>
 
 								<div class="form-group col-xs-12 col-lg-8">
 									<?php
 									echo form_error('contact_mail', '<div class="error">', '</div>');
-									echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail" placeholder="Email"');
+									echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail" placeholder="' . $this->lang->line('form_email') . '"');
 									?>
 								</div>
 
 								<div class="form-group col-xs-12 col-lg-12">
 									<?php
 									echo form_error('contact_subject', '<div class="error">', '</div>');
-									echo form_input('contact_subject', set_value('contact_subject'), 'class="form-control" id="contact_subject" placeholder="Subject"');
+									echo form_input('contact_subject', set_value('contact_subject'), 'class="form-control" id="contact_subject" placeholder="' . $this->lang->line('form_subject') . '"');
 									?>
 								</div>
 
@@ -66,7 +66,7 @@
                                     <?php
                                     echo form_error('contact_message');
                                     //echo form_textarea('contact_message', set_value('contact_message'), 'class="form-control" id="contact_message" placeholder="Message..."');
-									echo '<textarea class="form-control" placeholder="Message..." id="contact_message" rows="3"></textarea>';
+									echo '<textarea class="form-control" placeholder="' .  $this->lang->line('form_message') .'..." id="contact_message" rows="3"></textarea>';
                                     ?>
 								</div>
 

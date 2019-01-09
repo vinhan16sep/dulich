@@ -59,7 +59,7 @@
 			<div class = "clearfix"></div>
 			<div class="see-more">
 				<button class="btn btn-primary" type="button" id="limit">
-					See more <i class="fas fa-angle-double-right"></i>
+					<?php echo $this->lang->line('btn_see_more') ?> <i class="fas fa-angle-double-right"></i>
 				</button>
 				<input id="start" type="hidden" value="8" name="">
 				<input id="slug_region" type="hidden" value="<?php echo $region['slug'] ?>" name="">

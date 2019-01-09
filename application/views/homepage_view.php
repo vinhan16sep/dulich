@@ -27,7 +27,7 @@
                                     <?php echo $value['description'] ?>
                                 </p>
                                 <a href="<?php echo $value['url'] ?>" class="btn btn-primary" role="button">
-                                    <?php echo $this->lang->line('view_detail'); ?>
+                                    <?php echo $this->lang->line('btn_view_detail'); ?>
                                 </a>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                             <div class="content">
                                     <h1><?php echo $this->lang->line('north'); ?></h1>
                                     <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
-                                        <?php echo $this->lang->line('see_all_destination'); ?>
+                                        <?php echo $this->lang->line('btn_see_all_destination'); ?>
                                     </a>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <div class="content">
                                 <h1><?php echo $this->lang->line('middle'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-trung') ?>" class="btn btn-primary" role="button">
-                                    <?php echo $this->lang->line('see_all_destination'); ?>
+                                    <?php echo $this->lang->line('btn_see_all_destination'); ?>
                                 </a>
                             </div>
 
@@ -137,7 +137,7 @@
                             <div class="content">
                                 <h1><?php echo $this->lang->line('south'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-nam') ?>" class="btn btn-primary" role="button">
-                                    <?php echo $this->lang->line('see_all_destination'); ?>
+                                    <?php echo $this->lang->line('btn_see_all_destination'); ?>
                                 </a>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                     <div class="content">
                                         <a href="<?php echo base_url('su-kien/mien-bac') ?>">
                                             <i class="far fa-plus-square"></i>
-                                            <p><?php echo $this->lang->line('view_detail'); ?></p>
+                                            <p><?php echo $this->lang->line('btn_view_detail'); ?></p>
                                         </a>
                                     </div>
                                 <?php endif ?>
@@ -217,7 +217,7 @@
 									<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 									<a href="<?php echo base_url('bai-viet/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
-                                        <?php echo $this->lang->line('more_content'); ?>
+                                        <?php echo $this->lang->line('btn_view_detail'); ?>
 									</a>
 								</div>
 							</div>

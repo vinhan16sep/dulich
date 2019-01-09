@@ -68,7 +68,7 @@
 									</div>
 									<div class="content-footer">
 										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
-											View Detail
+											<?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
 								</div>
@@ -80,14 +80,14 @@
 
 					<div class="see-more">
 						<button class="btn btn-primary" type="button">
-							See more <i class="fas fa-angle-double-right"></i>
+                            <?php echo $this->lang->line('btn_see_more') ?> <i class="fas fa-angle-double-right"></i>
 						</button>
 					</div>
 				</div>
 
 				<div class="right col-xs-12 col-lg-4">
 					<div class="heading">
-						<h4>Top Review</h4>
+						<h4><?php echo $this->lang->line('blogs_top_review') ?></h4>
 					</div>
 					<div class="body">
 						<?php if ($blogs_top): ?>
@@ -118,7 +118,7 @@
 										</div>
 										<div class="content-footer">
 											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
-												View Detail
+                                                <?php echo $this->lang->line('btn_view_detail') ?>
 											</a>
 										</div>
 									</div>

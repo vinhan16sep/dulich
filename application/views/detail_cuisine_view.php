@@ -7,23 +7,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="item col-xs-12 col-lg-6">
-                            <h1><?php echo $region['title'];?></h1>
+                            <h1><?php echo $cuisine['title'];?></h1>
                             <p class="text-wrapper">
-                                <?php echo $region['description'];?>
+                                <?php echo $cuisine['description'];?>
                             </p>
                         </div>
-                    </div>
-
-                    <div class="link-control" style="display: none;">
-                        <ul>
-                            <?php for ($i = 0; $i < 3; $i++) { ?>
-                                <li class="<?php echo ($i == 1)? 'active' : '' ?>">
-                                    <a href="<?php echo base_url('') ?>">
-                                        Region <?php echo $i+1 ?> of Vietnam
-                                    </a>
-                                </li>
-                            <?php } ?>
-                        </ul>
                     </div>
                 </div>
             </div>

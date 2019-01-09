@@ -7,23 +7,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $region['title'];?></h1>
+							<h1><?php echo $events['title'];?></h1>
 							<p class="text-wrapper">
-								<?php echo $region['description'];?>
+								<?php echo $events['description'];?>
 							</p>
 						</div>
-					</div>
-
-					<div class="link-control">
-						<ul>
-                            <?php for ($i = 0; $i < 3; $i++) { ?>
-								<li class="<?php echo ($i == 1)? 'active' : '' ?>">
-									<a href="<?php echo base_url('') ?>">
-										Region <?php echo $i+1 ?> of Vietnam
-									</a>
-								</li>
-                            <?php } ?>
-						</ul>
 					</div>
 				</div>
 			</div>
@@ -70,7 +58,7 @@
 											<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										</a>
 										<ul>
-											<li>Rating</li>
+											<li><?php echo $this->lang->line('post_rating') ?></li>
 
 											<li><h6><?= (date_format(date_create($value['date_start']),"d M Y") == date_format(date_create($value['date_end']),"d M Y")) ? date_format(date_create($value['date_start']),"d M Y") : date_format(date_create($value['date_start']),"d M Y").' - '.date_format(date_create($value['date_end']),"d M Y") ?></h6></li>
 										</ul>
