@@ -94,6 +94,12 @@ $route['bai-viet/([a-zA-Z0-9-_]+)'] = 'blogs/region/$1';
 $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/province/$1/$2';
 $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1/$2/$3';
 
+//about
+$route['ve-chung-toi'] = 'about/index';
+
+//contact
+$route['lien-he'] = 'contact/index';
+
 //admin about
 $route['admin/about/bai-viet'] = 'admin/about/index/bai-viet';
 $route['admin/about/dich-vu'] = 'admin/about/index/dich-vu';

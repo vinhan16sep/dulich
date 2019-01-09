@@ -13,22 +13,22 @@
 
 					<ul>
 						<li>
-							<a href="<?php base_url('') ?>">
+							<a href="<?php echo base_url('ve-chung-toi') ?>">
 								Who we are
 							</a>
 						</li>
 						<li>
-							<a href="<?php base_url('') ?>">
+							<a href="<?php echo base_url('ve-chung-toi') ?>">
 								Core Values
 							</a>
 						</li>
 						<li>
-							<a href="<?php base_url('') ?>">
+							<a href="<?php echo base_url('ve-chung-toi') ?>">
 								Our Services
 							</a>
 						</li>
 						<li>
-							<a href="<?php base_url('') ?>">
+							<a href="<?php echo base_url('ve-chung-toi') ?>">
 								Meet our Team
 							</a>
 						</li>

@@ -128,7 +128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('contact') ?>">
+					<a href="<?php echo base_url('lien-he') ?>">
                         <?php echo $this->lang->line('menu_contact'); ?>
 					</a>
 				</li>
@@ -147,25 +147,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</a>
 
-					<div class="search-input">
+					<div class="search-input" style="border-radius: 5px">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+							<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none; margin-top: 2px">
 							<div class="input-group-append">
-								<button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+								<button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
 								<button class="btn btn-outline-secondary" type="button" id="closeSearch"><i class="fas fa-times"></i></button>
 							</div>
 						</div>
 					</div>
 				</li>
-
-				<li class="li-lang active">
+				<li class="li-lang <?php echo ($this->session->userdata('langAbbreviation') == 'en') ? 'active' : '' ?>">
 					<a class="change-language" data-language="en" href="javascript:void(0)" href="<?php echo base_url('') ?>">
 						En
 					</a>
 				</li>
 
-				<li class="li-lang">
-					<a class="active change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
+				<li class="li-lang <?php echo ($this->session->userdata('langAbbreviation') == 'vi') ? 'active' : '' ?>">
+					<a class="change-language" data-language="vi" href="javascript:void(0)" href="<?php echo base_url('') ?>">
 						Vi
 					</a>
 				</li>
