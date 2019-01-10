@@ -352,7 +352,7 @@ class MY_Model extends CI_Model {
 
     public function get_search($table = '',$search = '',$lang=''){
         if(!empty($lang)){
-            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, body_'.$lang.' as body, province.title_'.$lang.' as title , province.slug as province_slug, region.title_'.$lang.' as title , region.slug as region_slug,');
+            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, body_'.$lang.' as body, province.title_'.$lang.' as province_title , province.slug as province_slug, region.title_'.$lang.' as region_title , region.slug as region_slug,');
         }else{
             $this->db->select('*');
         }

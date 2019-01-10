@@ -74,6 +74,8 @@ class Destinations extends Public_Controller {
 
             $get_related = $this->destination_model->get_where_by_limit(3, 0, array('province_id' => $province['id']),$this->data['lang']);
             $this->data['get_related'] = $get_related;
+            $this->data['region'] = $region;
+            $this->data['province'] = $province;
 
             $this->render('detail_destination_post_view');
         }

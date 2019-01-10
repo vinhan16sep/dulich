@@ -43,7 +43,7 @@ class Cuisine_model extends MY_Model {
     }
     public function get_search($table = '',$search = '',$lang=''){
         if(!empty($lang)){
-            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, region.title_'.$lang.' as title , region.slug as region_slug, cuisine_category.title_'.$lang.' as title , cuisine_category.slug as cuisine_category_slug,');
+            $this->db->select($table.'.*, '.$table.'.title_'.$lang.' as title, '.$table.'.description_'.$lang.' as description, region.title_'.$lang.' as region_title , region.slug as region_slug, cuisine_category.title_'.$lang.' as cuisine_category_title , cuisine_category.slug as cuisine_category_slug,');
         }else{
             $this->db->select('*');
         }
