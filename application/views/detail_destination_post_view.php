@@ -29,7 +29,6 @@
                         <p><?php echo $destination['body'] ?></p>
                     </article>
                 </div>
-
                 <div class="right col-xs-12 col-lg-4">
                     <div class="recommended">
                         <?php foreach ($get_related as $key => $value): ?>
@@ -37,13 +36,13 @@
                             <div class="item">
                                 <div class="item-image">
                                     <div class="mask">
-                                        <img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']); ?>" alt="Image Blog">
+                                        <img src="<?php echo base_url('assets/upload/destination/'.$value['slug'].'/'.$value['avatar']); ?>" alt="Image Blog">
                                     </div>
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
                                         <span class="badge"><?= $value['title'] ?></span>
-                                        <a href="<?php echo base_url('su-kien/'.$value['slug']) ?>">
+                                        <a href="<?php echo base_url('diem-den/'.$region['slug'].'/'.$province['slug'].'/'.$value['slug']) ?>">
                                             <h3><?= $value['title'] ?></h3>
                                         </a>
                                         <h6>Time | <small> <?= date_format(date_create($value['updated_at']),"d M Y") ?></small></h6>
@@ -59,7 +58,7 @@
                                         </p>
                                     </div>
                                     <div class="content-footer">
-                                        <a href="<?php echo base_url('su-kien/'.$value['slug']) ?>" class="btn btn-primary" role="button">
+                                        <a href="<?php echo base_url('diem-den/'.$region['slug'].'/'.$province['slug'].'/'.$value['slug']) ?>" class="btn btn-primary" role="button">
                                             View Detail
                                         </a>
                                     </div>

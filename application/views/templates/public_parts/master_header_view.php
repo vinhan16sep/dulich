@@ -148,13 +148,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 
 					<div class="search-input" style="border-radius: 5px">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none; margin-top: 2px">
-							<div class="input-group-append">
-								<button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
-								<button class="btn btn-outline-secondary" type="button" id="closeSearch"><i class="fas fa-times"></i></button>
+						<form action="<?php echo base_url('search'); ?>" method="get" accept-charset="utf-8">
+							<div class="input-group">
+									<input type="text" class="form-control" name="keywords" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none; margin-top: 2px">
+									<div class="input-group-append">
+										<button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search" aria-hidden="true" ></i></button>
+										<button class="btn btn-outline-secondary" type="button" id="closeSearch"><i class="fas fa-times"></i></button>
+									</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</li>
 				<li class="li-lang <?php echo ($this->session->userdata('langAbbreviation') == 'en') ? 'active' : '' ?>">
@@ -186,7 +188,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 
 	<div class="header-wrapper"></div>
+
 </header>
+
 <!--<form style="margin: 50px;" method="post" action="--><?php //echo base_url('search'); ?><!--">-->
 <!--    <input type="text" name="--><?php //echo $this->security->get_csrf_token_name(); ?><!--" value="--><?php //echo $this->security->get_csrf_hash() ?><!--" placeholder="" class="form-control" id="csrf_sitecom_token" style="display: none;">-->
 <!--    <div class="form-group">-->
