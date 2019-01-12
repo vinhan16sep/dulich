@@ -41,13 +41,13 @@
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'banner')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/banner') ?>">
-                        <i class="fa fa-cubes"></i> <span>Banner</span>
+                        <i class="fa fa-cubes"></i> <span>Banner trang chủ</span>
                     </a>
                 </li>
                 <li class="treeview <?php echo ($this->uri->segment(2) == 'about')? 'menu-open' : '' ?>">
                     <a href="">
                         <i class="fa fa-user-circle-o"></i>
-                        <span>About us</span>
+                        <span>Về chúng tôi</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -55,7 +55,7 @@
                     <ul class="treeview-menu" style="<?php echo ($this->uri->segment(2) == 'about')? 'display:block' : 'display:none' ?>">
                         <li class="<?php echo ($this->uri->segment(3) == 'bai-viet')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/bai-viet') ?>"><i class="fa fa-newspaper-o"></i>Bài viết mô tả</a></li>
                         <li class="<?php echo ($this->uri->segment(3) == 'dich-vu')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/dich-vu') ?>"><i class="fa fa-gears"></i> Dịch vụ</a></li>
-                        <li class="<?php echo ($this->uri->segment(3) == 'team')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/team') ?>"><i class="fa fa-group"></i> Team</a></li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'team')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/team') ?>"><i class="fa fa-group"></i> Đội ngũ</a></li>
                         <li class="<?php echo ($this->uri->segment(3) == 'banner')? 'active' : '' ?>"><a href="<?php echo base_url('admin/about/banner') ?>"><i class="fa fa-desktop"></i> Banner</a></li>
                     </ul>
                 </li>
