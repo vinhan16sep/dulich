@@ -39,6 +39,11 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'banner')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/banner') ?>">
+                        <i class="fa fa-cubes"></i> <span>Banner</span>
+                    </a>
+                </li>
                 <li class="treeview <?php echo ($this->uri->segment(2) == 'about')? 'menu-open' : '' ?>">
                     <a href="">
                         <i class="fa fa-user-circle-o"></i>

@@ -38,9 +38,9 @@
 					<h4><?php echo $this->lang->line('footer_address') ?></h4>
 
 					<p>HANOI HEAD OFFICE</p>
-					<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
+					<p>Tòa nhà VTC 23 Lạc Trung, Hai Bà Trưng, Hà Nội</p>
 					<a href="tel:+84 123 456 789">+84 123 456 789</a>
-					<a href="mailto:info@vietnamtravellog.vn">info@vietnamtravellog.vn</a>
+					<a href="mailto:info@vietnamtravellog.vn">vietnamtravellognetviet@gmail.com</a>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
 					<h4><?php echo $this->lang->line('footer_partners') ?></h4>

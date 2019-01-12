@@ -12,7 +12,7 @@
 
 						<div class="info">
 							<h6><?php echo $this->lang->line('footer_address') ?></h6>
-							<p>Zone 3, Viet Hung, Dong Anh, Hanoi</p>
+							<p>Tòa nhà VTC 23 Lạc Trung, Hai Bà Trưng, Hà Nội</p>
 						</div>
 
 						<div class="info">
@@ -25,7 +25,7 @@
 						<div class="info">
 							<h6>Email</h6>
 							<a href="tel:+84 1234 5678">
-								info@vietnamtrallog.com
+                                vietnamtravellognetviet@gmail.com
 							</a>
 						</div>
 
