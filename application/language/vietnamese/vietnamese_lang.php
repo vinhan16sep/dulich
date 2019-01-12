@@ -24,6 +24,7 @@ $lang['menu_events'] = 'Sự kiện';
 $lang['menu_cuisine'] = 'Ẩm thực';
 $lang['menu_blogs'] = 'Góc chia sẻ';
 $lang['menu_contact'] = 'Liên hệ';
+$lang['menu_about'] = 'Về chúng tôi';
 
 //Footer
 $lang['footer_about'] = 'Về chúng tôi';
@@ -59,3 +60,5 @@ $lang['form_fullname'] = 'Họ và tên';
 $lang['form_email'] = 'Email';
 $lang['form_subject'] = 'Tiêu đề';
 $lang['form_message'] = 'Tin nhắn';
+
+$lang['search'] = 'Kết quả tìm kiếm của';

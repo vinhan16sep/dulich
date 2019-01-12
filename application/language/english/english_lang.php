@@ -24,6 +24,8 @@ $lang['menu_events'] = 'Events';
 $lang['menu_cuisine'] = 'Cuisine';
 $lang['menu_blogs'] = 'Blog Reviews';
 $lang['menu_contact'] = 'Contact';
+$lang['menu_about'] = 'About';
+
 
 //Footer
 $lang['footer_about'] = 'About Us';
@@ -58,3 +60,4 @@ $lang['form_fullname'] = 'Fullname';
 $lang['form_email'] = 'Email';
 $lang['form_subject'] = 'Subject';
 $lang['form_message'] = 'Message';
+$lang['search'] = 'Result search of';
