@@ -18,12 +18,19 @@ $lang['north'] = 'North of Vietnam';
 $lang['middle'] = 'Middle of Vietnam';
 $lang['south'] = 'South of Vietnam';
 
+// Region of vietnam
+$lang['north_ofvietnam'] = 'North of Vietnam';
+$lang['middle_ofvietnam'] = 'Middle of Vietnam';
+$lang['south_ofvietnam'] = 'South of Vietnam';
+
 // Menu
 $lang['menu_destinations'] = 'Destinations';
 $lang['menu_events'] = 'Events';
 $lang['menu_cuisine'] = 'Cuisine';
 $lang['menu_blogs'] = 'Blog Reviews';
 $lang['menu_contact'] = 'Contact';
+$lang['menu_about'] = 'About';
+
 
 //Footer
 $lang['footer_about'] = 'About Us';
@@ -58,3 +65,4 @@ $lang['form_fullname'] = 'Fullname';
 $lang['form_email'] = 'Email';
 $lang['form_subject'] = 'Subject';
 $lang['form_message'] = 'Message';
+$lang['search'] = 'Result search of';

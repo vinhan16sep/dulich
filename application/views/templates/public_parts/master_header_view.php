@@ -78,18 +78,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<ul>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-bac') ?>">
+								<?php echo $this->lang->line('north_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-trung') ?>">
+								<?php echo $this->lang->line('middle_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-nam') ?>">
+								<?php echo $this->lang->line('south_ofvietnam'); ?>
 							</a>
 						</li>
 					</ul>
@@ -101,18 +101,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<ul>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-bac') ?>">
+								<?php echo $this->lang->line('north_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-trung') ?>">
+								<?php echo $this->lang->line('middle_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-nam') ?>">
+								<?php echo $this->lang->line('south_ofvietnam'); ?>
 							</a>
 						</li>
 					</ul>
@@ -125,6 +125,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<li>
 					<a href="<?php echo base_url('bai-viet') ?>">
                         <?php echo $this->lang->line('menu_blogs'); ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('ve-chung-toi') ?>">
+                        <?php echo $this->lang->line('menu_about'); ?>
 					</a>
 				</li>
 				<li>
@@ -150,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="search-input" style="border-radius: 5px">
 						<form action="<?php echo base_url('search'); ?>" method="get" accept-charset="utf-8">
 							<div class="input-group">
-									<input type="text" class="form-control" name="keywords" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" style="border: none; margin-top: 2px">
+									<input type="text" class="form-control" name="keywords" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" value="<?= (isset($keywords)) ? $keywords : '' ?>" style="border: none; margin-top: 2px">
 									<div class="input-group-append">
 										<button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search" aria-hidden="true" ></i></button>
 										<button class="btn btn-outline-secondary" type="button" id="closeSearch"><i class="fas fa-times"></i></button>

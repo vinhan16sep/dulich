@@ -18,12 +18,18 @@ $lang['north'] = 'Miền Bắc';
 $lang['middle'] = 'Miền Trung';
 $lang['south'] = 'Miền Nam';
 
+// Region of vietnam
+$lang['north_ofvietnam'] = 'Miền Bắc của Việt Nam';
+$lang['middle_ofvietnam'] = 'Miền Trung của Việt Nam';
+$lang['south_ofvietnam'] = 'Miền Nam của Việt Nam';
+
 // Menu
 $lang['menu_destinations'] = 'Điểm đến';
 $lang['menu_events'] = 'Sự kiện';
 $lang['menu_cuisine'] = 'Ẩm thực';
 $lang['menu_blogs'] = 'Góc chia sẻ';
 $lang['menu_contact'] = 'Liên hệ';
+$lang['menu_about'] = 'Về chúng tôi';
 
 //Footer
 $lang['footer_about'] = 'Về chúng tôi';
@@ -59,3 +65,5 @@ $lang['form_fullname'] = 'Họ và tên';
 $lang['form_email'] = 'Email';
 $lang['form_subject'] = 'Tiêu đề';
 $lang['form_message'] = 'Tin nhắn';
+
+$lang['search'] = 'Kết quả tìm kiếm của';

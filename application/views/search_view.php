@@ -1,6 +1,6 @@
 <div id="search">
     <div class="container">
-        <h1>Result search of "Keyword"</h1>
+        <h1><?= $this->lang->line('search'); ?> "<?= (isset($keywords)) ? $keywords : '' ?>"</h1>
 
         <div class="result" id="destinations" style="display:none;">
             <div class="heading">
