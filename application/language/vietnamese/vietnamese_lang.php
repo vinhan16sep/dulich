@@ -18,6 +18,11 @@ $lang['north'] = 'Miền Bắc';
 $lang['middle'] = 'Miền Trung';
 $lang['south'] = 'Miền Nam';
 
+// Region of vietnam
+$lang['north_ofvietnam'] = 'Miền Bắc của Việt Nam';
+$lang['middle_ofvietnam'] = 'Miền Trung của Việt Nam';
+$lang['south_ofvietnam'] = 'Miền Nam của Việt Nam';
+
 // Menu
 $lang['menu_destinations'] = 'Điểm đến';
 $lang['menu_events'] = 'Sự kiện';

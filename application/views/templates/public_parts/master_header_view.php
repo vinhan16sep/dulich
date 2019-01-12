@@ -78,18 +78,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<ul>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-bac') ?>">
+								<?php echo $this->lang->line('north_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-trung') ?>">
+								<?php echo $this->lang->line('middle_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('diem-den/mien-nam') ?>">
+								<?php echo $this->lang->line('south_ofvietnam'); ?>
 							</a>
 						</li>
 					</ul>
@@ -101,18 +101,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<ul>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-bac') ?>">
+								<?php echo $this->lang->line('north_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-trung') ?>">
+								<?php echo $this->lang->line('middle_ofvietnam'); ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('') ?>">
-								Region of Vietnam
+							<a href="<?php echo base_url('su-kien/mien-nam') ?>">
+								<?php echo $this->lang->line('south_ofvietnam'); ?>
 							</a>
 						</li>
 					</ul>
