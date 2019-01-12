@@ -89,11 +89,11 @@
                         <i class="fa fa-newspaper-o"></i> <span>Bài viết</span>
                     </a>
                 </li>
-                <li class="">
+                <!-- <li class="">
                     <a href="<?php echo base_url('admin/config_contact') ?>">
                         <i class="fa fa-inbox"></i> <span>Contact</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="header">DOCUMENTATION</li>
                 <li>
                     <a href="<?php echo base_url('admin/user/change_password') ?>">
