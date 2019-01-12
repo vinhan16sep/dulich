@@ -66,7 +66,7 @@
                                     <?php
                                     echo form_error('contact_message');
                                     //echo form_textarea('contact_message', set_value('contact_message'), 'class="form-control" id="contact_message" placeholder="Message..."');
-									echo '<textarea class="form-control" placeholder="' .  $this->lang->line('form_message') .'..." id="contact_message" rows="3"></textarea>';
+									echo '<textarea class="form-control" placeholder="' .  $this->lang->line('form_message') .'..." id="contact_message" name="contact_message" rows="3"></textarea>';
                                     ?>
 								</div>
 
