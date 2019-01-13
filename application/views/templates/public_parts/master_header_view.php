@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
+	<meta name="description" content="<?= (isset($metadescription)) ? $metadescription : 'Vietnam Travellog' ?>">
+  	<meta name="keywords" content="<?= (isset($metakeywords)) ? $metakeywords : 'Vietnam Travellog' ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- TITLE -->

@@ -26,6 +26,8 @@ class Events extends Public_Controller {
     public function region($slug){
         $this->data['region_full'] = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $region = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $region['metakeywords'];
+        $this->data['metadescription'] = $region['metadescription'];
         if(!empty($region)){
             // dữ liệu miền cho events
             $this->data['region'] = $region;
@@ -98,6 +100,8 @@ class Events extends Public_Controller {
     //hungluong commented
     public function detail($region_slug, $province_slug,$slug){
         $events = $this->events_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $events['metakeywords'];
+        $this->data['metadescription'] = $events['metadescription'];
         if(!empty($events)){
             $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $events['province_id']),$this->data['lang']);
             if(!empty($province)){

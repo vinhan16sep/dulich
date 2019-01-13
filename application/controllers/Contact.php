@@ -18,6 +18,9 @@ class Contact extends Public_Controller {
     }
 
     public function index(){
+
+        $this->data['metakeywords'] = 'Contact';
+        $this->data['metadescription'] = 'Contact';
         $this->load->helper('form');
         $this->load->library('form_validation');
 
