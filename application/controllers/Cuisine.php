@@ -17,6 +17,8 @@ class Cuisine extends Public_Controller {
     public function region($slug){
         $this->data['region_full'] = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $region = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $region['metakeywords'];
+        $this->data['metadescription'] = $region['metadescription'];
         if(!empty($region)){
             // get all cuisine thuộc miền
             $cuisine_category = $this->cuisine_category_model->get_by_where(array(),$this->data['lang']);
@@ -41,6 +43,8 @@ class Cuisine extends Public_Controller {
             if(!empty($region)){
                 // get all cuisine thuộc miền
                 $cuisine = $this->cuisine_model->find_where(array('cuisine_category_id' => $cuisine_category['id'], 'region_id' => $region['id'],'slug' => $slug),$this->data['lang']);
+                $this->data['metakeywords'] = $cuisine['metakeywords'];
+                $this->data['metadescription'] = $cuisine['metadescription'];
                
                 $this->data['region'] = $region;
                 $this->data['cuisine'] = $cuisine;

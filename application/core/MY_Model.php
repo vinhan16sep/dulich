@@ -279,9 +279,9 @@ class MY_Model extends CI_Model {
     public function find_where($where = array(),$lang=''){
         if(!empty($lang)){
             if(in_array($this->table, array('destination','events','blog'))){
-                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body, metadescription_'.$lang.' as metadescription, metakeywords_'.$lang.' as metakeywords');
             }else{
-                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
+                $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, metadescription_'.$lang.' as metadescription, metakeywords_'.$lang.' as metakeywords');
             }
         }else{
             $this->db->select('*');

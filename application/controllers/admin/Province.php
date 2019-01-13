@@ -81,6 +81,10 @@ class Province extends Admin_Controller{
 	                'region_id' => $this->input->post('region_id'),
 	                'title_vi' => $this->input->post('title_vi'),
 	                'title_en' => $this->input->post('title_en'),
+                    'metakeywords_vi' => $this->input->post('metakeywords_vi'),
+                    'metakeywords_en' => $this->input->post('metakeywords_en'),
+                    'metadescription_vi' => $this->input->post('metadescription_vi'),
+                    'metadescription_en' => $this->input->post('metadescription_en'),
 	                'description_vi' => $this->input->post('description_vi'),
 	                'description_en' => $this->input->post('description_en'),
 	            );
@@ -160,6 +164,10 @@ class Province extends Admin_Controller{
 		                'region_id' => $this->input->post('region_id'),
 		                'title_vi' => $this->input->post('title_vi'),
 		                'title_en' => $this->input->post('title_en'),
+                        'metakeywords_vi' => $this->input->post('metakeywords_vi'),
+                        'metakeywords_en' => $this->input->post('metakeywords_en'),
+                        'metadescription_vi' => $this->input->post('metadescription_vi'),
+                        'metadescription_en' => $this->input->post('metadescription_en'),
 		                'description_vi' => $this->input->post('description_vi'),
 		                'description_en' => $this->input->post('description_en'),
 		            );

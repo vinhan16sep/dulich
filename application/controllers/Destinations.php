@@ -125,6 +125,8 @@ class Destinations extends Public_Controller {
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung
     public function region($slug){
         $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $region_detail['metakeywords'];
+        $this->data['metadescription'] = $region_detail['metadescription'];
         if(!empty($region_detail)){
             $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
             // get all destination thuộc miền
@@ -168,6 +170,8 @@ class Destinations extends Public_Controller {
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den/mien-trung/thanh-hoa
     public function province($region_slug,$slug){
         $province = $this->province_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $province['metakeywords'];
+        $this->data['metadescription'] = $province['metadescription'];
         if(!empty($province)){
             $this->load->model('events_model');
             $this->load->model('cuisine_model');

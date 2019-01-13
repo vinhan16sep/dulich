@@ -14,6 +14,8 @@ class About extends Public_Controller {
     	$this->data['services'] = $this->about_model->get_by_region_about(3, 0,$type = 1,$this->data['lang']);
     	$this->data['team'] = $this->about_model->get_by_region_about(1, 0,$type = 2,$this->data['lang']);
     	$this->data['banner'] = $this->about_model->get_by_region_about(1, 0,$type = 3,$this->data['lang']);
+        $this->data['metakeywords'] = 'About';
+        $this->data['metadescription'] = 'About';
         $this->render('about_view');
     }
 }

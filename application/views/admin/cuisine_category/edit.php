@@ -84,6 +84,20 @@
                                             echo form_input('title_vi', $detail['title_vi'], 'class="form-control" id="title_vi"');
                                         ?>
                                     </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php 
+                                            echo form_label('Mô tả meta', 'metadescription_vi');
+                                            echo form_error('metadescription_vi');
+                                            echo form_input('metadescription_vi', $detail['metadescription_vi'], 'class="form-control" id="metadescription_vi"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Giới thiệu', 'description_vi');
+                                        echo form_error('description_vi');
+                                        echo form_textarea('description_vi', $detail['description_vi'], 'class="form-control" id="description_vi"');
+                                        ?>
+                                    </div>
                                     <div class="form-group col-md-12">
                                         <?php
                                         echo form_label('Giới thiệu', 'description_vi');
@@ -98,6 +112,20 @@
                                             echo form_label('Title', 'title_en');
                                             echo form_error('title_en');
                                             echo form_input('title_en', $detail['title_en'], 'class="form-control" id="title_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php 
+                                            echo form_label('Meta keywords', 'metakeywords_en');
+                                            echo form_error('metakeywords_en');
+                                            echo form_input('metakeywords_en', $detail['metakeywords_en'], 'class="form-control" id="metakeywords_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php 
+                                            echo form_label('Meta description', 'metadescription_en');
+                                            echo form_error('metadescription_en');
+                                            echo form_input('metadescription_en', $detail['metadescription_en'], 'class="form-control" id="metadescription_en"');
                                         ?>
                                     </div>
                                     <div class="form-group col-md-12">
