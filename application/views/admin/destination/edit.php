@@ -78,7 +78,7 @@
                                 <?php
                                 echo form_label('Slug', 'slug');
                                 echo form_error('slug');
-                                echo form_input('slug', $detail['slug'], 'class="form-control" id="slug" readonly');
+                                echo form_input('slug', $detail['slug'], 'class="form-control" id="slug" ');
                                 ?>
                             </div>
                         </div>
