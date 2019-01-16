@@ -1,13 +1,16 @@
 switch(window.location.origin){
-    case 'http://dulich.vn':
-        var HOSTNAMEADMIN = 'http://dulich.vn/admin';
+    case 'http://vietnamtravellog.matocreative.vn':
+        var HOSTNAMEADMIN = 'http://vietnamtravellog.matocreative.vn/admin';
         break;
     default:
         var HOSTNAMEADMIN = 'http://localhost/dulich/admin';
         
 }
 function logout() {
-    window.location.href = HOSTNAMEADMIN + '/user/logout';
+    if (confirm("Bạn muốn đăng xuất")) {
+        window.location.href = HOSTNAMEADMIN + '/user/logout';
+    }
+    
 }
 
 $('.btn-remove').click(function(event){
