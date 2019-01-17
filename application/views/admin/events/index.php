@@ -84,7 +84,7 @@
                                                         <img src="<?= base_url('assets/upload/events/' . $value['slug'] . '/' . $value['image']) ?>"  width=150px height=100px>
                                                     </div>
                                                 </td>
-                                                <td><?= $value['title_vi'] ?></td>
+                                                <td><a href="<?php echo base_url('su-kien/' . $region_slug[$value['region_id']] . '/' . $province_slug[$value['province_id']] . '/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
                                                 <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">

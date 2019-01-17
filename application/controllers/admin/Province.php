@@ -20,7 +20,7 @@ class Province extends Admin_Controller{
             $keywords = $this->input->get('search');
         }
         $this->data['keywords'] = $keywords;
-        $total_rows  = $this->region_model->count_search($keywords);
+        $total_rows  = $this->province_model->count_search($keywords);
         $this->load->library('pagination');
         $config = array();
         $base_url = base_url('admin/province/index');
@@ -36,8 +36,10 @@ class Province extends Admin_Controller{
         $this->data['result'] = $result;
 
         $region = $this->region_model->get_all();
-    	$region = build_array_by_id_for_dropdown($region);
-    	$this->data['region'] = $region;
+        $region_slug = get_slug($region);
+        $region = build_array_by_id_for_dropdown($region);
+        $this->data['region'] = $region;
+    	$this->data['region_slug'] = $region_slug;
 
         $this->render('admin/province/index');
     }

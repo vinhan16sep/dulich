@@ -85,10 +85,9 @@
                                                         <?php endif ?>
                                                     </div>
                                                 </td>
-                                                <td><?= $value['title_vi'] ?></td>
+                                                <td><a href="<?php echo base_url('diem-den/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
                                                 <td><?= $value['title_en'] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/region/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
                                                     <?php
                                                         if ($value['is_active'] == 0) {
                                                             echo '<span class="label label-warning">Chờ duyệt</span>';

@@ -202,9 +202,72 @@ $('.btn-deactive').click(function(){
             success: function(response){
                 if (response.status == 200 && response.isExisted) {
                     $('.is-active-' + id).html('<span class="label label-warning">Chờ duyệt</span>');
-                    console.log($(this).closest('td'));
                     $(`.remove-${id} [class*=active]`).data('is_active','0');
                     alert(`Tắt ${name} thành công`);
+                }
+                if (response.status == 200 && response.isExisted == false) {
+                    alert(`Tắt ${name} thành công`);
+                }
+            },
+            error: function(jqXHR, exception){
+                if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
+                    alert(`Tắt ${name} thất bại`);
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
+
+
+// active user
+$('.btn-active-user').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    if (confirm(`Chắc chắn kích hoạt tài khoản ?`)) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id
+            },
+            success: function(response){
+                if (response.status == 200 && response.isExisted) {
+                    $('.is-active-' + id).html('<span class="label label-success">Đã kích hoạt</span>');
+                    $(`.remove-${id} [class*=active]`).data('is_active','1');
+                }
+            },
+            error: function(jqXHR, exception){
+                if((jqXHR.status == 404 || jqXHR.status == 400) && jqXHR.responseJSON.message != 'undefined'){
+                    if(jqXHR.responseJSON.reponse.error_permission == 'error'){
+                        alert(jqXHR.responseJSON.message);
+                    }else{
+                        alert(`Kích hoạt tài khoản thất bại`);
+                    }
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
+
+// deactive user
+$('.btn-deactive-user').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    if (confirm(`Chắc chắn khóa tài khoản ?`)) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id
+            },
+            success: function(response){
+                if (response.status == 200 && response.isExisted) {
+                    $('.is-active-' + id).html('<span class="label label-warning">Đang khóa</span>');
+                    $(`.remove-${id} [class*=active]`).data('is_active','0');
                 }
                 if (response.status == 200 && response.isExisted == false) {
                     alert(`Tắt ${name} thành công`);

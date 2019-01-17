@@ -33,7 +33,7 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">THÔNG TIN CHUNG</li>
                 <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -61,12 +61,12 @@
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'region')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/region') ?>">
-                        <i class="fa fa-cubes"></i> <span>Vùng miền</span>
+                        <i class="fa fa-globe" aria-hidden="true"></i> <span>Vùng miền</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'province')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/province') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Tỉnh / Thành Phố</span>
+                        <i class="fa fa-map" aria-hidden="true"></i> <span>Tỉnh / Thành Phố</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'cuisine_category')? 'active' : '' ?>">
@@ -76,22 +76,22 @@
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'cuisine')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/cuisine') ?>">
-                        <i class="fa fa-cubes"></i> <span>Món ăn</span>
+                        <i class="fa fa-cutlery" aria-hidden="true"></i> <span>Món ăn</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'destination')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/destination') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Điểm đến</span>
+                        <i class="fa fa-street-view" aria-hidden="true"></i> <span>Điểm đến</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'events')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/events') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Sự kiện</span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i> <span>Sự kiện</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'blog')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/blog') ?>">
-                        <i class="fa fa-newspaper-o"></i> <span>Bài viết</span>
+                        <i class="fa fa-address-book" aria-hidden="true"></i> <span>Bài viết</span>
                     </a>
                 </li>
                 <!-- <li class="">
@@ -99,7 +99,7 @@
                         <i class="fa fa-inbox"></i> <span>Contact</span>
                     </a>
                 </li> -->
-                <li class="header">DOCUMENTATION</li>
+                <li class="header">QUẢN LÝ TÀI KHOẢN</li>
                 <li>
                     <a href="<?php echo base_url('admin/user/change_password') ?>">
                         <i class="fa fa-refresh" aria-hidden="true"></i> <span>Đổi Mật Khẩu</span>
@@ -107,8 +107,13 @@
                 </li>
                 <?php if ($this->ion_auth->is_admin()===TRUE): ?>
                     <li>
+                    <a href="<?php echo base_url('admin/user') ?>">
+                        <i class="fa fa-users" aria-hidden="true"></i> <span>Quản lý tài khoản</span>
+                    </a>
+                </li>
+                    <li>
                         <a href="<?php echo base_url('admin/user/register') ?>">
-                            <i class="fa fa-registered" aria-hidden="true"></i> <span>Tạo tài khoản</span>
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> <span>Tạo tài khoản</span>
                         </a>
                     </li>
                 <?php endif ?>

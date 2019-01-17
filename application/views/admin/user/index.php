@@ -1,17 +1,17 @@
 <!-- Content Wrapper. Contains page content -->
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Danh sách
+            Quản lý tài khoản
             <small>
-                Tỉnh / Thành phố
+                Danh sách tài khoản
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('admin') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="<?= base_url('admin/province') ?>"><i class="fa fa-dashboard"></i> Danh sách Tỉnh / Thành phố</a></li>
+            <li><a href="<?= base_url('admin/user') ?>"><i class="fa fa-dashboard"></i> Danh sách tài khoản</a></li>
         </ol>
     </section>
 
@@ -43,12 +43,12 @@
 
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/province/create') ?>" class="btn btn-primary"  >Thêm mới</a>
+                            <a href="<?php echo base_url('admin/user/register') ?>" class="btn btn-primary"  >Tạo tài khoản</a>
                         </div>
                         <div class="col-md-6">
-                            <form action="<?php echo base_url('admin/province/index') ?>" method="get">
+                            <form action="<?php echo base_url('admin/user/index') ?>" method="get">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="<?= $keywords ?>">
+                                    <input type="text" class="form-control" placeholder="E-Mail, Tên tài khoản, Tên người dùng" name="search" value="<?= $keywords ?>">
                                     <span class="input-group-btn">
                                         <input type="submit" class="btn btn-block btn-primary" value="Tìm kiếm">
                                     </span>
@@ -65,11 +65,10 @@
                                 <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Tên Tỉnh / Thành phố Tiếng Việt</th>
-                                    <th>Tên Tỉnh / Thành phố Tiếng Anh</th>
-                                    <th>Vùng miền</th>
-                                    <th>Duyệt Bài</th>
+                                    <th>Họ Tên</th>
+                                    <th>Tên tài khoản</th>
+                                    <th>Email</th>
+                                    <th>Trạng thái</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -79,44 +78,28 @@
                                         <?php foreach ($result as $key => $value): ?>
                                             <tr class="remove-<?= $value['id'] ?>">
                                                 <td><?= $serial ?></td>
-                                                <td>
-                                                    <div class="mask_sm">
-                                                        <?php if ( $value['avatar'] ): ?>
-                                                            <img src="<?= base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar'] ) ?>"  width=150px>
-                                                        <?php endif ?>
-                                                    </div>
-                                                </td>
-                                                <td><a href="<?php echo base_url('diem-den/' . $region_slug[$value['region_id']] . '/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
-                                                <td><?= $value['title_en'] ?></td>
-                                                <td><?= $region[$value['region_id']] ?></td>
+                                                <td><?php echo $value['first_name'] . ' ' . $value['last_name'] ?></td>
+                                                <td><?= $value['username'] ?></td>
+                                                <td><?= $value['email'] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
                                                     <?php
-                                                        if ($value['is_active'] == 0) {
-                                                            echo '<span class="label label-warning">Chờ duyệt</span>';
+                                                        if ($value['active'] == 0) {
+                                                            echo '<span class="label label-warning">Đang khóa</span>';
                                                         }else{
-                                                            echo '<span class="label label-success">Đã duyệt</span>';
+                                                            echo '<span class="label label-success">Đã kích hoạt</span>';
                                                         }
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/province/detail/' . $value['id'] ) ?>" title="Xem chi tiết">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="<?= base_url('admin/province/edit/' . $value['id'] ) ?>" style="color: #f0ad4e" title="Cập nhật">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                    </a>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/remove' ) ?>"  data-name="tỉnh / thành phố" style="color: #d9534f" title="Xóa">
+                                                    <a href="javascript:void(0)" class="btn-remove" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/user/remove' ) ?>"  data-name="Tài khoản" style="color: #d9534f" title="Xóa">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-active" title="Duyệt bài" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/active' ) ?>" data-name="<?php echo $value['title_vi'] ?>" style="color: #00a65a" >
+                                                    <a href="javascript:void(0)" class="btn-active-user" title="Khóa tài khoản" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/user/active' ) ?>" style="color: #00a65a" >
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn-deactive" title="Tắt bài viết" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/province/deactive' ) ?>" data-name="<?php echo $value['title_vi'] ?>" style="color: #f0ad4e">
+                                                    <a href="javascript:void(0)" class="btn-deactive-user" title="Kích hoạt tài khoản" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/user/deactive' ) ?>" style="color: #f0ad4e">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
@@ -126,31 +109,17 @@
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="6">
-                                                Chưa có tỉnh / thành phố nào được tạo
+                                                Chưa tài khoản
                                             </td>
                                             
                                         </tr>
                                     <?php endif ?>
-
                                 </tbody>
-                                <?php if ($result): ?>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Hình ảnh</th>
-                                            <th>Tên Tỉnh / Thành phố Tiếng Việt</th>
-                                            <th>Tên Tỉnh / Thành phố Tiếng Anh</th>
-                                            <th>Vùng miền</th>
-                                            <th>Duyệt Bài</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                <?php endif ?>
                                 
                             </table>
                         </div>
                         <div class="col-md-6 col-md-offset-5 page">
-                            <?php echo $page_links ?>
+                            <!-- <?php echo $page_links ?> -->
                         </div>
                     </div>
                     <!-- /.box-body -->

@@ -85,7 +85,7 @@
                                                         <?php endif ?>
                                                     </div>
                                                 </td>
-                                                <td><?= $value['title_vi'] ?></td>
+                                                <td><a href="<?php echo base_url('mon-an/' . $region_slug[$value['region_id']] . '/' . $cuisine_category_slug[$value['cuisine_category_id']] . '/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
                                                 <td><?= $value['title_en'] ?></td>
                                                 <td><?= $value['title'] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">

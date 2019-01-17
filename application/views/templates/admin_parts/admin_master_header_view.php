@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/dist/css/skins/_all-skins.min.css') ?>">
     <!-- DatePickerX Plugin -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>DatePickerX/DatePickerX.min.css">
-    <link rel="stylesheet" href="<?php echo site_url('assets/lib/bootstrap/css/bootstrap-toggle.min.css') ?>">
+    <!-- <link rel="stylesheet" href="<?php echo site_url('assets/lib/bootstrap/css/bootstrap-toggle.min.css') ?>"> -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/pikaday.css">
 
 

@@ -10,7 +10,30 @@ class User extends MY_Controller {
     }
 
     public function index() {
-        
+        handle_common_permission($this->permission_admin);
+        $this->load->model('users_model');
+
+        $keywords = '';
+        if($this->input->get('search')){
+            $keywords = $this->input->get('search');
+        }
+        $this->data['keywords'] = $keywords;
+        $total_rows  = $this->users_model->count_search($keywords);
+        $this->load->library('pagination');
+        $config = array();
+        $base_url = base_url('admin/province/index');
+        $per_page = 10;
+        $uri_segment = 4;
+        foreach ($this->pagination_config($base_url, $total_rows, $per_page, $uri_segment) as $key => $value) {
+            $config[$key] = $value;
+        }
+        $this->data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        $this->pagination->initialize($config);
+        $this->data['page_links'] = $this->pagination->create_links();
+        $result = $this->users_model->get_all_with_pagination_search($per_page, $this->data['page'], $keywords);
+        $this->data['result'] = $result;
+
+        $this->render('admin/user/index', 'admin_master');
     }
 
     public function login() {
@@ -269,14 +292,66 @@ class User extends MY_Controller {
                 }
             }
         }
-
-
         
     }
 
     public function logout() {
         $this->ion_auth->logout();
         redirect('admin/user/login', 'refresh');
+    }
+
+    public function active(){
+        handle_common_permission($this->permission_admin);
+        $this->load->model('users_model');
+        $id = $this->input->get('id');
+        $data = array('active' => 1);
+        $update = $this->users_model->update($id, $data);
+        if($update == 1){
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function deactive(){
+        handle_common_permission($this->permission_admin);
+        $this->load->model('users_model');
+        $id = $this->input->get('id');
+        $data = array('active' => 0);
+        $update = $this->users_model->update($id, $data);
+        if($update == 1){
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function remove(){
+        handle_common_permission($this->permission_admin);
+        $this->load->model('users_model');
+        $id = $this->input->get('id');
+        $delete = $this->users_model->delete($id);
+        // echo $delete;die;
+        if($delete == 1){
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
 }
