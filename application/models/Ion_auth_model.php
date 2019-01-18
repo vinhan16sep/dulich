@@ -168,7 +168,7 @@ class Ion_auth_model extends CI_Model
 		$this->config->load('ion_auth', TRUE);
 		$this->load->helper('cookie');
 		$this->load->helper('date');
-		$this->lang->load('ion_auth');
+		$this->lang->load('ion_auth', 'vietnamese');
 
 		// initialize db tables data
 		$this->tables  = $this->config->item('tables', 'ion_auth');

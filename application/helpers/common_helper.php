@@ -136,6 +136,14 @@ if (!function_exists('handle_common_author_data')) {
         }
         return $new_data;
     }
+
+    function get_slug($data = array()){
+        foreach ($data as $key => $value) {
+            $new_data[$value['id']] = $value['slug'];
+
+        }
+        return $new_data;
+    }
 }
 
 //build title for input

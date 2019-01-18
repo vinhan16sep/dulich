@@ -35,13 +35,17 @@ class Events extends Admin_Controller{
         $this->data['result'] = $result;
 
         $region = $this->region_model->get_all();
+        $region_slug = get_slug($region);
         $region = build_array_by_id_for_dropdown($region);
 
         $province = $this->province_model->get_all();
+        $province_slug = get_slug($province);
         $province = build_array_by_id_for_dropdown($province);
         
         $this->data['region'] = $region;
+        $this->data['region_slug'] = $region_slug;
         $this->data['province'] = $province;
+        $this->data['province_slug'] = $province_slug;
 
         $this->render('admin/events/index');
     }

@@ -34,6 +34,15 @@ class Cuisine extends Admin_Controller{
         $this->data['page_links'] = $this->pagination->create_links();
         $result = $this->cuisine_model->get_all_with_pagination_join_cayegory_search_by_create_by($per_page, $this->data['page'], $keywords);
         $this->data['result'] = $result;
+
+        $region = $this->region_model->get_all();
+        $region_slug = get_slug($region);
+        $this->data['region_slug'] = $region_slug;
+
+        $cuisine_category = $this->cuisine_category_model->get_all();
+        $cuisine_category_slug = get_slug($cuisine_category);
+        $this->data['cuisine_category_slug'] = $cuisine_category_slug;
+
         $this->render('admin/cuisine/index');
     }
 

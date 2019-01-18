@@ -89,7 +89,7 @@
                                                     </div>
                                                 </td>
                                                 <td><?= ($value['is_top'] == 1)? '<i class="fa fa-check" aria-hidden="true" style="color: #00a65a"></i>' : '<i class="fa fa-times" aria-hidden="true" style="color: #f0ad4e"></i>' ?></td>
-                                                <td><?= $value['title_vi'] ?></td>
+                                                <td><a href="<?php echo base_url('diem-den/' . $region_slug[$value['region_id']] . '/' . $province_slug[$value['province_id']] . '/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
                                                 <td><?= $value['title_en'] ?></td>
                                                 <td><?= $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
