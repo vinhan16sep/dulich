@@ -80,7 +80,16 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
-                                echo form_label('Vùng miền', 'cuisine_category_id');
+                                echo form_label('Vùng miền', 'region_id');
+                                echo form_error('region_id');
+                                echo form_dropdown('region_id', $region, $detail['region_id'], 'class="form-control" id="region_id" data-url="'. base_url('admin/cuisine/get_province') .'" ');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Danh mục món ăn', 'cuisine_category_id');
                                 echo form_error('cuisine_category_id');
                                 echo form_dropdown('cuisine_category_id', $cuisine_category, $detail['cuisine_category_id'], 'class="form-control" id="cuisine_category_id" data-url="'. base_url('admin/cuisine/get_province') .'" ');
                                 ?>
@@ -131,6 +140,13 @@
                                         echo form_textarea('description_vi', $detail['description_vi'], 'class="form-control  tinymce-area" id="description_vi"');
                                         ?>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Nội dung', 'body_vi');
+                                        echo form_error('body_vi');
+                                        echo form_textarea('body_vi', $detail['body_vi'], 'class="form-control  tinymce-area" id="body_vi"');
+                                        ?>
+                                    </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="language_en">
                                     <div class="form-group col-xs-12">
@@ -159,6 +175,13 @@
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
                                         echo form_textarea('description_en', $detail['description_en'], 'class="form-control tinymce-area" id="description_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Content', 'body_en');
+                                        echo form_error('body_en');
+                                        echo form_textarea('body_en', $detail['body_en'], 'class="form-control  tinymce-area" id="body_en"');
                                         ?>
                                     </div>
                                 </div>

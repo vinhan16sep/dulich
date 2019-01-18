@@ -44,6 +44,7 @@
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-6">
                             <a href="<?php echo base_url('admin/events/create') ?>" class="btn btn-primary"  >Thêm mới</a>
+                            <a href="javascript:void(0)" data-url="<?php echo base_url('admin/events/delete_all'); ?>" class="btn btn-danger btn-delete-all"  >Xóa tất cả</a>
                         </div>
                         <div class="col-md-6">
                             <form action="<?php echo base_url('admin/events/index') ?>" method="get">
@@ -60,13 +61,15 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <div class="table-responsive">
-                            <table id="table" class="table table_product">
+                        <div class="table-responsive delete-checkbox">
+                            <table id="table" class="table table-hover table-striped">
                                 <thead>
                                 <tr>
+                                    <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i> &nbsp&nbsp All</th>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
-                                    <th>Tên sự kiện</th>
+                                    <th>Tên sự kiện Tiếng Việt</th>
+                                    <th>Tên sự kiện Tiếng Anh</th>
                                     <th>Tỉnh / Thành phố</th>
                                     <th>Vùng miền</th>
                                     <th>Duyệt Bài</th>
@@ -78,6 +81,7 @@
                                     <?php if ($result): ?>
                                         <?php foreach ($result as $key => $value): ?>
                                             <tr class="remove-<?= $value['id'] ?>">
+                                                <td><input type="checkbox" name="is_delete[]" value="<?= $value['id'] ?>" class="is-delete-all" ></td>
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
@@ -85,6 +89,7 @@
                                                     </div>
                                                 </td>
                                                 <td><a href="<?php echo base_url('su-kien/' . $region_slug[$value['region_id']] . '/' . $province_slug[$value['province_id']] . '/' . $value['slug']) ?>"  target="_blank" ><?= $value['title_vi'] ?></a></td>
+                                                <td><?php echo $value['title_en'] ?></td>
                                                 <td><?= empty($province[$value['province_id']]) ? '(Không có)' : $province[$value['province_id']] ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
@@ -135,12 +140,14 @@
                                 <?php if ($result): ?>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
-                                            <th>Tên sự kiện</th>
+                                            <th>Tên sự kiện Tiếng Việt</th>
+                                            <th>Tên sự kiện Tiếng Anh</th>
                                             <th>Tỉnh / Thành phố</th>
                                             <th>Vùng miền</th>
-                                            <th>Duyệt sự kiện</th>
+                                            <th>Duyệt Bài</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

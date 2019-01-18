@@ -129,7 +129,14 @@
                                         <?php
                                         echo form_label('Giới thiệu', 'description_vi');
                                         echo form_error('description_vi');
-                                        echo form_textarea('description_vi', set_value('description_vi'), 'class="form-control  tinymce-area" id="description_vi"');
+                                        echo form_textarea('description_vi', set_value('description_vi'), 'class="form-control" id="description_vi"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Nội dung', 'body_vi');
+                                        echo form_error('body_vi');
+                                        echo form_textarea('body_vi', set_value('body_vi'), 'class="form-control  tinymce-area" id="body_vi"');
                                         ?>
                                     </div>
                                 </div>
@@ -159,7 +166,14 @@
                                         <?php
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
-                                        echo form_textarea('description_en', set_value('description_en'), 'class="form-control  tinymce-area" id="description_en"');
+                                        echo form_textarea('description_en', set_value('description_en'), 'class="form-control" id="description_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <?php
+                                        echo form_label('Content', 'body_en');
+                                        echo form_error('body_en');
+                                        echo form_textarea('body_en', set_value('body_en'), 'class="form-control  tinymce-area" id="body_en"');
                                         ?>
                                     </div>
                                 </div>

@@ -19,7 +19,7 @@ class Events extends Admin_Controller{
             $keywords = $this->input->get('search');
         }
         $this->data['keywords'] = $keywords;
-        $total_rows  = $this->region_model->count_search_by_create_by($keywords);
+        $total_rows  = $this->events_model->count_search_by_create_by($keywords);
         $this->load->library('pagination');
         $config = array();
         $base_url = base_url('admin/events/index');
@@ -267,6 +267,18 @@ class Events extends Admin_Controller{
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_BAD_REQUEST)
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function delete_all(){
+        $ids = $this->input->get('ids');
+        $data = array('is_deleted' => 1);
+        foreach ($ids as $id) {
+            $update = $this->events_model->update($id, $data);
+        }
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
     }
 
     public function get_province(){

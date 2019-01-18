@@ -248,6 +248,18 @@ class Blog extends Admin_Controller{
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
+    public function delete_all(){
+        $ids = $this->input->get('ids');
+        $data = array('is_deleted' => 1);
+        foreach ($ids as $id) {
+            $update = $this->blog_model->update($id, $data);
+        }
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
+    }
+
     public function remove_image(){
         $id = $this->input->get('id');
         $image = $this->input->get('image');
