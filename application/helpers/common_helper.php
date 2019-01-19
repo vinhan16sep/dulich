@@ -67,6 +67,22 @@ if (!function_exists('handle_common_permission')) {
     }
 }
 
+// phan quyen ajax
+if (!function_exists('handle_common_permission_ajax')) {
+    /**
+     * @return array
+     */
+    function handle_common_permission_ajax($permission) {
+        $CI =& get_instance();
+        if ( !$CI->ion_auth->in_group($permission) ){
+            $CI->session->set_flashdata('message_error', 'Tài khoản không có quyền truy cập');
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS,'message' => 'Tài khoản không có quyền truy cập' , 'reponse' => array('error_permission' => 'error'), 'isExisted' => $isExisted)));
+        }
+    }
+}
 if (!function_exists('handle_common_permission_active_and_remove')) {
     /**
      * @return array

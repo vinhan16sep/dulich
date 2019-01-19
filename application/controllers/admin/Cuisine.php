@@ -379,14 +379,14 @@ class Cuisine extends Admin_Controller{
         }
     }
     public function img_activated(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->cuisine_model->find($id);
         if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
             if(!handle_common_permission_active_and_remove()){
                 return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
             }
         }
-        $id = $this->input->get('id');
-        $image = $this->input->get('image');
-        $detail = $this->cuisine_model->find($id);
         if($detail['avatar'] != $image){
             $avatar = $image;
             $update_activated = "1";
