@@ -33,7 +33,7 @@
                         -->
 
                         <p>
-                            <?php echo $cuisine['description'] ?>
+                            <?php echo $cuisine['body'] ?>
                         </p>
 
                         <img src="<?php echo base_url('assets/upload/cuisine/'.$cuisine['slug'].'/'.$cuisine['avatar']) ?>" alt="Image of Post">

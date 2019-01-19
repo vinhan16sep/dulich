@@ -516,6 +516,7 @@ textarea {
         width: 100%;
         height: 100%; }
       .main-slide .carousel-inner .carousel-item .carousel-caption {
+        bottom: 50px;
         text-align: left;
         padding-bottom: 100px; }
         .main-slide .carousel-inner .carousel-item .carousel-caption .row .item h1 {
@@ -561,6 +562,8 @@ textarea {
           display: block; }
         .main-slide .link-control .container ul li.active a {
           font-weight: 700; }
+  .main-slide .carousel-caption {
+    bottom: 50px; }
 
 .main-cover {
   width: 100%;
@@ -1765,6 +1768,10 @@ TABLETS (less than 1200px)
         #detail-event .container-fluid#content .container .row .right .recommended .item .item-content .content-footer {
           text-align: right; }
 
+.detail-post .main-cover .mask .content .container p.text-wrapper {
+  max-width: 100%;
+  max-height: unset;
+  -webkit-line-clamp: unset; }
 .detail-post .container-fluid#content {
   background-color: #f7f7f7; }
   .detail-post .container-fluid#content .row .left {
