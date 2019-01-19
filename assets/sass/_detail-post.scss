@@ -1,6 +1,18 @@
 .detail-post{
     .main-cover{
-
+        .mask{
+            .content{
+                .container{
+                    p{
+                        &.text-wrapper{
+                            max-width: 100%;
+                            max-height: unset;
+                            -webkit-line-clamp: unset;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .container-fluid{
