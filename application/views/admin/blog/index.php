@@ -44,6 +44,7 @@
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-6">
                             <a href="<?php echo base_url('admin/blog/create') ?>" class="btn btn-primary"  >Thêm mới</a>
+                            <a href="javascript:void(0)" data-url="<?php echo base_url('admin/blog/delete_all'); ?>" class="btn btn-danger btn-delete-all"  >Xóa tất cả</a>
                         </div>
                         <div class="col-md-6">
                             <form action="<?php echo base_url('admin/blog/index') ?>" method="get">
@@ -60,10 +61,11 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <div class="table-responsive">
-                            <table id="table" class="table table_product">
+                        <div class="table-responsive delete-checkbox">
+                            <table id="table" class="table table-hover table-striped">
                                 <thead>
                                 <tr>
+                                    <th><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i> &nbsp&nbsp All</th>
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
                                     <th>TOP</th>
@@ -80,6 +82,7 @@
                                     <?php if ($result): ?>
                                         <?php foreach ($result as $key => $value): ?>
                                             <tr class="remove-<?= $value['id'] ?>">
+                                                <td><input type="checkbox" name="is_delete[]" value="<?= $value['id'] ?>" class="is-delete-all" ></td>
                                                 <td><?= $serial ?></td>
                                                 <td>
                                                     <div class="mask_sm">
@@ -94,7 +97,6 @@
                                                 <td><?= ($value['province_id'] != 0) ? $province[$value['province_id']] : 'Không thuộc Tỉnh / Thành Phố' ?></td>
                                                 <td><?= $region[$value['region_id']] ?></td>
                                                 <td class="is-active-<?= $value['id'] ?>">
-                                                    <!-- <input type="checkbox" class="btn-active" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-id="<?= $value['id'] ?>" data-url="<?= base_url('admin/blog/active' ) ?>" <?= ($value['is_active'] == 1)? 'checked' : '' ?> checked> -->
                                                     <?php
                                                         if ($value['is_active'] == 0) {
                                                             echo '<span class="label label-warning">Chờ duyệt</span>';
@@ -142,6 +144,7 @@
                                 <?php if ($result): ?>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th>No.</th>
                                             <th>Hình ảnh</th>
                                             <th>TOP</th>

@@ -20,7 +20,7 @@ class Cuisine extends Admin_Controller{
             $keywords = $this->input->get('search');
         }
         $this->data['keywords'] = $keywords;
-        $total_rows  = $this->region_model->count_search_by_create_by($keywords);
+        $total_rows  = $this->cuisine_model->count_search_by_create_by($keywords);
         $this->load->library('pagination');
         $config = array();
         $base_url = base_url('admin/cuisine/index');
@@ -97,6 +97,8 @@ class Cuisine extends Admin_Controller{
                     'metadescription_en' => $this->input->post('metadescription_en'),
                     'description_vi' => $this->input->post('description_vi'),
                     'description_en' => $this->input->post('description_en'),
+                    'body_vi' => $this->input->post('body_vi'),
+                    'body_en' => $this->input->post('body_en'),
                     'cuisine_category_id' => $this->input->post('cuisine_category_id'),
                     'region_id' => $this->input->post('region_id'),
                 );
@@ -231,6 +233,18 @@ class Cuisine extends Admin_Controller{
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_BAD_REQUEST)
                     ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function delete_all(){
+        $ids = $this->input->get('ids');
+        $data = array('is_deleted' => 1);
+        foreach ($ids as $id) {
+            $update = $this->cuisine_model->update($id, $data);
+        }
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'isExisted' => true)));
     }
 
     public function get_province(){
