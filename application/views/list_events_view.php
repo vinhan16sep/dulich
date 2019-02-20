@@ -2,7 +2,8 @@
 	<div id="encypted_ppbtn_all"></div>
 	<div class="main-cover">
 		<div class="mask">
-			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
+			<?php $image_event = ($this->uri->segment(1) == 'su-kien') ? $region['img_event'] : ''; ?>
+			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$image_event) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
@@ -37,7 +38,7 @@
 				<div class="grid-sizer"></div>
 				<?php foreach ($events as $key => $value): ?>
 					<div class="grid-item <?php if( ($key+1 == 1) || ($key+1 == 4) || ($key+1 == 5) || ($key+1 == 8) ) { ?> grid-item-2 <?php } ?>">
-						<a href="<?php echo base_url('su-kien/'.$region['slug'].'/'.$value['province_slug'].'/'.$value['slug']) ?>">
+						<a href="<?php echo base_url('events/'.$value['slug']) ?>">
 							<div class="inner">
 								<div class="mask">
 									<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']) ?>" alt="Image Province">
@@ -130,7 +131,7 @@
             	console.log(i+1);
 	            result += `
 		            <div class="grid-item ${( (i+1 == 1) || (i+1 == 4) || (i+1 == 5) || (i+1 == 8) ) ? 'grid-item-2' : '' }">
-						<a href="${HOSTNAME}su-kien/${response.reponse.region['slug']}/${response.reponse.events[i]['province_slug']}/${response.reponse.events[i]['slug']}">
+						<a href="${HOSTNAME}events/${response.reponse.events[i]['slug']}">
 							<div class="inner">
 								<div class="mask">
 									<img src="${HOSTNAME}assets/upload/events/${response.reponse.events[i]['slug']}/${response.reponse.events[i]['image']}" alt="Image Province">

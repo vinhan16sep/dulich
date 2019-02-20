@@ -38,26 +38,49 @@ class Blogs extends Public_Controller {
         $this->render('list_blogs_view');
     }
 
-    public function detail($region_slug, $province_slug, $slug){
-        $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
-        $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
-        if (!empty($region) && !empty($province)) {
-            $this->data['region'] = $region;
-            $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
-            $this->data['region_all'] = $region_all;
+    // public function detail($region_slug, $province_slug, $slug){
+    //     $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
+    //     $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
+    //     if (!empty($region) && !empty($province)) {
+    //         $this->data['region'] = $region;
+    //         $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
+    //         $this->data['region_all'] = $region_all;
 
-            $blog = $this->blog_model->find_where(array('slug' => $slug),$this->data['lang']);
-            $this->data['metakeywords'] = $blog['metakeywords'];
-            $this->data['metadescription'] = $blog['metadescription'];
-            $this->data['blog'] = $blog;
-            $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1),$this->data['lang']);
-            foreach ($blogs_top as $key => $value) {
-                $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
-                $blogs_top[$key]['province'] = $province;
+    //         $blog = $this->blog_model->find_where(array('slug' => $slug),$this->data['lang']);
+    //         $this->data['metakeywords'] = $blog['metakeywords'];
+    //         $this->data['metadescription'] = $blog['metadescription'];
+    //         $this->data['blog'] = $blog;
+    //         $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1),$this->data['lang']);
+    //         foreach ($blogs_top as $key => $value) {
+    //             $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
+    //             $blogs_top[$key]['province'] = $province;
+    //         }
+    //         $this->data['blogs_top'] = $blogs_top;
+
+    //         $this->render('detail_blog_view');
+    //     }
+    // }
+    public function detail($slug){
+        $blog = $this->blog_model->find_where(array('slug' => $slug),$this->data['lang']);
+        if(!empty($blog['id'])){
+            $region = $this->region_model->find_where(array('id' => $blog['region_id']),$this->data['lang']);
+            $province = $this->province_model->find_where(array('id' => $blog['province_id']),$this->data['lang']);
+            if(!empty($region['id']) && !empty($province['id'])){
+                $this->data['region'] = $region;
+                $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
+                $this->data['region_all'] = $region_all;
+                $this->data['metakeywords'] = $blog['metakeywords'];
+                $this->data['metadescription'] = $blog['metadescription'];
+                $this->data['blog'] = $blog;
+                $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1),$this->data['lang']);
+                foreach ($blogs_top as $key => $value) {
+                    $province = $this->province_model->find_where(array('id' => $value['province_id']),$this->data['lang']);
+                    $blogs_top[$key]['province'] = $province;
+                }
+                $this->data['blogs_top'] = $blogs_top;
+
+                $this->render('detail_blog_view');
             }
-            $this->data['blogs_top'] = $blogs_top;
-
-            $this->render('detail_blog_view');
         }
     }
 
@@ -66,9 +89,6 @@ class Blogs extends Public_Controller {
         $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $region_detail['metakeywords'];
         $this->data['metadescription'] = $region_detail['metadescription'];
-        echo "<pre>";
-        print_r($region_detail);
-        echo "<pre>";die;
         if(!empty($region_detail)){
             // dữ liệu miền cho blog
             $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
@@ -107,15 +127,10 @@ class Blogs extends Public_Controller {
                 $this->data['blog'] = $blog;//tất cả bài viết thuộc miền và tỉnh
                 $this->data['region'] = $region;//miền của tất cả bài viết
                 $this->data['province'] = $province;//tỉnh của tất cả bài viết
-                echo "<pre>";
-                print_r($blog);
-                echo "<pre>";die;
-
 
                 echo 'Trang danh sách blog của provice';
                 return false;
 
-                    
                 return $this->render('detail_blog_view');
             }
         }

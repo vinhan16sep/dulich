@@ -73,26 +73,31 @@ $route['danh-muc/([a-zA-Z0-9-_]+)'] = 'post/category/$1';
 
 
 //url cho destination
+$route['destination/([a-zA-Z0-9-_]+)'] = 'destinations/detailpost/$1';// update url 20/02/2019
 $route['diem-den'] = 'destinations/index';
 $route['diem-den/([a-zA-Z0-9-_]+)'] = 'destinations/region/$1';
 $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/province/$1/$2';
-$route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detailpost/$1/$2/$3';
+// $route['diem-den/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'destinations/detailpost/$1/$2/$3';
 
 //url cho cusnine
 // $route['mon-an'] = 'cuisine/index';
+$route['cuisine/([a-zA-Z0-9-_]+)'] = 'cuisine/index/$1';// update url 20/02/2019
 $route['mon-an/([a-zA-Z0-9-_]+)'] = 'cuisine/region/$1';
-$route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/detail/$1/$2/$3';
+// $route['mon-an/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'cuisine/detail/$1/$2/$3';
 
 //url cho events
+$route['events/ajax_event'] = 'events/ajax_event';// update url 20/02/2019
+$route['events/([a-zA-Z0-9-_]+)'] = 'events/index/$1';// update url 20/02/2019
 $route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/region/$1';
 $route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/province/$1/$2';
-$route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/detail/$1/$2/$3';
+// $route['su-kien/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'events/detail/$1/$2/$3';
 
 //url cho blogs
 $route['bai-viet'] = 'blogs/index';
+$route['blog/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1';// update url 20/02/2019
 $route['bai-viet/([a-zA-Z0-9-_]+)'] = 'blogs/region/$1';
 $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/province/$1/$2';
-$route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1/$2/$3';
+// $route['bai-viet/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)'] = 'blogs/detail/$1/$2/$3';
 
 //about
 $route['ve-chung-toi'] = 'about/index';

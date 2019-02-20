@@ -1,7 +1,8 @@
 <section id="blogs">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $region_detail['avatar']) ?>" alt="Image banner <?php echo $region_detail['slug'] ?>">
+			<?php $image_blog = ($this->uri->segment(1) == 'bai-viet') ? $region_detail['img_blog'] : ''; ?>
+			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $image_blog) ?>" alt="Image banner <?php echo $region_detail['slug'] ?>">
 
 			<div class="content">
 				<div class="container">
@@ -51,7 +52,7 @@
 								<div class="item-content">
 									<div class="content-header">
 										<span class="badge"><?php echo $value['province']['title']; ?></span>
-										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+										<a href="<?php echo base_url('blog/' . $value['slug']) ?>">
 											<h3><?php echo $value['title']; ?></h3>
 										</a>
 										<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
@@ -67,7 +68,7 @@
 										</p>
 									</div>
 									<div class="content-footer">
-										<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+										<a href="<?php echo base_url('blog/' . $value['slug']) ?>" class="btn btn-primary" role="button">
 											<?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
@@ -101,7 +102,7 @@
 									<div class="item-content">
 										<div class="content-header">
 											<span class="badge"><?php echo $value['province']['title']; ?></span>
-											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+											<a href="<?php echo base_url('blog/' . $value['slug']) ?>">
 												<h3><?php echo $value['title']; ?></h3>
 											</a>
 											<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
@@ -117,7 +118,7 @@
 											</p>
 										</div>
 										<div class="content-footer">
-											<a href="<?php echo base_url('bai-viet/' . $region_detail['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+											<a href="<?php echo base_url('blog/' . $value['slug']) ?>" class="btn btn-primary" role="button">
                                                 <?php echo $this->lang->line('btn_view_detail') ?>
 											</a>
 										</div>

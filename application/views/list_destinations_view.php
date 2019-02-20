@@ -1,8 +1,10 @@
+
+			
 <section id="destinations">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $region_detail['avatar']) ?>" alt="Image Cover Blog">
-
+			<?php $image_destination = ($this->uri->segment(1) == 'diem-den') ? $region_detail['img_destination'] : ''; ?>
+			<img src="<?php echo base_url('assets/upload/region/' . $region_detail['slug'] . '/' . $image_destination) ?>" alt="Image Cover Blog">
 			<div class="content">
 				<div class="container">
 					<div class="row">
@@ -25,7 +27,7 @@
                             		<?php endif ?>
                             		
 										<a href="<?php echo base_url('diem-den/' . $value['slug']) ?>">
-											<?php echo $value['title'] ?>
+											<?php echo $value['title'];?>
 										</a>
 									</li>
                             	<?php endforeach ?>
@@ -76,7 +78,7 @@
 										<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
 
 										<div class="title">
-											<h2><?php echo $value['title'] ?></h2>
+											<h2><?php echo $value['title'];?></h2>
 											<h6><?php echo $value['description'] ?></h6>
 										</div>
 									</div>
@@ -85,7 +87,7 @@
 											<?php if (!empty($value['destination'])): ?>
 												<?php foreach ($value['destination'] as $k => $val): ?>
 													<li>
-														<a href="<?php echo base_url('diem-den/' . $slug_region . '/' . $value['slug'] . '/' . $val['slug']); ?>">
+														<a href="<?php echo base_url('destination/' . $val['slug']); ?>">
 															<?php echo $val['title'] ?>
 														</a>
 													</li>

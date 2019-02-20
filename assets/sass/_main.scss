@@ -66,6 +66,8 @@ textarea{
             }
 
             .carousel-caption{
+                bottom: 50px;
+
                 text-align: left;
 
                 padding-bottom: 100px;
@@ -161,6 +163,10 @@ textarea{
                 }
             }
         }
+    }
+
+    .carousel-caption{
+        bottom: 50px;
     }
 }
 

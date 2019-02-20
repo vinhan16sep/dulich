@@ -35,7 +35,8 @@
 
 	<div class="main-cover">
 		<div class="mask">
-			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
+			<?php $image_cuisine = ($this->uri->segment(1) == 'mon-an') ? $region['img_cuisine'] : ''; ?>
+			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$image_cuisine) ?>" alt="Image Cover Blog">
 
 			<div class="content">
 				<div class="container">
@@ -79,11 +80,11 @@
 							<div class="item col-xs-12 col-lg-6">
 								<div class="inner">
 									<div class="mask">
-										<a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$val['slug'].'/'.$value['slug']) ?>">
+										<a href="<?php echo base_url('cuisine/'.$value['slug']) ?>">
 											<img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Cuisine Post">
 
 											<div class="badge">
-												<?php echo $region['title'].' '.$this->lang->line('ofvietnam'); ?>
+												<?php echo empty($value['province']) ? $region['title'].' '.$this->lang->line('ofvietnam') : $value['province']; ?>
 											</div>
 
 											<div class="content">

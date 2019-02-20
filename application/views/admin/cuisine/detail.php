@@ -42,12 +42,20 @@
                                     <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <th>Danh mục</th>
-                                                <td><?= $cuisine_category['title_vi'] ?></td>
-                                            </tr>
-                                            <tr>
                                                 <th>Top món ăn</th>
                                                 <td><i class="fa fa-<?= ($detail['is_top'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?> "></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Vùng miền</th>
+                                                <td><?= $region['title_vi'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tỉnh / Thành phố</th>
+                                                <td><?= $province ? $province['title_vi'] : '(Không có)' ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Danh mục</th>
+                                                <td><?= $cuisine_category['title_vi'] ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Slug</th>

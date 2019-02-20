@@ -79,6 +79,15 @@
                         <div class="form-group col-xs-12"  style="padding-right: 0px;">
                             <div class="form-group col-xs-12"  style="padding-right: 0px;">
                                 <?php
+                                echo form_label('Tỉnh / Thành phố', 'province_id');
+                                echo form_error('province_id');
+                                echo form_dropdown('province_id', array('' => 'Chọn vùng miền trước'), 0, 'class="form-control" id="province_id" ');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12"  style="padding-right: 0px;">
+                            <div class="form-group col-xs-12"  style="padding-right: 0px;">
+                                <?php
                                 echo form_label('Danh mục', 'cuisine_category_id');
                                 echo form_error('cuisine_category_id');
                                 echo form_dropdown('cuisine_category_id', $cuisine_category, set_value('cuisine_category_id'), 'class="form-control" id="cuisine_category_id" data-url="'. base_url('admin/cuisine/get_province') .'" ');

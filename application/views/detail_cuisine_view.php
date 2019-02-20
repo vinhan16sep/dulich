@@ -33,7 +33,7 @@
                         -->
 
                         <p>
-                            <?php echo $cuisine['description'] ?>
+                            <?php echo $cuisine['body'] ?>
                         </p>
 
                         <img src="<?php echo base_url('assets/upload/cuisine/'.$cuisine['slug'].'/'.$cuisine['avatar']) ?>" alt="Image of Post">
@@ -82,15 +82,15 @@
                             <div class="item">
                                 <div class="item-image">
                                     <div class="mask">
-                                        <a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$cuisine_category['slug'].'/'.$value['slug']) ?>">
+                                        <a href="<?php echo base_url('cuisine/'.$value['slug']) ?>">
                                             <img src="<?php echo base_url('assets/upload/cuisine/'.$value['slug'].'/'.$value['avatar']) ?>" alt="Image Blog">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge"><?php echo $region['title'] ?></span>
-                                        <a href="<?php echo base_url('mon-an/'.$region['slug'].'/'.$cuisine_category['slug'].'/'.$value['slug']) ?>">
+                                        <span class="badge"><?php echo empty($value['province']) ? $region['title'] : $value['province']; ?></span>
+                                        <a href="<?php echo base_url('cuisine/'.$value['slug']) ?>">
                                             <h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
                                         </a>
                                     </div>

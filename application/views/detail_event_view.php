@@ -46,7 +46,7 @@
 							<div class="item">
 								<div class="item-image">
 									<div class="mask">
-										<a href="<?php echo base_url('su-kien/'.$region['slug'].'/'.$value['province_slug'].'/'.$value['slug']) ?>">
+										<a href="<?php echo base_url('events/'.$value['slug']) ?>">
 											<img src="<?php echo base_url('assets/upload/events/'.$value['slug'].'/'.$value['image']) ?>" alt="Image Blog">
 										</a>
 									</div>
@@ -54,7 +54,7 @@
 								<div class="item-content">
 									<div class="content-header">
 										<span class="badge"><?php echo $value['province_title'] ?></span>
-										<a href="<?php echo base_url('su-kien/'.$region['slug'].'/'.$value['province_slug'].'/'.$value['slug']) ?>">
+										<a href="<?php echo base_url('events/'.$value['slug']) ?>">
 											<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										</a>
 										<ul>

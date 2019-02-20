@@ -100,6 +100,7 @@ class Cuisine extends Admin_Controller{
                     'body_vi' => $this->input->post('body_vi'),
                     'body_en' => $this->input->post('body_en'),
                     'cuisine_category_id' => $this->input->post('cuisine_category_id'),
+                    'province_id' => !empty($this->input->post('province_id')) ? $this->input->post('province_id') : 0,
                     'region_id' => $this->input->post('region_id'),
                 );
                 $insert = $this->cuisine_model->insert(array_merge($data, $this->author_data));
@@ -117,8 +118,12 @@ class Cuisine extends Admin_Controller{
 
     public function detail($id){
         $detail = $this->cuisine_model->find($id);
+        $region = $this->region_model->find($detail['region_id']);
+        $province = $this->province_model->find($detail['province_id']);
         $cuisine_category = $this->cuisine_category_model->find($detail['cuisine_category_id']);
         $this->data['detail'] = $detail;
+        $this->data['region'] = $region;
+        $this->data['province'] = $province ? $province : null ;
         $this->data['cuisine_category'] = $cuisine_category ? $cuisine_category : null ;
         $this->render('admin/cuisine/detail');
     }
@@ -145,6 +150,11 @@ class Cuisine extends Admin_Controller{
                 }
             }
 
+            //Get province by region_id
+            $province = $this->province_model->get_by_field_is_active('region_id', $detail['region_id']);
+            $province = build_array_by_id_for_dropdown($province);
+            $this->data['province'] = $province;
+            
             $this->load->helper('form');
             $this->load->library('form_validation');
 
@@ -194,6 +204,7 @@ class Cuisine extends Admin_Controller{
                         'description_vi' => $this->input->post('description_vi'),
                         'description_en' => $this->input->post('description_en'),
                         'cuisine_category_id' => $this->input->post('cuisine_category_id'),
+                        'province_id' => $this->input->post('province_id'),
                         'region_id' => $this->input->post('region_id'),
                     );
                     if ( isset($images) ) {
@@ -379,14 +390,14 @@ class Cuisine extends Admin_Controller{
         }
     }
     public function img_activated(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $detail = $this->cuisine_model->find($id);
         if ($detail['created_by'] != $this->ion_auth->user()->row()->username) {
             if(!handle_common_permission_active_and_remove()){
                 return $this->return_api(HTTP_BAD_REQUEST,'Tài khoản không có quyền truy cập',array('error_permission' => 'error'), false);
             }
         }
-        $id = $this->input->get('id');
-        $image = $this->input->get('image');
-        $detail = $this->cuisine_model->find($id);
         if($detail['avatar'] != $image){
             $avatar = $image;
             $update_activated = "1";
