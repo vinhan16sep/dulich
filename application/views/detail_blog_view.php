@@ -3,18 +3,18 @@
 		<div class="mask">
 			<img src="<?php echo base_url('assets/upload/blog/' . $blog['slug'] . '/' . $blog['avatar']) ?>" alt="Image Cover Blog">
 
-			<div class="content">
-				<div class="container">
-					<div class="row">
-						<div class="item col-xs-12 col-lg-6">
-							<h1><?php echo $blog['title'] ?></h1>
-							<p class="text-wrapper">
-								<?php echo $blog['description'] ?>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+<!--			<div class="content">-->
+<!--				<div class="container">-->
+<!--					<div class="row">-->
+<!--						<div class="item col-xs-12 col-lg-6">-->
+<!--							<h1>--><?php //echo $blog['title'] ?><!--</h1>-->
+<!--							<p class="text-wrapper">-->
+<!--								--><?php //echo $blog['description'] ?>
+<!--							</p>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 	</div>
 
@@ -22,11 +22,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="left col-xs-12 col-lg-8">
-					<div>
-						<!--
-                        <strong>Time: <?= (date_format(date_create($detail['date_start']),"d M Y") == date_format(date_create($detail['date_end']),"d M Y")) ? date_format(date_create($detail['date_start']),"d M Y") : date_format(date_create($detail['date_start']),"d M Y").' - '.date_format(date_create($detail['date_end']),"d M Y") ?></strong>
-                        -->
-					</div>
+					<h1><?php echo $blog['title'] ?></h1>
+					<p class="text-wrapper">
+                        <?php echo $blog['description'] ?>
+					</p>
 					<article>
 						<p>
 							<?php echo $blog['body'] ?>
@@ -54,8 +53,6 @@
 											</a>
 											<ul>
 												<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
-
-												<li><h6><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></h6></li>
 											</ul>
 										</div>
 										<div class="content-body">

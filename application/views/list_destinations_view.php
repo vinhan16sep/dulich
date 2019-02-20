@@ -39,67 +39,31 @@
 
     <div class="container-fluid" id="list-destinations">
 		<div class="container">
-			<div class="grid">
-				<div class="grid-sizer"></div>
-				<?php
-					$slug_region = 'mien-bac';
-					if ($this->uri->segment(2) != '') {
-						$slug_region = $this->uri->segment(2);
-					}
-				?>
-				<?php if ($province): ?>
-					<?php foreach ($province as $key => $value): ?>
-						<?php 
-							$grid_item = '';
-							switch ($key + 1) {
-								case 1:
-									$grid_item = 'grid-item-2';
-									break;
-								case 4:
-									$grid_item = 'grid-item-2';
-									break;
-								case 5:
-									$grid_item = 'grid-item-2';
-									break;
-								case 8:
-									$grid_item = 'grid-item-2';
-									break;
-								default:
-									$grid_item = '';
-									break;
-							}
-						?>
-						<div class="grid-item <?php echo $grid_item ?>">
+			<div class="row">
+                <?php
+                $slug_region = 'mien-bac';
+                if ($this->uri->segment(2) != '') {
+                    $slug_region = $this->uri->segment(2);
+                }
+                ?>
+                <?php if ($province): ?>
+                	<?php foreach ($province as $key => $value): ?>
+						<div class="item col-xs-12 col-md-6 col-lg-4">
 							<a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$value['slug']) ?>">
 								<div class="inner">
 									<div class="mask">
 										<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
 
 										<div class="title">
-											<h2><?php echo $value['title'] ?></h2>
-											<h6><?php echo $value['description'] ?></h6>
+											<h4 class="text-wrapper"><?php echo $value['title'] ?></h4>
+											<!--<h6><?php echo $value['description'] ?></h6>-->
 										</div>
-									</div>
-									<div class="content">
-										<ul> <!-- List Destinations -->
-											<?php if (!empty($value['destination'])): ?>
-												<?php foreach ($value['destination'] as $k => $val): ?>
-													<li>
-														<a href="<?php echo base_url('diem-den/' . $slug_region . '/' . $value['slug'] . '/' . $val['slug']); ?>">
-															<?php echo $val['title'] ?>
-														</a>
-													</li>
-												<?php endforeach ?>
-											<?php else: ?>
-												<li>Chưa có bài viết</li>
-											<?php endif ?>
-										</ul>
 									</div>
 								</div>
 							</a>
 						</div>
-					<?php endforeach ?>					
-				<?php endif ?>
+                    <?php endforeach ?>
+                <?php endif ?>
 			</div>
 
 			<div class="see-more">

@@ -195,9 +195,12 @@ header {
     align-items: flex-end;
     z-index: 1051; }
     header nav .nav-brand {
-      padding-bottom: 15px; }
+      height: 100%;
+      background-color: #fff; }
       header nav .nav-brand a {
         color: #fff; }
+        header nav .nav-brand a img {
+          margin-top: 15px; }
     header nav .nav-main ul {
       margin-bottom: 0; }
       header nav .nav-main ul li {
@@ -567,7 +570,7 @@ textarea {
 
 .main-cover {
   width: 100%;
-  height: 100vh; }
+  height: 75vh; }
   .main-cover .mask {
     width: 100%;
     height: 100%;
@@ -747,17 +750,32 @@ MOBILE (less than 1024px)
 /* Pages */
 #homepage #slideHomepage {
   width: 100%;
-  height: 100vh; }
+  height: 75vh; }
   #homepage #slideHomepage .carousel-inner {
     height: 100%; }
     #homepage #slideHomepage .carousel-inner .carousel-item {
-      height: 100%; }
+      height: 100%;
+      background-color: #C4C3C3; }
       #homepage #slideHomepage .carousel-inner .carousel-item .mask {
         width: 100%;
         height: 100%; }
       #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption {
         text-align: left;
-        padding-bottom: 30px; }
+        padding-bottom: 30px;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3); }
+        #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption h1 {
+          margin-bottom: 7px; }
+        #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption h4 {
+          max-width: 50%;
+          font-weight: 400; }
+          #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption h4.text-wrapper {
+            max-height: 3.5em;
+            -webkit-line-clamp: 3; }
+        #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption p {
+          margin-bottom: 30px; }
+          #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption p.text-wrapper {
+            height: 6em;
+            -webkit-line-clamp: 4; }
         #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption .row .item:first-of-type a {
           display: none; }
         #homepage #slideHomepage .carousel-inner .carousel-item .carousel-caption .row .item h1 {
@@ -822,12 +840,12 @@ MOBILE (less than 1024px)
           left: 0;
           position: absolute;
           background: rgba(0, 0, 0, 0);
-          background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-          background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+          background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+          background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
       #homepage .container-fluid#exp-activities .body #north .grid .grid-item:hover .mask img {
         -webkit-transform: scale(1.1, 1.1);
@@ -876,12 +894,12 @@ MOBILE (less than 1024px)
       left: 0;
       position: absolute;
       background: rgba(0, 0, 0, 0);
-      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
       padding: 50px 30px 30px; }
       #homepage .container-fluid#exp-activities .body #center .row .left .mask .content h1 {
@@ -956,12 +974,12 @@ MOBILE (less than 1024px)
         left: 0;
         position: absolute;
         background: rgba(0, 0, 0, 0);
-        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-        background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-        background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+        background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+        background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
         padding: 50px 30px 30px;
         text-align: center; }
@@ -1043,12 +1061,12 @@ MOBILE (less than 1024px)
           bottom: 0;
           left: 0;
           background: rgba(0, 0, 0, 0);
-          background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-          background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+          background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+          background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
           #homepage .container-fluid#events .container .body .grid .grid-item .mask .content a {
             color: #fff; }
@@ -1328,7 +1346,15 @@ TABLETS (less than 1200px)
               position: absolute;
               bottom: 0;
               left: 0;
-              color: #fff; }
+              color: #fff;
+              background: rgba(0, 0, 0, 0);
+              background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+              background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
               #events .container-fluid#list-events .container .grid .grid-item .inner .mask .title h2 {
                 font-weight: 400; }
               #events .container-fluid#list-events .container .grid .grid-item .inner .mask .title p {
@@ -1370,6 +1396,49 @@ TABLETS (less than 1200px)
   #destinations .container-fluid#list-destinations .container {
     padding-top: 50px;
     padding-bottom: 50px; }
+    #destinations .container-fluid#list-destinations .container .row {
+      margin-bottom: 50px; }
+      #destinations .container-fluid#list-destinations .container .row .item {
+        margin-bottom: 30px; }
+        #destinations .container-fluid#list-destinations .container .row .item .inner {
+          -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+          -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); }
+          #destinations .container-fluid#list-destinations .container .row .item .inner .mask {
+            width: 100%;
+            height: 420px;
+            position: relative; }
+            #destinations .container-fluid#list-destinations .container .row .item .inner .mask .title {
+              width: 100%;
+              padding: 30px;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              color: #fff;
+              background: rgba(0, 0, 0, 0);
+              background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+              background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
+              #destinations .container-fluid#list-destinations .container .row .item .inner .mask .title h2, #destinations .container-fluid#list-destinations .container .row .item .inner .mask .title h6 {
+                font-weight: 400; }
+              #destinations .container-fluid#list-destinations .container .row .item .inner .mask .title h4.text-wrapper {
+                max-width: 100%;
+                max-height: 4em;
+                -webkit-line-clamp: 2; }
+          #destinations .container-fluid#list-destinations .container .row .item .inner .content {
+            padding: 15px;
+            background-color: #fff; }
+            #destinations .container-fluid#list-destinations .container .row .item .inner .content ul li {
+              display: inline-block;
+              margin-right: 15px;
+              color: #666;
+              font-family: "Lora", Serif; }
+              #destinations .container-fluid#list-destinations .container .row .item .inner .content ul li a {
+                color: #666; }
     #destinations .container-fluid#list-destinations .container .grid {
       margin-left: -15px;
       margin-right: 15px; }
@@ -1383,33 +1452,6 @@ TABLETS (less than 1200px)
         margin-bottom: 30px; }
         #destinations .container-fluid#list-destinations .container .grid .grid-item.grid-item-2 {
           width: 66.67%; }
-        #destinations .container-fluid#list-destinations .container .grid .grid-item .inner {
-          -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-          -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); }
-          #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .mask {
-            width: 100%;
-            height: 420px;
-            position: relative; }
-            #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .mask .title {
-              width: 100%;
-              padding: 0 15px 30px;
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              color: #fff; }
-              #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .mask .title h2, #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .mask .title h6 {
-                font-weight: 400; }
-          #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .content {
-            padding: 15px;
-            background-color: #fff; }
-            #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .content ul li {
-              display: inline-block;
-              margin-right: 15px;
-              color: #666;
-              font-family: "Lora", Serif; }
-              #destinations .container-fluid#list-destinations .container .grid .grid-item .inner .content ul li a {
-                color: #666; }
     #destinations .container-fluid#list-destinations .container .see-more {
       width: 100%;
       text-align: center; }
@@ -1505,6 +1547,19 @@ TABLETS (less than 1200px)
       #detail-destination .container-fluid#content .container-fluid#images .body .owl-carousel .owl-stage-outer .owl-item .mask {
         width: 100%;
         height: 400px; }
+      #detail-destination .container-fluid#content .container-fluid#images .body .owl-carousel .owl-dots {
+        text-align: center;
+        padding-top: 15px; }
+        #detail-destination .container-fluid#content .container-fluid#images .body .owl-carousel .owl-dots button {
+          width: 10px;
+          height: 10px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          background-color: #fff;
+          margin: 0 7px; }
+          #detail-destination .container-fluid#content .container-fluid#images .body .owl-carousel .owl-dots button.active {
+            background-color: #666; }
   #detail-destination .container-fluid#content .container-fluid.posts {
     background-color: #fff;
     margin-left: -15px;
@@ -1653,17 +1708,17 @@ TABLETS (less than 1200px)
                 bottom: 0;
                 left: 0;
                 padding: 50px 30px 30px;
-                background: rgba(255, 255, 255, 0);
-                background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%);
-                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.65)));
-                background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%);
-                background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%);
-                background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%);
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 ); }
+                background: rgba(0, 0, 0, 0);
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+                background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+                background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 ); }
                 #cuisine .container-fluid#list-cuisine .cuisine-style .container .row .item .inner .mask .content h3 {
                   font-weight: 400;
-                  color: #666; }
+                  color: #fff; }
   #cuisine .container-fluid#list-cuisine .container .tab-content {
     padding-top: 30px; }
     #cuisine .container-fluid#list-cuisine .container .tab-content .tab-pane .row .item {
@@ -1778,13 +1833,15 @@ TABLETS (less than 1200px)
     background-color: #fff;
     padding-top: 30px;
     padding-bottom: 150px; }
-    .detail-post .container-fluid#content .row .left article p {
-      font-family: 'Lora', Serif;
-      color: #949494; }
-    .detail-post .container-fluid#content .row .left article img {
-      width: 100% !important;
-      margin-top: 30px;
-      margin-bottom: 30px; }
+    .detail-post .container-fluid#content .row .left article {
+      font-family: 'Lora', Serif; }
+      .detail-post .container-fluid#content .row .left article p {
+        font-family: 'Lora', Serif;
+        color: #949494; }
+      .detail-post .container-fluid#content .row .left article img {
+        width: 100% !important;
+        margin-top: 30px;
+        margin-bottom: 30px; }
   .detail-post .container-fluid#content .row .right {
     padding-top: 50px; }
     .detail-post .container-fluid#content .row .right .recommended .item {
