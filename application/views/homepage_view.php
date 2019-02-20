@@ -16,6 +16,11 @@
                         <img src="<?php echo base_url('assets/upload/banner/' . $value['image']) ?>" alt="Image slide">
                     </div>
                     <div class="carousel-caption">
+						<span class="badge"><?php echo $value['province']['title'] ?></span>
+						<h1><?php echo $value['title'] ?></h1>
+						<h4 class="text-wrapper"><?php echo $value['description'] ?></h4>
+
+						<!--
                         <div class="row">
                             <div class="item col-xs-12 col-lg-4">
                                 <span class="badge"><?php echo $value['province']['title'] ?></span>
@@ -31,6 +36,7 @@
                                 </a>
                             </div>
                         </div>
+						-->
                     </div>
                 </div>
             <?php endforeach ?>
@@ -48,7 +54,7 @@
 
     <div class="container-fluid" id="exp-activities">
         <div class="heading">
-            <h3><?php echo $this->lang->line('experience_activities'); ?></h3>
+            <h3><?php echo $this->lang->line('menu_destinations'); ?></h3>
         </div>
 
         <div class="body">
@@ -100,6 +106,7 @@
                                 </a>
                             </div>
 
+							<!--
                             <div class="list-region">
                                 <ul>
                                     <?php foreach ($province_center_all as $key => $value): ?>
@@ -111,6 +118,7 @@
                                     <?php endforeach ?>
                                 </ul>
                             </div>
+                            -->
                         </div>
                     </div>
 
@@ -119,7 +127,9 @@
                             <?php foreach ($province_center as $key => $value): ?>
                                 <div class="item col-xs-12 col-lg-6">
                                     <div class="mask">
-                                        <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+										<a href="#">
+											<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+										</a>
                                     </div>
                                 </div>
                             <?php endforeach ?>
@@ -148,7 +158,9 @@
                             <?php foreach ($province_south as $key => $value): ?>
                                 <div class="item col-xs-12 col-lg-3">
                                     <div class="mask">
-                                        <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+										<a href="#">
+											<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+										</a>
                                     </div>
                                 </div>
                             <?php endforeach ?>

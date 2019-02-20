@@ -57,8 +57,6 @@
 										<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
 										<ul>
 											<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
-
-											<li><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></li>
 										</ul>
 									</div>
 									<div class="content-body">
@@ -107,8 +105,6 @@
 											<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
 											<ul>
 												<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
-
-												<li><?php echo date("d-m-Y", strtotime($value['updated_at'])); ?></li>
 											</ul>
 										</div>
 										<div class="content-body">

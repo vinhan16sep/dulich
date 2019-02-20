@@ -9,27 +9,27 @@
 					</a>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">
-                    <h4><?php echo $this->lang->line('footer_about') ?></h4>
+                    <h4>Sitemap</h4>
 
 					<ul>
 						<li>
-							<a href="<?php echo base_url('ve-chung-toi') ?>">
-								<?php echo $this->lang->line('footer_who_we_are') ?>
+							<a href="<?php echo base_url('diem-den') ?>">
+								<?php echo $this->lang->line('menu_destinations') ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('ve-chung-toi') ?>">
-                                <?php echo $this->lang->line('footer_core_value') ?>
+							<a href="<?php echo base_url('am-thuc') ?>">
+                                <?php echo $this->lang->line('menu_cuisine') ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('ve-chung-toi') ?>">
-                                <?php echo $this->lang->line('footer_our_services') ?>
+							<a href="<?php echo base_url('su-kien') ?>">
+                                <?php echo $this->lang->line('menu_events') ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('ve-chung-toi') ?>">
-                                <?php echo $this->lang->line('footer_meet_our_team') ?>
+							<a href="<?php echo base_url('bai-viet') ?>">
+                                <?php echo $this->lang->line('menu_blogs') ?>
 							</a>
 						</li>
 					</ul>
@@ -60,30 +60,20 @@
 	</div>
 	<div class="footer-bottom">
 		<div class="container">
-			<h6>2018 SSL &copy; 2018 Copyright Brand</h6>
+			<h6>2018 SSL &copy; 2018 Copyright <a href="http://netvietgroups.com/" target="_blank" style="color: #fff">NETVIETgroup</a></h6>
 			<ul>
 				<li>
-					<a href="#" target="_blank">
+					<a href="https://www.facebook.com/VieVietnamtravellog/" target="_blank">
 						<i class="fab fa-facebook-f"></i>
 					</a>
 				</li>
 				<li>
-					<a href="#" target="_blank">
+					<a href="https://www.youtube.com/channel/UCGefVe0DejG_9crIWItkDlA/featured" target="_blank">
 						<i class="fab fa-youtube-square"></i>
 					</a>
 				</li>
 				<li>
-					<a href="#" target="_blank">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" target="_blank">
-						<i class="fab fa-skype"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" target="_blank">
+					<a href="https://www.instagram.com/vietnam_travellog/" target="_blank">
 						<i class="fab fa-instagram"></i>
 					</a>
 				</li>

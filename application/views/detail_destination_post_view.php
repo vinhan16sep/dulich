@@ -3,18 +3,18 @@
         <div class="mask">
             <img src="<?php echo base_url('assets/upload/destination/' . $destination['slug'] . '/' . $destination['avatar']) ?>" alt="Image <?php echo $destination['slug'] ?>">
 
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="item col-xs-12 col-lg-6">
-                            <h1><?php echo $destination['title'] ?></h1>
-                            <p class="text-wrapper">
-                                <?php echo $destination['description'] ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="content">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="item col-xs-12 col-lg-6">-->
+<!--                            <h1>--><?php //echo $destination['title'] ?><!--</h1>-->
+<!--                            <p class="text-wrapper">-->
+<!--                                --><?php //echo $destination['description'] ?>
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 
@@ -22,9 +22,11 @@
         <div class="container">
             <div class="row">
                 <div class="left col-xs-12 col-lg-8">
-                    <div>
-                        <strong>Time: <?php echo date_format(date_create($destination['updated_at']),"d-m-Y") ?></strong>
-                    </div>
+					<h1><?php echo $destination['title'] ?></h1>
+					<p class="text-wrapper">
+                        <?php echo $destination['description'] ?>
+					</p>
+
                     <article>
                         <p><?php echo $destination['body'] ?></p>
                     </article>
@@ -45,7 +47,6 @@
                                         <a href="<?php echo base_url('diem-den/'.$region['slug'].'/'.$province['slug'].'/'.$value['slug']) ?>">
                                             <h3><?= $value['title'] ?></h3>
                                         </a>
-                                        <h6>Time | <small> <?= date_format(date_create($value['updated_at']),"d M Y") ?></small></h6>
                                         <ul>
                                             <li>Rating</li>
 

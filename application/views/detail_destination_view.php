@@ -128,7 +128,6 @@
 										<img src="<?php echo base_url('assets/upload/destination/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<span class="badge">Badge Subtitle</span>
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
@@ -158,7 +157,6 @@
 										<img src="<?php echo base_url('assets/upload/events/') . $value['slug'] . '/' . $value['image'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<span class="badge">Badge Subtitle</span>
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
@@ -188,7 +186,6 @@
 										<img src="<?php echo base_url('assets/upload/cuisine/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<span class="badge">Badge Subtitle</span>
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
@@ -214,6 +211,7 @@
 			center: true,
 			items: 3,
 			loop: true,
+			dots: true,
 			margin: 30,
 			responsiveClass: true,
 			responsive: {
