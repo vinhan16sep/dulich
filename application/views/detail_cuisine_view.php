@@ -3,18 +3,18 @@
         <div class="mask">
             <img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
 
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="item col-xs-12 col-lg-6">
-                            <h1><?php echo $cuisine['title'];?></h1>
-                            <p class="text-wrapper">
-                                <?php echo $cuisine['description'];?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="content">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="item col-xs-12 col-lg-6">-->
+<!--                            <h1>--><?php //echo $cuisine['title'];?><!--</h1>-->
+<!--                            <p class="text-wrapper">-->
+<!--                                --><?php //echo $cuisine['description'];?>
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 
@@ -22,16 +22,11 @@
         <div class="container">
             <div class="row">
                 <div class="left col-xs-12 col-lg-8">
-                    <div>
-                        <!--
-                        <strong>Time: <?= (date_format(date_create($detail['date_start']),"d M Y") == date_format(date_create($detail['date_end']),"d M Y")) ? date_format(date_create($detail['date_start']),"d M Y") : date_format(date_create($detail['date_start']),"d M Y").' - '.date_format(date_create($detail['date_end']),"d M Y") ?></strong>
-                        -->
-                    </div>
+					<h1><?php echo $cuisine['title'];?></h1>
+					<p class="text-wrapper">
+                        <?php echo $cuisine['description'];?>
+					</p>
                     <article>
-                        <!--
-                        <?= $detail['body_vi'] ?>
-                        -->
-
                         <p>
                             <?php echo $cuisine['body'] ?>
                         </p>
