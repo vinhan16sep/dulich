@@ -131,7 +131,7 @@
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
-										<a href="<?php echo base_url('diem-den/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']); ?>" class="btn btn-primary" role="button">
+										<a href="<?php echo base_url('destination/' . $value['slug']); ?>" class="btn btn-primary" role="button">
                                             <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
@@ -160,7 +160,7 @@
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
-										<a href="<?php echo base_url('su-kien/' . $this->uri->segment(2) . '/' .$this->uri->segment(3) . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+										<a href="<?php echo base_url('events/' . $value['slug']) ?>" class="btn btn-primary" role="button">
                                             <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>

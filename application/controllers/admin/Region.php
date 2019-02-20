@@ -244,9 +244,10 @@ class Region extends Admin_Controller{
 
     public function remove_image(){
         $id = $this->input->get('id');
+        $name = $this->input->get('name');
         $image = $this->input->get('image');
         $detail = $this->region_model->find($id);
-        if ($image == $detail['avatar']) {
+        if ($image == $detail['img_blog'] || $image == $detail['img_cuisine'] || $image == $detail['img_destination'] || $image == $detail['img_event'] ) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_status_header(HTTP_SUCCESS)
@@ -282,8 +283,9 @@ class Region extends Admin_Controller{
 
     public function active_avatar(){
         $id = $this->input->get('id');
+        $name = $this->input->get('name');
         $image = $this->input->get('image');
-        $data = array('avatar' => $image);
+        $data = array($name => $image);
         $update = $this->region_model->update($id,$data);
         if($update == 1){
             $detail = $this->region_model->find($id);

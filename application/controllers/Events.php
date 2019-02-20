@@ -18,8 +18,27 @@ class Events extends Public_Controller {
     //     $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description');
     // }
 
-    public function index(){
-        $this->render('list_events_view');
+    public function index($slug=''){
+        $events = $this->events_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $events['metakeywords'];
+        $this->data['metadescription'] = $events['metadescription'];
+        if(!empty($events)){
+            $province = $this->province_model->find_where(array('id' => $events['province_id']),$this->data['lang']);
+            if(!empty($province)){
+                $region = $this->region_model->find_where(array('id' => $province['region_id']),$this->data['lang']);
+                if(!empty($region)){
+                    $this->data['events'] = $events;//chi tiết sự kiện
+                    $this->data['region'] = $region;//miền của sự kiện
+                    $this->data['province'] = $province;//tỉnh của sự kiện
+                    //sự kiện liên quan
+                    $this->data['get_related'] = $this->events_model->get_by_related($events['region_id'],$events['province_id'],$events['id'],3,$this->data['lang']);
+
+                    return $this->render('detail_event_view');
+                }
+            }
+        }
+        echo 'Lỗi 404';
+        return false;
     }
 
     // list all events của region
@@ -72,6 +91,7 @@ class Events extends Public_Controller {
         $slug = $this->input->get('slug');
         $region = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         $check = true;
+
         if(!empty($region)){
             $limit = $this->input->get('limit');
             $start = $this->input->get('start');
@@ -98,26 +118,26 @@ class Events extends Public_Controller {
     }
 
     //hungluong commented
-    public function detail($region_slug, $province_slug,$slug){
-        $events = $this->events_model->find_where(array('slug' => $slug),$this->data['lang']);
-        $this->data['metakeywords'] = $events['metakeywords'];
-        $this->data['metadescription'] = $events['metadescription'];
-        if(!empty($events)){
-            $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $events['province_id']),$this->data['lang']);
-            if(!empty($province)){
-                $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']),$this->data['lang']);
-                if(!empty($region)){
-                    $this->data['events'] = $events;//chi tiết sự kiện
-                    $this->data['region'] = $region;//miền của sự kiện
-                    $this->data['province'] = $province;//tỉnh của sự kiện
-                    //sự kiện liên quan
-                    $this->data['get_related'] = $this->events_model->get_by_related($events['region_id'],$events['province_id'],$events['id'],3,$this->data['lang']);
+    // public function detail($region_slug, $province_slug,$slug){
+    //     $events = $this->events_model->find_where(array('slug' => $slug),$this->data['lang']);
+    //     $this->data['metakeywords'] = $events['metakeywords'];
+    //     $this->data['metadescription'] = $events['metadescription'];
+    //     if(!empty($events)){
+    //         $province = $this->province_model->find_where(array('slug' => $province_slug, 'id' => $events['province_id']),$this->data['lang']);
+    //         if(!empty($province)){
+    //             $region = $this->region_model->find_where(array('slug' => $region_slug, 'id' => $province['region_id']),$this->data['lang']);
+    //             if(!empty($region)){
+    //                 $this->data['events'] = $events;//chi tiết sự kiện
+    //                 $this->data['region'] = $region;//miền của sự kiện
+    //                 $this->data['province'] = $province;//tỉnh của sự kiện
+    //                 //sự kiện liên quan
+    //                 $this->data['get_related'] = $this->events_model->get_by_related($events['region_id'],$events['province_id'],$events['id'],3,$this->data['lang']);
 
-                    return $this->render('detail_event_view');
-                }
-            }
-        }
-        echo 'Lỗi 404';
-        return false;
-    }
+    //                 return $this->render('detail_event_view');
+    //             }
+    //         }
+    //     }
+    //     echo 'Lỗi 404';
+    //     return false;
+    // }
 }

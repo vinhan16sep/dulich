@@ -44,7 +44,7 @@
                                 <div class="item-content">
                                     <div class="content-header">
                                         <span class="badge"><?= $value['title'] ?></span>
-                                        <a href="<?php echo base_url('diem-den/'.$region['slug'].'/'.$province['slug'].'/'.$value['slug']) ?>">
+                                        <a href="<?php echo base_url('destination/'.$value['slug']) ?>">
                                             <h3><?= $value['title'] ?></h3>
                                         </a>
                                         <ul>
@@ -59,7 +59,7 @@
                                         </p>
                                     </div>
                                     <div class="content-footer">
-                                        <a href="<?php echo base_url('diem-den/'.$region['slug'].'/'.$province['slug'].'/'.$value['slug']) ?>" class="btn btn-primary" role="button">
+                                        <a href="<?php echo base_url('destination/'.$value['slug']) ?>" class="btn btn-primary" role="button">
                                             View Detail
                                         </a>
                                     </div>

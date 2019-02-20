@@ -89,6 +89,15 @@
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
+                                echo form_label('Tỉnh / Thành phố', 'province_id');
+                                echo form_error('province_id');
+                                echo form_dropdown('province_id', $province, $detail['province_id'], 'class="form-control" id="province_id" ');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
                                 echo form_label('Danh mục món ăn', 'cuisine_category_id');
                                 echo form_error('cuisine_category_id');
                                 echo form_dropdown('cuisine_category_id', $cuisine_category, $detail['cuisine_category_id'], 'class="form-control" id="cuisine_category_id" data-url="'. base_url('admin/cuisine/get_province') .'" ');

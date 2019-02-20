@@ -147,7 +147,72 @@ $('.common-image').on('click', '.active-avatar', function(){
         });
     }
 });
+//Remove image  region
+$('.remove-image-region').click(function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    var image = $(this).data('image');
+    var key = $(this).data('key');
+    if (confirm("Chắc chắn xóa ảnh này?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id, image : image
+            },
+            success: function(response){
+                if ( response.status == 200 && response.isExisted == true ) {
+                    $( '.remove-image-' + key ).fadeOut();
+                }
+                if ( response.status == 200 && response.isExisted == false ) {
+                    alert('Không thể xóa, do ảnh đang được chọn làm avatar');
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
 
+// change avatar region
+$('.common-image-region').on('click', '.active-avatar', function(){
+    var url = $(this).data('url');
+    var id = $(this).data('id');
+    var name = $(this).data('name');
+    var image = $(this).data('image');
+    var avatar = $( '.common-avatar-region #avatar' ).data('image');
+    var avatar_path = $( '.common-avatar-region #avatar' ).attr('src');
+    var selector = $(this)
+    if (confirm("Chắc chắn chọn ảnh này làm avatar?")) {
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                id : id, image : image, name : name
+            },
+            success: function(response){
+                if ( response.status == 200 && response.isExisted == true ) {
+                    $( "[data-name='"+name+"']" ).css('color', 'black');
+                    $( "#" +name+ " .active-avatar[data-image='"+image+"']" ).css('color', 'green');
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }
+});
 // active
 $('.btn-active').click(function(){
     var url = $(this).data('url');

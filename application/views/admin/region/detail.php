@@ -23,7 +23,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
-                            <div class="detail-image col-md-6">
+                            <div class="detail-image col-md-6 hidden">
                                 <label>Hình ảnh</label>
                                 <div class="row">
                                     <div class="item col-md-12">
@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-info col-md-6">
+                            <div class="detail-info col-md-12">
                                 <div class="table-responsive">
                                     <label>Thông tin</label>
                                     <table class="table table-striped">
@@ -67,7 +67,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-md-12" style="margin: 20px 0px;">
+                            <div class="col-md-12 hidden" style="margin: 20px 0px;">
                                 <label>Hình ảnh</label>
                                 <div class="row">
                                     <?php if ( json_decode($detail['image']) ): ?>
@@ -133,6 +133,56 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xs-12" style="padding: 0px;">
+                                <div class="form-group col-xs-12">
+                            <label for="image">Hình ảnh cho Destination</label><br />
+                            <?php if ( json_decode($detail['image']) ): ?>
+                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image-region" id="img_destination" style="position: relative;padding-right:5px;padding-left: 0px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" height="150px">
+                                        <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/region/active_avatar') ?>" data-name="img_destination" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="region" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:<?php echo ($detail['img_destination'] !== $value) ? 'black' : 'green'; ?>; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image-region" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label for="image">Hình ảnh cho Blog</label><br />
+                            <?php if ( json_decode($detail['image']) ): ?>
+                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image-region" id="img_blog" style="position: relative;padding-right:5px;padding-left: 0px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" height="150px">
+                                        <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/region/active_avatar') ?>" data-name="img_blog" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="region" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:<?php echo ($detail['img_blog'] !== $value) ? 'black' : 'green'; ?>; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image-region" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label for="image">Hình ảnh cho Event</label><br />
+                            <?php if ( json_decode($detail['image']) ): ?>
+                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image-region" id="img_event" style="position: relative;padding-right:5px;padding-left: 0px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" height="150px">
+                                        <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/region/active_avatar') ?>" data-name="img_event" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="region" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:<?php echo ($detail['img_event'] !== $value) ? 'black' : 'green'; ?>; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image-region" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label for="image">Hình ảnh cho Cuisine</label><br />
+                            <?php if ( json_decode($detail['image']) ): ?>
+                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image-region" id="img_cuisine" style="position: relative;padding-right:5px;padding-left: 0px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" height="150px">
+                                        <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/region/active_avatar') ?>" data-name="img_cuisine" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="region" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:<?php echo ($detail['img_cuisine'] !== $value) ? 'black' : 'green'; ?>; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image-region" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -151,6 +201,7 @@
                 </div>
             </div>
         </div>
+
         <!-- /.row -->
         <!-- END ACCORDION & CAROUSEL-->
     </section>

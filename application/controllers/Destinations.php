@@ -65,19 +65,36 @@ class Destinations extends Public_Controller {
         $this->render('detail_destination_view');
     }
 
-    public function detailpost($region_slug, $province_slug, $slug){
-        $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
-        $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
-        if (!empty($region) && !empty($province)) {
-            $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
-            $this->data['destination'] = $destination;
+    // public function detailpost($region_slug, $province_slug, $slug){
+    //     $region = $this->region_model->find_where(array('slug' => $region_slug),$this->data['lang']);
+    //     $province = $this->province_model->find_where(array('slug' => $province_slug),$this->data['lang']);
+    //     if (!empty($region) && !empty($province)) {
+    //         $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
+    //         $this->data['destination'] = $destination;
 
+    //         $get_related = $this->destination_model->get_where_by_limit(3, 0, array('province_id' => $province['id']),$this->data['lang']);
+    //         $this->data['get_related'] = $get_related;
+    //         $this->data['region'] = $region;
+    //         $this->data['province'] = $province;
+
+    //         $this->render('detail_destination_post_view');
+    //     }
+        
+    // }
+
+    public function detailpost($slug){
+        $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
+        if(!empty($destination['id'])){
+            $region = $this->region_model->find_where(array('id' => $destination['region_id']),$this->data['lang']);
+            $province = $this->province_model->find_where(array('id' => $destination['province_id']),$this->data['lang']);
+            if(!empty($region['id']) && !empty($province['id'])){
+            $this->data['destination'] = $destination;
             $get_related = $this->destination_model->get_where_by_limit(3, 0, array('province_id' => $province['id']),$this->data['lang']);
             $this->data['get_related'] = $get_related;
             $this->data['region'] = $region;
             $this->data['province'] = $province;
-
             $this->render('detail_destination_post_view');
+            }
         }
         
     }
@@ -198,7 +215,7 @@ class Destinations extends Public_Controller {
                 $this->data['events_bottom'] = $events_bottom;
 
 
-                $cuisine_bottom = $this->cuisine_model->get_by_where_with_limit(100, 0, array('region_id' => $region['id']),$this->data['lang']);
+                $cuisine_bottom = $this->cuisine_model->get_by_where_with_limit(100, 0, array('province_id' => $province['id']),$this->data['lang']);
                 $this->data['cuisine_bottom'] = $cuisine_bottom;
 
                 return $this->render('detail_destination_view');
