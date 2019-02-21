@@ -50,15 +50,11 @@
 					</div>
 
 					<div class="link-control">
-						<ul>
-                            <?php foreach ($region_full as $key => $value): ?>
-								<li class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
-									<a href="<?php echo base_url('mon-an/'.$value['slug']) ?>">
-                                        <?php echo $value['title'].' '.$this->lang->line('ofvietnam'); ?>
-									</a>
-								</li>
-                            <?php endforeach ?>
-						</ul>
+                        <?php foreach ($region_full as $key => $value): ?>
+							<a class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('mon-an/'.$value['slug']) ?>">
+                                <?php echo $value['title'].' '.$this->lang->line('ofvietnam'); ?>
+							</a>
+                        <?php endforeach ?>
 					</div>
 				</div>
 			</div>

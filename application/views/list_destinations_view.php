@@ -17,22 +17,17 @@
 					</div>
 
 					<div class="link-control">
-						<ul>
-                            <?php if ($region): ?>
-                            	<?php foreach ($region as $key => $value): ?>
-                            		<?php if ($this->uri->segment(2) == ''): ?>
-                            			<li class="<?php echo ($key == 0)? 'active' : '' ?>">
-                            		<?php else: ?>
-                            			<li class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>">
-                            		<?php endif ?>
-                            		
-										<a href="<?php echo base_url('diem-den/' . $value['slug']) ?>">
-											<?php echo $value['title'];?>
-										</a>
-									</li>
-                            	<?php endforeach ?>
-                            <?php endif ?>
-						</ul>
+                        <?php if ($region): ?>
+                            <?php foreach ($region as $key => $value): ?>
+                                <?php if ($this->uri->segment(2) == ''): ?>
+									<a class="<?php echo ($key == 0)? 'active' : '' ?>" href="<?php echo base_url('diem-den/' . $value['slug']) ?>">
+                                <?php else: ?>
+									<a class="<?php echo ($this->uri->segment(2) == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('diem-den/' . $value['slug']) ?>">
+                                <?php endif ?>
+                                	<?php echo $value['title'];?>
+								</a>
+                            <?php endforeach ?>
+                        <?php endif ?>
 					</div>
 				</div>
 			</div>
@@ -61,8 +56,9 @@
 											<!--<h6><?php echo $value['description'] ?></h6>-->
 										</div>
 									</div>
+									<!--
 									<div class="content">
-										<ul> <!-- List Destinations -->
+
 											<?php if (!empty($value['destination'])): ?>
 												<?php foreach ($value['destination'] as $k => $val): ?>
 													<li>
@@ -76,6 +72,7 @@
 											<?php endif ?>
 										</ul>
 									</div>
+									-->
 								</div>
 							</a>
 						</div>

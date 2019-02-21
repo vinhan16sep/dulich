@@ -5,7 +5,7 @@ class MY_Controller extends CI_Controller {
     protected $data = array();
     protected $author_info = array();
     protected $page_languages = array('vi', 'en');
-    protected $langAbbreviation = 'en';
+    protected $langAbbreviation = 'vi';
 
     protected $author_data = array();
     protected $permission_admin = array('admin');

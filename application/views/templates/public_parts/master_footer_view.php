@@ -39,7 +39,7 @@
 
 					<p>HANOI HEAD OFFICE</p>
 					<p>Tòa nhà VTC 23 Lạc Trung, Hai Bà Trưng, Hà Nội</p>
-					<a href="tel:+84 123 456 789">+84 123 456 789</a>
+					<a href="tel:+024 4451 8888">+024 4451 8888</a>
 					<a href="mailto:info@vietnamtravellog.vn">vietnamtravellognetviet@gmail.com</a>
 				</div>
 				<div class="item col-xs-12 col-md-4 col-lg-3">

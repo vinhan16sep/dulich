@@ -17,14 +17,14 @@
 
 						<div class="info">
 							<h6>Hotline</h6>
-							<a href="tel:+84 1234 5678">
-								+84 1234 5678
+							<a href="tel:+024 4451 8888">
+								024 4451 8888
 							</a>
 						</div>
 
 						<div class="info">
 							<h6>Email</h6>
-							<a href="tel:+84 1234 5678">
+							<a href="mail:vietnamtravellognetviet@gmail.com">
                                 vietnamtravellognetviet@gmail.com
 							</a>
 						</div>
