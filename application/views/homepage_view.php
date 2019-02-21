@@ -125,13 +125,22 @@
                     <div class="right col-xs-12 col-lg-5">
                         <div class="row">
                             <?php foreach ($province_center as $key => $value): ?>
-                                <div class="item col-xs-12 col-lg-6">
-                                    <div class="mask">
-										<a href="#">
-											<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
-										</a>
-                                    </div>
-                                </div>
+								<?php if($key < 4) { ?>
+									<div class="item col-xs-12 col-lg-6">
+										<div class="mask">
+											<a href="<?php echo base_url('diem-den/mien-trung/' . $value['slug']) ?>">
+												<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+
+												<div class="content">
+													<!--
+													<span class="badge"><?php echo $value['province'] ?></span>
+													-->
+													<h4><?php echo $value['title'] ?></h4>
+												</div>
+											</a>
+										</div>
+									</div>
+								<?php } ?>
                             <?php endforeach ?>
                         </div>
                     </div>
@@ -156,13 +165,22 @@
                     <div class="bottom col-xs-12 col-lg-12">
                         <div class="row">
                             <?php foreach ($province_south as $key => $value): ?>
-                                <div class="item col-xs-12 col-lg-3">
-                                    <div class="mask">
-										<a href="#">
-											<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
-										</a>
-                                    </div>
-                                </div>
+                            	<?php if($key < 4) { ?>
+									<div class="item col-xs-12 col-lg-3">
+										<div class="mask">
+											<a href="<?php echo base_url('diem-den/mien-nam/' . $value['slug']) ?>">
+												<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+
+												<div class="content">
+													<!--
+														<span class="badge"><?php echo $value['province'] ?></span>
+														-->
+													<h4><?php echo $value['title'] ?></h4>
+												</div>
+											</a>
+										</div>
+									</div>
+                                <?php } ?>
                             <?php endforeach ?>
                         </div>
                     </div>

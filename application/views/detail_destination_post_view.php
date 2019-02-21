@@ -43,15 +43,10 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge"><?= $value['title'] ?></span>
+
                                         <a href="<?php echo base_url('destination/'.$value['slug']) ?>">
                                             <h3><?= $value['title'] ?></h3>
                                         </a>
-                                        <ul>
-                                            <li>Rating</li>
-
-                                            <li>Created Date</li>
-                                        </ul>
                                     </div>
                                     <div class="content-body">
                                         <p class="text-wrapper">
