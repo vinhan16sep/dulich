@@ -324,14 +324,14 @@ class Public_Controller extends MY_Controller {
             $this->session->set_userdata('langAbbreviation', $this->langAbbreviation);
         }
         
-        if($this->session->userdata('langAbbreviation') == 'vi'){
+        if($this->session->userdata('langAbbreviation') == 'vi' || $this->session->userdata('langAbbreviation') == ''){
             $langName = 'vietnamese';
             $this->config->set_item('language', $langName); 
             $this->session->set_userdata("langAbbreviation",'vi');
             $this->lang->load('vietnamese_lang', 'vietnamese');
         }
         
-        if($this->session->userdata('langAbbreviation') == 'en' || $this->session->userdata('langAbbreviation') == ''){
+        if($this->session->userdata('langAbbreviation') == 'en'){
             $langName = 'english';
             $this->config->set_item('language', $langName); 
             $this->session->set_userdata("langAbbreviation",'en');
