@@ -52,9 +52,6 @@
 											<h3><?php echo $value['title']; ?></h3>
 										</a>
 										<h6><?php echo $value['author']; ?> | <small><?php echo $value['nationality']; ?></small></h6>
-										<ul>
-											<li><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i><i class="fa fa-star" aria-hidden="true" style="color: #F0EA39"></i></li>
-										</ul>
 									</div>
 									<div class="content-body">
 										<p class="text-wrapper">

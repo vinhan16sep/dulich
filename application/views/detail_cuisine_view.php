@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="item-content">
                                     <div class="content-header">
-                                        <span class="badge"><?php echo empty($value['province']) ? $region['title'] : $value['province']; ?></span>
+                                        <!--<span class="badge"><?php echo empty($value['province']) ? $region['title'] : $value['province']; ?></span>-->
                                         <a href="<?php echo base_url('cuisine/'.$value['slug']) ?>">
                                             <h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
                                         </a>

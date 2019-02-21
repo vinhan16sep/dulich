@@ -47,7 +47,7 @@
 									</div>
 									<div class="item-content">
 										<div class="content-header">
-											<span class="badge"><?php echo $value['province']['title']; ?></span>
+											<!--<span class="badge"><?php echo $value['province']['title']; ?></span>-->
 											<a href="<?php echo base_url('blog/' . $value['slug']) ?>">
 												<h3 class="text-wrapper"><?php echo $value['title']; ?></h3>
 											</a>
