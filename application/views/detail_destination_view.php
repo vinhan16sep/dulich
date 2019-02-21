@@ -52,17 +52,13 @@
 
 		<div class="link-control">
 			<div class="container">
-				<ul>
-					<?php if ($province_all): ?>
-						<?php foreach ($province_all as $key => $value): ?>
-							<li class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>">
-								<a href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
-									<?php echo $value['title'] ?>
-								</a>
-							</li>
-						<?php endforeach ?>
-					<?php endif ?>
-				</ul>
+                <?php if ($province_all): ?>
+                    <?php foreach ($province_all as $key => $value): ?>
+						<a class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>" href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
+                            <?php echo $value['title'] ?>
+						</a>
+                    <?php endforeach ?>
+                <?php endif ?>
 			</div>
 		</div>
 	</div>

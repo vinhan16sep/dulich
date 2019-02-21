@@ -17,6 +17,12 @@
 					</div>
 
 					<div class="link-control">
+                        <?php foreach ($region_full as $key => $value): ?>
+							<a class="<?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>" href="<?php echo base_url('su-kien/'.$value['slug']) ?>" r>
+								<?php echo $value['title'].' '.$this->lang->line('ofvietnam'); ?>
+							</a>
+                        <?php endforeach ?>
+						<!--
 						<ul>
 							<?php foreach ($region_full as $key => $value): ?>
 			                    <li class="nav-item <?php echo ($region['slug'] == $value['slug'])? 'active' : '' ?>">
@@ -26,6 +32,7 @@
 			                    </li>
 			                <?php endforeach ?>
 						</ul>
+						-->
 					</div>
 				</div>
 			</div>
