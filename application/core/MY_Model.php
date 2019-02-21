@@ -252,6 +252,22 @@ class MY_Model extends CI_Model {
         }
         return $this->db->count_all_results();
     }
+    public function count_is_pinned($is_pinned, $province_id = '', $region_id = '', $id = ''){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('is_pinned', $is_pinned);
+        $this->db->where('is_deleted', 0);
+        if(!empty($province_id) && !empty($region_id)){
+            $this->db->where('province_id', $province_id);
+            $this->db->where('region_id', $region_id);
+        }
+        if(!empty($id)){
+            $this->db->where('id', $id);
+        }
+        return $result = $this->db->get()->result_array();
+        // return $this->db->count_all_results();
+        
+    }
 
 
     //Frontend
@@ -311,7 +327,11 @@ class MY_Model extends CI_Model {
         if ($where) {
             $this->db->where($where);
         }
-        $this->db->order_by("updated_at", "desc");
+        if($this->table == 'destination'){
+            $this->db->order_by("is_pinned", "desc");
+        }else{
+            $this->db->order_by("updated_at", "desc");
+        }
         return $this->db->get()->result_array();
     }
 

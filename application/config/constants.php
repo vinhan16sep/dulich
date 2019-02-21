@@ -228,6 +228,7 @@ defined('MESSAGE_REMOVE_IMAGE_ERROR') OR define('MESSAGE_REMOVE_IMAGE_ERROR', 'H
 
 
 defined('MESSAGE_CHECK_TOP_ERROR') OR define('MESSAGE_CHECK_TOP_ERROR', 'Hiện tại đã có đủ 3 %s thuộc TOP 3 %s. Vui lòng tắt 1 %s đang thuộc TOP 3 nếu bạn muốn thêm %s vào TOP 3!');
+defined('MESSAGE_CHECK_PINNED_ERROR') OR define('MESSAGE_CHECK_PINNED_ERROR', 'Hiện tại đã có bài ghim thuộc tỉnh thành này. Nếu bạn muốn thêm bài này, bạn vui lòng tắt bài ghim thuộc tỉnh thành này!');
 defined('MESSAGE_CHECK_TOP_CATEGORY_ERROR') OR define('MESSAGE_CHECK_TOP_CATEGORY_ERROR', 'Hiện tại đã có đủ 3 cuisine thuộc TOP 3 cuisine của danh mục hiện tại. Vui lòng tắt 1 cuisine thuộc danh mục hiên tại nếu bạn muốn thêm cuisine vào TOP 3!');
 /*=====  End of Message for Create  ======*/
 

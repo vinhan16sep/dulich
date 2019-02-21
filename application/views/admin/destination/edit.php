@@ -96,10 +96,22 @@
                                 <?php
                                 echo form_label('Tỉnh / Thành phố', 'province_id');
                                 echo form_error('province_id');
-                                echo form_dropdown('province_id', $province, $detail['province_id'], 'class="form-control" id="province_id" ');
+                                echo form_dropdown('province_id', $province, $detail['province_id'], 'class="form-control" onchange="onchange_province()" id="province_id" ');
                                 ?>
                             </div>
                         </div>
+                        <?php if (handle_common_permission_active_and_remove()): ?>
+                        <div class="form-group col-xs-12" id="box_is_pinned">
+                            <div class="form-group col-xs-12">
+                                <label style="font-weight: bold;">
+                                    <?php
+                                        echo form_checkbox('is_pinned', 1, ($detail['is_pinned'] == 1) ? true : false, 'class="" id="is_pinned" onchange="onchange_pinned('."'update'".",".$detail['id'].')" data-url="'.base_url('admin/destination/check_pinned').'" data-id="null"');
+                                    ?>Ghim điểm đến lên đầu?
+                                    <span class="check_pinned_error" style="font-weight: 700;display: block;color:red;"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <?php endif ?>
                         <div>
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 <li role="presentation" class="active">
