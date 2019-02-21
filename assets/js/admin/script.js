@@ -48,6 +48,8 @@ $('.btn-remove').click(function(event){
 var default_value = '';
 
 $('#region_id').change(function(){
+    $('#is_pinned').prop('checked',false);
+    $('.check_pinned_error').text('');
     var region_id = $(this).val();
     default_value = $(this).val();
     var url = $(this).data('url');
@@ -59,11 +61,13 @@ $('#region_id').change(function(){
                 region_id : region_id
             },
             success: function(response){
-                var html = '';
+                var html = '<option value="" selected="selected">Click để chọn</option>';
                 response.province.forEach(function(item, index){
-                    html += '<option value="' + item.id + '">' + item.title_vi + '</option>';
+                    html += '<option value="' + item.id + '" >' + item.title_vi + '</option>';
                 });
-
+                if(response.province.length == 0){
+                    html = '<option value="" selected="selected">Hiện tại chưa có tình thành nào</option>';
+                }
                 $('#province_id').html(html);
             },
             error: function(jqXHR, exception){
@@ -79,7 +83,45 @@ $('#region_id').change(function(){
         $('#province_id').html('<option value="" selected="selected">Chọn vùng miền trước</option>');
     }
 });
-
+function onchange_province(){
+    $('#is_pinned').prop('checked',false);
+    $('.check_pinned_error').text('');
+}
+function onchange_pinned(type= 'create', id = ''){
+    var province_id = $('#province_id').val();
+    var region_id = $('#region_id').val();
+    if(province_id != '' && region_id != ''){
+        if($('#is_pinned').is(":checked") == false){
+            return true;
+        }
+        var url =  $('#is_pinned').data('url');
+        $.ajax({
+            method: "get",
+            url: url,
+            data: {
+                province_id : province_id, region_id : region_id, type : type, id : id
+            },
+            success: function(response){
+                if(response.isExisted == false){
+                    $('.check_pinned_error').text(response.message);
+                    $('#is_pinned').prop('checked',false);
+                }
+            },
+            error: function(jqXHR, exception){
+                if(jqXHR.status == 404 && jqXHR.responseJSON.message != 'undefined'){
+                    alert(jqXHR.responseJSON.message);
+                    location.reload();
+                }else{
+                    console.log(errorHandle(jqXHR, exception));
+                }
+            }
+        });
+    }else{
+        $('#is_pinned').prop('checked',false);
+        $('.check_pinned_error').text('Bạn phải chọn vùng miền và thành phố');
+    }
+    // console.log(event.value);
+}
 //Remove image
 $('.remove-image').click(function(){
     var url = $(this).data('url');

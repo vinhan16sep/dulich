@@ -48,6 +48,12 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <th>Bài viết được GHIM</th>
+                                                <td>
+                                                    <i class="fa fa-<?= ($detail['is_pinned'] == '0') ? 'remove" style="color:red;font-size:1.2em;"' : 'check" style="color:green;font-size:1.2em;"';?> "></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <th>Vùng miền</th>
                                                 <td><?= $region['title_vi'] ?></td>
                                             </tr>

@@ -89,6 +89,7 @@ class Destination extends Admin_Controller{
                     'avatar' => $avatar,
                     'slug' => $unique_slug,
                     'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
+                    'is_pinned' => $this->input->post('is_pinned')? $this->input->post('is_pinned') : 0,
                     'region_id' => $this->input->post('region_id'),
                     'province_id' => $this->input->post('province_id'),
                     'title_vi' => $this->input->post('title_vi'),
@@ -189,10 +190,10 @@ class Destination extends Admin_Controller{
                     }
                     
                     $images = json_encode($old_images);
-
                     $data = array(
                         'slug' => $unique_slug,
                         'is_top' => $this->input->post('is_top')? $this->input->post('is_top') : 0,
+                        'is_pinned' => $this->input->post('is_pinned')? $this->input->post('is_pinned') : 0,
                         'region_id' => $this->input->post('region_id'),
                         'province_id' => $this->input->post('province_id'),
                         'title_vi' => $this->input->post('title_vi'),
@@ -411,6 +412,22 @@ class Destination extends Admin_Controller{
             return $this->return_api(HTTP_SUCCESS,sprintf(MESSAGE_CHECK_TOP_ERROR,'destination','destination','destination','destination'),'', false);
         }else{
             return $this->return_api(HTTP_SUCCESS,'','', true);
+        }
+    }
+    public function check_pinned(){
+        $province_id = $this->input->get('province_id');
+        $region_id = $this->input->get('region_id');
+        $type = $this->input->get('type');
+        $id = $this->input->get('id');
+        $total = $this->destination_model->count_is_pinned(1, $province_id, $region_id);
+        if($type == 'update' && count($total)>0 && $total[0]['id'] == $id){
+            return $this->return_api(HTTP_SUCCESS,'','', true);
+        }else{
+            if(count($total)>0){
+                return $this->return_api(HTTP_SUCCESS,MESSAGE_CHECK_PINNED_ERROR,'', false);
+            }else{
+                return $this->return_api(HTTP_SUCCESS,'','', true);
+            }
         }
     }
 
