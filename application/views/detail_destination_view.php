@@ -185,7 +185,7 @@
 										<h3><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
-										<a href="<?php ?>" class="btn btn-primary" role="button">
+										<a href="<?php echo base_url('cuisine/' . $value['slug']) ?>" class="btn btn-primary" role="button">
                                             <?php echo $this->lang->line('btn_view_detail') ?>
 										</a>
 									</div>
