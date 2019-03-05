@@ -83,6 +83,26 @@
 
 </footer>
 
+<div class="stick-social">
+    <ul>
+        <li>
+            <a href="https://www.facebook.com/VieVietnamtravellog/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/channel/UCGefVe0DejG_9crIWItkDlA/featured" target="_blank">
+                <i class="fab fa-youtube-square"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/vietnam_travellog/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
 
 <!-- jQuery -->
 

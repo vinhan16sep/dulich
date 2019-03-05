@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/assets/') ?>owl.theme.default.min.css">
 
 <section id="homepage">
-    <div id="slideHomepage" class="carousel slide" data-ride="carousel">
+    <div id="slideHomepage" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php foreach ($banners as $key => $value): ?>
                 <li data-target="#slideHomepage" data-slide-to="<?php echo $key ?>" class="<?php echo ($key == 0)? 'active' : '' ?>"></li>
@@ -58,46 +58,51 @@
         </div>
 
         <div class="body">
-            <div id="north">
-                <div class="grid">
-                    <div class="grid-sizer"></div>
-                    <div class="grid-item item-full">
+            <div id="north" class="regions">
+                <div class="row no-gutters">
+                    <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Province">
+                            <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Region">
 
                             <div class="content">
-                                    <h1><?php echo $this->lang->line('north'); ?></h1>
-                                    <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
-                                        <?php echo $this->lang->line('btn_see_all_destination'); ?>
-                                    </a>
+                                <h1><?php echo $this->lang->line('north'); ?></h1>
+                                <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
+                                    <?php echo $this->lang->line('btn_see_all_destination'); ?>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <?php foreach ($destination_north as $key => $value): ?>
-                        <div class="grid-item item-half">
-                            <div class="mask">
-                                <img src="<?php echo base_url('assets/upload/destination/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
 
-                                <div class="content">
-                                    <a href="<?php echo base_url('diem-den/mien-bac/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
-                                        <span class="badge"><?php echo $value['province']['title'] ?></span>
-                                        <h4><?php echo $value['title'] ?></h4>
-                                        <p class="text-wrapper">
-                                            <?php echo $value['description'] ?>
-                                        </p>
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="bottom col-xs-12 col-lg-12">
+                        <div class="row no-gutters">
+                            <?php foreach ($province_north as $key => $value): ?>
+                                <?php if($key < 4) { ?>
+                                    <div class="item col-xs-12 col-lg-3">
+                                        <div class="mask">
+                                            <a href="<?php echo base_url('diem-den/mien-bac/' . $value['slug']) ?>">
+                                                <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+
+                                                <div class="content">
+                                                    <!--
+														<span class="badge"><?php echo $value['province'] ?></span>
+														-->
+                                                    <h4><?php echo $value['title'] ?></h4>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php endforeach ?>
                         </div>
-                    <?php endforeach ?>
+                    </div>
                 </div>
             </div>
 
-            <div id="center">
-                <div class="row">
-                    <div class="left col-xs-12 col-lg-7">
+            <div id="center" class="regions">
+                <div class="row no-gutters">
+                    <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="http://vanhoaviet.com/wp-content/uploads/2016/07/kinh-nghiem-thue-tau-va-du-thuyen-tham-quan-du-lich-kham-pha-vinh-ha-long.jpg" alt="Image Region">
+                            <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
 
                             <div class="content">
                                 <h1><?php echo $this->lang->line('middle'); ?></h1>
@@ -105,50 +110,36 @@
                                     <?php echo $this->lang->line('btn_see_all_destination'); ?>
                                 </a>
                             </div>
-
-							<!--
-                            <div class="list-region">
-                                <ul>
-                                    <?php foreach ($province_center_all as $key => $value): ?>
-                                        <li>
-                                            <a href="<?php echo base_url('diem-den/mien-trung/' . $value['slug']) ?>">
-                                                <?php echo $value['title'] ?>
-                                            </a>
-                                        </li>
-                                    <?php endforeach ?>
-                                </ul>
-                            </div>
-                            -->
                         </div>
                     </div>
 
-                    <div class="right col-xs-12 col-lg-5">
-                        <div class="row">
+                    <div class="bottom col-xs-12 col-lg-12">
+                        <div class="row no-gutters">
                             <?php foreach ($province_center as $key => $value): ?>
-								<?php if($key < 4) { ?>
-									<div class="item col-xs-12 col-lg-6">
-										<div class="mask">
-											<a href="<?php echo base_url('diem-den/mien-trung/' . $value['slug']) ?>">
-												<img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
+                                <?php if($key < 4) { ?>
+                                    <div class="item col-xs-12 col-lg-3">
+                                        <div class="mask">
+                                            <a href="<?php echo base_url('diem-den/mien-trung/' . $value['slug']) ?>">
+                                                <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="<?php echo $value['slug'] ?>">
 
-												<div class="content">
-													<!--
-													<span class="badge"><?php echo $value['province'] ?></span>
-													-->
-													<h4><?php echo $value['title'] ?></h4>
-												</div>
-											</a>
-										</div>
-									</div>
-								<?php } ?>
+                                                <div class="content">
+                                                    <!--
+														<span class="badge"><?php echo $value['province'] ?></span>
+														-->
+                                                    <h4><?php echo $value['title'] ?></h4>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             <?php endforeach ?>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="south">
-                <div class="row">
+            <div id="south" class="regions">
+                <div class="row no-gutters">
                     <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
                             <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
@@ -163,7 +154,7 @@
                     </div>
 
                     <div class="bottom col-xs-12 col-lg-12">
-                        <div class="row">
+                        <div class="row no-gutters">
                             <?php foreach ($province_south as $key => $value): ?>
                             	<?php if($key < 4) { ?>
 									<div class="item col-xs-12 col-lg-3">
@@ -206,7 +197,7 @@
                                     <div class="content">
                                         <a href="<?php echo base_url('su-kien/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
                                             <span class="badge"><?php echo $value['province']['title'] ?></span>
-                                            <h4><?php echo $value['title'] ?></h4>
+                                            <h4 class="text-wrapper"><?php echo $value['title'] ?></h4>
                                         </a>
                                     </div>
                                 <?php endif ?>
@@ -243,7 +234,7 @@
 								</div>
 								<div class="content">
 									<span class="badge"><?php echo $value['province']['title_' . $lang] ?></span>
-									<h3><?php echo $value['title_' . $lang] ?></h3>
+									<h3 class="text-wrapper"><?php echo $value['title_' . $lang] ?></h3>
 									<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
 									<a href="<?php echo base_url('bai-viet/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">

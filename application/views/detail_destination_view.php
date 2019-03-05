@@ -23,6 +23,7 @@
 			<span class="sr-only">Next</span>
 		</a>
 
+        <!--
 		<div class="carousel-caption">
 			<div class="container">
 				<div class="row">
@@ -35,6 +36,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 		<div class="link-region">
 			<ul>
@@ -78,36 +80,16 @@
 								<div class="text">
 									<h3><?php echo $value['title'] ?></h3>
 									<p><?php echo $value['description'] ?></p>
+
+                                    <a href="<?php echo base_url('destination/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+                                        <?php echo $this->lang->line('btn_view_detail'); ?>
+                                    </a>
 								</div>
 							</div>
 						</div>
 					</div>
 				<?php endforeach ?>
 			<?php endif ?>
-		</div>
-
-
-        <div class="container-fluid" id="tab-content">
-
-        </div>
-
-		<div class="container-fluid" id="images">
-			<div class="heading">
-				<h3><?php echo $this->lang->line('destinations_title_images') ?></h3>
-			</div>
-			<div class="body">
-				<div class="owl-carousel">
-					<?php if (json_decode($province['image'])): ?>
-						<?php foreach (json_decode($province['image']) as $key => $value): ?>
-							<div class="item">
-								<div class="mask">
-									<img src="<?php echo base_url('assets/upload/province/') . $province['slug'] . '/' . $value ?>" alt="Image Slide">
-								</div>
-							</div>
-						<?php endforeach ?>
-					<?php endif ?>
-				</div>
-			</div>
 		</div>
 		
 		<?php if ($destination_bottom): ?>
@@ -196,6 +178,25 @@
 				</div>
 			</div>
 		<?php endif ?>
+
+        <div class="container-fluid" id="images">
+            <div class="heading">
+                <h3><?php echo $this->lang->line('destinations_title_images') ?></h3>
+            </div>
+            <div class="body">
+                <div class="owl-carousel">
+                    <?php if (json_decode($province['image'])): ?>
+                        <?php foreach (json_decode($province['image']) as $key => $value): ?>
+                            <div class="item">
+                                <div class="mask">
+                                    <img src="<?php echo base_url('assets/upload/province/') . $province['slug'] . '/' . $value ?>" alt="Image Slide">
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
 		
     </div>
 </section>
