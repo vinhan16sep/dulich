@@ -394,6 +394,23 @@ $('.btn-deactive-user').click(function(){
     }
 });
 
+//sort province for destination
+
+    $( function() {
+        $('.sortable').sortable({
+            axis: 'y',
+            update: function (event, ui) {
+                var data = $(this).sortable('serialize');
+                $.ajax({
+                    data: {
+                        sort: data,
+                    },
+                    method: 'GET',
+                    url: `${HOSTNAMEADMIN}/destination/sort`,
+                });
+            }
+        });
+    });
 // $('#is_top').change(function(){
 //     var url = $(this).data('url');
 //     if (confirm("Chọn bài viết này lên TOP?")) {

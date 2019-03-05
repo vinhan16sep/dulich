@@ -494,4 +494,25 @@ class Destination extends Admin_Controller{
         }
         return $this->return_api(HTTP_SUCCESS,MESSAGE_UPDATE_ERROR,$reponse);
     }
+    public function sort_province(){
+        $region = $this->region_model->get_all(1);
+     
+        foreach ($region as $key => $value) {
+            $region[$key]['province'] = $this->province_model->get_by_where(['region_id' => $value['id']],'',['sort','desc']);
+        }
+        $this->data['result'] = $region;
+        $this->render('admin/destination/sort');
+    }
+    public function sort(){
+        $params = array();
+        parse_str($this->input->get('sort'), $params);
+        $update = array();
+        foreach($params as $key => $value){
+            $update[] = [
+                'id'  => $value[0],
+                'sort' => $key
+            ];
+        }
+        $this->province_model->update_multiple($update);
+    }
 }

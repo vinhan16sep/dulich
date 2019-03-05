@@ -271,7 +271,7 @@ class MY_Model extends CI_Model {
 
 
     //Frontend
-    public function get_by_where($where = array(),$lang = ''){
+    public function get_by_where($where = array(),$lang = '', $order_by = array()){
         if(!empty($lang)){
             if(in_array($this->table, array('destination','events','blog'))){
                 $this->db->select('*, title_'.$lang.' as title, description_'.$lang.' as description, body_'.$lang.' as body');
@@ -287,7 +287,12 @@ class MY_Model extends CI_Model {
         if ($where) {
             $this->db->where($where);
         }
-        $this->db->order_by("updated_at", "desc");
+        if(!empty($order_by)){
+            $this->db->order_by($order_by[0], $order_by[1]);
+        }else{
+            $this->db->order_by("updated_at", "desc");
+        }
+        
         return $this->db->get()->result_array();
     }
 
@@ -329,6 +334,9 @@ class MY_Model extends CI_Model {
         }
         if($this->table == 'destination'){
             $this->db->order_by("is_pinned", "desc");
+        }
+        else if($this->table == 'province'){
+            $this->db->order_by("sort", "desc");
         }else{
             $this->db->order_by("updated_at", "desc");
         }

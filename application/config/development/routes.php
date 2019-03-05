@@ -60,7 +60,7 @@ $route['^en$'] = $route['default_controller'];
 $route['^hu$'] = $route['default_controller'];
 
 $route['admin'] = 'admin/dashboard';
-
+$route['admin/destination/sort-province'] = 'admin/destination/sort_province';
 
 $route['su-kien/([a-zA-Z0-9-_]+)'] = 'events/detail/$1';
 $route['search'] = 'search';
