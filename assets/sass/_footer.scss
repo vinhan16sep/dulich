@@ -139,6 +139,52 @@ footer{
     }
 }
 
+.stick-social{
+    position: fixed;
+    top: 50%;
+    right: 0;
+
+    @include translate(0, -50%);
+
+    ul{
+        li{
+            width: 40px;
+            height: 40px;
+
+            @include borderRadius(50%);
+
+            background-color: #fff;
+
+            margin: 15px 10px;
+
+            &:hover{
+                background-color: $primary-darkest;
+
+                a{
+                    color: #fff;
+                }
+            }
+
+            a{
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+
+                justify-content: center;
+                align-items: center;
+
+                color: $primary-darkest;
+                text-align: center;
+
+                i{
+                    font-size: 100%;
+                }
+            }
+        }
+    }
+}
+
 /*
 =========================================
 TABLETS (less than 1200px)
@@ -200,6 +246,14 @@ MOBILE (less than 1024px)
                 h6{
                     margin-bottom: 15px;
                 }
+            }
+        }
+    }
+
+    .stick-social {
+        ul {
+            li {
+                margin: 15px 5px;
             }
         }
     }

@@ -25,7 +25,7 @@ $lang['south_ofvietnam'] = 'Miền Nam của Việt Nam';
 
 // Menu
 $lang['menu_destinations'] = 'Điểm đến';
-$lang['menu_events'] = 'Sự kiện';
+$lang['menu_events'] = 'Lễ hội';
 $lang['menu_cuisine'] = 'Ẩm thực';
 $lang['menu_blogs'] = 'Góc chia sẻ';
 $lang['menu_contact'] = 'Liên hệ';

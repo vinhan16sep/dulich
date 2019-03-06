@@ -36,13 +36,54 @@
 
     <div class="container-fluid" id="list-destinations">
 		<div class="container">
+            <?php
+            $slug_region = 'mien-bac';
+            if ($this->uri->segment(2) != '') {
+                $slug_region = $this->uri->segment(2);
+            }
+            ?>
+
+            <div id="list-destinations-slide" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+
+                    <?php for ($i = 0; $i < 2; $i++) { ?>
+                        <div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
+                            <div class="row">
+                                <?php if ($province): ?>
+                                    <?php foreach ($province as $key => $value): ?>
+                                        <?php if ($key<9) { ?>
+                                            <div class="item col-xs-12 col-md-6 col-lg-4">
+                                                <a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$value['slug']) ?>">
+                                                    <div class="inner">
+                                                        <div class="mask">
+                                                            <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
+
+                                                            <div class="title">
+                                                                <h4><?php echo $value['title'];?></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php } ?>
+                                    <?php endforeach ?>
+                                <?php endif ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <a class="carousel-control-prev" href="#list-destinations-slide" role="button" data-slide="prev">
+                    <i class="fas fa-2x fa-chevron-left"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#list-destinations-slide" role="button" data-slide="next">
+                    <i class="fas fa-2x fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <!--
 			<div class="row">
-                <?php
-                $slug_region = 'mien-bac';
-                if ($this->uri->segment(2) != '') {
-                    $slug_region = $this->uri->segment(2);
-                }
-                ?>
                 <?php if ($province): ?>
                 	<?php foreach ($province as $key => $value): ?>
 						<div class="item col-xs-12 col-md-6 col-lg-4">
@@ -53,38 +94,24 @@
 
 										<div class="title">
 											<h4><?php echo $value['title'];?></h4>
-											<!--<h6><?php echo $value['description'] ?></h6>-->
 										</div>
 									</div>
-									<!--
-									<div class="content">
-
-											<?php if (!empty($value['destination'])): ?>
-												<?php foreach ($value['destination'] as $k => $val): ?>
-													<li>
-														<a href="<?php echo base_url('destination/' . $val['slug']); ?>">
-															<?php echo $val['title'] ?>
-														</a>
-													</li>
-												<?php endforeach ?>
-											<?php else: ?>
-												<li>Chưa có bài viết</li>
-											<?php endif ?>
-										</ul>
-									</div>
-									-->
 								</div>
 							</a>
 						</div>
                     <?php endforeach ?>
                 <?php endif ?>
-			</div>
 
+			</div>
+            -->
+
+            <!--
 			<div class="see-more">
 				<button class="btn btn-primary" type="button">
 					<?php echo $this->lang->line('btn_see_more') ?> <i class="fas fa-angle-double-right"></i>
 				</button>
 			</div>
+			-->
 		</div>
     </div>
 

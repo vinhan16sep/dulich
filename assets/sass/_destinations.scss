@@ -12,6 +12,29 @@
                 padding-top: 50px;
                 padding-bottom: 50px;
 
+                .slide{
+                    width: 100%;
+
+                    a{
+                        &.carousel-control-next{
+                            left: 100%;
+                        }
+
+                        &.carousel-control-prev{
+                            right: 100%;
+                            left: auto;
+                        }
+
+                        i{
+                            color: $gray-lightest;
+                        }
+
+                        &:hover{
+                            color: $gray-base;
+                        }
+                    }
+                }
+
                 .row{
                     margin-bottom: 50px;
 
@@ -30,7 +53,7 @@
                                 .title{
                                     width: 100%;
 
-                                    padding: 30px;
+                                    padding: 100px 30px 30px;
 
                                     position: absolute;
                                     bottom: 0;

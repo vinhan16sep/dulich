@@ -25,7 +25,7 @@ $lang['south_ofvietnam'] = 'South of Vietnam';
 
 // Menu
 $lang['menu_destinations'] = 'Destinations';
-$lang['menu_events'] = 'Events';
+$lang['menu_events'] = 'Festivals';
 $lang['menu_cuisine'] = 'Cuisine';
 $lang['menu_blogs'] = 'Blog Reviews';
 $lang['menu_contact'] = 'Contact';

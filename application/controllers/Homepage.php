@@ -27,15 +27,18 @@ class Homepage extends Public_Controller {
     	$this->data['banners'] = $banners;
 
     	//get north of vietnam
-    	$destination_north = $this->destination_model->get_where_by_limit(2, 0, array('region_id' => 2), $this->data['lang'] );
-    	if ($destination_north) {
-    		foreach ($destination_north as $key => $value) {
-	    		$province_center = $this->province_model->find_where(array('id' => $value['province_id']), $this->data['lang'] );
-	    		$destination_north[$key]['province'] = $province_center;
-	    	}
-    	}
-    	
-    	$this->data['destination_north'] = $destination_north;
+//    	$destination_north = $this->destination_model->get_where_by_limit(2, 0, array('region_id' => 2), $this->data['lang'] );
+//    	if ($destination_north) {
+//    		foreach ($destination_north as $key => $value) {
+//	    		$province_center = $this->province_model->find_where(array('id' => $value['province_id']), $this->data['lang'] );
+//	    		$destination_north[$key]['province'] = $province_center;
+//	    	}
+//    	}
+//
+//    	$this->data['destination_north'] = $destination_north;
+
+        $province_north = $this->province_model->get_where_by_limit(4, 0, array('region_id' => 3), $this->data['lang'] );
+        $this->data['province_north'] = $province_north;
 
     	$province_center = $this->province_model->get_where_by_limit(4, 0, array('region_id' => 3), $this->data['lang'] );
     	$this->data['province_center'] = $province_center;
