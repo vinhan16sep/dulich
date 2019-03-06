@@ -63,7 +63,7 @@
                     <div class="grid-sizer"></div>
                     <div class="grid-item item-full">
                         <div class="mask">
-                            <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Province">
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[0]['slug'] . '/' . $region[0]['img_homepage']) ?>" alt="Image Province">
 
                             <div class="content">
                                     <h1><?php echo $this->lang->line('north'); ?></h1>
@@ -92,12 +92,11 @@
                     <?php endforeach ?>
                 </div>
             </div>
-
             <div id="center">
                 <div class="row">
                     <div class="left col-xs-12 col-lg-7">
                         <div class="mask">
-                            <img src="http://vanhoaviet.com/wp-content/uploads/2016/07/kinh-nghiem-thue-tau-va-du-thuyen-tham-quan-du-lich-kham-pha-vinh-ha-long.jpg" alt="Image Region">
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[1]['slug'] . '/' . $region[1]['img_homepage']) ?>" alt="Image Region">
 
                             <div class="content">
                                 <h1><?php echo $this->lang->line('middle'); ?></h1>
@@ -121,7 +120,6 @@
                             -->
                         </div>
                     </div>
-
                     <div class="right col-xs-12 col-lg-5">
                         <div class="row">
                             <?php foreach ($province_center as $key => $value): ?>
@@ -151,7 +149,7 @@
                 <div class="row">
                     <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[2]['slug'] . '/' . $region[2]['img_homepage']) ?>" alt="Image Region">
 
                             <div class="content">
                                 <h1><?php echo $this->lang->line('south'); ?></h1>

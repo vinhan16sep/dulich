@@ -14,6 +14,8 @@ class Blogs extends Public_Controller {
 
     public function index(){
         $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
+        $this->data['metakeywords'] = 'Blogs';
+        $this->data['metadescription'] = 'Blogs';
         $this->data['region'] = $region;
 
         $region_first = reset($region);

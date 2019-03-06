@@ -99,6 +99,18 @@
                             <?php endif ?>
                         </div>
                         <div class="form-group col-xs-12">
+                            <label for="image">Hình ảnh cho Homepage</label><br />
+                            <?php if ( json_decode($detail['image']) ): ?>
+                                <?php foreach (json_decode($detail['image']) as $key => $value): ?>
+                                    <div class="col-sm-3 col-xs-6 remove-image-<?= $key ?> common-image-region" id="img_homepage" style="position: relative;padding-right:5px;padding-left: 0px; margin-bottom: 10px;">
+                                        <img src="<?php echo base_url('assets/upload/region/' . $detail['slug'] . '/' . $value) ?>" alt="Image Detail" width="100%" height="150px">
+                                        <i class="fa-2x fa fa-check active-avatar" data-url="<?= base_url('admin/region/active_avatar') ?>" data-name="img_homepage" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-controller="region" title="Chọn ảnh làm Avatar" style="cursor: pointer; position: absolute;color:<?php echo ($detail['img_homepage'] !== $value) ? 'black' : 'green'; ?>; top:0px;right:30px;"></i>
+                                        <i class="fa-2x fa fa-times remove-image-region" title="Xóa hình ảnh" data-url="<?= base_url('admin/region/remove_image') ?>" data-id="<?= $detail['id'] ?>" data-image="<?= $value ?>" data-key="<?= $key ?>" style="cursor: pointer; position: absolute;color:red; top:0px;right: 5px;"></i>
+                                    </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Hình ảnh', 'image');
