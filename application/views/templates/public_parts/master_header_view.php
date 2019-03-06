@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav>
 		<div class="nav-brand">
 			<a href="<?php echo base_url('/') ?>">
-				<img src="<?php echo site_url('assets/img/logo-w.png') ?>" alt="Logo Vietnam Travellog">
+				<img src="<?php echo site_url('assets/img/logo-w.svg') ?>" alt="Logo Vietnam Travellog">
 			</a>
 		</div>
 
