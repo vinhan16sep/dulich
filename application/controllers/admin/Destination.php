@@ -498,7 +498,7 @@ class Destination extends Admin_Controller{
         $region = $this->region_model->get_all(1);
      
         foreach ($region as $key => $value) {
-            $region[$key]['province'] = $this->province_model->get_by_where(['region_id' => $value['id']],'',['sort','desc']);
+            $region[$key]['province'] = $this->province_model->get_by_where(['region_id' => $value['id']],'',['sort','asc']);
         }
         $this->data['result'] = $region;
         $this->render('admin/destination/sort');
@@ -507,11 +507,13 @@ class Destination extends Admin_Controller{
         $params = array();
         parse_str($this->input->get('sort'), $params);
         $update = array();
+        $i = 1;
         foreach($params as $key => $value){
             $update[] = [
                 'id'  => $value[0],
-                'sort' => $key
+                'sort' => $i
             ];
+            $i++;
         }
         $this->province_model->update_multiple($update);
     }

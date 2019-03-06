@@ -17,6 +17,7 @@ class Destinations extends Public_Controller {
     public function index(){
         $this->data['metakeywords'] = 'Destination';
         $this->data['metadescription'] = 'Destination';
+        $this->data['title'] = 'Destination';
         $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $this->data['region'] = $region;
 
@@ -88,6 +89,7 @@ class Destinations extends Public_Controller {
         $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $destination['metakeywords'];
         $this->data['metadescription'] = $destination['metadescription'];
+        $this->data['title'] = $destination['title'];
         if(!empty($destination['id'])){
             $region = $this->region_model->find_where(array('id' => $destination['region_id']),$this->data['lang']);
             $province = $this->province_model->find_where(array('id' => $destination['province_id']),$this->data['lang']);
@@ -148,6 +150,7 @@ class Destinations extends Public_Controller {
         $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $region_detail['metakeywords'];
         $this->data['metadescription'] = $region_detail['metadescription'];
+        $this->data['title'] = $region_detail['title'];
         if(!empty($region_detail)){
             $region_all = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
             // get all destination thuộc miền
@@ -180,6 +183,7 @@ class Destinations extends Public_Controller {
             $this->data['region'] = $region_all;
             $this->data['region_detail'] = $region_detail;
             $this->data['province'] = $province;//tất cả tỉnh thuộc miền và trong mỗi tỉnh sẽ có các destination
+           
             return $this->render('list_destinations_view');
         }
         //return view 404
@@ -193,6 +197,7 @@ class Destinations extends Public_Controller {
         $province = $this->province_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $province['metakeywords'];
         $this->data['metadescription'] = $province['metadescription'];
+        $this->data['title'] = $province['title'];
         if(!empty($province)){
             $this->load->model('events_model');
             $this->load->model('cuisine_model');

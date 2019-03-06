@@ -21,6 +21,7 @@ class Cuisine extends Public_Controller {
             if(!empty($cuisine_category['id']) && !empty($region['id'])){
                 $this->data['metakeywords'] = $cuisine['metakeywords'];
                 $this->data['metadescription'] = $cuisine['metadescription'];
+                $this->data['title'] = $cuisine['title'];
                
                 $this->data['region'] = $region;
                 $this->data['cuisine'] = $cuisine;
@@ -46,6 +47,7 @@ class Cuisine extends Public_Controller {
         $region = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $region['metakeywords'];
         $this->data['metadescription'] = $region['metadescription'];
+        $this->data['title'] = $region['title'];
         if(!empty($region)){
             // get all cuisine thuộc miền
             $cuisine_category = $this->cuisine_category_model->get_by_where(array(),$this->data['lang']);

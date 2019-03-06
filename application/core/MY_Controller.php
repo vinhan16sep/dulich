@@ -318,6 +318,8 @@ class Public_Controller extends MY_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('form');
+        $this->load->model('customer_model');
+        $this->data['customer'] = $this->customer_model->get_by_where();
         $this->langAbbreviation = $this->session->userdata('langAbbreviation') ? $this->session->userdata('langAbbreviation') : 'vi';
         
         if($this->langAbbreviation == 'vi' || $this->langAbbreviation == 'en' || $this->langAbbreviation == ''){

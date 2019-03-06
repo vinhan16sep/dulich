@@ -1,7 +1,7 @@
 <section id="detail-event" class="detail-post">
 	<div class="main-cover">
 		<div class="mask">
-			<img src="<?php echo base_url('assets/upload/region/'.$region['slug'].'/'.$region['avatar']) ?>" alt="Image Cover Blog">
+			<img src="<?php echo base_url('assets/upload/events/'.$events['slug'].'/'.$events['image']) ?>" alt="Image Cover Blog">
 
 <!--			<div class="content">-->
 <!--				<div class="container">-->
