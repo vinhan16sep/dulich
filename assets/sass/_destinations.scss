@@ -390,6 +390,13 @@
 
                                     background-color: #fff;
 
+                                    h3{
+                                        &.text-wrapper{
+                                            height: 3.6em;
+                                            -webkit-line-clamp: 3;
+                                        }
+                                    }
+
                                     p{
                                         font-family: 'Lora', Serif;
 

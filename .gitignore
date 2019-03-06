@@ -4,3 +4,4 @@ vendor
 assets/upload
 source
 thumbs
+node_modules

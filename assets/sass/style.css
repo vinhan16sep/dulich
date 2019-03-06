@@ -196,7 +196,7 @@ header {
     z-index: 1051; }
     header nav .nav-brand {
       height: 100%;
-      background-color: #0471A0; }
+      background-color: #000; }
       header nav .nav-brand a {
         color: #fff; }
         header nav .nav-brand a img {
@@ -713,6 +713,7 @@ footer {
   position: fixed;
   top: 50%;
   right: 0;
+  z-index: 1030;
   -webkit-transform: translate(0, -50%);
   -moz-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
@@ -1571,6 +1572,9 @@ TABLETS (less than 1200px)
     #detail-destination .container-fluid#content .container-fluid.posts .body .owl-carousel .owl-item .content {
       padding: 15px;
       background-color: #fff; }
+      #detail-destination .container-fluid#content .container-fluid.posts .body .owl-carousel .owl-item .content h3.text-wrapper {
+        height: 3.6em;
+        -webkit-line-clamp: 3; }
       #detail-destination .container-fluid#content .container-fluid.posts .body .owl-carousel .owl-item .content p {
         font-family: 'Lora', Serif;
         color: #949494; }

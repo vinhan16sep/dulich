@@ -106,7 +106,7 @@
 										<img src="<?php echo base_url('assets/upload/destination/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<h3><?php echo $value['title'] ?></h3>
+										<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php echo base_url('destination/' . $value['slug']); ?>" class="btn btn-primary" role="button">
@@ -135,7 +135,7 @@
 										<img src="<?php echo base_url('assets/upload/events/') . $value['slug'] . '/' . $value['image'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<h3><?php echo $value['title'] ?></h3>
+										<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php echo base_url('events/' . $value['slug']) ?>" class="btn btn-primary" role="button">
@@ -164,7 +164,7 @@
 										<img src="<?php echo base_url('assets/upload/cuisine/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="Image Slide">
 									</div>
 									<div class="content">
-										<h3><?php echo $value['title'] ?></h3>
+										<h3 class="text-wrapper"><?php echo $value['title'] ?></h3>
 										<p class="text-wrapper"><?php echo $value['description'] ?></p>
 
 										<a href="<?php echo base_url('cuisine/' . $value['slug']) ?>" class="btn btn-primary" role="button">
