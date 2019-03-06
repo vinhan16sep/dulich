@@ -15,6 +15,8 @@ class Destinations extends Public_Controller {
 
     // ví dụ url đối với DB hiện tại : http://localhost/dulich/diem-den
     public function index(){
+        $this->data['metakeywords'] = 'Destination';
+        $this->data['metadescription'] = 'Destination';
         $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $this->data['region'] = $region;
 
@@ -84,6 +86,8 @@ class Destinations extends Public_Controller {
 
     public function detailpost($slug){
         $destination = $this->destination_model->find_where(array('slug' => $slug),$this->data['lang']);
+        $this->data['metakeywords'] = $destination['metakeywords'];
+        $this->data['metadescription'] = $destination['metadescription'];
         if(!empty($destination['id'])){
             $region = $this->region_model->find_where(array('id' => $destination['region_id']),$this->data['lang']);
             $province = $this->province_model->find_where(array('id' => $destination['province_id']),$this->data['lang']);
