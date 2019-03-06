@@ -249,4 +249,7 @@ defined('MESSAGE_CREATE_ERROR_SERVICE') OR define('MESSAGE_CREATE_ERROR_SERVICE'
 defined('MESSAGE_CREATE_ERROR_TEAM') OR define('MESSAGE_CREATE_ERROR_TEAM', 'Bạn chỉ được phép tạo 1 nội dung cho phần team, nếu muốn tạo vui lòng xóa đi team hiện tại');
 
 defined('MESSAGE_CREATE_ERROR_BANNER') OR define('MESSAGE_CREATE_ERROR_BANNER', 'Bạn chỉ được phép tạo 1 nội dung cho phần banner, nếu muốn tạo vui lòng xóa đi banner hiện tại');
-
+/**
+ * Message file extension
+ */
+defined('MESSAGE_EMPTY_IMAGE_ERROR') OR define('MESSAGE_EMPTY_IMAGE_ERROR', 'Bạn phải chọn hình ảnh');

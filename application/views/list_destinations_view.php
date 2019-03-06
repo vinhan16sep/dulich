@@ -45,28 +45,29 @@
 
             <div id="list-destinations-slide" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-
-                    <?php for ($i = 0; $i < 2; $i++) { ?>
+                    <?php $count_province = count($province); //25/9 = 2 làm tròn lên 3 
+                    ?>
+                    <?php for ($i = 0; $i < ceil($count_province/9); $i++) { //i< 3 ?>
                         <div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
                             <div class="row">
                                 <?php if ($province): ?>
-                                    <?php foreach ($province as $key => $value): ?>
-                                        <?php if ($key<9) { ?>
+                                    <?php $condition = (9*($i+1) > $count_province) ? $count_province : 9*($i+1); ?>
+                                    <?php for($j = $i*9; $j < $condition; $j++){ ?>
                                             <div class="item col-xs-12 col-md-6 col-lg-4">
-                                                <a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$value['slug']) ?>">
+                                                <a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$province[$j]['slug']) ?>">
                                                     <div class="inner">
                                                         <div class="mask">
-                                                            <img src="<?php echo base_url('assets/upload/province/' . $value['slug'] . '/' . $value['avatar']) ?>" alt="Image Province">
-
+                                                            <img src="<?php echo base_url('assets/upload/province/' . $province[$j]['slug'] . '/' . $province[$j]['avatar']) ?>" alt="Image Province">
                                                             <div class="title">
-                                                                <h4><?php echo $value['title'];?></h4>
+                                                                <h4><?php echo $province[$j]['title'];?></h4>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-                                        <?php } ?>
-                                    <?php endforeach ?>
+                                    <?php unset($count_province[$j]); } ?>
+                                    <!-- <?php foreach ($province as $key => $value): ?>
+                                    <?php endforeach ?> -->
                                 <?php endif ?>
                             </div>
                         </div>

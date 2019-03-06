@@ -249,7 +249,7 @@ function deactive(controller, id, question) {
                                 location.href = HOSTNAMEADMIN + '/menu/edit/' + response.reponse.id;
                             }
                         }else{
-                            alert('Tắt bài viết thành công');
+                            alert('Tắt thành công');
                             location.reload();
                         }
                     }

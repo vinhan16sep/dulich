@@ -21,6 +21,7 @@ class Contact extends Public_Controller {
 
         $this->data['metakeywords'] = 'Contact';
         $this->data['metadescription'] = 'Contact';
+        $this->data['title'] = 'Contact';
         $this->load->helper('form');
         $this->load->library('form_validation');
 

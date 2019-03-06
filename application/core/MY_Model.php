@@ -336,7 +336,7 @@ class MY_Model extends CI_Model {
             $this->db->order_by("is_pinned", "desc");
         }
         else if($this->table == 'province'){
-            $this->db->order_by("sort", "desc");
+            $this->db->order_by("sort", "asc");
         }else{
             $this->db->order_by("updated_at", "desc");
         }

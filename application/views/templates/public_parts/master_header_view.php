@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- TITLE -->
-	<title>Vietnam Travellog</title>
+	<title><?= (isset($title)) ? $title : 'Vietnam Travellog' ?></title>
 
 	<!-- Bootstrap CSS -->
 	<!--

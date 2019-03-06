@@ -194,7 +194,7 @@
                                 <img src="<?php echo base_url('assets/upload/events/' . $value['slug'] . '/' . $value['image']) ?>" alt="<?php echo $value['slug'] ?>">
                                 <?php if ($key < 6): ?>
                                     <div class="content">
-                                        <a href="<?php echo base_url('su-kien/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>">
+                                        <a href="<?php echo base_url('events/' . $value['slug']) ?>">
                                             <span class="badge"><?php echo $value['province']['title'] ?></span>
                                             <h4 class="text-wrapper"><?php echo $value['title'] ?></h4>
                                         </a>
@@ -236,7 +236,7 @@
 									<h3 class="text-wrapper"><?php echo $value['title_' . $lang] ?></h3>
 									<p class="text-wrapper"><?php echo $value['description_' . $lang] ?></p>
 
-									<a href="<?php echo base_url('bai-viet/' . $value['region']['slug'] . '/' . $value['province']['slug'] . '/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+									<a href="<?php echo base_url('blog/' . $value['slug']) ?>" class="btn btn-primary" role="button">
                                         <?php echo $this->lang->line('btn_view_detail'); ?>
 									</a>
 								</div>

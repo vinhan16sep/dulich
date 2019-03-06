@@ -68,27 +68,25 @@
     <div class="container-fluid" id="content">
 
 		<div class="container-fluid" id="introduce">
-			<?php if ($destination): ?>
-				<?php foreach ($destination as $key => $value): ?>
+			<?php if ($destination && !empty($destination)): ?>
 					<div class="item">
-						<div class="row <?php echo ($key % 2 != 0)? 'reversed' : '' ?>">
+						<div class="row">
 							<div class="mask col-xs-12 col-lg-8">
-								<img src="<?php echo base_url('assets/upload/destination/') . $value['slug'] . '/' . $value['avatar'] ?>" alt="image-<?php echo $value['slug'] ?> ">
+								<img src="<?php echo base_url('assets/upload/destination/') . $destination[0]['slug'] . '/' . $destination[0]['avatar'] ?>" alt="image-<?php echo $destination[0]['slug'] ?> ">
 							</div>
 
 							<div class="content col-xs-12 col-lg-4">
 								<div class="text">
-									<h3><?php echo $value['title'] ?></h3>
-									<p><?php echo $value['description'] ?></p>
+									<h3><?php echo $destination[0]['title'] ?></h3>
+									<p><?php echo $destination[0]['description'] ?></p>
 
-                                    <a href="<?php echo base_url('destination/' . $value['slug']) ?>" class="btn btn-primary" role="button">
+                                    <a href="<?php echo base_url('destination/' . $destination[0]['slug']) ?>" class="btn btn-primary" role="button">
                                         <?php echo $this->lang->line('btn_view_detail'); ?>
                                     </a>
 								</div>
 							</div>
 						</div>
 					</div>
-				<?php endforeach ?>
 			<?php endif ?>
 		</div>
 		

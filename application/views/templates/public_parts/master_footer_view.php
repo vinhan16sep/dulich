@@ -46,13 +46,15 @@
 					<h4><?php echo $this->lang->line('footer_partners') ?></h4>
 
 					<div class="row">
-						<?php for($i = 0; $i < 8; $i++) { ?>
-							<div class="item col-6 col-lg-4">
-								<div class="mask">
-									<img src="<?php echo site_url('assets/img/logo-w.png')?>" alt="Logo of ">
+						<?php if (!empty($customer)): ?>
+							<?php foreach ($customer as $key => $value): ?>
+								<div class="item col-6 col-lg-4">
+									<div class="mask">
+										<img src="<?php echo site_url('assets/upload/customer/'.$value['image'])?>" alt="Logo of ">
+									</div>
 								</div>
-							</div>
-						<?php } ?>
+							<?php endforeach ?>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>

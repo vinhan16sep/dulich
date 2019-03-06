@@ -94,6 +94,11 @@
                         <i class="fa fa-address-book" aria-hidden="true"></i> <span>Bài viết</span>
                     </a>
                 </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'customer')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/customer/detail') ?>">
+                        <i class="fa fa-handshake-o" aria-hidden="true"></i> <span>Đối tác</span>
+                    </a>
+                </li>
                 <!-- <li class="">
                     <a href="<?php echo base_url('admin/config_contact') ?>">
                         <i class="fa fa-inbox"></i> <span>Contact</span>

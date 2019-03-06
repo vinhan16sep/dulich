@@ -15,8 +15,6 @@ class Homepage extends Public_Controller {
 
     public function index(){
 
-        $this->data['metakeywords'] = 'Home';
-        $this->data['metadescription'] = 'Home';
         $this->data['region'] = $this->region_model->get_by_where(array(),$this->data['lang'],['id','asc']);
     	// get banner
     	$banners = $this->banner_model->get_where_by_limit(100, 0, array(), $this->data['lang']);
@@ -37,7 +35,7 @@ class Homepage extends Public_Controller {
 //
 //    	$this->data['destination_north'] = $destination_north;
 
-        $province_north = $this->province_model->get_where_by_limit(4, 0, array('region_id' => 3), $this->data['lang'] );
+        $province_north = $this->province_model->get_where_by_limit(4, 0, array('region_id' => 2), $this->data['lang'] );
         $this->data['province_north'] = $province_north;
 
     	$province_center = $this->province_model->get_where_by_limit(4, 0, array('region_id' => 3), $this->data['lang'] );

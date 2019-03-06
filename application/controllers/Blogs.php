@@ -16,6 +16,7 @@ class Blogs extends Public_Controller {
         $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
         $this->data['metakeywords'] = 'Blogs';
         $this->data['metadescription'] = 'Blogs';
+        $this->data['title'] = 'Blogs';
         $this->data['region'] = $region;
 
         $region_first = reset($region);
@@ -73,6 +74,7 @@ class Blogs extends Public_Controller {
                 $this->data['region_all'] = $region_all;
                 $this->data['metakeywords'] = $blog['metakeywords'];
                 $this->data['metadescription'] = $blog['metadescription'];
+                $this->data['title'] = $blog['title'];
                 $this->data['blog'] = $blog;
                 $blogs_top = $this->blog_model->get_where_by_limit(3, 0, array('region_id' => $region['id'], 'is_top' => 1),$this->data['lang']);
                 foreach ($blogs_top as $key => $value) {
@@ -91,6 +93,7 @@ class Blogs extends Public_Controller {
         $region_detail = $this->region_model->find_where(array('slug' => $slug),$this->data['lang']);
         $this->data['metakeywords'] = $region_detail['metakeywords'];
         $this->data['metadescription'] = $region_detail['metadescription'];
+                $this->data['title'] = $region_detail['title'];
         if(!empty($region_detail)){
             // dữ liệu miền cho blog
             $region = $this->region_model->get_all_order_by(1, 'id', 'asc',$this->data['lang']);
