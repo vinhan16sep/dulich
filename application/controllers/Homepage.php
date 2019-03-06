@@ -17,7 +17,7 @@ class Homepage extends Public_Controller {
 
         $this->data['metakeywords'] = 'Home';
         $this->data['metadescription'] = 'Home';
-        
+        $this->data['region'] = $this->region_model->get_by_where(array(),$this->data['lang'],['id','asc']);
     	// get banner
     	$banners = $this->banner_model->get_where_by_limit(100, 0, array(), $this->data['lang']);
     	foreach ($banners as $key => $value) {

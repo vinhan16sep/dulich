@@ -62,8 +62,7 @@
                 <div class="row no-gutters">
                     <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="http://www.hathaitours.com/public/img/1600x800/a257927025ba17cf148078fc7cf24642.jpg" alt="Image Region">
-
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[0]['slug'] . '/' . $region[0]['img_homepage']) ?>" alt="Image Province">
                             <div class="content">
                                 <h1><?php echo $this->lang->line('north'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-bac') ?>" class="btn btn-primary" role="button">
@@ -98,12 +97,13 @@
                 </div>
             </div>
 
+
             <div id="center" class="regions">
                 <div class="row no-gutters">
                     <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
-
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[1]['slug'] . '/' . $region[1]['img_homepage']) ?>" alt="Image Region">
+                          
                             <div class="content">
                                 <h1><?php echo $this->lang->line('middle'); ?></h1>
                                 <a href=" <?php echo base_url('diem-den/mien-trung') ?>" class="btn btn-primary" role="button">
@@ -112,7 +112,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bottom col-xs-12 col-lg-12">
                         <div class="row no-gutters">
                             <?php foreach ($province_center as $key => $value): ?>
@@ -142,7 +141,7 @@
                 <div class="row no-gutters">
                     <div class="top col-xs-12 col-lg-12">
                         <div class="mask">
-                            <img src="https://transviet.com.vn/Images/GallerySGN/TH05.06/causongkwai-hinhtrangdau.jpg" alt="Image Region">
+                            <img src="<?php echo base_url('assets/upload/region/' . $region[2]['slug'] . '/' . $region[2]['img_homepage']) ?>" alt="Image Region">
 
                             <div class="content">
                                 <h1><?php echo $this->lang->line('south'); ?></h1>

@@ -45,6 +45,7 @@
                         <div class="col-md-6">
                             <a href="<?php echo base_url('admin/destination/create') ?>" class="btn btn-primary"  >Thêm mới</a>
                             <a href="javascript:void(0)" data-url="<?php echo base_url('admin/destination/delete_all'); ?>" class="btn btn-danger btn-delete-all"  >Xóa tất cả</a>
+                            <a href="<?php echo base_url('admin/destination/sort-province'); ?>" data-url="" class="btn btn-primary btn-sort"  >Sắp xếp tỉnh</a>
                         </div>
                         <div class="col-md-6">
                             <form action="<?php echo base_url('admin/destination/index') ?>" method="get">
