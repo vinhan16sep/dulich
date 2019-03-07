@@ -45,14 +45,11 @@
 
             <div id="list-destinations-slide" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <?php $count_province = count($province); //25/9 = 2 làm tròn lên 3 
-                    ?>
-                    <?php for ($i = 0; $i < ceil($count_province/9); $i++) { //i< 3 ?>
-                        <div class="carousel-item <?php echo ($i == 0)? 'active' : '' ?>">
+                        <div class="carousel-item active">
                             <div class="row">
                                 <?php if ($province): ?>
-                                    <?php $condition = (9*($i+1) > $count_province) ? $count_province : 9*($i+1); ?>
-                                    <?php for($j = $i*9; $j < $condition; $j++){ ?>
+                                    <?php $count_province = count($province); ?>
+                                    <?php for($j = 0; $j < $count_province; $j++){ ?>
                                             <div class="item col-xs-12 col-md-6 col-lg-4">
                                                 <a href="<?php echo base_url('diem-den/'. $slug_region . '/' .$province[$j]['slug']) ?>">
                                                     <div class="inner">
@@ -65,13 +62,16 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                    <?php unset($count_province[$j]); } ?>
-                                    <!-- <?php foreach ($province as $key => $value): ?>
-                                    <?php endforeach ?> -->
+                                            <?php if ( ($j+1) < $count_province && ($j+1)%9 == 0): ?>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row">
+                                            <?php endif ?>
+                                    <?php } ?>
                                 <?php endif ?>
                             </div>
                         </div>
-                    <?php } ?>
                 </div>
                 <a class="carousel-control-prev" href="#list-destinations-slide" role="button" data-slide="prev">
                     <i class="fas fa-2x fa-chevron-left"></i>
