@@ -29,15 +29,13 @@ $(document).ready(function(){
     }
     
     {
-        if(deviceWidth > 1200){
-            $('.nav-main li.li-search a').on('click', function(e){
-                e.preventDefault();
-                $('.search-input').addClass('show');
-            });
-            
-            $('.search-input #closeSearch').on('click', function(){
-                $('.search-input').removeClass('show');
-            })
-        }
+        $('.nav-main li.li-search a').on('click', function(e){
+            e.preventDefault();
+            $('.search-input').addClass('show');
+        });
+
+        $('.search-input #closeSearch').on('click', function(){
+            $('.search-input').removeClass('show');
+        })
     }
 });
