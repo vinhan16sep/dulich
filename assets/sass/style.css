@@ -1451,11 +1451,28 @@ TABLETS (less than 1200px)
     max-width: 75%;
     max-height: 6em;
     -webkit-line-clamp: 4; }
-#detail-destination .main-slide .link-control .container ul li {
-  width: 10%; }
+#detail-destination .main-slide .link-control .container {
+  overflow-x: auto;
+  position: relative; }
+  #detail-destination .main-slide .link-control .container::-webkit-scrollbar {
+    height: 3px; }
+  #detail-destination .main-slide .link-control .container::-webkit-scrollbar-track {
+    opacity: 0; }
+  #detail-destination .main-slide .link-control .container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15); }
+  #detail-destination .main-slide .link-control .container .inner {
+    display: flex; }
+    #detail-destination .main-slide .link-control .container .inner a {
+      flex: 0 0 auto;
+      padding: 7px 15px 15px; }
+  #detail-destination .main-slide .link-control .container a {
+    flex: 0 0 auto;
+    padding: 7px 15px 15px; }
+  #detail-destination .main-slide .link-control .container ul li {
+    width: 10%; }
 #detail-destination .main-slide .link-region {
   position: absolute;
-  top: 50px;
+  top: 100px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
