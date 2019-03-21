@@ -204,6 +204,21 @@ TABLETS (less than 1200px)
                     .row {
                         .left {
                             margin-bottom: 30px;
+
+                            .item{
+                                flex-direction: column;
+
+                                .item-content{
+                                    width: 100%;
+
+                                    h3{
+                                        &.text-wrapper{
+                                            height: 6.3rem;
+                                            -webkit-line-clamp: 3;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

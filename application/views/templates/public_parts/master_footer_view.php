@@ -18,12 +18,12 @@
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('am-thuc') ?>">
+							<a href="<?php echo base_url('mon-an/mien-bac') ?>">
                                 <?php echo $this->lang->line('menu_cuisine') ?>
 							</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('su-kien') ?>">
+							<a href="<?php echo base_url('su-kien/mien-bac') ?>">
                                 <?php echo $this->lang->line('menu_events') ?>
 							</a>
 						</li>

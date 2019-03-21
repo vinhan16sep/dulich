@@ -80,9 +80,13 @@ textarea{
                             font-weight: 400;
 
                             margin-bottom: 7px;
+
+                            text-shadow: 4px 4px 10px rgba(0,0,0,1);
                         }
 
                         p{
+                            text-shadow: 4px 4px 10px rgba(0,0,0,1);
+
                             &.text-wrapper{
                                 max-width: 75%;
                                 max-height: 6em;
@@ -119,6 +123,8 @@ textarea{
                 position: relative;
 
                 color: #fff;
+
+                text-shadow: 4px 4px 10px rgba(0,0,0,1);
 
                 &:after{
                     content: "";
@@ -197,9 +203,13 @@ textarea{
                     font-weight: 400;
 
                     margin-bottom: 7px;
+
+                    text-shadow: 4px 4px 10px rgba(0,0,0,1);
                 }
 
                 p{
+                    text-shadow: 4px 4px 10px rgba(0,0,0,1);
+
                     &.text-wrapper{
                         max-width: 75%;
                         max-height: 6em;
@@ -230,6 +240,8 @@ textarea{
                         position: relative;
 
                         color: #fff;
+
+                        text-shadow: 4px 4px 10px rgba(0,0,0,1);
 
                         &:after{
                             content: "";

@@ -167,6 +167,14 @@ header{
                             &.show{
                                 display: block;
                             }
+
+                            .input-group{
+                                .input-group-append{
+                                    .btn{
+                                        background-color: #fff;
+                                    }
+                                }
+                            }
                         }
 
                         &:hover{
@@ -368,7 +376,22 @@ TABLETS (less than 1200px)
                             }
 
                             .search-input{
-                                display: none;
+                                display: block;
+
+                                width: 100%;
+                                height: fit-content;
+
+                                form{
+                                    .input-group{
+                                        .input-group-append{
+                                            .btn{
+                                                &:last-of-type{
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
