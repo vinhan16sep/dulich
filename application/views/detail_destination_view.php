@@ -54,13 +54,15 @@
 
 		<div class="link-control">
 			<div class="container">
-                <?php if ($province_all): ?>
-                    <?php foreach ($province_all as $key => $value): ?>
-						<a class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>" href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
-                            <?php echo $value['title'] ?>
-						</a>
-                    <?php endforeach ?>
-                <?php endif ?>
+                <div class="inner">
+                    <?php if ($province_all): ?>
+                        <?php foreach ($province_all as $key => $value): ?>
+                            <a class="<?php echo ($this->uri->segment(3) == $value['slug']) ? 'active' : '' ?>" href="<?php echo base_url('diem-den/') . $this->uri->segment(2) . '/' .$value['slug'] ?>">
+                                <?php echo $value['title'] ?>
+                            </a>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -202,6 +204,8 @@
 <script src="<?php echo site_url('assets/lib/OwlCarousel2-2.3.4/dist/') ?>owl.carousel.min.js"></script>
 <script>
     $(document).ready(function(){
+        abc();
+
         $("#images .owl-carousel").owlCarousel({
 			center: true,
 			items: 3,
@@ -234,5 +238,18 @@
                 }
             }
         });
+
+        function abc(){
+            const $rect = $('.link-control .container');
+            const $active = $('.link-control .container a.active');
+            const $inner = $('.link-control .container .inner');
+
+            let $rectWidth = $rect.width();
+            let $activeOffset = $active.offset();
+
+            if($activeOffset.left > $rectWidth){
+                $inner.css('margin-left' , -($activeOffset.left - $rectWidth) );
+            }
+        }
     });
 </script>

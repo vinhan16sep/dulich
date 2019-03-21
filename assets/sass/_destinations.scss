@@ -180,6 +180,52 @@
 
         .link-control{
             .container{
+                overflow-x: auto;
+
+                position: relative;
+
+                //&:before{
+                //    content: "f104";
+                //
+                //    font-family: "Font Awesome 5 Free";
+                //
+                //    color: #fff;
+                //
+                //    position: absolute;
+                //    top: 50%;
+                //    right: 100%;
+                //
+                //    @include translate(0, -50%);
+                //}
+
+                &::-webkit-scrollbar {
+                    height: 3px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    opacity: 0;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgba(0,0,0,0.15);
+                }
+
+                .inner{
+                    display: flex;
+
+                    a{
+                        flex: 0 0 auto;
+
+                        padding: 7px 15px 15px;
+                    }
+                }
+
+                a{
+                    flex: 0 0 auto;
+
+                    padding: 7px 15px 15px;
+                }
+
                 ul{
                     li{
                         width: 10%;
@@ -190,7 +236,7 @@
 
         .link-region{
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 50%;
 
             @include translate(-50%, 0);
